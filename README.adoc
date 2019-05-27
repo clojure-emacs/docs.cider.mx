@@ -1,4 +1,4 @@
-== CIDER.mx
+= CIDER.mx
 
 The site is generated from the asciidoc files in the link:https://github.com/clojure-emacs/cider/tree/master/doc[doc] folder of nREPL's GitHub repo and is published to https://docs.cider.mx.
 link:https://antora.org[Antora] is used to convert the manual into HTML.
