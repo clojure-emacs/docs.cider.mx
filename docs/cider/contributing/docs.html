@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Running Tests :: CIDER</title>
-    <link rel="canonical" href="https://cider.mx/cider/testing/running_tests.html">
+    <title>Documentation :: CIDER</title>
+    <link rel="canonical" href="https://cider.mx/cider/contributing/docs.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
@@ -105,14 +105,14 @@
     <button class="nav-toggle"></button>
     <span class="nav-text">Testing</span>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="running_tests.html">Running Tests</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/running_tests.html">Running Tests</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="test_reports.html">Test Reports</a>
+    <a class="nav-link" href="../testing/test_reports.html">Test Reports</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="supported_libraries.html">Supported Libraries</a>
+    <a class="nav-link" href="../testing/supported_libraries.html">Supported Libraries</a>
   </li>
 </ul>
   </li>
@@ -195,14 +195,14 @@
     <button class="nav-toggle"></button>
     <a class="nav-link" href="../contributing.html">Contributing</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../contributing/docs.html">Documentation</a>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="docs.html">Documentation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../contributing/hacking.html">Hacking on CIDER</a>
+    <a class="nav-link" href="hacking.html">Hacking on CIDER</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../contributing/funding.html">Funding</a>
+    <a class="nav-link" href="funding.html">Funding</a>
   </li>
 </ul>
   </li>
@@ -264,163 +264,61 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">CIDER</a></li>
-    <li class="crumb">Testing</li>
-    <li class="crumb"><a href="running_tests.html">Running Tests</a></li>
+    <li class="crumb"><a href="../contributing.html">Contributing</a></li>
+    <li class="crumb"><a href="docs.html">Documentation</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/testing/running_tests.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/contributing/docs.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1>Running Tests</h1>
+<h1>Documentation</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Clojure ecosystem provides a lot of support for test-driven
-development (TDD) and other test-centric patterns. First, Clojure
-provides a standardized framework for developing tests called
-<a href="https://clojure.github.io/clojure/clojure.test-api.html">clojure.test</a>. Many other testing libraries plug into this
-framework. Second, tools like Leiningen create standardized
-application and library project structures that provide locations and
-idiomatic naming for test code. Finally, CIDER provides several easy
-ways to run these tests, view the test results, and quickly jump to
-code that is failing to pass a given test.</p>
+<p>Good documentation is just as important as good code.</p>
 </div>
-<div class="admonitionblock note">
+<div class="paragraph">
+<p>Consider improving and extending this manual.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_working_on_the_manual"><a class="anchor" href="#_working_on_the_manual"></a>Working on the Manual</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The manual is generated from the asciidoc files in the <a href="https://github.com/clojure-emacs/cider/tree/master/doc">doc</a> folder of CIDER&#8217;s GitHub repo and is published to <a href="https://cider.mx" class="bare">https://cider.mx</a>.
+<a href="https://antora.org">Antora</a> is used to convert the manual into HTML.
+The filesystem layout is described at <a href="https://docs.antora.org/antora/2.0/component-structure/" class="bare">https://docs.antora.org/antora/2.0/component-structure/</a></p>
+</div>
+<div class="paragraph">
+<p>To make changes to the manual you simply have to change the files under <code>doc</code>.
+The manual will be regenerated manually periodically.</p>
+</div>
+<div class="paragraph">
+<p>You can build the documentation locally from the <a href="https://github.com/clojure-emacs/cider-site">cider-site</a> repo.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ cd cider-site
+$ npm install
+$ antora site.yml</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-CIDER only supports clojure.test and other libraries
-providing integration with clojure.test. Native support
-for other libraries might be available via CIDER plugins.
+If <code>npm install</code> fails, see <a href="https://docs.antora.org/antora/2.0/install/troubleshoot-nodegit/">Antora&#8217;s troubleshooting documentation</a>.
 </td>
 </tr>
 </table>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic Usage</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>CIDER has several functions that help you run all your tests or a
-selected subset of them. All of the CIDER test commands are available
-in both source code and REPL buffers. In REPL buffers you can also use
-kbd:[,] to invoke some of the testing commands.</p>
-</div>
-<div class="paragraph">
-<p>First, you can run all the tests in your project with kbd:[C-c C-t p]
-or kbd:[C-c C-t C-p]. It&#8217;s important to realize that this will
-load <strong>all</strong> the namespaces in your project, which might be more than
-you&#8217;re expecting.</p>
-</div>
-<div class="paragraph">
-<p>You can run all <em>loaded</em> tests with kbd:[C-c C-t l] or
-kbd:[C-c C-t C-l].</p>
-</div>
-<div class="paragraph">
-<p>If you invoke either of these commands with a prefix CIDER, will
-prompt for test selector filters and only run those tests that match
-the selector inclusions/exclusions.</p>
-</div>
-<div class="paragraph">
-<p>Test developers use selectors to define subsets of the total test
-suite that are run together for different testing tasks. For example
-you can mark some of your tests with the <code>^:smoke</code> metadata marker
-and others with <code>^:integration</code>. This enables you to run these tests
-separately in your build pipeline.  CIDER helps you to run these same
-test subsets in your development environment.</p>
-</div>
-<div class="paragraph">
-<p>Test selectors were originally a <code>leiningen</code> feature and you can get
-more information by executing:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ lein help test</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can run all the tests in the current namespace, whether specified
-by a source file or by the REPL, using kbd:[C-c C-t n] or
-kbd:[C-c C-t C-n]. Note that it&#8217;s idiomatic for Clojure projects
-to locate tests in a separate namespace than the code that is being
-tested. CIDER uses a simple algorithm to figure out where the tests
-are located. The algorithm works as follows.  If you&#8217;re in an
-implementation namespace (e.g. <code>some.ns</code>), CIDER will try to find a
-matching test namespace (by default <code>some.ns-test</code>) and run the tests
-there. But if you&#8217;re in something that already looks like a test
-namespace (e.g. <code>some.ns-test</code>), CIDER will simply run the tests in
-that namespace. If you have put some of your tests into your
-implementation namespace, using <code>clojure.test/with-test</code>, for
-instance, you might want to suppress the namespace inference logic and
-force CIDER to run tests in the current namespace unconditionally.
-You can do this by adding a prefix to the namespace commands: kbd:[C-u C-c C-t C-n]. This will simply run whatever tests are present in
-the currently visited or active namespace.</p>
-</div>
-<div class="paragraph">
-<p>You can also run a subset of the tests defined in the namespace,
-filtered by test selectors, using kbd:[C-c C-t C-s]. CIDER will
-prompt for the selectors in the minibuffer. If you call this
-command with a prefix (kbd:[C-u C-c C-t C-s]) you can suppress
-the namespace inference logic as for kbd:[C-u C-c C-t C-n]</p>
-</div>
-<div class="paragraph">
-<p>Finally, you can execute the specific test at the point using
-kbd:[C-c C-t t] or kbd:[C-c C-t C-t].</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You can configure CIDER&#8217;s test execution behavior in multiple ways.</p>
-</div>
-<div class="paragraph">
-<p>If your tests are not following the <code>some.ns-test</code> naming convention
-you can set the variable <code>cider-test-infer-test-ns</code> to a function that
-takes the current namespace and returns the matching test namespace
-(which may be the same as the current namespace). This provides
-complete flexibility to structure your test suite using whatever
-conventions you might want.</p>
-</div>
-<div class="paragraph">
-<p>If your individual tests are not defined by <code>deftest</code> or <code>defspec</code>, CIDER will
-not recognize them when searching for a test at point in <code>cider-test-run-test</code>.
-You can customize the variable <code>cider-test-defining-forms</code> to add additional
-forms for CIDER to recognize as individual test definitions.</p>
-</div>
-<div class="paragraph">
-<p>If you want to view the test report regardless of whether the tests have
-passed or failed:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-test-show-report-on-success t)</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_running_tests_automatically_test_driven_development"><a class="anchor" href="#_running_tests_automatically_test_driven_development"></a>Running Tests Automatically (Test-Driven Development)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>CIDER provides a minor-mode that automatically runs all tests for a namespace
-whenever you load a file (with kbd:[C-c C-k]). You can toggle it
-manually with kbd:[M-x] <code>cider-auto-test-mode</code>, or you can use:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(cider-auto-test-mode 1)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This is identical to manually typing kbd:[C-c C-t C-n] every time
-you load a Clojure buffer. As described previously, CIDER will try to
-automatically determine the namespace containing the tests.</p>
+<p>If you want to make changes to the manual&#8217;s page structure you&#8217;ll have to edit
+<a href="https://github.com/clojure-emacs/cider/blob/master/doc/modules/ROOT/nav.adoc">nav.adoc</a>.</p>
 </div>
 </div>
 </div>

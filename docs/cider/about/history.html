@@ -196,10 +196,10 @@
     <a class="nav-link" href="../contributing.html">Contributing</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../contributing/hacking.html">Hacking on CIDER</a>
+    <a class="nav-link" href="../contributing/docs.html">Documentation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#">contributing/docs.adoc</a>
+    <a class="nav-link" href="../contributing/hacking.html">Hacking on CIDER</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../contributing/funding.html">Funding</a>
@@ -272,7 +272,84 @@
 </div>
 <article class="doc">
 <h1>History</h1>
-
+<div id="preamble">
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+You don&#8217;t know where you&#8217;re going until you know where you&#8217;ve been.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>CIDER started its life as an effort to replace a hacked version of SLIME with
+a proper environment for Clojure development on Emacs. The work on it was
+fueled mostly by the advent of nREPL which was the first project that aimed to
+provide a common tool-agnostic foundation for Clojure development tools.</p>
+</div>
+<div class="paragraph">
+<p>The project was started in 2012 by Phil Hagelberg (of Leiningen fame),
+who hacked a prototype of an nREPL client in Emacs Lisp on a flight to
+San Francisco.  He got a bit stuck on the socket-based bencode
+functionality and dropped it after the flight, but not before pushing
+the code out and mentioning it on the <a href="http://groups.google.com/group/clojure/browse_thread/thread/2bd91de7dca55ca4">Clojure mailing list</a>.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+</div>
+<div class="paragraph">
+<p>Fortunately Tim King picked it back up, and it quickly became a respectable competitor to SLIME.
+The project evolved at rapid pace and eventually superseded SLIME in August 2012. Unfortunately in early 2013
+Tim ran out of time for <code>nrepl.el</code> and after a period of stagnation, eventually handed it over to Bozhidar, who has been the steward
+ever since. Bozhidar renamed <code>nrepl.el</code> to CIDER in version 0.3 to avoid the common case of confusion between
+the nREPL server and the nrepl package for Emacs.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
+</div>
+<div class="paragraph">
+<p>Eventually CIDER became one of the most popular development environments in the Clojure community and it spawned many
+important projects like <code>cider-nrepl</code>, <code>cljs-tooling</code> and <code>orchard</code>, that were widely used by other development tools.
+Over the years a big ecosystem of packages grew around CIDER and nREPL. Today CIDER faces a lot of competition, but
+it&#8217;s still evolving at a steady pace and it&#8217;s still one of the more innovative Clojure development environments,
+that serves as inspiration for many others.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_notable_milestones"><a class="anchor" href="#_notable_milestones"></a>Notable Milestones</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>14 Apr 2012 - Initial commit by Phil Hagelberg.</p>
+</li>
+<li>
+<p>24 Apr 2012 - Tim King picks up Phil&#8217;s prototype.</p>
+</li>
+<li>
+<p>10 Jul 2012 - Tim releases version 0.1.0.</p>
+</li>
+<li>
+<p>21 Aug 2012 - Phil announces that <code>swank-clojure</code> is officially deprecated in favour of <code>nrepl.el</code>.</p>
+</li>
+<li>
+<p>Summer 2013 - Bozhidar takes over the maintenance of <code>nrepl.el</code>.</p>
+</li>
+<li>
+<p>08 Aug 2013 - First release (0.1.8) under Bozhidar&#8217;s stewardship.</p>
+</li>
+<li>
+<p>28 Oct 2013 - Bozhidar renames nrepl.el to CIDER and releases version 0.3.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To be continued&#8230;&#8203;</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. <a href="https://technomancy.us/163" class="bare">https://technomancy.us/163</a>
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. <a href="https://github.com/clojure-emacs/cider/issues/375" class="bare">https://github.com/clojure-emacs/cider/issues/375</a>
+</div>
+</div>
 </article>
   </main>
 </div>
