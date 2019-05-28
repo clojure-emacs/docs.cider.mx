@@ -1,22 +1,33 @@
-= CIDER.mx
+= CIDER Documentation Site
 
-The site is generated from the asciidoc files in the link:https://github.com/clojure-emacs/cider/tree/master/doc[doc] folder of nREPL's GitHub repo and is published to https://docs.cider.mx.
+The site is generated from the AsciiDoc files in the link:https://github.com/clojure-emacs/cider/tree/master/doc[doc] folder of nREPL's GitHub repo and is published to https://docs.cider.mx.
 link:https://antora.org[Antora] is used to convert the manual into HTML.
 The filesystem layout is described at https://docs.antora.org/antora/2.0/component-structure/
 
 To make changes to the manual you simply have to change the files under `doc`.
 The manual will be regenerated manually periodically.
 
-You can build the documentation locally from the link:https://github.com/clojure-emacs/cider-site[cider-site] repo.
+== Installing Antora
+
+Installing the Antora is super simple:
+
+[source]
+----
+$ npm i -g @antora/cli@2.0 @antora/site-generator-default@2.0
+----
+
+Check out https://docs.antora.org/antora/2.0/install/install-antora/[the detailed installation instructions]
+if you run into any problems.
+
+== Building the Site
+
+You can build the documentation locally from this repo.
 
 [source]
 ----
 $ cd cider-site
-$ npm install
 $ antora --pull site.yml
 ----
-
-TIP: If `npm install` fails, see link:https://docs.antora.org/antora/2.0/install/troubleshoot-nodegit/[Antora's troubleshooting documentation].
 
 After you're done with the initial setup you can use the `deploy` script to push changes to the site:
 
