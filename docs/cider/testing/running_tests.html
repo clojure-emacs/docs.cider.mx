@@ -308,17 +308,17 @@ for other libraries might be available via CIDER plugins.
 <p>CIDER has several functions that help you run all your tests or a
 selected subset of them. All of the CIDER test commands are available
 in both source code and REPL buffers. In REPL buffers you can also use
-kbd:[,] to invoke some of the testing commands.</p>
+<kbd>,</kbd> to invoke some of the testing commands.</p>
 </div>
 <div class="paragraph">
-<p>First, you can run all the tests in your project with kbd:[C-c C-t p]
-or kbd:[C-c C-t C-p]. It&#8217;s important to realize that this will
+<p>First, you can run all the tests in your project with <kbd>C-c C-t p</kbd>
+or <kbd>C-c C-t C-p</kbd>. It&#8217;s important to realize that this will
 load <strong>all</strong> the namespaces in your project, which might be more than
 you&#8217;re expecting.</p>
 </div>
 <div class="paragraph">
-<p>You can run all <em>loaded</em> tests with kbd:[C-c C-t l] or
-kbd:[C-c C-t C-l].</p>
+<p>You can run all <em>loaded</em> tests with <kbd>C-c C-t l</kbd> or
+<kbd>C-c C-t C-l</kbd>.</p>
 </div>
 <div class="paragraph">
 <p>If you invoke either of these commands with a prefix CIDER, will
@@ -344,8 +344,8 @@ more information by executing:</p>
 </div>
 <div class="paragraph">
 <p>You can run all the tests in the current namespace, whether specified
-by a source file or by the REPL, using kbd:[C-c C-t n] or
-kbd:[C-c C-t C-n]. Note that it&#8217;s idiomatic for Clojure projects
+by a source file or by the REPL, using <kbd>C-c C-t n</kbd> or
+<kbd>C-c C-t C-n</kbd>. Note that it&#8217;s idiomatic for Clojure projects
 to locate tests in a separate namespace than the code that is being
 tested. CIDER uses a simple algorithm to figure out where the tests
 are located. The algorithm works as follows.  If you&#8217;re in an
@@ -357,19 +357,19 @@ that namespace. If you have put some of your tests into your
 implementation namespace, using <code>clojure.test/with-test</code>, for
 instance, you might want to suppress the namespace inference logic and
 force CIDER to run tests in the current namespace unconditionally.
-You can do this by adding a prefix to the namespace commands: kbd:[C-u C-c C-t C-n]. This will simply run whatever tests are present in
+You can do this by adding a prefix to the namespace commands: <kbd>C-u C-c C-t C-n</kbd>. This will simply run whatever tests are present in
 the currently visited or active namespace.</p>
 </div>
 <div class="paragraph">
 <p>You can also run a subset of the tests defined in the namespace,
-filtered by test selectors, using kbd:[C-c C-t C-s]. CIDER will
+filtered by test selectors, using <kbd>C-c C-t C-s</kbd>. CIDER will
 prompt for the selectors in the minibuffer. If you call this
-command with a prefix (kbd:[C-u C-c C-t C-s]) you can suppress
-the namespace inference logic as for kbd:[C-u C-c C-t C-n]</p>
+command with a prefix (<kbd>C-u C-c C-t C-s</kbd>) you can suppress
+the namespace inference logic as for <kbd>C-u C-c C-t C-n</kbd></p>
 </div>
 <div class="paragraph">
 <p>Finally, you can execute the specific test at the point using
-kbd:[C-c C-t t] or kbd:[C-c C-t C-t].</p>
+<kbd>C-c C-t t</kbd> or <kbd>C-c C-t C-t</kbd>.</p>
 </div>
 </div>
 </div>
@@ -409,8 +409,8 @@ passed or failed:</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>CIDER provides a minor-mode that automatically runs all tests for a namespace
-whenever you load a file (with kbd:[C-c C-k]). You can toggle it
-manually with kbd:[M-x] <code>cider-auto-test-mode</code>, or you can use:</p>
+whenever you load a file (with <kbd>C-c C-k</kbd>). You can toggle it
+manually with <kbd>M-x</kbd> <code>cider-auto-test-mode</code>, or you can use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -418,7 +418,7 @@ manually with kbd:[M-x] <code>cider-auto-test-mode</code>, or you can use:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This is identical to manually typing kbd:[C-c C-t C-n] every time
+<p>This is identical to manually typing <kbd>C-c C-t C-n</kbd> every time
 you load a Clojure buffer. As described previously, CIDER will try to
 automatically determine the namespace containing the tests.</p>
 </div>

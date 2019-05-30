@@ -281,8 +281,23 @@ experience. The majority of the minor modes listed here should be enabled for bo
 </div>
 </div>
 <div class="sect1">
-<h2 id="_clj_refactor"><a class="anchor" href="#_clj_refactor"></a>clj-refactor</h2>
+<h2 id="_cider_extensions"><a class="anchor" href="#_cider_extensions"></a>CIDER Extensions</h2>
 <div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Make sure that the version of any extension you&#8217;ve installed is compatible with
+your CIDER version.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_clj_refactor"><a class="anchor" href="#_clj_refactor"></a>clj-refactor</h3>
 <div class="paragraph">
 <p><a href="https://github.com/clojure-emacs/clj-refactor.el">clj-refactor</a> builds on top
 of clojure-mode and CIDER and adds a ton of extra functionality (e.g. the
@@ -297,15 +312,9 @@ bindings, extract function and so on).</p>
 <p>We hope to incorporate some of its features into clojure-mode and CIDER themselves
 down the road.</p>
 </div>
-<div class="paragraph">
-<p><strong>Make sure that the version of <code>clj-refactor</code> you&#8217;ve installed is compatible with
-your CIDER version.</strong></p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_emidje"><a class="anchor" href="#_emidje"></a>emidje</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_emidje"><a class="anchor" href="#_emidje"></a>emidje</h3>
 <div class="paragraph">
 <p><a href="https://github.com/nubank/emidje">Emidje</a> is a test runner, report
 viewer and formatting tool for
@@ -318,19 +327,15 @@ Emidje functionalities were strongly inspired on <code>cider-test.el</code>
 features.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_helm_cider"><a class="anchor" href="#_helm_cider"></a>helm-cider</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_helm_cider"><a class="anchor" href="#_helm_cider"></a>helm-cider</h3>
 <div class="paragraph">
 <p><a href="https://github.com/clojure-emacs/helm-cider">helm-cider</a> provides Helm
 interface for certain CIDER commands (e.g. <code>cider-apropos</code>).</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_cider_hydra"><a class="anchor" href="#_cider_hydra"></a>cider-hydra</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_cider_hydra"><a class="anchor" href="#_cider_hydra"></a>cider-hydra</h3>
 <div class="paragraph">
 <p><a href="https://github.com/clojure-emacs/cider-hydra">cider-hydra</a> provides a nice way
 to navigate groups of related CIDER commands.</p>
@@ -339,10 +344,8 @@ to navigate groups of related CIDER commands.</p>
 <p>You can think of it as a fancier <a href="https://github.com/justbur/emacs-which-key">which-key</a>.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_squiggly_clojure"><a class="anchor" href="#_squiggly_clojure"></a>squiggly-clojure</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_squiggly_clojure"><a class="anchor" href="#_squiggly_clojure"></a>squiggly-clojure</h3>
 <div class="paragraph">
 <p><a href="https://github.com/clojure-emacs/squiggly-clojure">squiggly-clojure</a> is a
 Flycheck checker for Clojure, using tools like
@@ -351,38 +354,20 @@ Flycheck checker for Clojure, using tools like
 <a href="https://github.com/jonase/kibit">kibit</a>.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_sayid"><a class="anchor" href="#_sayid"></a>sayid</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_sayid"><a class="anchor" href="#_sayid"></a>sayid</h3>
 <div class="paragraph">
-<p><a href="http://bpiel.github.io/sayid/">sayid</a> is a powerful alternative of CIDER&#8217;s
+<p><a href="http://clojure-emacs.github.io/sayid/">sayid</a> is a powerful alternative of CIDER&#8217;s
 built-in basic tracing functionality.</p>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_inf_clojure"><a class="anchor" href="#_inf_clojure"></a>Inf-clojure</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This package provides basic interaction with a Clojure subprocess (REPL). It&#8217;s
-based on ideas from the popular inferior-lisp package.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/clojure-emacs/inf-clojure">inf-clojure</a> has two components -
-a nice Clojure REPL with auto-completion and a minor mode
-(<code>inf-clojure-minor-mode</code>), which extends clojure-mode with commands to evaluate
-forms directly in the REPL.</p>
-</div>
-<div class="paragraph">
-<p>It&#8217;s basically a simple alternative of CIDER, which provides a subset of CIDER&#8217;s
-functionality.</p>
-</div>
-</div>
 </div>
 <div class="sect1">
-<h2 id="_subword_mode"><a class="anchor" href="#_subword_mode"></a>subword-mode</h2>
+<h2 id="_generic_emacs_extensions"><a class="anchor" href="#_generic_emacs_extensions"></a>Generic Emacs Extensions</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_subword_mode"><a class="anchor" href="#_subword_mode"></a>subword-mode</h3>
 <div class="paragraph">
 <p>Enabling <code>CamelCase</code> support for editing commands(like
 <code>forward-word</code>, <code>backward-word</code>, etc) in the REPL is quite useful since
@@ -395,10 +380,8 @@ Emacs minor mode <code>subword-mode</code> provides such functionality:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_paredit"><a class="anchor" href="#_paredit"></a>Paredit</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_paredit"><a class="anchor" href="#_paredit"></a>Paredit</h3>
 <div class="paragraph">
 <p>The use of <a href="http://mumble.net/~campbell/emacs/paredit.html">paredit</a>
 when editing Clojure (or any other Lisp) code is highly
@@ -412,10 +395,8 @@ enable <code>paredit</code> in the REPL buffer as well:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_smartparens"><a class="anchor" href="#_smartparens"></a>Smartparens</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_smartparens"><a class="anchor" href="#_smartparens"></a>Smartparens</h3>
 <div class="paragraph">
 <p><a href="https://github.com/Fuco1/smartparens">smartparens</a> is an excellent alternative
   to paredit. Many Clojure hackers have adopted it recently and you might want
@@ -428,10 +409,8 @@ enable <code>paredit</code> in the REPL buffer as well:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_rainbow_delimiters"><a class="anchor" href="#_rainbow_delimiters"></a>rainbow-delimiters</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_rainbow_delimiters"><a class="anchor" href="#_rainbow_delimiters"></a>rainbow-delimiters</h3>
 <div class="paragraph">
 <p><a href="https://github.com/Fanael/rainbow-delimiters">RainbowDelimiters</a> is a minor
 mode which highlights parentheses, brackets, and braces according to their
@@ -446,10 +425,8 @@ RainbowDelimiters you can enable it in the REPL like this:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_eval_sexp_fu"><a class="anchor" href="#_eval_sexp_fu"></a>eval-sexp-fu</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_eval_sexp_fu"><a class="anchor" href="#_eval_sexp_fu"></a>eval-sexp-fu</h3>
 <div class="paragraph">
 <p><a href="https://github.com/hchbaw/eval-sexp-fu.el">eval-sexp-fu</a> provides some visual
 feedback when evaluating expressions. <a href="https://github.com/clojure-emacs/cider-eval-sexp-fu">cider-eval-sexp-fu</a> provides
@@ -458,6 +435,29 @@ CIDER integration for <code>eval-sexp-fu</code>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(require 'cider-eval-sexp-fu)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_alternatives"><a class="anchor" href="#_alternatives"></a>Alternatives</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_inf_clojure"><a class="anchor" href="#_inf_clojure"></a>Inf-clojure</h3>
+<div class="paragraph">
+<p>This package provides basic interaction with a Clojure subprocess (REPL). It&#8217;s
+based on ideas from the popular inferior-lisp package.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/clojure-emacs/inf-clojure">inf-clojure</a> has two components -
+a nice Clojure REPL with auto-completion and a minor mode
+(<code>inf-clojure-minor-mode</code>), which extends clojure-mode with commands to evaluate
+forms directly in the REPL.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s basically a simple alternative of CIDER, which provides a subset of CIDER&#8217;s
+functionality.</p>
 </div>
 </div>
 </div>
