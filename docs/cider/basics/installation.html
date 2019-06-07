@@ -335,7 +335,7 @@ and <a href="http://melpa.org">MELPA</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(unless (package-installed-p 'cider)
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(unless (package-installed-p 'cider)
   (package-install 'cider))</code></pre>
 </div>
 </div>
@@ -360,7 +360,7 @@ deveopment, you can always pin CIDER to use MELPA Stable like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -408,7 +408,7 @@ the <code>master</code> branch, declare the following in your Emacs initializati
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(use-package cider
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(use-package cider
   :ensure t)</code></pre>
 </div>
 </div>
@@ -418,7 +418,7 @@ releases of CIDER, you&#8217;d declare the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(use-package cider
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(use-package cider
   :ensure t
   :pin melpa-stable)</code></pre>
 </div>
@@ -644,7 +644,6 @@ cider-nrepl for your version of CIDER by looking at
   <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
 </footer>
 <script src="../../_/js/site.js"></script>
-<script src="../../_/js/vendor/highlight.js"></script>
-<script>hljs.initHighlighting()</script>
+<script async src="../../_/js/vendor/highlight.js"></script>
   </body>
 </html>

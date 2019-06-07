@@ -282,7 +282,7 @@ like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-pop-to-buffer-on-connect nil)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-pop-to-buffer-on-connect nil)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -291,7 +291,7 @@ focused, use this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-pop-to-buffer-on-connect 'display-only)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-pop-to-buffer-on-connect 'display-only)</code></pre>
 </div>
 </div>
 </div>
@@ -306,7 +306,7 @@ REPL buffer in the current window:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-display-in-current-window t)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-display-in-current-window t)</code></pre>
 </div>
 </div>
 </div>
@@ -369,7 +369,7 @@ namespace. Here is an example function that will do exactly that:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(defun cider-repl-prompt-show-two (namespace)
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(defun cider-repl-prompt-show-two (namespace)
   "Return a prompt string with the last 2 segments of NAMESPACE."
   (let ((names (reverse (subseq (reverse (split-string namespace "\\.")) 0 2))))
     (concat (car names) "." (cadr names) "&gt; ")))</code></pre>
@@ -391,7 +391,7 @@ following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-tab-command #'indent-for-tab-command)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-tab-command #'indent-for-tab-command)</code></pre>
 </div>
 </div>
 </div>
@@ -408,7 +408,7 @@ built-in option <code>scroll-conservatively</code>, for example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(add-hook 'cider-repl-mode-hook '(lambda () (setq scroll-conservatively 101)))</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'cider-repl-mode-hook '(lambda () (setq scroll-conservatively 101)))</code></pre>
 </div>
 </div>
 </div>
@@ -421,7 +421,7 @@ built-in option <code>scroll-conservatively</code>, for example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-result-prefix ";; =&gt; ")</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-result-prefix ";; =&gt; ")</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -448,7 +448,7 @@ setting <code>nrepl-buffer-name-separator</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq nrepl-buffer-name-separator "-")</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq nrepl-buffer-name-separator "-")</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -457,7 +457,7 @@ The buffer name will look like <code><strong>cider-repl project-name:port</stron
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq nrepl-buffer-name-show-port t)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq nrepl-buffer-name-show-port t)</code></pre>
 </div>
 </div>
 </div>
@@ -475,7 +475,7 @@ use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-use-clojure-font-lock nil)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-use-clojure-font-lock nil)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -508,7 +508,7 @@ pretty-printing was disabled by default.</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-use-pretty-printing nil)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-use-pretty-printing nil)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -532,7 +532,7 @@ behavior if you don&#8217;t like it.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-use-content-types nil)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-use-content-types nil)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -567,7 +567,7 @@ more convenient to change the keybindings:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(define-key cider-repl-mode-map (kbd "RET") #'cider-repl-newline-and-indent)
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(define-key cider-repl-mode-map (kbd "RET") #'cider-repl-newline-and-indent)
 (define-key cider-repl-mode-map (kbd "C-&lt;return&gt;") #'cider-repl-return)</code></pre>
 </div>
 </div>
@@ -589,7 +589,7 @@ and <kbd>C-Return</kbd> send the form off for evaluation.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-wrap-history t)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-wrap-history t)</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -601,7 +601,7 @@ and <kbd>C-Return</kbd> send the form off for evaluation.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-history-size 1000) ; the default is 500</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-history-size 1000) ; the default is 500</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -613,7 +613,7 @@ and <kbd>C-Return</kbd> send the form off for evaluation.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-history-file "path/to/file")</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-history-file "path/to/file")</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -635,7 +635,7 @@ can set:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-repl-require-ns-on-set t)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-require-ns-on-set t)</code></pre>
 </div>
 </div>
 </div>
@@ -648,7 +648,6 @@ can set:</p>
   <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
 </footer>
 <script src="../../_/js/site.js"></script>
-<script src="../../_/js/vendor/highlight.js"></script>
-<script>hljs.initHighlighting()</script>
+<script async src="../../_/js/vendor/highlight.js"></script>
   </body>
 </html>

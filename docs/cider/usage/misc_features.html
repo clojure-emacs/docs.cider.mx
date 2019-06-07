@@ -304,7 +304,7 @@ available to you:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
 (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)</code></pre>
 </div>
 </div>
@@ -372,7 +372,7 @@ successful reload, when using <code>cider-ns-refresh</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-ns-refresh-before-fn "user/stop-system!"
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-ns-refresh-before-fn "user/stop-system!"
       cider-ns-refresh-after-fn "user/start-system!")</code></pre>
 </div>
 </div>
@@ -399,7 +399,7 @@ the echo area.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-el hljs" data-lang="el">(setq cider-ns-refresh-show-log-buffer t)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-ns-refresh-show-log-buffer t)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -629,7 +629,6 @@ example, if you want to want to use
   <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
 </footer>
 <script src="../../_/js/site.js"></script>
-<script src="../../_/js/vendor/highlight.js"></script>
-<script>hljs.initHighlighting()</script>
+<script async src="../../_/js/vendor/highlight.js"></script>
   </body>
 </html>
