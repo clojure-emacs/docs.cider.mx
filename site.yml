@@ -1,6 +1,6 @@
 site:
-  title: CIDER
-  url: https://cider.mx
+  title: CIDER Docs
+  url: https://docs.cider.mx
   start_page: master@cider::index.adoc
   keys:
     google_analytics: 'UA-140176314-1'
