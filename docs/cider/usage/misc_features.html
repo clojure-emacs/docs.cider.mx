@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miscellaneous Features :: CIDER</title>
-    <link rel="canonical" href="https://cider.mx/cider/usage/misc_features.html">
+    <title>Miscellaneous Features :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/usage/misc_features.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -20,7 +20,7 @@
       <div class="navbar-item">
         <a href="https://cider.mx">CIDER</a>
         <span class="separator">//</span>
-        <a href="https://cider.mx">Docs</a>
+        <a href="https://docs.cider.mx">Docs</a>
       </div>
       <div class="navbar-item">
         <input id="search-input" type="text" placeholder="Search docs">
@@ -326,7 +326,7 @@ available to you:</p>
 <p>CIDER provides a simple way to create a Clojure scratchpad via the
 <kbd>M-x</kbd> <code>cider-scratch</code> command. This is a great way to play
 around with some code without having to create source files or pollute
-the REPL buffer and is very similar to Emacs&#8217;s own <code><strong>scratch</strong></code> buffer.</p>
+the REPL buffer and is very similar to Emacs&#8217;s own <code>*scratch*</code> buffer.</p>
 </div>
 </div>
 </div>
@@ -395,12 +395,12 @@ be executed serially, without retries.</p>
 <p>By default, messages regarding the status of the in-progress reload
 will be displayed in the echo area after you call
 <code>cider-ns-refresh</code>. The same information will also be recorded in the
-<code><strong>cider-ns-refresh-log</strong></code> buffer, along with anything printed to
-<code><strong>out</strong></code> or <code><strong>err</strong></code> by <code>cider-ns-refresh-before-fn</code> and
+<code>*cider-ns-refresh-log*</code> buffer, along with anything printed to
+<code>*out*</code> or <code>*err*</code> by <code>cider-ns-refresh-before-fn</code> and
 <code>cider-ns-refresh-start-fn</code>.</p>
 </div>
 <div class="paragraph">
-<p>You can make the <code><strong>cider-ns-refresh-log</strong></code> buffer display automatically
+<p>You can make the <code>*cider-ns-refresh-log*</code> buffer display automatically
 after you call <code>cider-ns-refresh</code> by setting the
 <code>cider-ns-refresh-show-log-buffer</code> variable to a non-nil value. This
 will also prevent any related messages from also being displayed in

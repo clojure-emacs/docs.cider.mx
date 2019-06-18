@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Configuration :: CIDER</title>
-    <link rel="canonical" href="https://cider.mx/cider/config/basic_config.html">
+    <title>Basic Configuration :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/config/basic_config.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -20,7 +20,7 @@
       <div class="navbar-item">
         <a href="https://cider.mx">CIDER</a>
         <span class="separator">//</span>
-        <a href="https://cider.mx">Docs</a>
+        <a href="https://docs.cider.mx">Docs</a>
       </div>
       <div class="navbar-item">
         <input id="search-input" type="text" placeholder="Search docs">
@@ -349,7 +349,7 @@ server:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>CIDER will then create buffers named <code><strong>nrepl-messages conn-name</strong></code> for
+<p>CIDER will then create buffers named <code>*nrepl-messages conn-name*</code> for
 each connection.</p>
 </div>
 <div class="paragraph">
@@ -363,7 +363,7 @@ you are facing such issues.</p>
 <h2 id="_hide_special_nrepl_buffers"><a class="anchor" href="#_hide_special_nrepl_buffers"></a>Hide Special nREPL Buffers</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you&#8217;re finding that <code><strong>nrepl-connection</strong></code> and <code><strong>nrepl-server</strong></code>
+<p>If you&#8217;re finding that <code>*nrepl-connection*</code> and <code>*nrepl-server*</code>
 buffers are cluttering up your development environment, you can
 suppress them from appearing in some buffer switching commands like
 <code>switch-to-buffer</code>(<kbd>C-x b</kbd>):</p>
@@ -550,8 +550,8 @@ with <kbd>M-x</kbd> <code>customize-variable</code> <kbd>RET</kbd> <code>cider-f
 <h2 id="_truncate_long_lines_in_special_buffers"><a class="anchor" href="#_truncate_long_lines_in_special_buffers"></a>Truncate long lines in special buffers</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>By default contents of CIDER&#8217;s special buffers such as <code><strong>cider-test-report</strong></code>
-or <code><strong>cider-doc</strong></code> are line truncated. You can set
+<p>By default contents of CIDER&#8217;s special buffers such as <code>*cider-test-report*</code>
+or <code>*cider-doc*</code> are line truncated. You can set
 <code>cider-special-mode-truncate-lines</code> to <code>nil</code> to make those buffers use word
 wrapping instead of line truncating.</p>
 </div>

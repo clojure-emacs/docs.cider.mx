@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Troubleshooting :: CIDER</title>
-    <link rel="canonical" href="https://cider.mx/cider/troubleshooting.html">
+    <title>Troubleshooting :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/troubleshooting.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
@@ -20,7 +20,7 @@
       <div class="navbar-item">
         <a href="https://cider.mx">CIDER</a>
         <span class="separator">//</span>
-        <a href="https://cider.mx">Docs</a>
+        <a href="https://docs.cider.mx">Docs</a>
       </div>
       <div class="navbar-item">
         <input id="search-input" type="text" placeholder="Search docs">
@@ -288,12 +288,12 @@ problem.</p>
 </div>
 <div class="paragraph">
 <p>Generally, it&#8217;s not a bad idea to configure Emacs to spit the backtrace on error
-(instead of just logging the error in the <code><strong>Messages</strong></code> buffer). You can toggle
+(instead of just logging the error in the <code>*Messages*</code> buffer). You can toggle
 this behavior by using <kbd>M-x</kbd> <code>toggle-debug-on-error</code>.</p>
 </div>
 <div class="paragraph">
 <p>Another good idea is to check the exchange of requests and responses between
-CIDER and the nREPL server. You can find them in the <code><strong>nrepl-messages</strong></code> buffer,
+CIDER and the nREPL server. You can find them in the <code>*nrepl-messages*</code> buffer,
 provided you&#8217;ve enabled nREPL message logging.</p>
 </div>
 </div>
@@ -389,9 +389,9 @@ save the report buffer to a file with <kbd>C-x C-w</kbd>.
 <h3 id="_repl_not_starting"><a class="anchor" href="#_repl_not_starting"></a>REPL not starting</h3>
 <div class="paragraph">
 <p>Make sure that your CIDER version matches your <code>cider-nrepl</code> version. Check
-the contents of the <code><strong>Messages</strong></code> buffer for CIDER-related errors. You should
+the contents of the <code>*Messages*</code> buffer for CIDER-related errors. You should
 also check the nREPL messages passed between CIDER and nREPL in
-<code><strong>nrepl-messages</strong></code>. If you don&#8217;t see anything useful there it&#8217;s time to bring
+<code>*nrepl-messages*</code>. If you don&#8217;t see anything useful there it&#8217;s time to bring
 out the big guns.</p>
 </div>
 <div class="sect3">
@@ -405,7 +405,7 @@ you can step forward until you find the problem.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_missing_nrepl_messages_buffer"><a class="anchor" href="#_missing_nrepl_messages_buffer"></a>Missing <code><strong>nrepl-messages</strong></code> buffer</h3>
+<h3 id="_missing_nrepl_messages_buffer"><a class="anchor" href="#_missing_nrepl_messages_buffer"></a>Missing <code>*nrepl-messages*</code> buffer</h3>
 <div class="paragraph">
 <p>nREPL message logging is not enabled by default. Set <code>nrepl-log-messages</code> to <code>t</code>
 to activate it. Alternatively you can use <kbd>M-x</kbd>
