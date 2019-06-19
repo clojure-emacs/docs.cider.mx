@@ -470,19 +470,23 @@ defined in the source code). Leiningen users can add this to their
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:dependencies [[nrepl/nrepl "x.y.z"]]}}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Make sure you add the newer nREPL dependency to the <code>:dependencies</code> key instead
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Make sure you add the newer nREPL dependency to the <code>:dependencies</code> key instead
 of <code>:plugins</code> (where <code>cider-nrepl</code> Lein plugin resides). That&#8217;s a pretty common
-mistake.</p>
+mistake.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Generally you&#8217;re advised to use the newest nREPL with CIDER, as bugs get fixed
 in pretty much every release.</p>
-</div>
-<div class="paragraph">
-<p>Note, that running <code>cider-jack-in</code> from outside the scope of a project
-will result in the <strong>older nREPL dependency being used</strong>. This is
-likely a Leiningen bug.</p>
 </div>
 </div>
 <div class="sect2">
