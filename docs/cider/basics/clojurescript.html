@@ -2,16 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled :: CIDER Docs</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ClojureScript :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/basics/clojurescript.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
-    <script>dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+    <script>(window.dataLayer=window.dataLayer||[]).push({'gtm.start':+new Date(),event:'gtm.js'})</script>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=UA-140176314-1"></script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -77,6 +77,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="middleware_setup.html">nREPL Middleware Setup</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="clojurescript.html">ClojureScript</a>
@@ -280,8 +283,8 @@
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/basics/clojurescript.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<div class="sect1">
-<h2 id="_clojurescript"><a class="anchor" href="#_clojurescript"></a>ClojureScript</h2>
+<h1>ClojureScript</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>CIDER works well with ClojureScript, but not all CIDER features are
@@ -293,8 +296,11 @@ decide which one you want to run and how you want CIDER to interact
 with it. This chapter describes some of the more common choices
 and the configurations required to get them working.</p>
 </div>
-<div class="sect2">
-<h3 id="_piggieback"><a class="anchor" href="#_piggieback"></a>Piggieback</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_piggieback"><a class="anchor" href="#_piggieback"></a>Piggieback</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>ClojureScript support relies on the <a href="https://github.com/nrepl/piggieback">piggieback</a> nREPL middleware
 being present in your REPL session. There&#8217;s one exception to this,
@@ -311,8 +317,8 @@ for your project when doing <code>cider-jack-in-cljs</code>.</p>
 to connect to an already running nREPL server using
 <code>cider-connect-cljs</code>, use the configuration in the following section.</p>
 </div>
-<div class="sect3">
-<h4 id="_manual_piggieback_setup"><a class="anchor" href="#_manual_piggieback_setup"></a>Manual Piggieback Setup</h4>
+<div class="sect2">
+<h3 id="_manual_piggieback_setup"><a class="anchor" href="#_manual_piggieback_setup"></a>Manual Piggieback Setup</h3>
 <div class="paragraph">
 <p>To setup piggieback, add the following dependencies to your project
 (<code>project.clj</code> in a Leiningen based project or <code>build.boot</code> in a Boot
@@ -347,8 +353,10 @@ project):</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_starting_a_clojurescript_repl"><a class="anchor" href="#_starting_a_clojurescript_repl"></a>Starting a ClojureScript REPL</h3>
+</div>
+<div class="sect1">
+<h2 id="_starting_a_clojurescript_repl"><a class="anchor" href="#_starting_a_clojurescript_repl"></a>Starting a ClojureScript REPL</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Open a file in your project and type <kbd>M-x</kbd>
 <code>cider-jack-in-cljs</code> <kbd>RET</kbd>. This will start up the nREPL
@@ -425,10 +433,14 @@ instead. For example, the following will make Nashorn the default:</p>
 ClojureScript REPL, you can invoke
 <code>cider-jack-in-sibling-clojurescript</code> to add it.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting_up_a_clojurescript_repl"><a class="anchor" href="#_setting_up_a_clojurescript_repl"></a>Setting up a ClojureScript REPL</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The following sections describe the configurations for several common
 CloudScript REPL use cases.</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_browser_connected_clojurescript_repl"><a class="anchor" href="#_browser_connected_clojurescript_repl"></a>Browser-Connected ClojureScript REPL</h3>

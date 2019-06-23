@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Managing Connections :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/usage/managing_connections.html">
+    <title>nREPL Middleware Setup :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/basics/middleware_setup.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -73,16 +73,16 @@
     <span class="nav-text">Getting Started</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../basics/installation.html">Installation</a>
+    <a class="nav-link" href="installation.html">Installation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../basics/up_and_running.html">Up and Running</a>
+    <a class="nav-link" href="up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="middleware_setup.html">nREPL Middleware Setup</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../basics/middleware_setup.html">nREPL Middleware Setup</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../basics/clojurescript.html">ClojureScript</a>
+    <a class="nav-link" href="clojurescript.html">ClojureScript</a>
   </li>
 </ul>
   </li>
@@ -91,25 +91,25 @@
     <span class="nav-text">Using CIDER</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="interactive_programming.html">Interactive Programming</a>
+    <a class="nav-link" href="../usage/interactive_programming.html">Interactive Programming</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cider_mode.html">cider-mode</a>
-  </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="managing_connections.html">Managing Connections</a>
+    <a class="nav-link" href="../usage/cider_mode.html">cider-mode</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="code_completion.html">Code Completion</a>
+    <a class="nav-link" href="../usage/managing_connections.html">Managing Connections</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="pretty_printing.html">Pretty Printing</a>
+    <a class="nav-link" href="../usage/code_completion.html">Code Completion</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="navigating_stacktraces.html">Navigating Stacktraces</a>
+    <a class="nav-link" href="../usage/pretty_printing.html">Pretty Printing</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="misc_features.html">Misc Features</a>
+    <a class="nav-link" href="../usage/navigating_stacktraces.html">Navigating Stacktraces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/misc_features.html">Misc Features</a>
   </li>
 </ul>
   </li>
@@ -276,14 +276,14 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">CIDER</a></li>
-    <li class="crumb">Using CIDER</li>
-    <li class="crumb"><a href="managing_connections.html">Managing Connections</a></li>
+    <li class="crumb">Getting Started</li>
+    <li class="crumb"><a href="middleware_setup.html">nREPL Middleware Setup</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/usage/managing_connections.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/basics/middleware_setup.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1>Managing Connections</h1>
+<h1>nREPL Middleware Setup</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -293,222 +293,186 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Because connections map one-to-one to REPL buffers, for the purpose of this
-section we use "REPL" and "connection" interchangeably.
+You can skip this section if you don&#8217;t plan to use <code>cider-connect</code> or don&#8217;t care
+about the advanced functionality that requires <code>cider-nrepl</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Much of CIDER&#8217;s functionality depends on its own <a href="https://github.com/clojure-emacs/cider-nrepl">nREPL
+middleware</a>. Starting
+with version 0.11, <code>cider-jack-in</code> (<kbd>C-c C-x (C-)j (C-)j</kbd>)
+automatically injects this middleware and other dependencies as required.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the past, if you were setting up CIDER, you might have had to
+modify <code>profiles.clj</code> or <code>profile.boot</code>. CIDER now handles
+everything automatically and you don&#8217;t need to add anything
+special to these files.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you don&#8217;t want <code>cider-jack-in</code> to inject dependencies automatically, set
+<code>cider-inject-dependencies-at-jack-in</code> to <code>nil</code>. Note that you&#8217;ll have to setup
+the dependencies yourself (see the section below), just as in CIDER 0.10 and older.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>CIDER can also inject a Clojure dependency into your project, which is useful,
+for example, if your project defaults to an older version of Clojure than that
+supported by the CIDER middleware. Set <code>cider-jack-in-auto-inject-clojure</code>
+appropriately to enable this.</p>
+</div>
+<div class="paragraph">
+<p>If you prefer a standalone REPL, you will need to invoke
+<code>cider-connect</code> instead of <code>cider-jack-in</code> and manually add the
+dependencies to your Clojure project (explained in the following
+section).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting_up_a_standalone_repl"><a class="anchor" href="#_setting_up_a_standalone_repl"></a>Setting Up a Standalone REPL</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_using_leiningen"><a class="anchor" href="#_using_leiningen"></a>Using Leiningen</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Make sure you&#8217;re using Leiningen 2.9.0 or newer, as 2.9.0 is the first
+release to ship with nREPL 0.6.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Use the convenient plugin for defaults, either in your project&#8217;s
+<code>project.clj</code> file or in the :repl profile in <code>~/.lein/profiles.clj</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "x.y.z"]]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A minimal <code>profiles.clj</code> for CIDER would be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.21.1"]]}}</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Be careful not to place this in the <code>:user</code> profile, as this way CIDER&#8217;s
+middleware will always get loaded, causing <code>lein</code> to start slower.  You really
+need it just for <code>lein repl</code> and this is what the <code>:repl</code> profile is for.
 </td>
 </tr>
 </table>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_sessions"><a class="anchor" href="#_sessions"></a>Sessions</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>CIDER maintains a grouped view of opened nREPL connections through <a href="https://github.com/vspinu/sesman">Sesman</a>
-sessions. Each session is a collection of connections which share the same nREPL
-server.</p>
-</div>
-<div class="paragraph">
-<p>Start new sessions with</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><kbd>C-c C-x j j</kbd> <code>cider-jack-in-clj</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x j s</kbd> <code>cider-jack-in-cljs</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x j m</kbd> <code>cider-jack-in-clj&amp;cljs</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x c j</kbd> <code>cider-connect-clj</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x c s</kbd> <code>cider-connect-cljs</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x c m</kbd> <code>cider-connect-clj&amp;cljs</code></p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="_using_boot"><a class="anchor" href="#_using_boot"></a>Using Boot</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Make sure you&#8217;re using Boot 2.8.3 or newer, as 2.8.3 is the first
+release to ship with nREPL 0.6.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Add new REPLs to the current session with</p>
+<p>Boot users can configure the tool to include the middleware automatically in
+all of their projects using a <code>~/.boot/profile.boot</code> file like so:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><kbd>C-c C-x s j</kbd> <code>cider-connect-sibling-clj</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x s s</kbd> <code>cider-connect-sibling-cljs</code></p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(require 'boot.repl)
+
+(swap! boot.repl/*default-dependencies*
+       concat '[[cider/cider-nrepl "0.21.1"]])
+
+(swap! boot.repl/*default-middleware*
+       conj 'cider.nrepl/cider-middleware)</code></pre>
 </div>
-<div class="paragraph">
-<p>Session life-cycle management commands live on the <a href="https://github.com/vspinu/sesman">Sesman</a> map (<kbd>C-c C-s</kbd>)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><kbd>C-c C-s s</kbd> <code>sesman-start</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s r</kbd> <code>sesman-restart</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s q</kbd> <code>sesman-quit</code></p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>The command <code>sesman-start</code> wraps around all of the aforementioned <code>jack-in</code> and
-<code>connect</code> commands. You can also invoke same functionality with <kbd>M-x</kbd>
-<code>cider</code> or <kbd>C-c M-x</kbd>.</p>
+<p>For more information visit <a href="https://github.com/boot-clj/boot/wiki/Cider-REPL">boot-clj wiki</a>.</p>
 </div>
-<div class="paragraph">
-<p>To quit or restart individual connections use cider commands</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><kbd>C-c C-q</kbd> <code>cider-quit</code></p>
-</li>
-<li>
-<p><kbd>C-c M-r</kbd> <code>cider-restart</code></p>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_context_links"><a class="anchor" href="#_context_links"></a>Context Links</h2>
+<h2 id="_using_embedded_nrepl_server"><a class="anchor" href="#_using_embedded_nrepl_server"></a>Using Embedded nREPL Server</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Sessions can be linked to contexts (projects, directories and buffers)</p>
+<p>If you&#8217;re embedding nREPL in your application, you&#8217;ll have to start the
+server with CIDER&#8217;s own nREPL handler.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><kbd>C-c C-s b</kbd> <code>sesman-link-with-buffer</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s d</kbd> <code>sesman-link-with-directory</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s p</kbd> <code>sesman-link-with-project</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s u</kbd> <code>sesman-unlink</code></p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(ns my-app
+  (:require [nrepl.server :as nrepl-server]
+            [cider.nrepl :refer (cider-nrepl-handler)]))
+
+(defn -main
+  []
+  (nrepl-server/start-server :port 7888 :handler cider-nrepl-handler))</code></pre>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_friendly_sessions"><a class="anchor" href="#_friendly_sessions"></a>Friendly Sessions</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://github.com/vspinu/sesman">Sesman</a> defines "friendly" session to allow for on-the-fly operation on
-sessions from contexts where there are no explicit links. In CIDER friendly
-sessions are defined by the project dependencies. For example when you use
-<code>cider-find-var</code> (<kbd>M-.</kbd>) to navigate to a var definition in a
-dependency project the current project&#8217;s session becomes a friendly session for
-the dependency.</p>
 </div>
 <div class="paragraph">
-<p>When you evaluate some code from a dependency project and there are no explicit
-links in that project, the most recent friendly session is used to evaluate the
-code. Explicitly linked sessions have precedence over the friendly sessions.</p>
+<p>It goes without saying that your project should depend on <code>cider-nrepl</code>.</p>
 </div>
-<div class="paragraph">
-<p>You can disable friendly session inference by customizing
-<code>sesman-use-friendly-sessions</code>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_displaying_session_info"><a class="anchor" href="#_displaying_session_info"></a>Displaying Session Info</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Get info on all linked and friendly sessions in the current context with
-<kbd>C-c C-s i</kbd> (<code>sesman-info</code>). On <kbd>C-u</kbd>, display info on all
-CIDER sessions. For the connection specific information use CIDER&#8217;s built-in
-<code>cider-describe-connection</code> (<kbd>C-c M-d</kbd>).</p>
-</div>
-<div class="paragraph">
-<p>An interactive view of all CIDER sessions is available through the
-<code>sesman-browser</code> (<kbd>C-c C-s w</kbd>).</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_current_session"><a class="anchor" href="#_current_session"></a>Current Session</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>All CIDER commands (evaluation, completion, switching to REPL etc.) operate on
-the relevant REPL within the current session. The current session is the most
-relevant session among all linked session (or friendly sessions when no links
-exist). Session relevance is decided by the specificity of the linked contexts
-and recency of the REPL buffers.</p>
-</div>
-<div class="paragraph">
-<p>If the current context is linked to a single session then that session is the
-current one. If multiple sessions are linked to a context (say, a project) then
-the current session is the one containing the most recently viewed REPL.</p>
-</div>
-<div class="paragraph">
-<p>Links to more specific contexts have precedence. For example, if you have two
-sessions linked to the same project and another to a directory within that
-project, then the session linked to the directory is the current session. Thus,
-again, there is no ambiguity.</p>
-</div>
-<div class="paragraph">
-<p>By default <a href="https://github.com/vspinu/sesman">Sesman</a> allows multiple simultaneous links to projects and
-directories, but only one link per buffer. See <code>sesman-single-link-contexts</code> if
-you would like to change that.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_current_repl"><a class="anchor" href="#_current_repl"></a>Current REPL</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The current REPL is the most relevant REPL from the current session. REPL relevance
-is determined by the type of the current buffer. For example if the current
-buffer is a <code>clj</code> buffer then a <code>clj</code> REPL is selected. Ambiguous situations could
-arise when, for instance, there are multiple <code>clj</code> REPLs within a session, or
-the current buffer is a <code>cljc</code> buffer and both <code>clj</code> and <code>cljs</code> REPLs exist in
-the session. In such cases the current REPL is the most recently viewed REPL of
-the relevant type.</p>
-</div>
-<div class="paragraph">
-<p>Switch to the current REPL buffer with <kbd>C-c C-z</kbd>. You can then use the
-same key combination to switch back to the Clojure(Script) buffer that you came
-from.</p>
-</div>
-<div class="paragraph">
-<p>The single prefix <kbd>C-u C-c C-z</kbd>, will switch to the current REPL buffer
-and set the namespace in that buffer based on namespace in the current
-Clojure(Script) buffer.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_customizing_session_and_repl_names"><a class="anchor" href="#_customizing_session_and_repl_names"></a>Customizing Session and REPL Names</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>By default session names consist of abbreviated project name, host and port
-(e.g. <code>project/dir:localhost:1234</code>). REPL buffer name consist of the session
-name and the REPL type specification post-fix
-(e.g. <code>*project/dir:localhost:1234(cljs:node)*</code>).</p>
-</div>
-<div class="paragraph">
-<p>You can customize session names with <code>cider-session-name-template</code> and REPL
-names with <code>nrepl-repl-buffer-name-template</code>. See also
-<code>cider-format-connection-params</code> for available formats.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Prior to CIDER 0.18, CIDER and cider-nrepl were always released
+together and their versions had to match for things to work. But as
+the prominence of cider-nrepl grew and many other tools started using
+it, the two projects evolved separately and are no longer in tight
+lock-step. Any recent version of cider-nrepl should be compatible
+with a recent version of CIDER. You can check the required version of
+cider-nrepl for your version of CIDER by looking at
+<code>cider-required-middleware-version</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Up and Running :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/basics/up_and_running.html">
     <meta name="generator" content="Antora 2.0.0">
@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
-    <script>dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+    <script>(window.dataLayer=window.dataLayer||[]).push({'gtm.start':+new Date(),event:'gtm.js'})</script>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=UA-140176314-1"></script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -77,6 +77,9 @@
   </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="middleware_setup.html">nREPL Middleware Setup</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="clojurescript.html">ClojureScript</a>
@@ -329,8 +332,41 @@ CIDER will automatically work with Leiningen 2.9.0+ or Boot
 <p>If you have a Clojure project in your file system and want CIDER to
 launch an nREPL session for it, simply visit a file that belongs to
 the project, and type <kbd>M-x</kbd> <code>cider-jack-in</code>
-<kbd>RET</kbd>. CIDER will start an nREPL server and automatically
-connect to it.</p>
+<kbd>RET</kbd>.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
+CIDER will start an nREPL server and automatically connect to it.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In Clojure(Script) buffers the command <code>cider-jack-in</code> is bound to <kbd>C-c C-x (C-)j (C-)j</kbd>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The process of jacking-in is pretty simple:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CIDER shells out and runs a command like <code>lein repl :headless</code>.</p>
+</li>
+<li>
+<p>CIDER waits for the nREPL server to start.
+CIDER figures out this by parsing the output from the command and waiting for a line like
+<code>nREPL server started on port 53005 on host localhost - nrepl://localhost:53005</code> to appear there.</p>
+</li>
+<li>
+<p>CIDER extracts the port of the nREPL from the preceding message.</p>
+</li>
+<li>
+<p>It connects to the running nREPL server.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -348,11 +384,12 @@ dependency auto-injection for Gradle projects.
 </table>
 </div>
 <div class="paragraph">
-<p>Alternatively, you can use <kbd>C-u M-x</kbd> <code>cider-jack-in</code> <kbd>RET</kbd> to
-specify the name of a <code>lein</code>, <code>boot</code> or <code>tools.deps</code> project, without having to
-visit any file in it. This option is also useful if your project contains some
-combination of <code>project.clj</code>, <code>build.boot</code> and <code>deps.edn</code> and you want to launch
-a REPL for one or the other.</p>
+<p>Note that if you try to run <code>cider-jack-in</code> outside a project
+directory, CIDER will warn you and ask you to confirm whether you
+really want to do this; more often than not, this is an accident.  If
+you decide to proceed, CIDER will invoke the command configured in
+<code>cider-jack-in-default</code>. Prior to CIDER 0.17, this defaulted to <code>lein</code>
+but was subsequently switched to <code>clj</code>, Clojure&#8217;s basic startup command.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -361,7 +398,37 @@ a REPL for one or the other.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-In Clojure(Script) buffers the command <code>cider-jack-in</code> is bound to <kbd>C-c C-x (C-)j (C-)j</kbd>.
+You can set <code>cider-allow-jack-in-without-project</code> to <code>t</code> if you&#8217;d like to
+disable the warning displayed when jacking-in outside a project.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_customizing_the_jack_in_command_behaviour"><a class="anchor" href="#_customizing_the_jack_in_command_behaviour"></a>Customizing the Jack-in Command Behaviour</h3>
+<div class="paragraph">
+<p>You can use <kbd>C-u M-x</kbd> <code>cider-jack-in</code> <kbd>RET</kbd> to
+specify the exact command that <code>cider-jack-in</code> would run.
+This option is very useful is you want to specify a something like a <code>lein</code>
+or <code>deps.edn</code> profile.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively you can <kbd>C-u C-u M-x</kbd> <code>cider-jack-in</code> <kbd>RET</kbd>, which is a
+variation of the previous command. This command will first prompt you for the
+project you want to launch <code>cider-jack-in</code> in, which is pretty handy if you&#8217;re
+in some other directory currently. This option is also useful if your project
+contains some combination of project.clj, build.boot and deps.edn and you want
+to launch a REPL for one or the other.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The examples use only <code>cider-jack-in</code>, but this behaviour is consistent
+for all <code>cider-jack-in-*</code> commands.
 </td>
 </tr>
 </table>
@@ -386,26 +453,6 @@ boot&#8217;s dev task instead of the standard <code>repl -s wait</code>).</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Note that if you try to run <code>cider-jack-in</code> outside a project
-directory, CIDER will warn you and ask you to confirm whether you
-really want to do this; more often than not, this is an accident.  If
-you decide to proceed, CIDER will invoke the command configured in
-<code>cider-jack-in-default</code>. Prior to CIDER 0.17, this defaulted to <code>lein</code>
-but was subsequently switched to <code>clj</code>, Clojure&#8217;s basic startup command.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-You can set <code>cider-allow-jack-in-without-project</code> to <code>t</code> if you&#8217;d like to
-disable the warning displayed when jacking-in outside a project.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -535,6 +582,12 @@ cause problems with complex or nonstandard ssh configs.
 <p>You can safely run <code>cider-jack-in-*</code> while working with remote files over TRAMP. CIDER
 will handle this use-case transparently for you.</p>
 </div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. Yeah, that&#8217;s a "Neuromancer" reference.
 </div>
 </div>
 </article>
