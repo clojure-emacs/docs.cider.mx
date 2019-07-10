@@ -637,19 +637,20 @@ them to your favourite build tool is up to you.
 </li>
 <li>
 <p>Add this to your dev <code>:repl-options</code> (not needed for <code>cider-jack-in-cljs</code>):</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:nrepl-middleware [cider.piggieback/wrap-cljs-repl]</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>+
-. Start the REPL with <code>cider-jack-in-cljs</code> (<kbd>C-c C-x (C-)j (C-)s</kbd>). When CIDER prompts about the ClojureScript REPL type,
-type <code>figwheel-main</code>.
-. Select the Figwheel build to run when prompted for it. (e.g. <code>:dev</code>).</p>
+</li>
+<li>
+<p>Start the REPL with <code>cider-jack-in-cljs</code> (<kbd>C-c C-x (C-)j (C-)s</kbd>). When CIDER prompts about the ClojureScript REPL type,
+type <code>figwheel-main</code>.</p>
+</li>
+<li>
+<p>Select the Figwheel build to run when prompted for it. (e.g. <code>:dev</code>).</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
