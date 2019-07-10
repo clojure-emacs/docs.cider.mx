@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
-    <script>(window.dataLayer=window.dataLayer||[]).push({'gtm.start':+new Date(),event:'gtm.js'})</script>
-    <script async src="https://www.googletagmanager.com/gtm.js?id=UA-140176314-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -55,11 +55,11 @@
     </div>
   </nav>
 </header>
-<div class="main-wrapper">
-<div class="navigation-container" data-component="cider" data-version="master">
-  <aside class="navigation">
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="master">
+  <aside class="nav">
     <div class="panels">
-<div class="navigation-menu is-active" data-panel="menu">
+<div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
     <h3 class="title"><a href="../index.html">CIDER</a></h3>
 <ul class="nav-list">
@@ -69,7 +69,7 @@
     <a class="nav-link" href="../index.html">Home</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Getting Started</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -87,7 +87,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Using CIDER</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -114,7 +114,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Testing</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -129,7 +129,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Debugging</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -147,7 +147,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Configuration</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -171,7 +171,7 @@
     <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Using the REPL</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -204,7 +204,7 @@
     <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../contributing.html">Contributing</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -219,7 +219,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">About</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -250,7 +250,7 @@
 </ul>
   </nav>
 </div>
-<div class="navigation-explore" data-panel="explore">
+<div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">CIDER</span>
     <span class="version">master</span>
@@ -269,21 +269,186 @@
     </div>
   </aside>
 </div>
-  <main class="main">
+<main role="main">
 <div class="toolbar" role="navigation">
-  <button class="navigation-toggle"></button>
+<button class="nav-toggle"></button>
   <a href="../index.html" class="home-link"></a>
-<nav class="crumbs" aria-label="breadcrumbs">
+<nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li class="crumb"><a href="../index.html">CIDER</a></li>
-    <li class="crumb">Configuration</li>
-    <li class="crumb"><a href="indentation.html">Indentation</a></li>
+    <li><a href="../index.html">CIDER</a></li>
+    <li>Configuration</li>
+    <li><a href="indentation.html">Indentation</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/config/indentation.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
 <h1>Indentation</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>CIDER relies on <code>clojure-mode</code> to do the indentation of Clojure code. While <code>clojure-mode</code>
+will generally indent code "the right way" from time to time you might want to teach it
+how to indent certain macros.</p>
+</div>
+<div class="paragraph">
+<p>There are two ways to do this - you can either add some indentation configuration in your Emacs config
+or you can add it to your Clojure code and let CIDER generate the necessary configuration for
+<code>clojure-mode</code> automatically. We&#8217;ll refer to the first approach as "static indentation" and to the second
+one as "dynamic indentation".</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_static_indentation"><a class="anchor" href="#_static_indentation"></a>Static Indentation</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Everything is this section will work as described even if CIDER is not present/active. Static indentation
+doesn&#8217;t require a REPL to work.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>clojure-mode</code> is smart enough to indent most Clojure code correctly out-of-the-box, but it can&#8217;t know
+if something is a macro and its body should be indented different.</p>
+</div>
+<div class="paragraph">
+<p><code>clojure-mode</code> is very flexible when it comes to indentation configuration and here we are going to go over the basics.</p>
+</div>
+<div class="sect2">
+<h3 id="_indentation_modes"><a class="anchor" href="#_indentation_modes"></a>Indentation Modes</h3>
+<div class="paragraph">
+<p>There are few common ways to indent Clojure code and all of them are supported by <code>clojure-mode</code>.</p>
+</div>
+<div class="paragraph">
+<p>The indentation of function forms is configured by the variable
+<code>clojure-indent-style</code>. It takes three possible values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>always-align</code> (the default)</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(some-function
+ 10
+ 1
+ 2)
+(some-function 10
+               1
+               2)</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>always-indent</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(some-function
+  10
+  1
+  2)
+(some-function 10
+  1
+  2)</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>align-arguments</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(some-function
+  10
+  1
+  2)
+(some-function 10
+               1
+               2)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can read more about the indentation options in <code>clojure-mode</code> <a href="https://github.com/clojure-emacs/clojure-mode#indentation-options">here</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_macro_indentation"><a class="anchor" href="#_macro_indentation"></a>Macro Indentation</h3>
+<div class="paragraph">
+<p>As mentioned earlier <code>clojure-mode</code> can&#8217;t know if something in your code is a macro that has to be indented
+differently from a regular function invocation (most likely because the macro takes some forms as parameters).
+In such situation you need to
+teach <code>clojure-mode</code> how to indent the macro in question. Consider this simple example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(defmacro with-in-str
+  "[DOCSTRING]"
+  {:style/indent 1}
+  [s &amp; body]
+  ...cut for brevity...)
+
+;; Target indentation
+(with-in-str str
+  (foo)
+  (bar)
+  (baz))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To get <code>clojure-mode</code> to indent it properly you&#8217;ll need to add the following code to your Emacs config:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(put-clojure-indent 'with-in-str 1)
+
+;; or
+
+(define-clojure-indent
+  (with-in-str 1)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can find more details <a href="https://github.com/clojure-emacs/clojure-mode#indentation-of-macro-forms">here</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_dynamic_indentation"><a class="anchor" href="#_dynamic_indentation"></a>Dynamic Indentation</h2>
 <div class="sectionbody">
@@ -303,7 +468,13 @@ they&#8217;ve written (using an example in core):</p>
   "[DOCSTRING]"
   {:style/indent 1}
   [s &amp; body]
-  ...cut for brevity...)</code></pre>
+  ...cut for brevity...)
+
+;; Target indentation
+(with-in-str str
+  (foo)
+  (bar)
+  (baz))</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -315,7 +486,15 @@ they&#8217;ve written (using an example in core):</p>
   "[DOCSTRING]"
   {:style/indent [1 [[:defn]] :form]}
   [fnspecs &amp; body]
-  ...cut for brevity...)</code></pre>
+  ...cut for brevity...)
+
+;; Target indentation
+(letfn [(six-times [y]
+           (* (twice y) 3))
+        (twice [x]
+           (* x 2))]
+  (println "Twice 15 =" (twice 15))
+  (println "Six times 15 =" (six-times 15)))</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -336,7 +515,7 @@ description of the spec is provided in the
 </div>
 </div>
 </article>
-  </main>
+</main>
 </div>
 <footer class="footer">
   <p>Copyright (C) 2012-2019 <a href="https://metaredux.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>

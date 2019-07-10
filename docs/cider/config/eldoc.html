@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
-    <script>(window.dataLayer=window.dataLayer||[]).push({'gtm.start':+new Date(),event:'gtm.js'})</script>
-    <script async src="https://www.googletagmanager.com/gtm.js?id=UA-140176314-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -55,11 +55,11 @@
     </div>
   </nav>
 </header>
-<div class="main-wrapper">
-<div class="navigation-container" data-component="cider" data-version="master">
-  <aside class="navigation">
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="master">
+  <aside class="nav">
     <div class="panels">
-<div class="navigation-menu is-active" data-panel="menu">
+<div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
     <h3 class="title"><a href="../index.html">CIDER</a></h3>
 <ul class="nav-list">
@@ -69,7 +69,7 @@
     <a class="nav-link" href="../index.html">Home</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Getting Started</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -87,7 +87,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Using CIDER</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -114,7 +114,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Testing</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -129,7 +129,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Debugging</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -147,7 +147,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Configuration</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -171,7 +171,7 @@
     <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Using the REPL</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -204,7 +204,7 @@
     <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../contributing.html">Contributing</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -219,7 +219,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">About</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -250,7 +250,7 @@
 </ul>
   </nav>
 </div>
-<div class="navigation-explore" data-panel="explore">
+<div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">CIDER</span>
     <span class="version">master</span>
@@ -269,15 +269,15 @@
     </div>
   </aside>
 </div>
-  <main class="main">
+<main role="main">
 <div class="toolbar" role="navigation">
-  <button class="navigation-toggle"></button>
+<button class="nav-toggle"></button>
   <a href="../index.html" class="home-link"></a>
-<nav class="crumbs" aria-label="breadcrumbs">
+<nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li class="crumb"><a href="../index.html">CIDER</a></li>
-    <li class="crumb">Configuration</li>
-    <li class="crumb"><a href="eldoc.html">Eldoc</a></li>
+    <li><a href="../index.html">CIDER</a></li>
+    <li>Configuration</li>
+    <li><a href="eldoc.html">Eldoc</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/config/eldoc.adoc">Edit this Page</a></div>
@@ -319,28 +319,29 @@ to do anything to enable it.</p>
 <div class="sect1">
 <h2 id="_configuring_eldoc"><a class="anchor" href="#_configuring_eldoc"></a>Configuring ElDoc</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
+<div class="sect2">
+<h3 id="_displaying_eldoc_for_the_symbol_at_point"><a class="anchor" href="#_displaying_eldoc_for_the_symbol_at_point"></a>Displaying ElDoc for the Symbol at Point</h3>
+<div class="paragraph">
+<p>Typically you&#8217;d see the eldoc for the containing function/macro/special form (with
+respect to your cursor&#8217;s position).</p>
+</div>
+<div class="paragraph">
 <p>CIDER also would show the eldoc for the symbol at point. So in <code>(map inc ...)</code>
 when the cursor is over <code>inc</code> its eldoc would be displayed. You can turn off this
 behaviour by:</p>
-</li>
-</ul>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-eldoc-display-for-symbol-at-point nil)</code></pre>
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
+</div>
+<div class="sect2">
+<h3 id="_dealing_with_long_eldoc"><a class="anchor" href="#_dealing_with_long_eldoc"></a>Dealing with Long ElDoc</h3>
+<div class="paragraph">
 <p>CIDER respects the value of <code>eldoc-echo-area-use-multiline-p</code> when
 displaying documentation in the minibuffer. You can customize this variable to change
 its behaviour.</p>
-</li>
-</ul>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -368,15 +369,14 @@ its behaviour.</p>
 </tr>
 </tbody>
 </table>
-<div class="ulist">
-<ul>
-<li>
+</div>
+<div class="sect2">
+<h3 id="_context_dependent_eldoc"><a class="anchor" href="#_context_dependent_eldoc"></a>Context-dependent ElDoc</h3>
+<div class="paragraph">
 <p>CIDER will try to add expected function arguments based on the current context
 (for example for the <code>datomic.api/q</code> function where it will show the expected
 inputs of the query at point), if the variable <code>cider-eldoc-display-context-dependent-info</code>
 is non-nil:</p>
-</li>
-</ul>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -385,8 +385,9 @@ is non-nil:</p>
 </div>
 </div>
 </div>
+</div>
 </article>
-  </main>
+</main>
 </div>
 <footer class="footer">
   <p>Copyright (C) 2012-2019 <a href="https://metaredux.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>

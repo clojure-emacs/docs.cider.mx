@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
-    <script>(window.dataLayer=window.dataLayer||[]).push({'gtm.start':+new Date(),event:'gtm.js'})</script>
-    <script async src="https://www.googletagmanager.com/gtm.js?id=UA-140176314-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -55,11 +55,11 @@
     </div>
   </nav>
 </header>
-<div class="main-wrapper">
-<div class="navigation-container" data-component="cider" data-version="master">
-  <aside class="navigation">
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="master">
+  <aside class="nav">
     <div class="panels">
-<div class="navigation-menu is-active" data-panel="menu">
+<div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
     <h3 class="title"><a href="../index.html">CIDER</a></h3>
 <ul class="nav-list">
@@ -69,7 +69,7 @@
     <a class="nav-link" href="../index.html">Home</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Getting Started</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -87,7 +87,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Using CIDER</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -114,7 +114,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Testing</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -129,7 +129,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Debugging</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -147,7 +147,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Configuration</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -171,7 +171,7 @@
     <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">Using the REPL</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -204,7 +204,7 @@
     <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../contributing.html">Contributing</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -219,7 +219,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-toggle"></button>
+    <button class="nav-item-toggle"></button>
     <span class="nav-text">About</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -250,7 +250,7 @@
 </ul>
   </nav>
 </div>
-<div class="navigation-explore" data-panel="explore">
+<div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">CIDER</span>
     <span class="version">master</span>
@@ -269,15 +269,15 @@
     </div>
   </aside>
 </div>
-  <main class="main">
+<main role="main">
 <div class="toolbar" role="navigation">
-  <button class="navigation-toggle"></button>
+<button class="nav-toggle"></button>
   <a href="../index.html" class="home-link"></a>
-<nav class="crumbs" aria-label="breadcrumbs">
+<nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li class="crumb"><a href="../index.html">CIDER</a></li>
-    <li class="crumb">Getting Started</li>
-    <li class="crumb"><a href="clojurescript.html">ClojureScript</a></li>
+    <li><a href="../index.html">CIDER</a></li>
+    <li>Getting Started</li>
+    <li><a href="clojurescript.html">ClojureScript</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/basics/clojurescript.adoc">Edit this Page</a></div>
@@ -286,15 +286,26 @@
 <h1>ClojureScript</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
-<p>CIDER works well with ClojureScript, but not all CIDER features are
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+CIDER works well with ClojureScript, but not all CIDER features are
 available in ClojureScript (yet). For instance, the test runner and
-debugger are currently Clojure-only features. Unlike the Clojure
-ecosystem that is dominated by Leiningen and Boot, the ClojureScript
-ecosystem has a number of different choices for REPLs. You&#8217;ll have to
-decide which one you want to run and how you want CIDER to interact
-with it. This chapter describes some of the more common choices
-and the configurations required to get them working.</p>
+debugger are currently Clojure-only features.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Unlike the Clojure ecosystem that is dominated by Leiningen and Boot, the
+ClojureScript ecosystem has a number of different choices for REPLs. You&#8217;ll have
+to decide which one you want to run and how you want CIDER to interact
+with it. This chapter describes some of the more common choices and the
+configurations required to get them working.</p>
 </div>
 </div>
 </div>
@@ -459,9 +470,6 @@ to use.</p>
 </li>
 <li>
 <p>Add this to your ClojureScript code:</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(ns my.cljs.core
@@ -469,8 +477,7 @@ to use.</p>
 (repl/connect "ws://localhost:9001")</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Open a file in your project and type <kbd>M-x</kbd> <code>cider-jack-in-cljs</code>.</p>
 </li>
@@ -490,9 +497,6 @@ documentation lookup, the namespace browser, and macroexpansion).</p>
 <ol class="arabic">
 <li>
 <p>Add this to your dependencies in <code>build.boot</code>:</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">[adzerk/boot-cljs        "X.Y.Z"  :scope "test"]
@@ -519,8 +523,7 @@ documentation lookup, the namespace browser, and macroexpansion).</p>
         (cljs)))</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Type <kbd>M-x</kbd> <code>customize-variable</code> <kbd>RET</kbd> <code>cider-boot-parameters</code>
 and insert <code>dev</code>.</p>
@@ -563,9 +566,6 @@ in the root of your Leiningen project definition.</p>
 </li>
 <li>
 <p>Add these to your dev <code>:dependencies</code>:</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">[cider/piggieback "0.4.1"] ; not needed for cider-jack-in-cljs
@@ -584,20 +584,15 @@ Keep in mind that CIDER does not support versions versions of Piggieback older t
 </tr>
 </table>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Add this to your dev <code>:repl-options</code> (not needed for <code>cider-jack-in-cljs</code>):</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:nrepl-middleware [cider.piggieback/wrap-cljs-repl]</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Start the REPL with <code>cider-jack-in-cljs</code> (<kbd>C-c C-x (C-)j (C-)s</kbd>). Select
 <code>figwheel</code> when prompted for the ClojureScript REPL type.</p>
@@ -634,16 +629,12 @@ them to your favourite build tool is up to you.
 <ol class="arabic">
 <li>
 <p>Add this to your dev <code>:dependencies</code> (not needed for <code>cider-jack-in-cljs</code>):</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">[cider/piggieback "0.4.1"]</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Add this to your dev <code>:repl-options</code> (not needed for <code>cider-jack-in-cljs</code>):</p>
 </li>
@@ -654,16 +645,11 @@ them to your favourite build tool is up to you.
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:nrepl-middleware [cider.piggieback/wrap-cljs-repl]</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Start the REPL with <code>cider-jack-in-cljs</code> (<kbd>C-c C-x (C-)j (C-)s</kbd>). When CIDER prompts about the ClojureScript REPL type,
-type <code>figwheel-main</code>.</p>
-</li>
-<li>
-<p>Select the Figwheel build to run when prompted for it. (e.g. <code>:dev</code>).</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>+
+. Start the REPL with <code>cider-jack-in-cljs</code> (<kbd>C-c C-x (C-)j (C-)s</kbd>). When CIDER prompts about the ClojureScript REPL type,
+type <code>figwheel-main</code>.
+. Select the Figwheel build to run when prompted for it. (e.g. <code>:dev</code>).</p>
 </div>
 </div>
 <div class="sect2">
@@ -716,7 +702,7 @@ Connections</a> for more details.</p>
 </div>
 </div>
 </article>
-  </main>
+</main>
 </div>
 <footer class="footer">
   <p>Copyright (C) 2012-2019 <a href="https://metaredux.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
