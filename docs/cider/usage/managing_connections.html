@@ -293,21 +293,89 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Because connections map one-to-one to REPL buffers, for the purpose of this
+Because nREPL connections map one-to-one to REPL buffers, for the purpose of this
 section we use "REPL" and "connection" interchangeably.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Life&#8217;s easy when you&#8217;re working only on a single project with a single Clojure connection. If you&#8217;re lucky
+enough to be one of those people then you can safely skip reading this section. Its target audience are
+people who have to work simultaneously on multiple projects or have multiple connections opened for the same project.</p>
+</div>
+<div class="paragraph">
+<p>Turns out that it&#8217;s really hard to map reliably operations originating in source buffers (e.g. code evaluation) to the right
+connection buffer, as there are many things you have to take into account:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Is the connection mapped to some project or not?</p>
+</li>
+<li>
+<p>Do you have multiple connections mapped to the same project? (e.g. a Clojure and ClojureScript REPL)</p>
+</li>
+<li>
+<p>Do you have multiple connections of the same type mapped to the same project? (e.g. several Clojure REPLs)</p>
+</li>
+<li>
+<p>What should happen if you try to evaluate code that&#8217;s outside of a project?</p>
+</li>
+<li>
+<p>Where should you dispatch operations originating in <code>.cljc</code> files? To the Clojure REPL? The ClojureScript REPL? To both REPLs?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>CIDER started out without any support for multiple connections and through the years we&#8217;ve had several different ideas on how to support multiple connections:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Originally there was a static dispatch mechanism. You&#8217;d just manually select the active connection from a list of connections and
+all operations would be routed to it. This approach was simple and effective, but required you to constantly keep track of whether
+you&#8217;re using the right connection. This problem was further compounded by the creation of ClojureScript.</p>
+</li>
+<li>
+<p>Eventually we introduced the concept of dynamic dispatch, where we&#8217;d use a combination of the filename extension and the project directory to figure out where to send operations. This approach worked reasonably well, but was problematic when you had multiple connections of the same type for the same project. There was also no logical grouping of related connections.</p>
+</li>
+<li>
+<p>This brings us to the present - today&#8217;s approach to managing multiple connections is an evolution of the dynamic dispatch.
+Related connections are grouped together in sessions, which are tied to some context (typically a project directory). If some
+operation dispatch is ambigous it will fail with an error message. You can manually link buffers, files and directories
+to sessions in such situations.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the following sections we&#8217;ll go over the basic terminology with respect to connection management, and we&#8217;ll cover
+the typical scenarios you&#8217;d normally have to deal with. The topic might seem a bit intimidating, but it&#8217;s actually
+fairly straightforward once you get to know the terminology and wrap your head around the basic idea.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_sessions"><a class="anchor" href="#_sessions"></a>Sessions</h2>
 <div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+In the context of this section "session" stands for a group of nREPL connections. That should not be
+confused with nREPL&#8217;s own notion of a session (each nREPL connection can be segregated into multiple sessions).
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>CIDER maintains a grouped view of opened nREPL connections through <a href="https://github.com/vspinu/sesman">Sesman</a>
 sessions. Each session is a collection of connections which share the same nREPL
-server.</p>
+server. You can, however, have multiple sessions sharing the same nREPL server (although you&#8217;re unlikely to
+ever need this).</p>
 </div>
 <div class="paragraph">
 <p>Start new sessions with</p>
@@ -384,67 +452,6 @@ server.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_context_links"><a class="anchor" href="#_context_links"></a>Context Links</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Sessions can be linked to contexts (projects, directories and buffers)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><kbd>C-c C-s b</kbd> <code>sesman-link-with-buffer</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s d</kbd> <code>sesman-link-with-directory</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s p</kbd> <code>sesman-link-with-project</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s u</kbd> <code>sesman-unlink</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_friendly_sessions"><a class="anchor" href="#_friendly_sessions"></a>Friendly Sessions</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://github.com/vspinu/sesman">Sesman</a> defines "friendly" session to allow for on-the-fly operation on
-sessions from contexts where there are no explicit links. In CIDER friendly
-sessions are defined by the project dependencies. For example when you use
-<code>cider-find-var</code> (<kbd>M-.</kbd>) to navigate to a var definition in a
-dependency project the current project&#8217;s session becomes a friendly session for
-the dependency.</p>
-</div>
-<div class="paragraph">
-<p>When you evaluate some code from a dependency project and there are no explicit
-links in that project, the most recent friendly session is used to evaluate the
-code. Explicitly linked sessions have precedence over the friendly sessions.</p>
-</div>
-<div class="paragraph">
-<p>You can disable friendly session inference by customizing
-<code>sesman-use-friendly-sessions</code>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_displaying_session_info"><a class="anchor" href="#_displaying_session_info"></a>Displaying Session Info</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Get info on all linked and friendly sessions in the current context with
-<kbd>C-c C-s i</kbd> (<code>sesman-info</code>). On <kbd>C-u</kbd>, display info on all
-CIDER sessions. For the connection specific information use CIDER&#8217;s built-in
-<code>cider-describe-connection</code> (<kbd>C-c M-d</kbd>).</p>
-</div>
-<div class="paragraph">
-<p>An interactive view of all CIDER sessions is available through the
-<code>sesman-browser</code> (<kbd>C-c C-s w</kbd>).</p>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="_current_session"><a class="anchor" href="#_current_session"></a>Current Session</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -493,6 +500,80 @@ from.</p>
 <p>The single prefix <kbd>C-u C-c C-z</kbd>, will switch to the current REPL buffer
 and set the namespace in that buffer based on namespace in the current
 Clojure(Script) buffer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_context_links"><a class="anchor" href="#_context_links"></a>Context Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sessions can be linked to contexts (projects, directories and buffers)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><kbd>C-c C-s b</kbd> <code>sesman-link-with-buffer</code></p>
+</li>
+<li>
+<p><kbd>C-c C-s d</kbd> <code>sesman-link-with-directory</code></p>
+</li>
+<li>
+<p><kbd>C-c C-s p</kbd> <code>sesman-link-with-project</code></p>
+</li>
+<li>
+<p><kbd>C-c C-s u</kbd> <code>sesman-unlink</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Typically you&#8217;ll want to invoke those commands in file buffers and occasionally is some special buffers (e.g. a scratch buffer). You should never run
+them in a REPL buffer, as a REPL is an integral part of a session.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_friendly_sessions"><a class="anchor" href="#_friendly_sessions"></a>Friendly Sessions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/vspinu/sesman">Sesman</a> defines "friendly" session to allow for on-the-fly operation on
+sessions from contexts where there are no explicit links. In CIDER friendly
+sessions are defined by the project dependencies. For example when you use
+<code>cider-find-var</code> (<kbd>M-.</kbd>) to navigate to a var definition in a
+dependency project the current project&#8217;s session becomes a friendly session for
+the dependency.</p>
+</div>
+<div class="paragraph">
+<p>When you evaluate some code from a dependency project and there are no explicit
+links in that project, the most recent friendly session is used to evaluate the
+code. Explicitly linked sessions have precedence over the friendly sessions.</p>
+</div>
+<div class="paragraph">
+<p>You can disable friendly session inference by customizing
+<code>sesman-use-friendly-sessions</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_displaying_session_info"><a class="anchor" href="#_displaying_session_info"></a>Displaying Session Info</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Get info on all linked and friendly sessions in the current context with
+<kbd>C-c C-s i</kbd> (<code>sesman-info</code>). On <kbd>C-u</kbd>, display info on all
+CIDER sessions. For the connection specific information use CIDER&#8217;s built-in
+<code>cider-describe-connection</code> (<kbd>C-c M-d</kbd>).</p>
+</div>
+<div class="paragraph">
+<p>An interactive view of all CIDER sessions is available through the
+<code>sesman-browser</code> (<kbd>C-c C-s w</kbd>).</p>
 </div>
 </div>
 </div>
