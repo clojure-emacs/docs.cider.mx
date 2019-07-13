@@ -94,7 +94,7 @@
     <a class="nav-link" href="interactive_programming.html">Interactive Programming</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cider_mode.html">cider-mode</a>
+    <a class="nav-link" href="cider_mode.html">Using cider-mode</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="managing_connections.html">Managing Connections</a>
@@ -309,11 +309,11 @@ following possible values:</p>
 <ul>
 <li>
 <p><code>nil</code> to defer to nREPL to choose the printing function. This will use the
-bound value of <code>nrepl.middleware.print/<strong>print-fn</strong></code>, which defaults to the
+bound value of <code>nrepl.middleware.print/*print-fn*</code>, which defaults to the
 equivalent of <code>clojure.core/pr</code>.</p>
 </li>
 <li>
-<p><code>pr</code> to use the equivalent of \=<code>clojure.core/pr\\=</code>.</p>
+<p><code>pr</code> to use the equivalent of <code>clojure.core/pr</code>.</p>
 </li>
 <li>
 <p><code>pprint</code> to use the built-in <code>clojure.pprint/pprint</code> (this is the default).</p>
@@ -376,8 +376,8 @@ halt them.</p>
 </div>
 <div class="paragraph">
 <p>Your configured printing function might also support limiting the length and
-depth of printed objects&#8201;&#8212;&#8201;either using <code>clojure.core/<strong>print-length</strong></code> and
-<code>clojure.core/<strong>print-level</strong></code> or in the provided <a href="#print-options">options map</a>.</p>
+depth of printed objects&#8201;&#8212;&#8201;either using <code>clojure.core/*print-length*</code> and
+<code>clojure.core/*print-level*</code> or in the provided <a href="#print-options">options map</a>.</p>
 </div>
 </div>
 </div>
@@ -452,7 +452,7 @@ respective documentation of each engine:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>clojure.core/pr</code>: <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/" class="bare">https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/</a><em>print-dup</em></p>
+<p><code>clojure.core/pr</code>: <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/*print-dup*" class="bare">https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/*print-dup*</a></p>
 </li>
 <li>
 <p><code>clojure.pprint</code>: <a href="https://clojuredocs.org/clojure.pprint/write" class="bare">https://clojuredocs.org/clojure.pprint/write</a></p>
