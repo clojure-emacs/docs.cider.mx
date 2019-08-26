@@ -283,7 +283,7 @@
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/basics/up_and_running.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1>Up and Running</h1>
+<h1 class="page">Up and Running</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -523,6 +523,13 @@ usually task names and their parameters (e.g., <code>dev</code> for launching
 boot&#8217;s dev task instead of the standard <code>repl -s wait</code>).</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>To use <code>cider-jack-in</code> with <code>tools.deps</code> on Windows set the
+<code>cider-clojure-cli-command</code> to <code>"powershell"</code>. This happens by default
+if you are on Windows and no <code>clojure</code> executable is found. Using
+<code>"powershell"</code> will Base64 encode the clojure launch command before
+passing it to PowerShell and avoids shell-escaping issues.</p>
 </div>
 </div>
 </div>

@@ -282,7 +282,7 @@
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/troubleshooting.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1>Troubleshooting</h1>
+<h1 class="page">Troubleshooting</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -461,17 +461,21 @@ least what&#8217;s being required).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_warning_saying_you_have_to_use_nrepl_0_4_4"><a class="anchor" href="#_warning_saying_you_have_to_use_nrepl_0_4_4"></a>Warning saying you have to use nREPL 0.4.4+</h3>
+<h3 id="_warning_saying_you_have_to_use_newer_nrepl"><a class="anchor" href="#_warning_saying_you_have_to_use_newer_nrepl"></a>Warning saying you have to use newer nREPL</h3>
 <div class="paragraph">
-<p>CIDER currently requires at least nREPL 0.4.4 to work properly (there were some
-nasty bugs in older version and no support for tracking where some var was
-defined in the source code). Leiningen users can add this to their
-<code>profiles.clj</code> to force the proper dependency:</p>
+<p>CIDER currently requires at least nREPL 0.6 to work properly. As nREPL comes
+bundled with Leiningen and Boot, from time to time you might have to override the
+version supplied by them (e.g. if you&#8217;re forced to use an older version of
+Leiningen or there&#8217;s no release bundling the required nREPL version yet). Leiningen
+users can add this to their <code>profiles.clj</code> to force the proper dependency:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:dependencies [[nrepl/nrepl "x.y.z"]]}}</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>The procedure is pretty similar for Boot.</p>
 </div>
 <div class="admonitionblock important">
 <table>

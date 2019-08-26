@@ -283,7 +283,7 @@
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/about/history.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1>History</h1>
+<h1 class="page">History</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="quoteblock">
@@ -302,14 +302,14 @@ provide a common tool-agnostic foundation for Clojure development tools.</p>
 who hacked a prototype of an nREPL client in Emacs Lisp on a flight to
 San Francisco.  He got a bit stuck on the socket-based bencode
 functionality and dropped it after the flight, but not before pushing
-the code out and mentioning it on the <a href="http://groups.google.com/group/clojure/browse_thread/thread/2bd91de7dca55ca4">Clojure mailing list</a>.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+the code out and mentioning it on the <a href="http://groups.google.com/group/clojure/browse_thread/thread/2bd91de7dca55ca4">Clojure mailing list</a>.</p>
 </div>
 <div class="paragraph">
 <p>Fortunately Tim King picked it back up, and it quickly became a respectable competitor to SLIME.
-The project evolved at rapid pace and eventually superseded SLIME in August 2012. Unfortunately in early 2013
-Tim ran out of time for <code>nrepl.el</code> and after a period of stagnation, eventually handed it over to Bozhidar, who has been the steward
+The project evolved at rapid pace and eventually superseded SLIME in August 2012.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
+Unfortunately in early 2013 Tim ran out of time for <code>nrepl.el</code> and after a period of stagnation, eventually handed it over to Bozhidar, who has been the steward
 ever since. Bozhidar renamed <code>nrepl.el</code> to CIDER in version 0.3 to avoid the common case of confusion between
-the nREPL server and the nrepl package for Emacs.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
+the nREPL server and the <code>nrepl</code> package for Emacs.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>Eventually CIDER became one of the most popular development environments in the Clojure community and it spawned many
@@ -345,6 +345,27 @@ that serves as inspiration for many others.</p>
 </li>
 <li>
 <p>28 Oct 2013 - Bozhidar renames nrepl.el to CIDER and releases version 0.3.</p>
+</li>
+<li>
+<p>05 Aug 2014 - CIDER 0.7 leverages <code>cider-nrepl</code> for most of its functionality.</p>
+</li>
+<li>
+<p>16 Jun 2015 - CIDER 0.9 introduces its interactive debugger.</p>
+</li>
+<li>
+<p>03 Mar 2016 - CIDER 0.11 starts auto-injecting its dependencies on <code>cider-jack-in</code>.</p>
+</li>
+<li>
+<p>02 Sep 2018 - CIDER 0.18 introduces new connection management based on <code>sesman</code>.</p>
+</li>
+<li>
+<p>Spring 2018 - Bozhidar assumes the maintenance of nREPL.</p>
+</li>
+<li>
+<p>04 May 2018 - Orchard 0.1 is released.</p>
+</li>
+<li>
+<p>19 Feb 2019 - CIDER 0.21 becomes the first editor to support nREPL 0.6 streamed values and improved pretty-printing.</p>
 </li>
 </ul>
 </div>
