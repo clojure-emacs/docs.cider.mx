@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Miscellaneous Features :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/usage/misc_features.html">
-    <meta name="generator" content="Antora 2.0.0">
+    <meta name="generator" content="Antora 2.0.1">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
@@ -349,12 +349,12 @@ and there are no temporary definitions hanging around.</p>
 classpath.</p>
 </div>
 <div class="paragraph">
-<p>Adding a prefix argument, <kbd>C-u C-c M-n n</kbd>, will reload all
+<p>Adding a prefix argument, <kbd>C-u C-c M-n r</kbd>, will reload all
 the namespaces on the classpath unconditionally, regardless of their
 modification status.</p>
 </div>
 <div class="paragraph">
-<p>Adding a double prefix argument, <kbd>C-u C-u M-n n</kbd>, will first
+<p>Adding a double prefix argument, <kbd>C-u C-u M-n r</kbd>, will first
 clear the state of the namespace tracker before reloading. This is
 useful for recovering from some classes of error that normal reloads
 would otherwise not recover from. A good example is circular
