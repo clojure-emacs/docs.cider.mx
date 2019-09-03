@@ -8,7 +8,7 @@ content:
   sources:
   - url: https://github.com/clojure-emacs/cider.git
     branches: ['master']
-    tags: ~
+    tags: ['v0.22.0']
     start_path: doc
 asciidoc:
   attributes:
