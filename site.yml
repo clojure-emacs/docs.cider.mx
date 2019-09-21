@@ -10,6 +10,9 @@ content:
     branches: ['master']
     tags: ['v0.22.0']
     start_path: doc
+  - url: https://github.com/clojure-emacs/cider-nrepl.git
+    branches: master
+    start_path: doc
 asciidoc:
   attributes:
     linkattrs: ''
