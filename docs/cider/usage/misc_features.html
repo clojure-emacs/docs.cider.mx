@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Miscellaneous Features :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/usage/misc_features.html">
-    <meta name="generator" content="Antora 2.0.1">
+    <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
@@ -267,6 +267,14 @@
         </li>
       </ul>
     </li>
+    <li class="component">
+      <span class="title">CIDER nREPL</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../cider-nrepl/index.html">master</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </div>
     </div>
@@ -435,6 +443,100 @@ for a bit more forceful reloading the <code>cider-ns-reload</code>
 and <code>cider-ns-reload-all</code> commands can be used instead. These commands
 invoke Clojure&#8217;s <code>(require ... :reload)</code> and <code>(require
 ... :reload-all)</code> commands at the REPL.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cider_selector"><a class="anchor" href="#_cider_selector"></a>CIDER Selector</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>cider-selector</code> (<kbd>C-c M-s</kbd>) command allows you to quickly navigate to
+important buffers in the context of a Clojure project - e.g. the REPL, the
+stacktrace buffer, the doc buffer, the most recently visited Clojure file, etc.
+The usage of the command is extremely simple - after invoking you need to type a
+single key identifying the target buffer (e.g. <code>r</code> for the REPL).</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s a list of all of `cider-selectors&#8217;s keybindings:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Keyboard shortcut</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Most recently visited Clojure buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Most recently visited Emacs Lisp buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Current REPL buffer or most recently visited REPL buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>m</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*nrepl-messages*</code> buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>x</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*cider-error*</code> buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*cider-doc*</code> buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*cider-profiler*</code> buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*cider-scratch*</code> buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>q</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abort.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>h</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show help.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Any of those keys can be prefixed with a <code>4</code> to make the target buffer open in a
+different window (as opposed to the current one).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can easily extend the selector with new commands using <code>def-cider-selector-method</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(def-cider-selector-method ?z
+  "CIDER foo buffer."
+  cider-foo-buffer)</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -655,6 +757,7 @@ docsearch({
   apiKey: '1f3d78fd63fcb687dcc1312aab02a2de',
   indexName: 'cider',
   inputSelector: '#search-input',
+  algoliaOptions: { 'facetFilters': ["version:0.22.0"] },
   debug: false // Set debug to true if you want to inspect the dropdown
 });
 </script>

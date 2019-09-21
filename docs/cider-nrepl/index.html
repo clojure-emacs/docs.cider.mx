@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CIDER nREPL :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/index.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="stylesheet" href="../_/css/site-extra.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://cider.mx">CIDER</a>
+        <span class="separator">//</span>
+        <a href="https://docs.cider.mx">Docs</a>
+      </div>
+      <div class="navbar-item">
+        <input id="search-input" type="text" placeholder="Search docs">
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider">CIDER</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider-nrepl">CIDER nREPL</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/orchard">Orchard</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Community</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/cider/about/support.html">Support</a>
+            <a class="navbar-item" href="/cider/contributing.html">Contributing</a>
+            <a class="navbar-item" href="https://opencollective.com/cider">Open Collective</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cider-nrepl" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">CIDER nREPL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="usage.html">Usage</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#">internals.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">nREPL API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="nrepl-api/supplied_ops.html">Supplied Ops</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">Hacking on CIDER nREPL</span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text">About</span>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CIDER nREPL</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">CIDER</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../cider/index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../cider/0.22.0/index.html">0.22.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">CIDER nREPL</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../cider/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">CIDER nREPL</a></li>
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider-nrepl/edit/master/doc/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">CIDER nREPL</h1>
+<div class="sect1">
+<h2 id="_design"><a class="anchor" href="#_design"></a>Design</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section documents some of the major design decisions in cider-nrepl.</p>
+</div>
+<div class="paragraph">
+<p>While in essence it&#8217;s just a collection of nREPL middleware we had to
+make a few important design decision here and there that influenced
+the code base and the usability of cider-nrepl in various ways.</p>
+</div>
+<div class="sect2">
+<h3 id="_editor_agnostic"><a class="anchor" href="#_editor_agnostic"></a>Editor Agnostic</h3>
+<div class="paragraph">
+<p>Although those middlewares were created for use with CIDER almost all
+of them are extremely generic and can be leveraged from other editors.</p>
+</div>
+<div class="paragraph">
+<p>Projects like <a href="https://github.com/tpope/vim-fireplace">vim-fireplace</a> and <a href="https://github.com/SevereOverfl0w/vim-replant">vim-replant</a> are making use of
+cider-nrepl already.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_isolated_runtime_dependencies"><a class="anchor" href="#_isolated_runtime_dependencies"></a>Isolated Runtime Dependencies</h3>
+<div class="paragraph">
+<p>All of cider-nrepl&#8217;s dependencies are processed with
+<a href="https://github.com/benedekfazekas/mranderson">mranderson</a>, so that
+they won&#8217;t collide with the dependencies of your own projects. This
+basically means that cider-nrepl doesn&#8217;t have any runtime dependencies in
+the production artifact - just copies of the deps inlined with changed
+namespaces/packages. It&#8217;s a bit ugly and painful, but it gets the job
+done.</p>
+</div>
+<div class="paragraph">
+<p>If someone has better ideas how to isolate our runtime dependencies -
+we&#8217;re all ears!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deferred_middleware_loading"><a class="anchor" href="#_deferred_middleware_loading"></a>Deferred Middleware Loading</h3>
+<div class="paragraph">
+<p>To improve the startup time of the nREPL server all of cider-nrepl&#8217;s
+middlewares are loaded for real only when needed.</p>
+</div>
+<div class="paragraph">
+<p>You can read more about this
+<a href="https://github.com/clojure-emacs/cider-nrepl/pull/438">here</a>.</p>
+</div>
+<div class="paragraph">
+<p>We&#8217;d love to bring the support for deferred middleware loading
+straight to nREPL down the road.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_middleware_errors_never_hang_requests"><a class="anchor" href="#_middleware_errors_never_hang_requests"></a>Middleware Errors Never Hang Requests</h3>
+<div class="paragraph">
+<p>See <a href="https://github.com/clojure-emacs/cider-nrepl/pull/327">here</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reusable_core_logic"><a class="anchor" href="#_reusable_core_logic"></a>Reusable Core Logic</h3>
+<div class="paragraph">
+<p>cider-nrepl tries to have as little logic as possible and mostly
+provides thin wrappers over existing libraries (e.g. <a href="https://github.com/alexander-yakushev/compliment">compliment</a>,
+<a href="https://github.com/weavejester/cljfmt">cljfmt</a>, etc). Much of its core functionality lives in
+<a href="https://github.com/clojure-emacs/orchard">orchard</a>, so that
+eventually it can be used by non-nREPL clients (e.g. Socket REPL
+clients).</p>
+</div>
+<div class="paragraph">
+<p>Very simply put - there&#8217;s very little code in cider-nrepl that&#8217;s not
+simply wrapping code from other libraries in nREPL operations.</p>
+</div>
+<div class="paragraph">
+<p>The primary reason for this is our desire to eventually provide
+support for non-nREPL REPLs in CIDER, but this also means that other
+editors can directly leverage the work we&#8217;ve done so far.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clojurescript_support"><a class="anchor" href="#_clojurescript_support"></a>ClojureScript Support</h3>
+<div class="paragraph">
+<p>We want cider-nrepl to offer feature parity between Clojure and
+ClojureScript, but we&#8217;re not quite there yet and many features right
+now are Clojure-only.</p>
+</div>
+<div class="paragraph">
+<p>We&#8217;d really appreciate all the help we can get from ClojureScript
+hackers to make this a reality.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2012-2019 <a href="https://metaredux.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: '1f3d78fd63fcb687dcc1312aab02a2de',
+  indexName: 'cider',
+  inputSelector: '#search-input',
+  algoliaOptions: { 'facetFilters': ["version:0.22.0"] },
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
