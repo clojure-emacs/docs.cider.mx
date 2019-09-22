@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>CIDER nREPL :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/index.html">
+    <title>Hacking on cider-nrepl :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/hacking.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
@@ -65,7 +65,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="index.html">Home</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -83,7 +83,7 @@
   </li>
 </ul>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="hacking.html">Hacking on CIDER nREPL</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -131,160 +131,106 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">CIDER nREPL</a></li>
-    <li><a href="index.html">Home</a></li>
+    <li><a href="hacking.html">Hacking on CIDER nREPL</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider-nrepl/edit/master/doc/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider-nrepl/edit/master/doc/modules/ROOT/pages/hacking.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1 class="page">CIDER nREPL</h1>
-<div class="sect1">
-<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<h1 class="page">Hacking on cider-nrepl</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>cider-nrepl</code> aims to extent the base functionality of an nREPL server to cater
-to the needs of Clojure(Script) programming environments. It provides nREPL ops for common
-operations like:</p>
+<p>Hacking on cider-nrepl requires nothing bit a bit of knowledge of Clojure and nREPL.
+In this section we&#8217;ll take a look at some practical tips to make you more productive
+while working on the project.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_makefile"><a class="anchor" href="#_makefile"></a>Makefile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>cider-nrepl has some pretty complicated Lein profiles, as it has to deal with multiple version of
+Clojure and ClojureScript, plus dependency inlining with Mr. Anderson. That&#8217;s why we&#8217;ve
+added a good old <code>Makefile</code> to save you the trouble of having to think about the profiles
+and just focus on the tasks at hand.</p>
+</div>
+<div class="paragraph">
+<p>Obviously you can still work with Lein directly, but you won&#8217;t have to do this most of the time.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing_your_changes"><a class="anchor" href="#_testing_your_changes"></a>Testing your changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You&#8217;ve got several options for doing this:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>code completion</p>
+<p>Installing a snapshot of your work recently and doing tests against it (e.g. with <code>make install</code>).</p>
 </li>
 <li>
-<p>source and documentation lookup</p>
+<p>Relying solely on the unit tests. You better write good unit tests, though!</p>
 </li>
 <li>
-<p>profiling</p>
+<p>Spinning new versions of nREPL from the REPL, and connecting some client to them to test your changes.</p>
 </li>
 <li>
-<p>debugging</p>
-</li>
-<li>
-<p>code reloading</p>
-</li>
-<li>
-<p>find references</p>
-</li>
-<li>
-<p>running tests</p>
-</li>
-<li>
-<p>filtering stacktraces</p>
+<p>If you&#8217;re already using a client that depends on cider-nrepl (e.g. CIDER) making changes to the cider-nrepl
+code will normally result in those changes becoming immediately available to your client.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>The ultimate goal of <code>cider-nrepl</code> is to provide a solid foundation for nREPL clients,
-so they don&#8217;t have to reinvent the wheel all the time.</p>
-</div>
-<div class="paragraph">
-<p>Despite its name, <code>cider-nrepl</code> is editor-agnostic and is leveraged by several other
-Clojure editors, besides CIDER (e.g. <code>vim-fireplace</code>, <code>iced-vim</code>, Calva, CCW).
-While the project is officially a part of CIDER, its development is a joint
-venture between all interested tool authors.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_design"><a class="anchor" href="#_design"></a>Design</h2>
+<h2 id="_running_the_tests"><a class="anchor" href="#_running_the_tests"></a>Running the tests</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section documents some of the major design decisions in cider-nrepl.</p>
+<p>Just do:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ make test</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>While in essence it&#8217;s just a collection of nREPL middleware we had to
-make a few important design decision here and there that influenced
-the code base and the usability of cider-nrepl in various ways.</p>
+<p>That&#8217;s going to handle the dependency inlining behind the scenes.
+By default the tests are going to be run against the most recent
+Clojure version that&#8217;s supported.</p>
 </div>
-<div class="sect2">
-<h3 id="_repl_powered"><a class="anchor" href="#_repl_powered"></a>REPL-powered</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_linting"><a class="anchor" href="#_linting"></a>Linting</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>All of the middleware that are currently part of <code>cider-nrepl</code> are relying on
-REPL state introspection to perform their work. While we might leverage
-static code analysis down the road for some tasks, <code>cider-nrepl</code> will always
-be a REPL-first tool.</p>
+<p>cider-nrepl uses eastwood and cljfmt. Make sure your changes conform to the project&#8217;s baseline by doing:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ make eastwood
+$ make cljfmt</pre>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_editor_agnostic"><a class="anchor" href="#_editor_agnostic"></a>Editor Agnostic</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploying"><a class="anchor" href="#_deploying"></a>Deploying</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Although those middlewares were created for use with CIDER almost all
-of them are extremely generic and can be leveraged from other editors.</p>
+<p>Just do:</p>
 </div>
-<div class="paragraph">
-<p>Projects like <a href="https://github.com/tpope/vim-fireplace">vim-fireplace</a> and <a href="https://github.com/SevereOverfl0w/vim-replant">vim-replant</a> are making use of
-cider-nrepl already.</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ make deploy</pre>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_reusable_core_logic"><a class="anchor" href="#_reusable_core_logic"></a>Reusable Core Logic</h3>
-<div class="paragraph">
-<p>cider-nrepl tries to have as little logic as possible and mostly
-provides thin wrappers over existing libraries (e.g. <a href="https://github.com/alexander-yakushev/compliment">compliment</a>,
-<a href="https://github.com/weavejester/cljfmt">cljfmt</a>, etc). Much of its core functionality lives in
-<a href="https://github.com/clojure-emacs/orchard">orchard</a>, so that
-eventually it can be used by non-nREPL clients (e.g. Socket REPL
-clients).</p>
 </div>
 <div class="paragraph">
-<p>Very simply put - there&#8217;s very little code in cider-nrepl that&#8217;s not
-simply wrapping code from other libraries in nREPL operations.</p>
-</div>
-<div class="paragraph">
-<p>The primary reason for this is our desire to eventually provide
-support for non-nREPL REPLs in CIDER, but this also means that other
-editors can directly leverage the work we&#8217;ve done so far.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_clojurescript_support"><a class="anchor" href="#_clojurescript_support"></a>ClojureScript Support</h3>
-<div class="paragraph">
-<p>We want cider-nrepl to offer feature parity between Clojure and
-ClojureScript, but we&#8217;re not quite there yet and many features right
-now are Clojure-only.</p>
-</div>
-<div class="paragraph">
-<p>We&#8217;d really appreciate all the help we can get from ClojureScript
-hackers to make this a reality.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_isolated_runtime_dependencies"><a class="anchor" href="#_isolated_runtime_dependencies"></a>Isolated Runtime Dependencies</h3>
-<div class="paragraph">
-<p>All of cider-nrepl&#8217;s dependencies are processed with
-<a href="https://github.com/benedekfazekas/mranderson">mranderson</a>, so that
-they won&#8217;t collide with the dependencies of your own projects. This
-basically means that cider-nrepl doesn&#8217;t have any runtime dependencies in
-the production artifact - just copies of the deps inlined with changed
-namespaces/packages. It&#8217;s a bit ugly and painful, but it gets the job
-done.</p>
-</div>
-<div class="paragraph">
-<p>If someone has better ideas how to isolate our runtime dependencies -
-we&#8217;re all ears!</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_deferred_middleware_loading"><a class="anchor" href="#_deferred_middleware_loading"></a>Deferred Middleware Loading</h3>
-<div class="paragraph">
-<p>To improve the startup time of the nREPL server all of cider-nrepl&#8217;s
-middlewares are loaded for real only when needed.</p>
-</div>
-<div class="paragraph">
-<p>You can read more about this
-<a href="https://github.com/clojure-emacs/cider-nrepl/pull/438">here</a>.</p>
-</div>
-<div class="paragraph">
-<p>We&#8217;d love to bring the support for deferred middleware loading
-straight to nREPL down the road.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_middleware_errors_never_hang_requests"><a class="anchor" href="#_middleware_errors_never_hang_requests"></a>Middleware Errors Never Hang Requests</h3>
-<div class="paragraph">
-<p>See <a href="https://github.com/clojure-emacs/cider-nrepl/pull/327">here</a>.</p>
-</div>
+<p>This is going to handle the dependency inlining behind the scenes.</p>
 </div>
 </div>
 </div>

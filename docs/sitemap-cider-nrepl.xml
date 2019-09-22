@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://docs.cider.mx/cider-nrepl/faq.html</loc>
+<lastmod>2019-09-22T11:33:10.100Z</lastmod>
+</url>
+<url>
+<loc>https://docs.cider.mx/cider-nrepl/hacking.html</loc>
+<lastmod>2019-09-22T11:33:10.100Z</lastmod>
+</url>
+<url>
 <loc>https://docs.cider.mx/cider-nrepl/index.html</loc>
-<lastmod>2019-09-21T11:22:11.739Z</lastmod>
+<lastmod>2019-09-22T11:33:10.100Z</lastmod>
+</url>
+<url>
+<loc>https://docs.cider.mx/cider-nrepl/internals.html</loc>
+<lastmod>2019-09-22T11:33:10.100Z</lastmod>
 </url>
 <url>
 <loc>https://docs.cider.mx/cider-nrepl/nrepl-api/supplied_ops.html</loc>
-<lastmod>2019-09-21T11:22:11.739Z</lastmod>
+<lastmod>2019-09-22T11:33:10.100Z</lastmod>
 </url>
 <url>
 <loc>https://docs.cider.mx/cider-nrepl/usage.html</loc>
-<lastmod>2019-09-21T11:22:11.739Z</lastmod>
+<lastmod>2019-09-22T11:33:10.100Z</lastmod>
 </url>
 </urlset>

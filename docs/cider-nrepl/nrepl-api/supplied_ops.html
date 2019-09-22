@@ -72,7 +72,7 @@
     <a class="nav-link" href="../usage.html">Usage</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="#">internals.adoc</a>
+    <a class="nav-link" href="../internals.html">Understanding the Internals</a>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -84,10 +84,10 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text">Hacking on CIDER nREPL</span>
+    <a class="nav-link" href="../hacking.html">Hacking on CIDER nREPL</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text">About</span>
+    <a class="nav-link" href="../faq.html">FAQ</a>
   </li>
 </ul>
   </li>
@@ -141,13 +141,17 @@
 <h1 class="page">Supplied nREPL middleware</h1>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Middleware</th>
+<th class="tableblock halign-left valign-top">Version Added</th>
+<th class="tableblock halign-left valign-top">Supports ClojureScript</th>
 <th class="tableblock halign-left valign-top">Op(s)</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
@@ -155,106 +159,148 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-apropos</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>apropos</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pattern search for symbols and documentation.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-classpath</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>classpath</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Java classpath.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-clojuredocs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.22.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>clojuredocs-lookup/clojuredocs-refresh-cache</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Look up ClojureDocs.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-complete</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>complete</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Simple completion. Supports both Clojure &amp; ClojureScript.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code completion.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-debug</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>init-debugger/debug-input</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Establish a channel for <code>cider-debug</code> commands, use it to get debug input, and also wrap the eval op.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-format</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>format-(code/edn)</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Code and data formatting.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-info</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>info/eldoc</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">File/line, arglists, docstrings and other metadata for vars.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-inspect</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>inspect-(start/refresh/pop/push/reset/get-path)</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inspect a Clojure expression.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-macroexpand</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>macroexpand/macroexpand-1/macroexpand-all/macroexpand-step</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Macroexpand a Clojure form.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ns-list/ns-vars/ns-path/ns-load-all/ns-aliases</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Namespace browsing &amp; loading.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-spec</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec-list/spec-form/spec-example</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Spec browsing.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-profile</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>toggle-profile/toggle-profile-ns/is-var-profiled/profile-summary/profile-var-summary/clear-profile/get-max-samples/set-max-samples</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provides profiling support based on the <a href="https://github.com/thunknyc/profile">profile</a> library.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-refresh</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>refresh/refresh-all/refresh-clear</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Code reloading.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-resource</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>resource</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Return resource path.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-stacktrace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>stacktrace</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cause and stacktrace analysis for exceptions.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-test</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>test-var-query/retest/test-stacktrace</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Test execution, reporting, and inspection.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-trace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>toggle-trace-var</code>/<code>toggle-trace-ns</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Toggle tracing of a given var or ns.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-out</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>out-subscribe</code>/<code>out-unsubscribe</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Echo the server&#8217;s output stream to client sessions.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-undef</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>undef</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Undefine a var.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-version</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-version</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The CIDER-nREPL version map.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-xref</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>fn-refs</code>/<code>fn-deps</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Function references and dependencies (other functions).</p></td>
 </tr>
