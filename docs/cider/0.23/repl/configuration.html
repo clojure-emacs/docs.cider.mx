@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>REPL Configuration :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/repl/configuration.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://cider.mx">CIDER</a>
+        <span class="separator">//</span>
+        <a href="https://docs.cider.mx">Docs</a>
+      </div>
+      <div class="navbar-item">
+        <input id="search-input" type="text" placeholder="Search docs">
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider">CIDER</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider-nrepl">CIDER nREPL</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/orchard">Orchard</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Community</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/cider/about/support.html">Support</a>
+            <a class="navbar-item" href="/cider/contributing.html">Contributing</a>
+            <a class="navbar-item" href="https://opencollective.com/cider">Open Collective</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="0.23">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">CIDER</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/installation.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/middleware_setup.html">nREPL Middleware Setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/clojurescript.html">ClojureScript</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using CIDER</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/interactive_programming.html">Interactive Programming</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/cider_mode.html">Using cider-mode</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/managing_connections.html">Managing Connections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_completion.html">Code Completion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/pretty_printing.html">Pretty Printing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/navigating_stacktraces.html">Navigating Stacktraces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/misc_features.html">Misc Features</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/running_tests.html">Running Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/test_reports.html">Test Reports</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/supported_libraries.html">Supported Libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Debugging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/misc.html">Misc</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Configuration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/syntax_highlighting.html">Syntax Highlighting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/indentation.html">Indentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/misc.html">Misc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using the REPL</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="basic_usage.html">Basic Usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keybindings.html">Keybindings</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="history.html">REPL History</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../caveats.html">Caveats</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../troubleshooting.html">Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_packages.html">Additional Packages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../contributing.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/docs.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/hacking.html">Hacking on CIDER</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/funding.html">Funding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">About</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/history.html">History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/team.html">Team</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/release_policy.html">Release Policy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/logo.html">Logo</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/license.html">License</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CIDER</span>
+    <span class="version">0.23</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">CIDER</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">master</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">0.23</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">CIDER nREPL</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../cider-nrepl/index.html">master</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.22/index.html">0.22</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main>
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">CIDER</a></li>
+    <li>Using the REPL</li>
+    <li><a href="configuration.html">Configuration</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.23</button>
+  <div class="version-menu">
+    <a class="version" href="../../repl/configuration.html">master</a>
+    <a class="version is-current" href="configuration.html">0.23</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/blob/v0.23.0/doc/modules/ROOT/pages/repl/configuration.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">REPL Configuration</h1>
+<div class="sect1">
+<h2 id="_behavior_on_connect"><a class="anchor" href="#_behavior_on_connect"></a>Behavior on connect</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Normally, when you first establish a REPL connection, the REPL buffer is
+auto-displayed in a separate window. You can suppress this behaviour
+like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-pop-to-buffer-on-connect nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want the REPL buffer to be auto-displayed, but don&#8217;t want it to be
+focused, use this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-pop-to-buffer-on-connect 'display-only)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_behavior_on_switch"><a class="anchor" href="#_behavior_on_switch"></a>Behavior on switch</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default <kbd>C-c C-z</kbd> will display the REPL buffer in a
+different window.  You can make <kbd>C-c C-z</kbd> switch to the CIDER
+REPL buffer in the current window:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-display-in-current-window t)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_customizing_the_repl_prompt"><a class="anchor" href="#_customizing_the_repl_prompt"></a>Customizing the REPL prompt</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can customize the REPL buffer prompt by setting
+<code>cider-repl-prompt-function</code> to a function that takes one
+argument, a namespace name. For convenience, CIDER provides three
+functions that implement common formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-repl-prompt-lastname</code>:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ssl&gt;</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-repl-prompt-abbreviated</code>:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>l.c.ssl&gt;</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-repl-prompt-default</code>:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>leiningen.core.ssl&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, CIDER uses <code>cider-repl-prompt-default</code>.</p>
+</div>
+<div class="paragraph">
+<p>You may, of course, write your own function. For example, in <code>leiningen</code> there
+are two namespaces with similar names - <code>leiningen.classpath</code> and
+<code>leiningen.core.classpath</code>. To make them easily recognizable you can either
+use the default value or you can opt to show only two segments of the
+namespace and still be able to know which is the REPL&#8217;s current
+namespace. Here is an example function that will do exactly that:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(defun cider-repl-prompt-show-two (namespace)
+  "Return a prompt string with the last 2 segments of NAMESPACE."
+  (let ((names (reverse (subseq (reverse (split-string namespace "\\.")) 0 2))))
+    (concat (car names) "." (cadr names) "&gt; ")))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tab_completion"><a class="anchor" href="#_tab_completion"></a>TAB Completion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can control the <kbd>TAB</kbd> key behavior in the REPL using the
+<code>cider-repl-tab-command</code> variable.  While the default command
+<code>cider-repl-indent-and-complete-symbol</code> should be an adequate choice for
+most users, it&#8217;s very easy to switch to another command if you wish
+to. For instance if you&#8217;d like <kbd>TAB</kbd> to only indent (maybe
+because you&#8217;re used to completing with <kbd>M-TAB</kbd>) use the
+following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-tab-command #'indent-for-tab-command)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_auto_scrolling_the_repl_on_output"><a class="anchor" href="#_auto_scrolling_the_repl_on_output"></a>Auto-scrolling the REPL on Output</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Prior to version 0.21.0, the REPL buffer would be automatically re-centered
+whenever any output was printed, so that the prompt was on the bottom line of
+the window, displaying the maximum possible amount of output above it. This is
+no longer the default behaviour&#8201;&#8212;&#8201;you can now replicate it by setting the
+built-in option <code>scroll-conservatively</code>, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'cider-repl-mode-hook '(lambda () (setq scroll-conservatively 101)))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_result_prefix"><a class="anchor" href="#_result_prefix"></a>Result Prefix</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can change the string used to prefix REPL results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-result-prefix ";; =&gt; ")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Which then results in the following REPL output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>user&gt; (+ 1 2)
+;; =&gt; 3</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, REPL results have no prefix.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_customize_the_repl_buffers_name"><a class="anchor" href="#_customize_the_repl_buffers_name"></a>Customize the REPL Buffer&#8217;s Name</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The REPL buffer name has the format <code>*cider-repl project-name*</code>.  You
+can change the separator from a space character to something else by
+setting <code>nrepl-buffer-name-separator</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq nrepl-buffer-name-separator "-")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The REPL buffer name can also display the port on which the nREPL server is running.
+The buffer name will look like <code>*cider-repl project-name:port*</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq nrepl-buffer-name-show-port t)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_font_locking"><a class="anchor" href="#_font_locking"></a>Font-locking</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Normally, code in the REPL is font-locked the same way as in
+<code>clojure-mode</code>. Before CIDER 0.10, by default, REPL input was
+font-locked with <code>cider-repl-input-face</code> (after pressing
+<kbd>Return</kbd>) and results were font-locked with
+<code>cider-repl-result-face</code>. If you want to restore the old behaviour
+use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-use-clojure-font-lock nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that enabling font-locking in the REPL can negatively impact performance.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pretty_printing_in_the_repl"><a class="anchor" href="#_pretty_printing_in_the_repl"></a>Pretty printing in the REPL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default the REPL always prints the results of your evaluations using the
+printing function specified by <code>cider-print-fn</code>.</p>
+</div>
+<div class="paragraph">
+<p>!!! Note</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>This behaviour was changed in CIDER 0.20. In prior CIDER releases
+pretty-printing was disabled by default.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can temporarily disable this behaviour and revert to the default behaviour
+(equivalent to <code>clojure.core/pr</code>) using <kbd>M-x cider-repl-toggle-pretty-printing</kbd>.</p>
+</div>
+<div class="paragraph">
+<p>If you want to disable using <code>cider-print-fn</code> entirely, use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-use-pretty-printing nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note well that disabling pretty-printing is not advised. Emacs does not handle
+well very long lines, so using a printing function that wraps lines beyond a
+certain width (i.e. any of them except for <code>pr</code>) will keep your REPL running
+smoothly.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="../pretty_printing">this</a> for more information on configuring printing.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_displaying_images_in_the_repl"><a class="anchor" href="#_displaying_images_in_the_repl"></a>Displaying images in the REPL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Starting with CIDER 0.17 (Andalucía) expressions that evaluate to
+images will be rendered as images in the REPL. You can disable this
+behavior if you don&#8217;t like it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-use-content-types nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can toggle this behaviour on and off using <kbd>M-x cider-repl-toggle-content-types</kbd>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_customizing_the_initial_repl_namespace"><a class="anchor" href="#_customizing_the_initial_repl_namespace"></a>Customizing the initial REPL namespace</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Normally, the CIDER REPL will start in the <code>user</code> namespace.  You can
+supply an initial namespace for REPL sessions in the <code>repl-options</code>
+section of your Leiningen project configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:repl-options {:init-ns 'my-ns}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_customizing_newline_interaction"><a class="anchor" href="#_customizing_newline_interaction"></a>Customizing newline interaction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ordinarily, <kbd>Return</kbd> immediate sends a form for
+evaluation. If you want to insert a newline into the REPL buffer as
+you&#8217;re editing, you can do so using <kbd>C-j</kbd>. If you are
+entering a lot of longer forms that span multiple lines, it may be
+more convenient to change the keybindings:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(define-key cider-repl-mode-map (kbd "RET") #'cider-repl-newline-and-indent)
+(define-key cider-repl-mode-map (kbd "C-&lt;return&gt;") #'cider-repl-return)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will make <kbd>Return</kbd> insert a newline into the REPL buffer
+and <kbd>C-Return</kbd> send the form off for evaluation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_repl_history"><a class="anchor" href="#_repl_history"></a>REPL history</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>To make the REPL history wrap around when CIDER reaches the end:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-wrap-history t)</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To adjust the maximum number of items kept in the REPL history:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-history-size 1000) ; the default is 500</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To store the REPL history in a file:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-history-file "path/to/file")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that CIDER writes the history to the file when you kill the REPL
+buffer, which includes invoking <code>cider-quit</code>, or when you quit Emacs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_set_ns_in_repl"><a class="anchor" href="#_set_ns_in_repl"></a>Set ns in REPL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default <code>cider-repl-set-ns</code> won&#8217;t require the target ns, just set
+it. That&#8217;s done with the assumption that you&#8217;ve probably evaluated the
+ns in question already before switching to it (e.g. by doing <code>C-c C-k</code>
+in its source file). If you want to change this behaviour (to avoid
+calling <code>cider-repl-set-ns</code> and then <code>(require 'my-ns)</code> manually), you
+can set:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-require-ns-on-set t)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2012-2019 <a href="https://metaredux.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: '1f3d78fd63fcb687dcc1312aab02a2de',
+  indexName: 'cider',
+  inputSelector: '#search-input',
+  algoliaOptions: { 'facetFilters': ["version:0.22.0"] },
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

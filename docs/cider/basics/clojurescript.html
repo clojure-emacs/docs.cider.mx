@@ -165,6 +165,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../config/misc.html">Misc</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -263,7 +266,7 @@
           <a href="../index.html">master</a>
         </li>
         <li class="version">
-          <a href="../0.22.0/index.html">0.22.0</a>
+          <a href="../0.23/index.html">0.23</a>
         </li>
       </ul>
     </li>
@@ -273,6 +276,9 @@
         <li class="version is-latest">
           <a href="../../cider-nrepl/index.html">master</a>
         </li>
+        <li class="version">
+          <a href="../../cider-nrepl/0.22/index.html">0.22</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -280,7 +286,7 @@
     </div>
   </aside>
 </div>
-<main role="main">
+<main>
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
   <a href="../index.html" class="home-link"></a>
@@ -295,7 +301,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
     <a class="version is-current" href="clojurescript.html">master</a>
-    <a class="version" href="../0.22.0/basics/clojurescript.html">0.22.0</a>
+    <a class="version" href="../0.23/basics/clojurescript.html">0.23</a>
   </div>
 </div>
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/basics/clojurescript.adoc">Edit this Page</a></div>
@@ -351,12 +357,12 @@ to connect to an already running nREPL server using
 <div class="paragraph">
 <p>To setup piggieback, add the following dependencies to your project
 (<code>project.clj</code> in a Leiningen based project or <code>build.boot</code> in a Boot
-project):</p>
+project or <code>deps.edn</code>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">;; use whatever are the most recent versions here
-[cider/piggieback "0.4.1"]
+[cider/piggieback "0.4.2"]
 [org.clojure/clojure "1.9.0"]</code></pre>
 </div>
 </div>
@@ -380,6 +386,16 @@ project):</p>
   repl {:middleware '[cider.piggieback/wrap-cljs-repl]})</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>or in <code>deps.edn</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:aliases { :cider-cljs { :main-opts
+  ["-m" "nrepl.cmdline" "--middleware"
+   "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}}}</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -387,9 +403,10 @@ project):</p>
 <h2 id="_starting_a_clojurescript_repl"><a class="anchor" href="#_starting_a_clojurescript_repl"></a>Starting a ClojureScript REPL</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Open a file in your project and type <kbd>M-x</kbd>
-<code>cider-jack-in-cljs</code> <kbd>RET</kbd>. This will start up the nREPL
-server and create a ClojureScript REPL buffer.</p>
+<p>Open a ClojureScript file in your project and type <kbd>M-x</kbd>
+<code>cider-jack-in-cljs</code> <kbd>RET</kbd>. With the correct configuration
+and after answering a few prompts this will start up the
+nREPL server and create a ClojureScript REPL buffer.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -443,7 +460,7 @@ instead. For example, the following will make Nashorn the default:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; replace the list of REPLs types and set some default
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; replace the list of REPL types and set some default
 ((nil
   (cider-default-cljs-repl . super-cljs)
   (cider-cljs-repl-types . ((super-cljs "(do (foo) (bar))")))))</code></pre>
@@ -458,6 +475,17 @@ instead. For example, the following will make Nashorn the default:</p>
 </div>
 </div>
 <div class="paragraph">
+<p>For one-off REPLs you can also use the custom REPL init form like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; modify the list of known REPLs and set some default
+((nil
+  (cider-custom-cljs-repl-init-form . "(do (foo) (bar))"
+  (cider-default-cljs-repl . custom)))</code></pre>
+</div>
+</div>
+<div class="paragraph">
 <p>If you already have a Clojure REPL running and want to add a
 ClojureScript REPL, you can invoke
 <code>cider-jack-in-sibling-clojurescript</code> to add it.</p>
@@ -469,7 +497,7 @@ ClojureScript REPL, you can invoke
 <div class="sectionbody">
 <div class="paragraph">
 <p>The following sections describe the configurations for several common
-CloudScript REPL use cases.</p>
+ClojureScript REPL use cases.</p>
 </div>
 <div class="sect2">
 <h3 id="_browser_connected_clojurescript_repl"><a class="anchor" href="#_browser_connected_clojurescript_repl"></a>Browser-Connected ClojureScript REPL</h3>
@@ -521,7 +549,7 @@ documentation lookup, the namespace browser, and macroexpansion).</p>
 [adzerk/boot-cljs-repl   "X.Y.Z"  :scope "test"]
 [pandeiro/boot-http      "X.Y.Z"  :scope "test"]
 [weasel                  "0.7.0"  :scope "test"]
-[cider/piggieback "0.4.1"  :scope "test"] ; not needed for cider-jack-in-cljs</code></pre>
+[cider/piggieback "0.4.2"  :scope "test"] ; not needed for cider-jack-in-cljs</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -586,7 +614,7 @@ in the root of your Leiningen project definition.</p>
 <p>Add these to your dev <code>:dependencies</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">[cider/piggieback "0.4.1"] ; not needed for cider-jack-in-cljs
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">[cider/piggieback "0.4.2"] ; not needed for cider-jack-in-cljs
 [figwheel-sidecar "0.5.19"] ; use here whatever the current version of figwheel is</code></pre>
 </div>
 </div>
@@ -643,13 +671,28 @@ them to your favourite build tool is up to you.
 <div class="paragraph">
 <p>You can also use <a href="https://github.com/bhauman/figwheel-main">Figwheel-main</a> with CIDER.</p>
 </div>
+<div class="sect3">
+<h4 id="_leiningen_figwheel_main_setup"><a class="anchor" href="#_leiningen_figwheel_main_setup"></a>Leiningen figwheel-main setup</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This setup is only necessary if <code>cider-inject-dependencies-at-jack-in</code> has
+been changed from its default setting of <code>enabled</code>, as described more fully above.
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Add this to your dev <code>:dependencies</code> (not needed for <code>cider-jack-in-cljs</code>):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">[cider/piggieback "0.4.1"]</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">[cider/piggieback "0.4.2"]</code></pre>
 </div>
 </div>
 </li>
@@ -663,12 +706,106 @@ them to your favourite build tool is up to you.
 </li>
 <li>
 <p>Start the REPL with <code>cider-jack-in-cljs</code> (<kbd>C-c C-x (C-)j (C-)s</kbd>). When CIDER prompts about the ClojureScript REPL type,
-type <code>figwheel-main</code>.</p>
+select <code>figwheel-main</code>.</p>
 </li>
 <li>
 <p>Select the Figwheel build to run when prompted for it. (e.g. <code>:dev</code>).</p>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_clojure_cli_figwheel_main_setup"><a class="anchor" href="#_clojure_cli_figwheel_main_setup"></a>Clojure CLI figwheel-main setup</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure your <code>deps.edn</code> contains these dependencies available from an
+alias such as <code>fig</code>. These should already be present if you used the
+<a href="https://github.com/bhauman/figwheel-main-template">figwheel-main-template</a>
+with <a href="https://github.com/seancorfield/clj-new">clj-new</a> to generate your
+deps.edn.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{ :aliases {:fig {:extra-deps
+                 {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
+                  com.bhauman/figwheel-main {:mvn/version "0.2.3"}}}}}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add this option to your project&#8217;s <code>.dir-locals.el</code> before opening the
+ClojureScript file in a buffer from which you&#8217;ll be starting the REPL.
+(If the file is already open you can either close and open it again or
+use <code>revert-buffer</code>.)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">((clojurescript-mode . ((cider-clojure-cli-global-options . "-A:fig"))))</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Start the REPL with <code>cider-jack-in-cljs</code> (<kbd>C-c C-x (C-)j (C-)s</kbd>).</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you didn&#8217;t setup <code>.dir-locals.el</code> you can edit the command-line
+in the minibuffer and insert "-A:fig" at the beginning after the <code>clojure</code>
+executable. To do this prepend calling <code>cider-jack-in-cljs</code> with the
+universal argument (e.g. C-u).
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When CIDER prompts for the ClojureScript REPL type, select <code>figwheel-main</code>.</p>
+</li>
+<li>
+<p>When CIDER prompts for the build name, select one of the build name
+options which were generated by finding files named &lt;build&gt;.cljs.edn in
+the project root directory.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If instead of selecting one of the build name options provided,
+you enter either a non-existent build name (no matching .cljs.edn file)
+or an empty build name, CIDER will forward that on to figwheel-main which
+will report an error.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For more advanced usage, you can provide any options supported
+by <code>figwheel.main/start</code> at either the prompt for the build name or
+using the <code>cider-figwheel-main-default-options</code>.
+See <a href="https://github.com/bhauman/figwheel-main/blob/master/src/figwheel/main/api.clj">figwheel.main.api/start</a>
+for details.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect2">

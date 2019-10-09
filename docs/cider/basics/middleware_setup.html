@@ -165,6 +165,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../config/misc.html">Misc</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -263,7 +266,7 @@
           <a href="../index.html">master</a>
         </li>
         <li class="version">
-          <a href="../0.22.0/index.html">0.22.0</a>
+          <a href="../0.23/index.html">0.23</a>
         </li>
       </ul>
     </li>
@@ -273,6 +276,9 @@
         <li class="version is-latest">
           <a href="../../cider-nrepl/index.html">master</a>
         </li>
+        <li class="version">
+          <a href="../../cider-nrepl/0.22/index.html">0.22</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -280,7 +286,7 @@
     </div>
   </aside>
 </div>
-<main role="main">
+<main>
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
   <a href="../index.html" class="home-link"></a>
@@ -295,7 +301,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
     <a class="version is-current" href="middleware_setup.html">master</a>
-    <a class="version" href="../0.22.0/basics/middleware_setup.html">0.22.0</a>
+    <a class="version" href="../0.23/basics/middleware_setup.html">0.23</a>
   </div>
 </div>
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/basics/middleware_setup.adoc">Edit this Page</a></div>
@@ -333,7 +339,7 @@ automatically injects this middleware and other dependencies as required.</p>
 In the past, if you were setting up CIDER, you might have had to
 modify <code>profiles.clj</code> or <code>profile.boot</code>. CIDER now handles
 everything automatically and you don&#8217;t need to add anything
-special to these files.
+special to these files. The same is true of your <code>deps.edn</code> file.
 </td>
 </tr>
 </table>
@@ -342,7 +348,7 @@ special to these files.
 <p>If you prefer a standalone REPL, you will need to invoke
 <code>cider-connect</code> instead of <code>cider-jack-in</code> and manually add the
 dependencies to your Clojure project (explained in the following
-section).</p>
+sections).</p>
 </div>
 </div>
 </div>
@@ -433,7 +439,22 @@ all of their projects using a <code>~/.boot/profile.boot</code> file like so:</p
 <div class="sect2">
 <h3 id="_using_tools_deps"><a class="anchor" href="#_using_tools_deps"></a>Using tools.deps</h3>
 <div class="paragraph">
-<p>TODO</p>
+<p>You can add the following aliases to your deps.edn in order to launch
+a standalone Clojure(Script) nREPL server with CIDER middleware from
+the commandline with something like <code>clj -A:cider-clj</code>. Then from emacs
+run <code>cider-connect</code> or <code>cider-connect-cljs</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">  :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.22.4"}}
+              :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
+
+  :cider-cljs {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.339"}
+                            cider/cider-nrepl {:mvn/version "0.22.4"}
+                            cider/piggieback {:mvn/version "0.4.2"}}
+               :main-opts ["-m" "nrepl.cmdline" "--middleware"
+                           "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
