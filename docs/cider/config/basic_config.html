@@ -435,170 +435,188 @@ translation mappings easily by setting the following (typically in <code>.dir-lo
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">((nil
   (cider-path-translations . (("/root" . "/Users/foo")
-                              ("/src/" . "/Users/foo/projects")))))
----
-
-Each entry will be interpreted as a directory entry so trailing slash
+                              ("/src/" . "/Users/foo/projects")))))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each entry will be interpreted as a directory entry so trailing slash
 is optional. Navigation to definition will attempt to translate these locations, and
 if they exist, navigate there rather than report the file does not
-exist. In the example above, the `.m2` directory is mounted at `/root/.m2`
-and the source at `/src`. These translations would map these locations
-back to the user's computer so that navigation to definition would work.
-
-== Auto-Save Clojure Buffers on Load
-
-Normally, CIDER prompts you to save a modified Clojure buffer when you
-type kbd:[C-c C-k] (`cider-load-buffer`).  You can change this
-behaviour by adjusting `cider-save-file-on-load`.
-
-Don't prompt and don't save:
-
-[source,lisp]</code></pre>
+exist. In the example above, the <code>.m2</code> directory is mounted at <code>/root/.m2</code>
+and the source at <code>/src</code>. These translations would map these locations
+back to the user&#8217;s computer so that navigation to definition would work.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_auto_save_clojure_buffers_on_load"><a class="anchor" href="#_auto_save_clojure_buffers_on_load"></a>Auto-Save Clojure Buffers on Load</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Normally, CIDER prompts you to save a modified Clojure buffer when you
+type <kbd>C-c C-k</kbd> (<code>cider-load-buffer</code>).  You can change this
+behaviour by adjusting <code>cider-save-file-on-load</code>.</p>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t prompt and don&#8217;t save:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-save-file-on-load nil)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>(setq cider-save-file-on-load nil)</p>
+<p>Just save without prompting:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>Just save without prompting:
-
-[source,lisp]</pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-save-file-on-load t)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_change_the_result_prefix_for_interactive_evaluation"><a class="anchor" href="#_change_the_result_prefix_for_interactive_evaluation"></a>Change the Result Prefix for Interactive Evaluation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Change the result prefix for interactive evaluation (not the REPL
+prefix). By default the prefix is <code>+&#8658; +</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-eval-result-prefix ";; =&gt; ")</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>(setq cider-save-file-on-load t)</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>== Change the Result Prefix for Interactive Evaluation
-
-Change the result prefix for interactive evaluation (not the REPL
-prefix). By default the prefix is `+=&gt; +`.
-
-[source,lisp]</pre>
+<p>To remove the prefix altogether, just set it to the empty string (<code>""</code>).</p>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">(setq cider-eval-result-prefix "</dt>
-<dd>
-<p>&#8658; ")</p>
-</dd>
-</dl>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>To remove the prefix altogether, just set it to the empty string (`""`).
-
-== Use a Local Copy of the JDK API Documentation
-
-If you are targeting the JVM and prefer a local copy of the JDK API
-documentation over Oracle's official copy (e.g., for
-http://docs.oracle.com/javase/8/docs/api/[JavaSE 8]), per nREPL's
-http://docs.oracle.com/javase/8/docs/api/[`javadoc-info` logic (accurate as of 29 Dec 2014)],
-you can arrange your project to include the *root* path of the local API doc
-(i.e., where the `index.html` is located) to be included on your classpath
+<div class="sect1">
+<h2 id="_use_a_local_copy_of_the_jdk_api_documentation"><a class="anchor" href="#_use_a_local_copy_of_the_jdk_api_documentation"></a>Use a Local Copy of the JDK API Documentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are targeting the JVM and prefer a local copy of the JDK API
+documentation over Oracle&#8217;s official copy (e.g., for
+<a href="http://docs.oracle.com/javase/8/docs/api/">JavaSE 8</a>), per nREPL&#8217;s
+<a href="http://docs.oracle.com/javase/8/docs/api/"><code>javadoc-info</code> logic (accurate as of 29 Dec 2014)</a>,
+you can arrange your project to include the <strong>root</strong> path of the local API doc
+(i.e., where the <code>index.html</code> is located) to be included on your classpath
 (i.e., where the doc HTML files can be located by
-`clojure.java.io/resource`). For example, for Leiningen, with the local API
-path being `/usr/share/doc/java/api/`, put the following line in
-`project.clj`:
-
-[source,clojure]</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>:dev {:resource-paths ["/usr/share/doc/java/api/"]}</p>
+<code>clojure.java.io/resource</code>). For example, for Leiningen, with the local API
+path being <code>/usr/share/doc/java/api/</code>, put the following line in
+<code>project.clj</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>*or* the following line in `$HOME/.lein/profiles.clj`:
-
-[source,clojure]</pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:dev {:resource-paths ["/usr/share/doc/java/api/"]}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>:user {:resource-paths ["/usr/share/doc/java/api/"]}</p>
+<p><strong>or</strong> the following line in <code>$HOME/.lein/profiles.clj</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>More details can be found https://github.com/clojure-emacs/cider/issues/930[here].
-
-== Use a Local Copy of the Java Source Code
-
-When an exception is thrown, e.g. when eval-ing `(. clojure.lang.RT foo)`, a
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:user {:resource-paths ["/usr/share/doc/java/api/"]}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>More details can be found <a href="https://github.com/clojure-emacs/cider/issues/930">here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_use_a_local_copy_of_the_java_source_code"><a class="anchor" href="#_use_a_local_copy_of_the_java_source_code"></a>Use a Local Copy of the Java Source Code</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When an exception is thrown, e.g. when eval-ing <code>(. clojure.lang.RT foo)</code>, a
 stack trace pops up. Some places of the stack trace link to Clojure files,
 others to Java files. By default, you can click the Clojure file links to
-navigate there. If you configure `cider-jdk-src-paths`, you can also click the
-Java file links to navigate there.
-
-On Windows and macOS the JDK source code is bundled with the JDK. On Windows its
-typical location is `+C:\Program Files\Java\{jdk-version}\src.zip+`
-and on macOS its `+/Library/Java/JavaVirtualMachines/{jdk-version}/Contents/Home/src.zip+`.
-
-On Linux distributions usually the source code is distributed as a separate package.
-Here's how do get the JDK 8 source on Ubuntu:
-
- sudo apt install openjdk-8-source
-
-The zip is installed to `/usr/lib/jvm/openjdk-8/src.zip`.
-
-You can download Clojure Java source code from
-https://repo1.maven.org/maven2/org/clojure/clojure/1.8.0/clojure-1.8.0-sources.jar[here].
-
-Extract both and configure e.g. like so:
-
- (setq cider-jdk-src-paths '("~/java/clojure-1.8.0-sources"
-                             "~/java/openjvm-8-src"))
-
-It's possible to use `jar` or `zip` files `cider-jdk-src-paths`, but extracting
-them is better since you get features like `ag` or `dired-jump`.
-
-== Filter out namespaces in certain namespace-related commands
-
-You can hide all nREPL middleware details from `cider-browse-ns*` and `cider-apropos*`
-commands by customizing the variable `cider-filter-regexps`. It should be a list of
-regexps matching the pattern of namespaces you want to filter out.
-
-Its default value is `+'("^cider.nrepl" "^refactor-nrepl" "^nrepl")+`,
-the most commonly used middleware collections/packages.
-
-An important thing to note is that this list of regexps is passed on to the middleware
+navigate there. If you configure <code>cider-jdk-src-paths</code>, you can also click the
+Java file links to navigate there.</p>
+</div>
+<div class="paragraph">
+<p>On Windows and macOS the JDK source code is bundled with the JDK. On Windows its
+typical location is <code>C:\Program Files\Java\{jdk-version}\src.zip</code>
+and on macOS its <code>/Library/Java/JavaVirtualMachines/{jdk-version}/Contents/Home/src.zip</code>.</p>
+</div>
+<div class="paragraph">
+<p>On Linux distributions usually the source code is distributed as a separate package.
+Here&#8217;s how do get the JDK 8 source on Ubuntu:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>sudo apt install openjdk-8-source</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The zip is installed to <code>/usr/lib/jvm/openjdk-8/src.zip</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can download Clojure Java source code from
+<a href="https://repo1.maven.org/maven2/org/clojure/clojure/1.8.0/clojure-1.8.0-sources.jar">here</a>.</p>
+</div>
+<div class="paragraph">
+<p>Extract both and configure e.g. like so:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(setq cider-jdk-src-paths '("~/java/clojure-1.8.0-sources"
+                            "~/java/openjvm-8-src"))</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It&#8217;s possible to use <code>jar</code> or <code>zip</code> files <code>cider-jdk-src-paths</code>, but extracting
+them is better since you get features like <code>ag</code> or <code>dired-jump</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_filter_out_namespaces_in_certain_namespace_related_commands"><a class="anchor" href="#_filter_out_namespaces_in_certain_namespace_related_commands"></a>Filter out namespaces in certain namespace-related commands</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can hide all nREPL middleware details from <code>cider-browse-ns*</code> and <code>cider-apropos*</code>
+commands by customizing the variable <code>cider-filter-regexps</code>. It should be a list of
+regexps matching the pattern of namespaces you want to filter out.</p>
+</div>
+<div class="paragraph">
+<p>Its default value is <code>'("^cider.nrepl" "^refactor-nrepl" "^nrepl")</code>,
+the most commonly used middleware collections/packages.</p>
+</div>
+<div class="paragraph">
+<p>An important thing to note is that this list of regexps is passed on to the middleware
 without any pre-processing. So, the regexps have to be in Clojure format (with twice the number of backslashes)
-and not Emacs Lisp. For example, to achieve the above effect, you could also set `cider-filter-regexps` to `'(".*nrepl")`.
-
-To customize `cider-filter-regexps`, you could use the Emacs customize UI,
-with kbd:[M-x] `customize-variable` kbd:[RET] `cider-filter-regexps`.
-
-Or by including a similar snippet along with the other CIDER configuration.
-
-[source,lisp]</pre>
-</div>
+and not Emacs Lisp. For example, to achieve the above effect, you could also set <code>cider-filter-regexps</code> to <code>'(".*nrepl")</code>.</p>
 </div>
 <div class="paragraph">
-<p>(setq cider-filter-regexps '(".*nrepl"))</p>
+<p>To customize <code>cider-filter-regexps</code>, you could use the Emacs customize UI,
+with <kbd>M-x</kbd> <code>customize-variable</code> <kbd>RET</kbd> <code>cider-filter-regexps</code>.</p>
+</div>
+<div class="paragraph">
+<p>Or by including a similar snippet along with the other CIDER configuration.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>== Truncate long lines in special buffers
-
-By default contents of CIDER's special buffers such as `+*cider-test-report*+`
-or `+*cider-doc*+` are line truncated. You can set
-`cider-special-mode-truncate-lines` to `nil` to make those buffers use word
-wrapping instead of line truncating.
-
-*This variable should be set before loading CIDER* (which means before
-`require`-ing it or autoloading it).
-
-[source,lisp]</pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-filter-regexps '(".*nrepl"))</code></pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_truncate_long_lines_in_special_buffers"><a class="anchor" href="#_truncate_long_lines_in_special_buffers"></a>Truncate long lines in special buffers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default contents of CIDER&#8217;s special buffers such as <code>*cider-test-report*</code>
+or <code>*cider-doc*</code> are line truncated. You can set
+<code>cider-special-mode-truncate-lines</code> to <code>nil</code> to make those buffers use word
+wrapping instead of line truncating.</p>
 </div>
 <div class="paragraph">
-<p>(setq cider-special-mode-truncate-lines nil)</p>
+<p><strong>This variable should be set before loading CIDER</strong> (which means before
+<code>require</code>-ing it or autoloading it).</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-special-mode-truncate-lines nil)</code></pre>
 </div>
 </div>
 </div>
@@ -615,7 +633,7 @@ docsearch({
   apiKey: '1f3d78fd63fcb687dcc1312aab02a2de',
   indexName: 'cider',
   inputSelector: '#search-input',
-  algoliaOptions: { 'facetFilters': ["version:0.22.0"] },
+  algoliaOptions: { 'facetFilters': ["version:0.23"] },
   debug: false // Set debug to true if you want to inspect the dropdown
 });
 </script>
