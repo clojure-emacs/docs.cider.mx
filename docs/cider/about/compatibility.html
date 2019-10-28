@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Basic Usage :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/repl/basic_usage.html">
+    <title>Compatibility :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/about/compatibility.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -177,17 +177,17 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Using the REPL</span>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="basic_usage.html">Basic Usage</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/basic_usage.html">Basic Usage</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="keybindings.html">Keybindings</a>
+    <a class="nav-link" href="../repl/keybindings.html">Keybindings</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="configuration.html">Configuration</a>
+    <a class="nav-link" href="../repl/configuration.html">Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="history.html">REPL History</a>
+    <a class="nav-link" href="../repl/history.html">REPL History</a>
   </li>
 </ul>
   </li>
@@ -226,28 +226,28 @@
     <span class="nav-text">About</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../about/history.html">History</a>
+    <a class="nav-link" href="history.html">History</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../about/team.html">Team</a>
+    <a class="nav-link" href="team.html">Team</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../about/support.html">Support</a>
+    <a class="nav-link" href="support.html">Support</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../about/changelog.html">Changelog</a>
+    <a class="nav-link" href="changelog.html">Changelog</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../about/release_policy.html">Release Policy</a>
+    <a class="nav-link" href="release_policy.html">Release Policy</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="compatibility.html">Compatibility</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../about/compatibility.html">Compatibility</a>
+    <a class="nav-link" href="logo.html">Logo</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../about/logo.html">Logo</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../about/license.html">License</a>
+    <a class="nav-link" href="license.html">License</a>
   </li>
 </ul>
   </li>
@@ -296,111 +296,37 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
-    <li>Using the REPL</li>
-    <li><a href="basic_usage.html">Basic Usage</a></li>
+    <li>About</li>
+    <li><a href="compatibility.html">Compatibility</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
-    <a class="version is-current" href="basic_usage.html">master</a>
-    <a class="version" href="../0.23/repl/basic_usage.html">0.23</a>
+    <a class="version is-current" href="compatibility.html">master</a>
+    <a class="version is-missing" href="../0.23/index.html">0.23</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/repl/basic_usage.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/about/compatibility.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1 class="page">Basic Usage</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>CIDER comes with a powerful REPL that complements the interactive
-development functionality in <code>cider-mode</code>. Using the CIDER REPL you
-can experiment with your running program, test functions, or just
-explore a new library you&#8217;re interested in using. The CIDER REPL offers a number of advanced features:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>auto-completion</p>
-</li>
-<li>
-<p>font-locking (the same as in <code>clojure-mode</code>)</p>
-</li>
-<li>
-<p>quick access to many CIDER commands (e.g. definition and documentation lookup, tracing, etc)</p>
-</li>
-<li>
-<p>pretty-printing of evaluation results</p>
-</li>
-<li>
-<p>eldoc support</p>
-</li>
-<li>
-<p>highly customizable REPL prompt</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
+<h1 class="page">Compatibility</h1>
 <div class="sect1">
-<h2 id="_interacting_with_the_repl"><a class="anchor" href="#_interacting_with_the_repl"></a>Interacting with the REPL</h2>
+<h2 id="_emacs"><a class="anchor" href="#_emacs"></a>Emacs</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Interacting with CIDER&#8217;s REPL is pretty simple - most of the time
-you&#8217;d just write expressions there and press <kbd>RET</kbd> to
-evaluate them.</p>
+<p>CIDER supports Emacs 25.1+. More generally we try to support the last 3 major Emacs releases
+when that&#8217;s feasible and doesn&#8217;t add a lot of maintenance overhead.</p>
 </div>
-<div class="paragraph">
-<p>But the REPL is a bit more powerful than that and it allows you to do some things that might not be available in
-other Clojure REPLs. Some examples of such things would be:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>You can close an incomplete expression with <kbd>C-Ret</kbd></p>
-</li>
-<li>
-<p>You can enter a multi-line expression by pressing <kbd>C-j</kbd> at the end of each line</p>
-</li>
-<li>
-<p>You can quickly jump to the definition of a symbol (<kbd>.</kbd>) or to its documentation (<kbd>C-c C-d d</kbd>)</p>
-</li>
-<li>
-<p>You can clear the output of the last expression with <kbd>C-c C-o</kbd></p>
-</li>
-<li>
-<p>You can clear the REPL buffer with <kbd>C-u C-c C-o</kbd></p>
-</li>
-<li>
-<p>You can jump between your source buffers and the REPL with <kbd>C-c C-z</kbd></p>
-</li>
-<li>
-<p>You can jump between your Clojure and ClojureScript REPLs with <kbd>C-c M-o</kbd></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>On top of this the REPL is extremely configurable and you can tweak almost every aspect of it.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_interrupting_evaluations"><a class="anchor" href="#_interrupting_evaluations"></a>Interrupting Evaluations</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>If you accidentally try to evaluate something that&#8217;s going to take a lot of time (if it finishes at all), you
-can interrupt the rouge evaluation operation by pressing <kbd>C-c C-c</kbd>.</p>
-</div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note that this is different from the keybinding for interrupting evaluations in source buffers,
-namely <kbd>C-c C-b</kbd>.
+We pay special attention to supporting whatever Emacs is bundled with the current stable Debian
+and RHEL GNU/Linux distributions.
 </td>
 </tr>
 </table>
@@ -408,31 +334,127 @@ namely <kbd>C-c C-b</kbd>.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_quitting_a_repl"><a class="anchor" href="#_quitting_a_repl"></a>Quitting a REPL</h2>
+<h2 id="_nrepl"><a class="anchor" href="#_nrepl"></a>nREPL</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you&#8217;re done with a REPL you can dispose of it with <kbd>C-c C-q</kbd>.</p>
+<p>CIDER supports nREPL 0.6+.</p>
 </div>
-<div class="paragraph">
-<p>Please, avoid killing REPL buffers with <kbd>C-c C-k</kbd></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We pay special attention to supporting whatever nREPL is bundled with the current stable Leiningen
+and Boot releases.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_known_limitations"><a class="anchor" href="#_known_limitations"></a>Known Limitations</h2>
+<h2 id="_java"><a class="anchor" href="#_java"></a>Java</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Performance can degrade when the REPL buffer grows very large. This is
-especially true if either <code>cider-repl-use-clojure-font-lock</code> or
-<code>nrepl-log-messages</code> are enabled. You can use <code>cider-repl-clear-output</code> to
-either clear the result of the previous evaluation, or with a prefix argument
-clear the entire REPL buffer.</p>
+<p>CIDER officially targets Java 8, Java 11 and the most recent rapid
+release version (e.g. Java 13).  More generally speaking - we aim
+to support all Java releases that are currently officially supported
+by Oracle.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The requirements for Java are pretty much `cider-nrepl&#8217;s requirements.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_clojure"><a class="anchor" href="#_clojure"></a>Clojure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CIDER targets Clojure 1.8+. As Clojure doesn&#8217;t have the concept of supported releases
+we have to get a bit creative to determine the minimum version to target.</p>
 </div>
 <div class="paragraph">
-<p>Very long lines are guaranteed to bring Emacs to a crawl, so using a value of
-<code>cider-print-fn</code> that wraps lines beyond a certain width (i.e. any of the
-built-in options except for <code>pr</code>) is advised.</p>
+<p>The minimum required Clojure version is currently derived using data
+from the
+<a href="https://clojure.org/news/2019/02/04/state-of-clojure-2019">State of
+Clojure</a> survey. In general we consider a Clojure release eligible for
+dropping once its usage drops bellow 5%, but we&#8217;d not drop support for
+any release just for the sake of doing it. We&#8217;d do it only if
+this would lessen the maintenance burden or open up the possibility for
+big CIDER improvements.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_clojurescript"><a class="anchor" href="#_clojurescript"></a>ClojureScript</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Currently we apply the same policy for Clojure and ClojureScript support.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compatibility_matrix"><a class="anchor" href="#_compatibility_matrix"></a>Compatibility Matrix</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For a very long time CIDER and cider-nrepl were released in lock-step, but
+this changed in CIDER 0.18. The actual releases diverged for the first time in
+CIDER 0.23.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Below you can find the official compatibility matrix for CIDER.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Compatibility Matrix</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">CIDER</th>
+<th class="tableblock halign-left valign-top">Emacs</th>
+<th class="tableblock halign-left valign-top">nREPL</th>
+<th class="tableblock halign-left valign-top">cider-nrepl</th>
+<th class="tableblock halign-left valign-top">Required JDK</th>
+<th class="tableblock halign-left valign-top">Required Clojure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.23</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </article>

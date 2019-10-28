@@ -241,6 +241,9 @@
     <a class="nav-link" href="../about/release_policy.html">Release Policy</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/compatibility.html">Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../about/logo.html">Logo</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -452,7 +455,11 @@ keys, although there are some differences.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[c]</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Continue without stopping</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Continue without stopping in current breakpoint</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[C]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Continue without stopping for all breakpoints</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[e]</p></td>
@@ -460,7 +467,11 @@ keys, although there are some differences.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[p]</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Inspect a value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inspect the current value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[P]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inspect an arbitrary expression</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[l]</p></td>
@@ -528,7 +539,10 @@ will skip all breakpoints up until that spot.</p>
 <p><strong>Here</strong>: Same as <code>h</code>, but skips breakpoints in other functions, as with <code>O</code>.</p>
 </li>
 <li>
-<p><strong>continue</strong>: Continues without stopping, skipping all breakpoints.</p>
+<p><strong>continue</strong>: Continues without stopping for the current breakpoint.</p>
+</li>
+<li>
+<p><strong>continue-all</strong>: Continues without stopping, skipping all breakpoints.</p>
 </li>
 </ul>
 </div>
@@ -545,7 +559,10 @@ variables that are in scope where the debugger is stopped. Displays the result
 in an overlay.</p>
 </li>
 <li>
-<p><strong>inspect</strong>: Like eval, but displays the value in a <code>cider-inspector</code> buffer.</p>
+<p><strong>inspect</strong>: Inspects the currently evaluated value in a <code>cider-inspector</code> buffer.</p>
+</li>
+<li>
+<p><strong>inspect-prompt</strong>: Like eval, but displays the value in a <code>cider-inspector</code> buffer.</p>
 </li>
 <li>
 <p><strong>locals</strong>: Opens a <code>cider-inspector</code> buffer displaying all local variables

@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Supplied nREPL middleware :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/index.html">
+    <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/nrepl-api/supplied_middleware.html">
     <meta name="generator" content="Antora 2.0.0">
-    <link rel="stylesheet" href="../../../_/css/site.css">
-<link rel="stylesheet" href="../../../_/css/site-extra.css">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
-<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
   </head>
@@ -56,7 +56,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="cider-nrepl" data-version="0.22">
+<div class="nav-container" data-component="cider-nrepl" data-version="master">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -79,12 +79,21 @@
     <span class="nav-text">nREPL API</span>
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="supplied_ops.html">Supplied Ops</a>
+    <a class="nav-link" href="supplied_middleware.html">Supplied Middleware</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ops.html">Supplied Ops</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../hacking.html">Hacking on CIDER nREPL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../compatibility.html">Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release_policy.html">Release Policy</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../faq.html">FAQ</a>
@@ -97,28 +106,28 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">CIDER nREPL</span>
-    <span class="version">0.22</span>
+    <span class="version">master</span>
   </div>
   <ul class="components">
     <li class="component">
       <span class="title">CIDER</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../../cider/index.html">master</a>
+          <a href="../../cider/index.html">master</a>
         </li>
         <li class="version">
-          <a href="../../../cider/0.23/index.html">0.23</a>
+          <a href="../../cider/0.23/index.html">0.23</a>
         </li>
       </ul>
     </li>
     <li class="component is-current">
       <span class="title">CIDER nREPL</span>
       <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../index.html">master</a>
+        <li class="version is-current is-latest">
+          <a href="../index.html">master</a>
         </li>
-        <li class="version is-current">
-          <a href="../index.html">0.22</a>
+        <li class="version">
+          <a href="../0.22/index.html">0.22</a>
         </li>
       </ul>
     </li>
@@ -130,22 +139,22 @@
 <main>
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="../../../cider/index.html" class="home-link"></a>
+  <a href="../../cider/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER nREPL</a></li>
     <li>nREPL API</li>
-    <li><a href="supplied_ops.html">Supplied Ops</a></li>
+    <li><a href="supplied_middleware.html">Supplied Middleware</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.22</button>
+  <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
-    <a class="version is-missing" href="../../index.html">master</a>
-    <a class="version is-current" href="supplied_ops.html">0.22</a>
+    <a class="version is-current" href="supplied_middleware.html">master</a>
+    <a class="version is-missing" href="../0.22/index.html">0.22</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider-nrepl/blob/v0.22.4/doc/modules/ROOT/pages/nrepl-api/supplied_ops.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider-nrepl/edit/master/doc/modules/ROOT/pages/nrepl-api/supplied_middleware.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
 <h1 class="page">Supplied nREPL middleware</h1>
@@ -332,7 +341,7 @@ docsearch({
   debug: false // Set debug to true if you want to inspect the dropdown
 });
 </script>
-<script src="../../../_/js/site.js"></script>
-<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
   </body>
 </html>

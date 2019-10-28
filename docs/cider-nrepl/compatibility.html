@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>CIDER nREPL Internals :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/internals.html">
+    <title>Compatibility :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/compatibility.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
@@ -71,7 +71,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="usage.html">Usage</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="internals.html">Understanding the Internals</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -89,7 +89,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="hacking.html">Hacking on CIDER nREPL</a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="compatibility.html">Compatibility</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -143,98 +143,165 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">CIDER nREPL</a></li>
-    <li><a href="internals.html">Understanding the Internals</a></li>
+    <li><a href="compatibility.html">Compatibility</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
-    <a class="version is-current" href="internals.html">master</a>
-    <a class="version" href="0.22/internals.html">0.22</a>
+    <a class="version is-current" href="compatibility.html">master</a>
+    <a class="version is-missing" href="0.22/index.html">0.22</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider-nrepl/edit/master/doc/modules/ROOT/pages/internals.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider-nrepl/edit/master/doc/modules/ROOT/pages/compatibility.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1 class="page">CIDER nREPL Internals</h1>
+<h1 class="page">Compatibility</h1>
 <div class="sect1">
-<h2 id="_lazy_middleware_loading"><a class="anchor" href="#_lazy_middleware_loading"></a>Lazy middleware loading</h2>
+<h2 id="_java"><a class="anchor" href="#_java"></a>Java</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Eager loading of all of `cider-nrepl&#8217;s middleware resulted in a significant impact to the
-startup time of the nREPL server. To mitigate this we&#8217;ve devised a strategy to postpone
-the actual initialization of some middleware until the first time it&#8217;s actually used
-by a client.</p>
-</div>
-<div class="paragraph">
-<p>That&#8217;s the reason why middleware description in <code>cider-nrepl</code> are not following the common
-nREPL convention to be supplied in the same file where the middleware is defined.</p>
+<p><code>cider-nrepl</code> officially targets Java 8, Java 11 and the most recent rapid
+release version (e.g. Java 13).  More generally speaking - we aim
+to support all Java releases that are currently officially supported
+by Oracle.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dealing_with_unhandled_exception"><a class="anchor" href="#_dealing_with_unhandled_exception"></a>Dealing with unhandled exception</h2>
+<h2 id="_clojure"><a class="anchor" href="#_clojure"></a>Clojure</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Even though nREPL requests are asychronous in their nature, some editors might be forced
-to wait for the response of a request. This is obviously going to result in lock-up in
-case of an unhandled exception, that&#8217;s why <code>cider-nrepl</code> introduced the concept of
-a "safe transport" that does some reasonable handling of such errors.</p>
+<p><code>cider-nrepl</code> targets Clojure 1.8+. As Clojure doesn&#8217;t have the concept of supported releases
+we have to get a bit creative to determine the minimum version to target.</p>
+</div>
+<div class="paragraph">
+<p>The minimum required Clojure version is currently derived using data
+from the
+<a href="https://clojure.org/news/2019/02/04/state-of-clojure-2019">State of
+Clojure</a> survey. In general we consider a Clojure release eligible for
+dropping once its usage drops bellow 5%, but we&#8217;d not drop support for
+any release just for the sake of doing it. We&#8217;d do it only if
+this would lessen the maintenance burden or open up the possibility for
+big nREPL improvements.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_operating_on_unresolved_symbols"><a class="anchor" href="#_operating_on_unresolved_symbols"></a>Operating on unresolved symbols</h2>
+<h2 id="_clojurescript"><a class="anchor" href="#_clojurescript"></a>ClojureScript</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>All middleware ops operating on some symbol that needs to be resolved would normally do the
-resolution themselves. They typically take as parameters <code>ns</code> and <code>sym</code>, which are current
-namespace and a symbol in it, and would resolve <code>sym</code> in the context of <code>ns</code>.</p>
+<p>Currently we apply the same policy for Clojure and ClojureScript support.</p>
 </div>
-<div class="paragraph">
-<p>This spares users from having to invoke <code>info</code> on every symbol before passing the resolved result
-to another op. It also maps well to the typical editor workflow - normally you&#8217;d be asking
-for some operation to be performed for some unresolved symbol in the current namespace.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+ClojureScript support is contingent on the Piggieback middleware.
+Currently <code>cider-nrepl</code> requires Piggieback 0.4+ to work properly.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_clojurescript_support"><a class="anchor" href="#_clojurescript_support"></a>ClojureScript Support</h2>
+<h2 id="_nrepl"><a class="anchor" href="#_nrepl"></a>nREPL</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Currently the ClojureScript support relies on inspecting the ClojureScript compiler
-state. <code>cider-nrepl</code> would fetch the compiler state from Piggieback and pass it
-to the underlying libraries (e.g. <code>orchard</code> and <code>cljs-tooling</code>) that do something useful with it.</p>
+<p><code>cider-nrepl</code> supports nREPL 0.6+.</p>
 </div>
-<div class="paragraph">
-<p>Unfortunately the majority of the middlewares don&#8217;t support ClojureScript
-currently, as they are implemented in terms of Clojure-only libraries. Another
-roadblock is that <code>cider-nrepl</code> runs in a Clojure context and you have to jump
-through some hoops to evaluate ClojureScript code from it (e.g. pipe it to
-Piggieback&#8217;s <code>eval</code> or evaluate it against the ClojureScript runtime directly as
-a string). Hopefully this will change down the road.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We pay special attention to supporting whatever nREPL is bundled with the current stable Leiningen
+and Boot releases.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dependency_obfuscation"><a class="anchor" href="#_dependency_obfuscation"></a>Dependency obfuscation</h2>
+<h2 id="_compatibility_matrix"><a class="anchor" href="#_compatibility_matrix"></a>Compatibility Matrix</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>`cider-nrepl&#8217;s dependency would conflict with the dependencies of the application using it,
-so we have to take some care to avoid such situation.</p>
+<p>Below you can find the official compatibility matrix for <code>cider-nrepl</code>. For a
+very long time the project targeted nREPL 0.2.x, but the
+requirements were bumped to nREPL 0.6 in recent versions.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Compatibility Matrix</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">cider-nrepl</th>
+<th class="tableblock halign-left valign-top">Required JDK</th>
+<th class="tableblock halign-left valign-top">Required Clojure</th>
+<th class="tableblock halign-left valign-top">Required nREPL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2.13</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.4.x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_backwards_compatibility"><a class="anchor" href="#_backwards_compatibility"></a>Backwards Compatibility</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>cider-nrepl</code> is under active development and breaking changes might happen from
+time to time. That being said, we&#8217;re well aware that these days many editors and
+other Clojure development tools rely on <code>cider-nrepl</code> and we&#8217;re fully committed
+to avoid introducing painful breakages there.</p>
 </div>
 <div class="paragraph">
-<p>All of cider-nrepl&#8217;s dependencies are processed with
-<a href="https://github.com/benedekfazekas/mranderson">mranderson</a>, so that
-they won&#8217;t collide with the dependencies of your own projects. This
-basically means that cider-nrepl doesn&#8217;t have any runtime dependencies in
-the production artifact - just copies of the deps inlined with changed
-namespaces/packages.</p>
+<p>Most tools authors using <code>cider-nrepl</code> are involved with its development in
+some capacity, so we&#8217;re always considering carefully any proposed breaking change
+and the impact it would have.</p>
 </div>
 <div class="paragraph">
-<p>This means that <code>cider-nrepl</code> has to also take some steps to hide the inlined namespaces,
-so they won&#8217;t pollute the results users would be interested in. Pretty much all of `cider-nrepl&#8217;s
-ops would filter out the inlined namespaces.</p>
+<p>It&#8217;s extremely unlikely that we&#8217;re going to break compatibility on the
+protocol level ever (with the rare cases of changing/removing things
+that existed, but we knew for a fact weren&#8217;t used).  Most often
+backwards compatibility would be broken on the implementation level -
+usually extracting something out of <code>cider-nrepl</code> to the <code>orchard</code> library.</p>
 </div>
 </div>
 </div>
