@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Debugger :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/debugging/debugger.html">
-    <meta name="generator" content="Antora 2.0.0">
+    <meta name="generator" content="Antora 2.0.1">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
@@ -308,7 +308,7 @@
   </div>
 </div>
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/debugging/debugger.adoc">Edit this Page</a></div>
-</div>
+  </div>
 <article class="doc">
 <h1 class="page">Debugger</h1>
 <div id="preamble">
@@ -344,24 +344,24 @@ or more details.
 <div class="paragraph">
 <p>During normal CIDER development, it&#8217;s common for a programmer to
 evaluate a form, often a function definition, by typing
-kbd:[C-M-x] (<code>cider-eval-defun-at-point</code>). CIDER can also
+<kbd>C-M-x</kbd> (<code>cider-eval-defun-at-point</code>). CIDER can also
 instrument a form for debugging when you add a prefix to the
-evaluation command: kbd:[C-u C-M-x]. During the instrumentation
+evaluation command: <kbd>C-u C-M-x</kbd>. During the instrumentation
 process, CIDER will insert as many breakpoints as possible into the
 form. Whenever execution reaches a breakpoint, CIDER will drop into
 debugging mode and will prompt you for what to do next. You can remove
 the instrumentation by evaluating the form again normally, using
-kbd:[C-M-x].</p>
+<kbd>C-M-x</kbd>.</p>
 </div>
 <div class="paragraph">
 <p>You can also trigger insert a breakpoint manually into any code
 manually by placing <code>#break</code> in front of the form where you want the
 breakpoint to trigger and then evaluating the form with
-kbd:[C-M-x]. When execution reaches the form after the <code>#break</code>,
+<kbd>C-M-x</kbd>. When execution reaches the form after the <code>#break</code>,
 you&#8217;ll be dropped into the debugger.</p>
 </div>
 <div class="paragraph">
-<p>For instance, if you hit kbd:[C-M-x] on the following, a
+<p>For instance, if you hit <kbd>C-M-x</kbd> on the following, a
 breakpoint is triggered every time <code>(inspector msg)</code> is evaluated.</p>
 </div>
 <div class="listingblock">
@@ -377,13 +377,13 @@ breakpoint is triggered every time <code>(inspector msg)</code> is evaluated.</p
 will place a breakpoint both in front of the form, as with <code>#break</code>,
 and also everything inside it. In the example above, this places one
 breakpoint around <code>(inspector msg)</code> and another around <code>msg</code>. In fact,
-typing kbd:[C-u C-M-x] to instrument a top-level form is just a
+typing <kbd>C-u C-M-x</kbd> to instrument a top-level form is just a
 convenient way to evaluate the form with an implicit <code>#dbg</code> in front
 of it; the behavior is the same.</p>
 </div>
 <div class="paragraph">
 <p>At any point, you can bring up a list of all currently instrumented <code>def</code>s with
-the command kbd:[M-x] <code>cider-browse-instrumented-defs</code>. Protocols and types
+the command <kbd>M-x</kbd> <code>cider-browse-instrumented-defs</code>. Protocols and types
 can be instrumented as well, but they will not be listed by this
 command.</p>
 </div>
@@ -396,10 +396,10 @@ command.</p>
 <p>In the CIDER debugger, the term "breakpoint" refers to a place where
 the debugger can halt execution and display the value of an
 expression. You can set a single breakpoint with <code>#break</code>, or set
-breakpoints throughout a form with <code>#dbg</code> (or by evaluating with kbd:[C-u C-M-x]), as described previously.</p>
+breakpoints throughout a form with <code>#dbg</code> (or by evaluating with <kbd>C-u C-M-x</kbd>), as described previously.</p>
 </div>
 <div class="paragraph">
-<p>When using <code>#dbg</code> or kbd:[C-u C-M-x], not every form is wrapped
+<p>When using <code>#dbg</code> or <kbd>C-u C-M-x</kbd>, not every form is wrapped
 in a breakpoint. The debugger tries to avoid setting breakpoints on
 expressions that are not interesting. For example, there is little
 point in stopping execution at a literal number 23 in your code and
@@ -430,73 +430,73 @@ keys, although there are some differences.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[n]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>n</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Next step</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[i]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>i</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Step in to a function</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[o]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>o</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Step out of the current sexp (like <code>up-list</code>)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[O]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>O</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Force-step out of the current sexp</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[h]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>h</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Skip all sexps up to &#8220;here&#8221; (current position). Move the cursor before doing this.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[H]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>H</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Force-step to &#8220;here&#8221;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[c]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>c</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Continue without stopping in current breakpoint</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[C]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Continue without stopping for all breakpoints</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[e]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>e</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Eval code in current context</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[p]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>p</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inspect the current value</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[P]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>P</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inspect an arbitrary expression</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[l]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>l</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inspect local variables</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[j]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>j</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inject a value into running code</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[s]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the current stack</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[t]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>t</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Trace. Continue, printing expressions and their values.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">kbd:[q]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>q</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Quit execution</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Additionally, all the usual evaluation commands such as kbd:[C-x C-e] or kbd:[C-c M-:] will be scoped to the current lexical
+<p>Additionally, all the usual evaluation commands such as <kbd>C-x C-e</kbd> or <kbd>C-c M-:</kbd> will be scoped to the current lexical
 context while the debugger is active, allowing you to access local
 variables.</p>
 </div>
@@ -617,8 +617,8 @@ you. Place the point where you want the condition to go and evaluate
 with <code>C-u C-u C-M-x</code> or <code>C-u C-u C-c C-c</code>. CIDER will then prompt you
 for the condition in the minibuffer and insert the appropriate <code>#dbg</code>
 plus metadata annotation in your code. Note that you&#8217;ll have to delete
-this annotation by hand; you cannot simply use kbd:[C-M-x] as you
-can to un-instrument kbd:[C-u C-M-x].</p>
+this annotation by hand; you cannot simply use <kbd>C-M-x</kbd> as you
+can to un-instrument <kbd>C-u C-M-x</kbd>.</p>
 </div>
 </div>
 </div>
