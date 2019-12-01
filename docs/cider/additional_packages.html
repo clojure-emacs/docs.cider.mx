@@ -318,7 +318,7 @@ experience. The majority of the minor modes listed here should be enabled for bo
 <code>cider-repl-mode</code> and <code>clojure-mode</code> for optimal effects.</p>
 </div>
 <div class="paragraph">
-<p>The listed here belong to three categories:</p>
+<p>The packages listed here belong to three categories:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -355,7 +355,7 @@ your CIDER version.
 <p>CIDER extensions typically are Emacs packages that built on top of CIDER&#8217;s Emacs Lisp API.
 Some of them ship with extra nREPL middleware as well (e.g. <code>clj-refactor</code>). Typically
 packages that rely on middleware would hook into CIDER&#8217;s middleware injection
-functionality and inject their automatically as well.</p>
+functionality and inject their own functionality automatically as well.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -375,7 +375,7 @@ of maintenance may vary significantly.
 <h3 id="_clj_refactor"><a class="anchor" href="#_clj_refactor"></a>clj-refactor</h3>
 <div class="paragraph">
 <p><a href="https://github.com/clojure-emacs/clj-refactor.el">clj-refactor</a> builds on top
-of clojure-mode and CIDER and adds a ton of extra functionality (e.g. the
+of <code>clojure-mode</code> and CIDER and adds a ton of extra functionality (e.g. the
 ability to thread/unthread expression, find and replace usages, introduce let
 bindings, extract function and so on).</p>
 </div>
@@ -384,7 +384,7 @@ bindings, extract function and so on).</p>
 <a href="https://github.com/clojure-emacs/clj-refactor.el/wiki">here</a>.</p>
 </div>
 <div class="paragraph">
-<p>We hope to incorporate some of its features into clojure-mode and CIDER themselves
+<p>We hope to incorporate some of its features into <code>clojure-mode</code> and CIDER themselves
 down the road.</p>
 </div>
 </div>
@@ -397,8 +397,8 @@ viewer and formatting tool for
 </div>
 <div class="paragraph">
 <p>Emidje extends CIDER to provide support for Midje tests in a similar
-fashion as <code>cider-test.el</code> does for clojure.test tests. In fact, most of
-Emidje functionalities were strongly inspired on <code>cider-test.el</code>
+fashion as <code>cider-test.el</code> does for <code>clojure.test</code> tests. In fact, most of
+Emidje&#8217;s functionalities were strongly inspired by <code>cider-test.el</code>
 features.</p>
 </div>
 </div>
@@ -412,7 +412,7 @@ features.</p>
 <div class="sect2">
 <h3 id="_helm_cider"><a class="anchor" href="#_helm_cider"></a>helm-cider</h3>
 <div class="paragraph">
-<p><a href="https://github.com/clojure-emacs/helm-cider">helm-cider</a> provides Helm
+<p><a href="https://github.com/clojure-emacs/helm-cider">helm-cider</a> provides a Helm
 interface for certain CIDER commands (e.g. <code>cider-apropos</code>).</p>
 </div>
 </div>
@@ -434,7 +434,8 @@ Flycheck checker for Clojure that provides instant linting of clojure code as yo
 <a href="https://github.com/borkdude/clj-kondo">clj-kondo</a>.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/borkdude/clj-kondo">clj-kondo</a> is a great way of preventing you writing bugs in your code :)</p>
+<p><a href="https://github.com/borkdude/clj-kondo">clj-kondo</a> is a great way of preventing
+yourself from writing buggy code.</p>
 </div>
 </div>
 <div class="sect2">
@@ -460,8 +461,9 @@ built-in basic tracing functionality.</p>
 <h2 id="_generic_emacs_extensions"><a class="anchor" href="#_generic_emacs_extensions"></a>Generic Emacs Extensions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Most packages here are standard Emacs minor modes that work with most major modes,
-but are especially handy for Lisp-like languages like Clojure.</p>
+<p>Most packages in the following list are standard Emacs minor modes that work
+with most major modes, but are especially handy for Lisp-like languages like
+Clojure.</p>
 </div>
 <div class="sect2">
 <h3 id="_subword_mode"><a class="anchor" href="#_subword_mode"></a>subword-mode</h3>
@@ -548,7 +550,7 @@ CIDER integration for <code>eval-sexp-fu</code>.</p>
 </td>
 <td class="content">
 It&#8217;s generally a bad idea to mix Clojure programming environments, as all of those
-tend to modify `clojure-mode&#8217;s keymap while active. Run only one environment at a time unless
+tend to modify <code>clojure-mode</code> 's keymap while active. Run only one environment at a time unless
 you really know what you&#8217;re doing.
 </td>
 </tr>

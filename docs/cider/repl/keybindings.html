@@ -330,11 +330,11 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>RET</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the current input in Clojure if it is complete. If incomplete, open a new line and indent. If the current input is a blank string (containing only whitespace including newlines) then clear the input without evaluating and print a fresh prompt. If invoked with a prefix argument is given then the input is evaluated without checking for completeness.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the current input in Clojure if it is complete. If incomplete, open a new line and indent. If the current input is a blank string (containing only whitespace including newlines) then clear the input without evaluating and print a fresh prompt. If invoked with a prefix argument, then the input is evaluated without checking for completeness.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-RET</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Close any unmatched parenthesis and then evaluate the current input in Clojure.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Close any unmatched parentheses and then evaluate the current input in Clojure.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-j</kbd></p></td>
@@ -392,7 +392,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Display JavaDoc (in your default browser) for the symbol at point.  If invoked with a prefix argument, or no symbol is found at point, prompt for a symbol.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d r</kbd><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d c</kbd><br>
 <kbd>C-c C-d C-c</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lookup symbol in ClojureDocs.</p></td>
 </tr>
@@ -408,7 +408,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-z</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Switch to the previous Clojure buffer. This complements <kbd>C-c C-z</kbd> used in cider-mode.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch to the previous Clojure buffer. This complements <kbd>C-c C-z</kbd> used in <code>cider-mode</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-i</kbd></p></td>
@@ -453,12 +453,12 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-t p</kbd><br>
 <kbd>C-c C-t C-p</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Run tests for all project namespaces. This loads the additional namespaces.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run tests for all project namespaces. This loads all namespaces of the project.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-t r</kbd><br>
 <kbd>C-c C-t C-r</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Re-run test failures/errors.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Re-run failed and erring tests.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-t b</kbd><br>
@@ -479,7 +479,7 @@
 </td>
 <td class="content">
 There&#8217;s no need to memorize this list. In any REPL buffer you&#8217;ll have a <code>REPL</code>
-menu available, which lists all the most important commands and their
+menu available, which lists the most important commands and their
 keybindings. You can also invoke <code>C-h f RET cider-repl-mode</code> to get a list of the
 keybindings for <code>cider-repl-mode</code>.
 </td>

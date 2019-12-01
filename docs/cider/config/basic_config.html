@@ -444,7 +444,7 @@ translation mappings easily by setting the following (typically in <code>.dir-lo
 <div class="paragraph">
 <p>Each entry will be interpreted as a directory entry so trailing slash
 is optional. Navigation to definition will attempt to translate these locations, and
-if they exist, navigate there rather than report the file does not
+if they exist, navigate there rather than report that the file does not
 exist. In the example above, the <code>.m2</code> directory is mounted at <code>/root/.m2</code>
 and the source at <code>/src</code>. These translations would map these locations
 back to the user&#8217;s computer so that navigation to definition would work.</p>
@@ -482,7 +482,7 @@ behaviour by adjusting <code>cider-save-file-on-load</code>.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Change the result prefix for interactive evaluation (not the REPL
-prefix). By default the prefix is <code>+&#8658; +</code>.</p>
+prefix). By default the prefix is `&#8658; `.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -540,7 +540,7 @@ Java file links to navigate there.</p>
 <div class="paragraph">
 <p>On Windows and macOS the JDK source code is bundled with the JDK. On Windows its
 typical location is <code>C:\Program Files\Java\{jdk-version}\src.zip</code>
-and on macOS its <code>/Library/Java/JavaVirtualMachines/{jdk-version}/Contents/Home/src.zip</code>.</p>
+and on macOS it&#8217;s <code>/Library/Java/JavaVirtualMachines/{jdk-version}/Contents/Home/src.zip</code>.</p>
 </div>
 <div class="paragraph">
 <p>On Linux distributions usually the source code is distributed as a separate package.
@@ -568,8 +568,8 @@ Here&#8217;s how do get the JDK 8 source on Ubuntu:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>It&#8217;s possible to use <code>jar</code> or <code>zip</code> files <code>cider-jdk-src-paths</code>, but extracting
-them is better since you get features like <code>ag</code> or <code>dired-jump</code>.</p>
+<p>It&#8217;s possible to point <code>cider-jdk-src-paths</code> to <code>jar</code> or <code>zip</code> files, but extracting
+them is better since you can use features like <code>ag</code> or <code>dired-jump</code>.</p>
 </div>
 </div>
 </div>
@@ -578,8 +578,9 @@ them is better since you get features like <code>ag</code> or <code>dired-jump</
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can hide all nREPL middleware details from <code>cider-browse-ns*</code> and <code>cider-apropos*</code>
-commands by customizing the variable <code>cider-filter-regexps</code>. It should be a list of
-regexps matching the pattern of namespaces you want to filter out.</p>
+commands by customizing the variable <code>cider-filter-regexps</code>. The value of this
+variable should be a list of regexps matching the pattern of namespaces you want
+to filter out.</p>
 </div>
 <div class="paragraph">
 <p>Its default value is <code>'("^cider.nrepl" "^refactor-nrepl" "^nrepl")</code>,
@@ -595,7 +596,7 @@ and not Emacs Lisp. For example, to achieve the above effect, you could also set
 with <kbd>M-x</kbd> <code>customize-variable</code> <kbd>RET</kbd> <code>cider-filter-regexps</code>.</p>
 </div>
 <div class="paragraph">
-<p>Or by including a similar snippet along with the other CIDER configuration.</p>
+<p>An alternative is to set the variable along with the other CIDER configuration.</p>
 </div>
 <div class="listingblock">
 <div class="content">

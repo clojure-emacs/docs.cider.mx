@@ -481,23 +481,9 @@ built-in option <code>scroll-conservatively</code>, for example:</p>
 <h2 id="_customize_the_repl_buffers_name"><a class="anchor" href="#_customize_the_repl_buffers_name"></a>Customize the REPL Buffer&#8217;s Name</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The REPL buffer name has the format <code>*cider-repl project-name*</code>.  You
-can change the separator from a space character to something else by
-setting <code>nrepl-buffer-name-separator</code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq nrepl-buffer-name-separator "-")</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The REPL buffer name can also display the port on which the nREPL server is running.
-The buffer name will look like <code>*cider-repl project-name:port*</code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq nrepl-buffer-name-show-port t)</code></pre>
-</div>
+<p>You can customize the buffer name using the variable
+<code>cider-session-name-template</code>. See the documentation for this variable for
+details.</p>
 </div>
 </div>
 </div>
@@ -551,10 +537,9 @@ pretty-printing was disabled by default.</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Note well that disabling pretty-printing is not advised. Emacs does not handle
-well very long lines, so using a printing function that wraps lines beyond a
-certain width (i.e. any of them except for <code>pr</code>) will keep your REPL running
-smoothly.</p>
+<p>Note that disabling pretty-printing is not advised. Emacs does not handle well
+very long lines, so using a printing function that wraps lines beyond a certain
+width (i.e. any of them except for <code>pr</code>) will keep your REPL running smoothly.</p>
 </div>
 <div class="paragraph">
 <p>See <a href="../pretty_printing">this</a> for more information on configuring printing.</p>

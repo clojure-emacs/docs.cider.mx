@@ -332,7 +332,7 @@ enough to be one of those people then you can safely skip reading this section. 
 people who have to work simultaneously on multiple projects or have multiple connections opened for the same project.</p>
 </div>
 <div class="paragraph">
-<p>Turns out that it&#8217;s really hard to map reliably operations originating in source buffers (e.g. code evaluation) to the right
+<p>It turns out that it&#8217;s really hard to map reliably operations originating in source buffers (e.g. code evaluation) to the right
 connection buffer, as there are many things you have to take into account:</p>
 </div>
 <div class="ulist">
@@ -370,7 +370,7 @@ you&#8217;re using the right connection. This problem was further compounded by 
 <li>
 <p>This brings us to the present - today&#8217;s approach to managing multiple connections is an evolution of the dynamic dispatch.
 Related connections are grouped together in sessions, which are tied to some context (typically a project directory). If some
-operation dispatch is ambigous it will fail with an error message. You can manually link buffers, files and directories
+operation dispatch is ambiguous it will fail with an error message. You can manually link buffers, files and directories
 to sessions in such situations.</p>
 </li>
 </ul>
