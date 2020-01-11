@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Enlighten :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/debugging/enlighten.html">
+    <title>Using shadow-cljs :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/cljs/shadow-cljs.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -88,19 +88,19 @@
     <span class="nav-text">ClojureScript Setup</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+    <a class="nav-link" href="overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+    <a class="nav-link" href="up_and_running.html">Up and Running</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+    <a class="nav-link" href="figwheel.html">Using Figwheel</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="shadow-cljs.html">Using shadow-cljs</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+    <a class="nav-link" href="other_repls.html">Using Other REPLs</a>
   </li>
 </ul>
   </li>
@@ -169,16 +169,16 @@
     <span class="nav-text">Debugging</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="tracing.html">Tracing</a>
-  </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="enlighten.html">Enlighten</a>
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="debugger.html">Debugger</a>
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="misc.html">Misc</a>
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/misc.html">Misc</a>
   </li>
 </ul>
   </li>
@@ -314,61 +314,44 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
-    <li>Debugging</li>
-    <li><a href="enlighten.html">Enlighten</a></li>
+    <li>ClojureScript Setup</li>
+    <li><a href="shadow-cljs.html">Using shadow-cljs</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
-    <a class="version is-current" href="enlighten.html">master</a>
-    <a class="version" href="../0.23/debugging/enlighten.html">0.23</a>
+    <a class="version is-current" href="shadow-cljs.html">master</a>
+    <a class="version is-missing" href="../0.23/index.html">0.23</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/debugging/enlighten.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/cljs/shadow-cljs.adoc">Edit this Page</a></div>
   </div>
 <article class="doc">
-<h1 class="page">Enlighten</h1>
+<h1 class="page">Using shadow-cljs</h1>
 <div class="paragraph">
-<p>Enlighten Mode displays the value of locals in realtime, as your code
-runs. This feature is somewhat similar to a feature in the Light Table
-editor.</p>
+<p>Provided you&#8217;ve configured your project correctly, you can simply use
+<code>cider-jack-in-cljs</code> for <code>shadow-cljs</code>.</p>
 </div>
 <div class="paragraph">
-<p>To turn it on, issue <kbd>M-x</kbd> <code>cider-enlighten-mode</code>. Then,
-evaluate your functions one at a time using <kbd>C-M-x</kbd> or
-<kbd>C-x C-e</kbd>. Note that <kbd>C-c C-k</kbd> won&#8217;t work.</p>
+<p>This will automatically start the shadow-cljs server and connect to
+it. You&#8217;ll also be prompted for the build to use.</p>
 </div>
 <div class="paragraph">
-<p>That&#8217;s it! Once your code executes, the regular old buffer on the left will turn
-into the brilliant show of lights on the right.</p>
+<p>Alternatively you can start the server manually with something like:</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Enlighten Mode Disabled</th>
-<th class="tableblock halign-left valign-top">Enlighten Mode Enabled</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../_images/enlighten_disabled.png" alt="Disabled"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../_images/enlighten_enabled.png" alt="Enabled"></span></p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>To stop displaying the locals you&#8217;ll have to disable <code>cider-enlighten-mode</code>
-and reevaluate the definitions you had instrumented previously.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ npx shadow-cljs server</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>You can also trigger this on specific functions (without having to turn on the
-minor mode) by writing <code>#light</code> before the <code>(def</code> and re-evaluating
-it.</p>
+<p>And connect to it with <code>cider-connect</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you already have a running server watching a build (for instance
+you have already run <code>npx shadow-cljs watch :dev</code>), you can use the
+<code>shadow-select</code> CLJS REPL and specify <code>:dev</code> when prompted.</p>
 </div>
 </article>
 </main>

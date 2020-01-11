@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Enlighten :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/debugging/enlighten.html">
+    <title>ClojureScript :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/cljs/overview.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -87,20 +87,20 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">ClojureScript Setup</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+    <a class="nav-link" href="up_and_running.html">Up and Running</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+    <a class="nav-link" href="figwheel.html">Using Figwheel</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
+    <a class="nav-link" href="shadow-cljs.html">Using shadow-cljs</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+    <a class="nav-link" href="other_repls.html">Using Other REPLs</a>
   </li>
 </ul>
   </li>
@@ -169,16 +169,16 @@
     <span class="nav-text">Debugging</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="tracing.html">Tracing</a>
-  </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="enlighten.html">Enlighten</a>
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="debugger.html">Debugger</a>
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="misc.html">Misc</a>
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/misc.html">Misc</a>
   </li>
 </ul>
   </li>
@@ -314,61 +314,103 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
-    <li>Debugging</li>
-    <li><a href="enlighten.html">Enlighten</a></li>
+    <li>ClojureScript Setup</li>
+    <li><a href="overview.html">Overview</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
-    <a class="version is-current" href="enlighten.html">master</a>
-    <a class="version" href="../0.23/debugging/enlighten.html">0.23</a>
+    <a class="version is-current" href="overview.html">master</a>
+    <a class="version is-missing" href="../0.23/index.html">0.23</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/debugging/enlighten.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/cljs/overview.adoc">Edit this Page</a></div>
   </div>
 <article class="doc">
-<h1 class="page">Enlighten</h1>
-<div class="paragraph">
-<p>Enlighten Mode displays the value of locals in realtime, as your code
-runs. This feature is somewhat similar to a feature in the Light Table
-editor.</p>
-</div>
-<div class="paragraph">
-<p>To turn it on, issue <kbd>M-x</kbd> <code>cider-enlighten-mode</code>. Then,
-evaluate your functions one at a time using <kbd>C-M-x</kbd> or
-<kbd>C-x C-e</kbd>. Note that <kbd>C-c C-k</kbd> won&#8217;t work.</p>
-</div>
-<div class="paragraph">
-<p>That&#8217;s it! Once your code executes, the regular old buffer on the left will turn
-into the brilliant show of lights on the right.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
+<h1 class="page">ClojureScript</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">Enlighten Mode Disabled</th>
-<th class="tableblock halign-left valign-top">Enlighten Mode Enabled</th>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+CIDER works well with ClojureScript, but not all CIDER features are
+available in ClojureScript (yet). For instance, the test runner and
+debugger are currently Clojure-only features.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../_images/enlighten_disabled.png" alt="Disabled"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../_images/enlighten_enabled.png" alt="Enabled"></span></p></td>
-</tr>
-</tbody>
 </table>
-<div class="paragraph">
-<p>To stop displaying the locals you&#8217;ll have to disable <code>cider-enlighten-mode</code>
-and reevaluate the definitions you had instrumented previously.</p>
 </div>
 <div class="paragraph">
-<p>You can also trigger this on specific functions (without having to turn on the
-minor mode) by writing <code>#light</code> before the <code>(def</code> and re-evaluating
-it.</p>
+<p>Unlike the Clojure ecosystem that is dominated by a single REPL, the
+ClojureScript ecosystem has a number of different choices for REPLs. You&#8217;ll have
+to decide which one you want to run and how you want CIDER to interact
+with it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nrepl_and_clojurescript"><a class="anchor" href="#_nrepl_and_clojurescript"></a>nREPL and ClojureScript</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>nREPL doesn&#8217;t natively support ClojureScript evaluation, that why an additional
+middleware is needed. CIDER relies on the popular Piggieback middleware for its
+ClojureScript support.</p>
+</div>
+<div class="paragraph">
+<p>Piggieback works in the following manner:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You start a regular Clojure REPL</p>
+</li>
+<li>
+<p>You run some Clojure in it that converts to a ClojureScript REPL</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This means that jacking-in a two-fold process for ClojureScript, compared to Clojure,
+as now we have the extra REPL "upgrade" step.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dealing_with_dependencies"><a class="anchor" href="#_dealing_with_dependencies"></a>Dealing with Dependencies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CIDER doesn&#8217;t handle automatically ClojureScript REPL dependencies when you&#8217;re doing
+<code>cider-jack-in-clojurescript</code>. You&#8217;ll have to configure those manually yourselves
+as documented in the subsequent sections of this manual.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_limitations"><a class="anchor" href="#_limitations"></a>Limitations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CIDER currently doesn&#8217;t support self-hosted ClojureScript implementations (e.g. Lumo).
+The reason for this is that there&#8217;s no self-hosted version of nREPL (implemented in ClojureScript)
+available today.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, as noted earlier on this page - many of CIDER&#8217;s advanced features are
+currently not available for ClojureScript.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_next"><a class="anchor" href="#_next"></a>Next</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the next article we&#8217;ll show you how to start a ClojureScript REPL with CIDER.</p>
+</div>
+</div>
 </div>
 </article>
 </main>

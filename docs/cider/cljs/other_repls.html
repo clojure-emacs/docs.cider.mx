@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Enlighten :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/debugging/enlighten.html">
+    <title>Using Other ClojureScript REPLs :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/cljs/other_repls.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -88,19 +88,19 @@
     <span class="nav-text">ClojureScript Setup</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+    <a class="nav-link" href="overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+    <a class="nav-link" href="up_and_running.html">Up and Running</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+    <a class="nav-link" href="figwheel.html">Using Figwheel</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
+    <a class="nav-link" href="shadow-cljs.html">Using shadow-cljs</a>
   </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="other_repls.html">Using Other REPLs</a>
   </li>
 </ul>
   </li>
@@ -169,16 +169,16 @@
     <span class="nav-text">Debugging</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="tracing.html">Tracing</a>
-  </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="enlighten.html">Enlighten</a>
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="debugger.html">Debugger</a>
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="misc.html">Misc</a>
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/misc.html">Misc</a>
   </li>
 </ul>
   </li>
@@ -314,61 +314,120 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
-    <li>Debugging</li>
-    <li><a href="enlighten.html">Enlighten</a></li>
+    <li>ClojureScript Setup</li>
+    <li><a href="other_repls.html">Using Other REPLs</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
-    <a class="version is-current" href="enlighten.html">master</a>
-    <a class="version" href="../0.23/debugging/enlighten.html">0.23</a>
+    <a class="version is-current" href="other_repls.html">master</a>
+    <a class="version is-missing" href="../0.23/index.html">0.23</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/debugging/enlighten.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/cljs/other_repls.adoc">Edit this Page</a></div>
   </div>
 <article class="doc">
-<h1 class="page">Enlighten</h1>
+<h1 class="page">Using Other ClojureScript REPLs</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>Enlighten Mode displays the value of locals in realtime, as your code
-runs. This feature is somewhat similar to a feature in the Light Table
-editor.</p>
+<p>While these days most people are using <code>figwheel</code> and <code>shadow-cljs</code>,
+CIDER supports other ClojureScript REPLs as well.
+This section of the user manual is dedicated to them.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_browser_connected_clojurescript_repl"><a class="anchor" href="#_browser_connected_clojurescript_repl"></a>Browser-Connected ClojureScript REPL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using Weasel, you can also have a browser-connected REPL.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add <code>[weasel "0.7.0"]</code> to your project&#8217;s <code>:dependencies</code>.</p>
+</li>
+<li>
+<p>Type kbd:[M-x] <code>cider-jack-in-cljs</code> kbd:[RET] and choose
+the <code>Weasel</code> option when prompted about the ClojureScript REPL type you want
+to use.</p>
+</li>
+<li>
+<p>Add this to your ClojureScript code:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(ns my.cljs.core
+  (:require [weasel.repl :as repl]))
+(repl/connect "ws://localhost:9001")</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Open a file in your project and type kbd:[M-x] <code>cider-jack-in-cljs</code>.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>To turn it on, issue <kbd>M-x</kbd> <code>cider-enlighten-mode</code>. Then,
-evaluate your functions one at a time using <kbd>C-M-x</kbd> or
-<kbd>C-x C-e</kbd>. Note that <kbd>C-c C-k</kbd> won&#8217;t work.</p>
+<p>Provided that a Piggieback-enabled ClojureScript environment is active in your
+REPL session, code loading and evaluation will work seamlessly regardless of the
+presence of the <code>cider-nrepl</code> middleware. If the middleware is present then most
+other features of CIDER will also be enabled (including code completion,
+documentation lookup, the namespace browser, and macroexpansion).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_browser_connected_clojurescript_repl_in_boot_projects"><a class="anchor" href="#_browser_connected_clojurescript_repl_in_boot_projects"></a>Browser-Connected ClojureScript REPL in Boot Projects</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add this to your dependencies in <code>build.boot</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">[adzerk/boot-cljs        "X.Y.Z"  :scope "test"]
+[adzerk/boot-cljs-repl   "X.Y.Z"  :scope "test"]
+[pandeiro/boot-http      "X.Y.Z"  :scope "test"]
+[weasel                  "0.7.0"  :scope "test"]
+[cider/piggieback "0.4.2"  :scope "test"] ; not needed for cider-jack-in-cljs</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>That&#8217;s it! Once your code executes, the regular old buffer on the left will turn
-into the brilliant show of lights on the right.</p>
+<p>and this at the end of <code>build.boot</code>:</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Enlighten Mode Disabled</th>
-<th class="tableblock halign-left valign-top">Enlighten Mode Enabled</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../_images/enlighten_disabled.png" alt="Disabled"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../_images/enlighten_enabled.png" alt="Enabled"></span></p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>To stop displaying the locals you&#8217;ll have to disable <code>cider-enlighten-mode</code>
-and reevaluate the definitions you had instrumented previously.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(require
+ '[adzerk.boot-cljs :refer [cljs]]
+ '[adzerk.boot-cljs-repl :refer [cljs-repl]]
+ '[pandeiro.boot-http :refer [serve]])
+
+(deftask dev []
+  (comp (serve)
+        (watch)
+        (cljs-repl) ; order is important!!
+        (cljs)))</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Type kbd:[M-x] <code>customize-variable</code> kbd:[RET] <code>cider-boot-parameters</code>
+and insert <code>dev</code>.</p>
+</li>
+<li>
+<p>Open a file in your project and type kbd:[M-x] <code>cider-jack-in-cljs</code>.</p>
+</li>
+<li>
+<p>Connect to the running server with your browser. The address is printed on the terminal, but it&#8217;s probably <code>http://localhost:3000</code>.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>You can also trigger this on specific functions (without having to turn on the
-minor mode) by writing <code>#light</code> before the <code>(def</code> and re-evaluating
-it.</p>
+<p>For more information visit <a href="https://github.com/adzerk-oss/boot-cljs-repl">boot-cljs-repl</a>.</p>
+</div>
+</div>
 </div>
 </article>
 </main>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Enlighten :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/debugging/enlighten.html">
+    <title>Using Figwheel :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/cljs/figwheel.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -88,19 +88,19 @@
     <span class="nav-text">ClojureScript Setup</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+    <a class="nav-link" href="overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+    <a class="nav-link" href="up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="figwheel.html">Using Figwheel</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+    <a class="nav-link" href="shadow-cljs.html">Using shadow-cljs</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+    <a class="nav-link" href="other_repls.html">Using Other REPLs</a>
   </li>
 </ul>
   </li>
@@ -169,16 +169,16 @@
     <span class="nav-text">Debugging</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="tracing.html">Tracing</a>
-  </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="enlighten.html">Enlighten</a>
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="debugger.html">Debugger</a>
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="misc.html">Misc</a>
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/misc.html">Misc</a>
   </li>
 </ul>
   </li>
@@ -314,61 +314,256 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
-    <li>Debugging</li>
-    <li><a href="enlighten.html">Enlighten</a></li>
+    <li>ClojureScript Setup</li>
+    <li><a href="figwheel.html">Using Figwheel</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
-    <a class="version is-current" href="enlighten.html">master</a>
-    <a class="version" href="../0.23/debugging/enlighten.html">0.23</a>
+    <a class="version is-current" href="figwheel.html">master</a>
+    <a class="version is-missing" href="../0.23/index.html">0.23</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/debugging/enlighten.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/cljs/figwheel.adoc">Edit this Page</a></div>
   </div>
 <article class="doc">
-<h1 class="page">Enlighten</h1>
+<h1 class="page">Using Figwheel</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>Enlighten Mode displays the value of locals in realtime, as your code
-runs. This feature is somewhat similar to a feature in the Light Table
-editor.</p>
+<p>Figwheel is one of the most popular ClojureScript REPLs today. Bellow you&#8217;ll
+instructions how to setup and use it with CIDER.</p>
 </div>
-<div class="paragraph">
-<p>To turn it on, issue <kbd>M-x</kbd> <code>cider-enlighten-mode</code>. Then,
-evaluate your functions one at a time using <kbd>C-M-x</kbd> or
-<kbd>C-x C-e</kbd>. Note that <kbd>C-c C-k</kbd> won&#8217;t work.</p>
-</div>
-<div class="paragraph">
-<p>That&#8217;s it! Once your code executes, the regular old buffer on the left will turn
-into the brilliant show of lights on the right.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">Enlighten Mode Disabled</th>
-<th class="tableblock halign-left valign-top">Enlighten Mode Enabled</th>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There are two versions of Figwheel out there - the legacy <a href="https://github.com/bhauman/lein-figwheel">figwheel</a> and
+the modern <a href="https://github.com/bhauman/figwheel-main">figwheel-main</a>. You&#8217;re
+strongly advised to use <code>figwheel-main</code>.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../_images/enlighten_disabled.png" alt="Disabled"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../_images/enlighten_enabled.png" alt="Enabled"></span></p></td>
-</tr>
-</tbody>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_figwheel_main"><a class="anchor" href="#_using_figwheel_main"></a>Using Figwheel-main</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_leiningen_setup"><a class="anchor" href="#_leiningen_setup"></a>Leiningen Setup</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This part of the setup is only necessary if <code>cider-inject-dependencies-at-jack-in</code> has
+been changed from its default setting of <code>enabled</code>, as described more fully above.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add this to your dev <code>:dependencies</code> (not needed for <code>cider-jack-in-cljs</code>):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">[cider/piggieback "0.4.2"]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add this to your dev <code>:repl-options</code> (not needed for <code>cider-jack-in-cljs</code>):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:nrepl-middleware [cider.piggieback/wrap-cljs-repl]</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clojure_cli_setup"><a class="anchor" href="#_clojure_cli_setup"></a>Clojure CLI Setup</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure your <code>deps.edn</code> contains these dependencies available from an
+alias such as <code>fig</code>. These should already be present if you used the
+<a href="https://github.com/bhauman/figwheel-main-template">figwheel-main-template</a>
+with <a href="https://github.com/seancorfield/clj-new">clj-new</a> to generate your
+deps.edn.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{ :aliases {:fig {:extra-deps
+                 {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
+                  com.bhauman/figwheel-main {:mvn/version "0.2.3"}}}}}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add this option to your project&#8217;s <code>.dir-locals.el</code> before opening the
+ClojureScript file in a buffer from which you&#8217;ll be starting the REPL.
+(If the file is already open you can either close and open it again or
+use <code>revert-buffer</code>.)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">((clojurescript-mode . ((cider-clojure-cli-global-options . "-A:fig"))))</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you didn&#8217;t setup <code>.dir-locals.el</code> you can edit the command-line
+in the minibuffer and insert "-A:fig" at the beginning after the <code>clojure</code>
+executable. To do this prepend calling <code>cider-jack-in-cljs</code> with the
+universal argument (e.g. C-u).
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_starting_a_repl"><a class="anchor" href="#_starting_a_repl"></a>Starting a REPL</h3>
 <div class="paragraph">
-<p>To stop displaying the locals you&#8217;ll have to disable <code>cider-enlighten-mode</code>
-and reevaluate the definitions you had instrumented previously.</p>
+<p>Now that Figwheel is properly configured it&#8217;s time for us to start a Figwheel-powered REPL
+in CIDER:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start the REPL with <code>cider-jack-in-cljs</code> (kbd:[C-c C-x (C-)j (C-)s]). When CIDER prompts about the ClojureScript REPL type,
+select <code>figwheel-main</code>.</p>
+</li>
+<li>
+<p>Select the Figwheel build to run when prompted for it. (e.g. <code>:dev</code>).</p>
+</li>
+<li>
+<p>When CIDER prompts for the ClojureScript REPL type, select <code>figwheel-main</code>.</p>
+</li>
+<li>
+<p>When CIDER prompts for the build name, select one of the build name
+options which were generated by finding files named &lt;build&gt;.cljs.edn in
+the project root directory.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If instead of selecting one of the build name options provided,
+you enter either a non-existent build name (no matching .cljs.edn file)
+or an empty build name, CIDER will forward that on to figwheel-main which
+will report an error.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For more advanced usage, you can provide any options supported
+by <code>figwheel.main/start</code> at either the prompt for the build name or
+using the <code>cider-figwheel-main-default-options</code>.
+See <a href="https://github.com/bhauman/figwheel-main/blob/master/src/figwheel/main/api.clj">figwheel.main.api/start</a>
+for details.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_legacy_figwheel_leiningen_only"><a class="anchor" href="#_using_legacy_figwheel_leiningen_only"></a>Using legacy Figwheel (Leiningen-only)</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This has been deprecated in favour of using <code>figwheel-main</code>. Check out
+the instructions in the next section.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>You can also trigger this on specific functions (without having to turn on the
-minor mode) by writing <code>#light</code> before the <code>(def</code> and re-evaluating
-it.</p>
+<p>You can also use <a href="https://github.com/bhauman/lein-figwheel">Figwheel</a> with CIDER.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set up Figwheel as normal, but make sure <code>:cljsbuild</code> and <code>:figwheel</code> settings are
+in the root of your Leiningen project definition.</p>
+</li>
+<li>
+<p>Add these to your dev <code>:dependencies</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">[cider/piggieback "0.4.2"] ; not needed for cider-jack-in-cljs
+[figwheel-sidecar "0.5.19"] ; use here whatever the current version of figwheel is</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Keep in mind that CIDER does not support versions versions of Piggieback older than 0.4. Make sure that you use a compatible version of Figwheel.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Add this to your dev <code>:repl-options</code> (not needed for <code>cider-jack-in-cljs</code>):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:nrepl-middleware [cider.piggieback/wrap-cljs-repl]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Start the REPL with <code>cider-jack-in-cljs</code> (kbd:[C-c C-x (C-)j (C-)s]). Select
+<code>figwheel</code> when prompted for the ClojureScript REPL type.</p>
+</li>
+<li>
+<p>Open a browser to the Figwheel URL so that it can connect to your application.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You should also check out
+<a href="https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-within-NRepl">Figwheel&#8217;s wiki</a>.</p>
+</div>
+</div>
 </div>
 </article>
 </main>
