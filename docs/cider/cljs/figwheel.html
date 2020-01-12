@@ -354,6 +354,11 @@ strongly advised to use <code>figwheel-main</code>.
 <div class="sect1">
 <h2 id="_using_figwheel_main"><a class="anchor" href="#_using_figwheel_main"></a>Using Figwheel-main</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The setup instructions that follow focus on the bare minimum you need to do
+to get Figwheel to work with CIDER. For more details you should check out
+Figwheel&#8217;s <a href="https://figwheel.org/docs/installation.html">excellent documentation</a>.</p>
+</div>
 <div class="sect2">
 <h3 id="_leiningen_setup"><a class="anchor" href="#_leiningen_setup"></a>Leiningen Setup</h3>
 <div class="admonitionblock note">
@@ -364,7 +369,9 @@ strongly advised to use <code>figwheel-main</code>.
 </td>
 <td class="content">
 This part of the setup is only necessary if <code>cider-inject-dependencies-at-jack-in</code> has
-been changed from its default setting of <code>enabled</code>, as described more fully above.
+been changed from its default setting of <code>t</code> (enabled), as described earlier.
+You&#8217;ll also have to configure Piggieback manually if you&#8217;re planning to use
+<code>cider-connect-cljs</code>.
 </td>
 </tr>
 </table>
@@ -389,6 +396,32 @@ been changed from its default setting of <code>enabled</code>, as described more
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>Now it&#8217;s time to add <code>figwheel-main</code> to your dependencies as well and you&#8217;re good to go. Here&#8217;s
+an example minimal <code>project.clj</code> (sans the optional Piggieback setup):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(defproject example-project "0.1.0-SNAPSHOT"
+  :dependencies [[org.clojure/clojure "1.10.1"]]
+  :profiles
+    {:dev
+      {:dependencies [[org.clojure/clojurescript "1.10.339"]
+                      [com.bhauman/figwheel-main "0.2.3"]]}})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now verify that everything&#8217;s properly setup by running:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ lein run -m figwheel.main</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A browser window should pop open and back in the terminal you should see a REPL
+with a <code>cljs.user&#8658;</code> prompt waiting to evaluate ClojureScript code.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_clojure_cli_setup"><a class="anchor" href="#_clojure_cli_setup"></a>Clojure CLI Setup</h3>
@@ -402,7 +435,7 @@ with <a href="https://github.com/seancorfield/clj-new">clj-new</a> to generate y
 deps.edn.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{ :aliases {:fig {:extra-deps
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:aliases {:fig {:extra-deps
                  {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
                   com.bhauman/figwheel-main {:mvn/version "0.2.3"}}}}}</code></pre>
 </div>
@@ -446,7 +479,7 @@ in CIDER:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Start the REPL with <code>cider-jack-in-cljs</code> (kbd:[C-c C-x (C-)j (C-)s]). When CIDER prompts about the ClojureScript REPL type,
+<p>Start the REPL with <code>cider-jack-in-cljs</code> (<kbd>C-c C-x (C-)j (C-)s</kbd>). When CIDER prompts about the ClojureScript REPL type,
 select <code>figwheel-main</code>.</p>
 </li>
 <li>
@@ -489,6 +522,18 @@ by <code>figwheel.main/start</code> at either the prompt for the build name or
 using the <code>cider-figwheel-main-default-options</code>.
 See <a href="https://github.com/bhauman/figwheel-main/blob/master/src/figwheel/main/api.clj">figwheel.main.api/start</a>
 for details.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Figwheel&#8217;s own documentation has a nice <a href="https://figwheel.org/docs/emacs.html">section, dedicated to CIDER</a>.
 </td>
 </tr>
 </table>
@@ -551,7 +596,7 @@ Keep in mind that CIDER does not support versions versions of Piggieback older t
 </div>
 </li>
 <li>
-<p>Start the REPL with <code>cider-jack-in-cljs</code> (kbd:[C-c C-x (C-)j (C-)s]). Select
+<p>Start the REPL with <code>cider-jack-in-cljs</code> (<kbd>C-c C-x (C-)j (C-)s</kbd>). Select
 <code>figwheel</code> when prompted for the ClojureScript REPL type.</p>
 </li>
 <li>
