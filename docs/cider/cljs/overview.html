@@ -347,9 +347,14 @@ debugger are currently Clojure-only features.
 </div>
 <div class="paragraph">
 <p>Unlike the Clojure ecosystem that is dominated by a single REPL, the
-ClojureScript ecosystem has a number of different choices for REPLs. You&#8217;ll have
-to decide which one you want to run and how you want CIDER to interact
-with it.</p>
+ClojureScript ecosystem has a number of different choices for REPLs
+(e.g. <code>nashorn</code>, <code>node</code>, <code>weasel</code>, <code>figwheel</code> and <code>shadow-cljs</code>). You&#8217;ll have to
+decide which one you want to run and how you want CIDER to interact with it.</p>
+</div>
+<div class="paragraph">
+<p>In this section we&#8217;ll take a look at how ClojureScript support is implemented in CIDER,
+and in the subsequent sections we&#8217;ll discuss how to launch a ClojureScript REPL
+and how to setup the most popular ClojureScript REPLs.</p>
 </div>
 </div>
 </div>
@@ -370,13 +375,95 @@ ClojureScript support.</p>
 <p>You start a regular Clojure REPL</p>
 </li>
 <li>
-<p>You run some Clojure in it that converts to a ClojureScript REPL</p>
+<p>You run some Clojure code in it, that converts it to a ClojureScript REPL</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This means that jacking-in a two-fold process for ClojureScript, compared to Clojure,
+<p>This means that jacking-in is a two-fold process for ClojureScript, compared to Clojure,
 as now we have the extra REPL "upgrade" step.</p>
+</div>
+<div class="paragraph">
+<p>On the bright side - this also means that you can host side by side Clojure and ClojureScript
+REPLs in a single nREPL connection! This opens up all sorts of interesting possibilities
+that we&#8217;ll discuss later on.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_differences_with_the_standard_clojurescript_repl"><a class="anchor" href="#_differences_with_the_standard_clojurescript_repl"></a>Differences with the Standard ClojureScript REPL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While the Piggieback-powered ClojureScript REPLs behave more or less
+the same as the standard ClojureScript REPL, there are few subtle
+differences everyone has to be aware of.</p>
+</div>
+<div class="sect2">
+<h3 id="_handling_of_multiple_forms"><a class="anchor" href="#_handling_of_multiple_forms"></a>Handling of Multiple Forms</h3>
+<div class="paragraph">
+<p>Here&#8217;s how the standard ClojureScript behaves with multiple input forms:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>cljs.user&gt;
+(declare is-odd?)
+(defn is-even? [n] (if (= n 0) true (is-odd? (dec n))))
+(defn is-odd? [n] (if (= n 0) false (is-even? (dec n))))
+#'cljs.user/is-odd?
+#'cljs.user/is-even?
+#'cljs.user/is-odd?
+cljs.user&gt; (is-even? 4)
+true</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And here&#8217;s how a Piggieback-powerd REPL behaves:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>cljs.user&gt;
+(declare is-odd?)
+(defn is-even? [n] (if (= n 0) true (is-odd? (dec n))))
+(defn is-odd? [n] (if (= n 0) false (is-even? (dec n))))
+#'cljs.user/is-odd?
+cljs.user&gt; (is-even? 4)
+Compile Warning   &lt;cljs repl&gt;   line:1  column:2</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Use of undeclared Var cljs.user/is-even?</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1  (is-even? 4)
+    ^---</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>#object[TypeError TypeError: Cannot read property 'call' of undefined]
+	 (&lt;NO_SOURCE_FILE&gt;)
+cljs.user&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This difference comes from a performance optimization in Piggieback, which avoids
+creating an different REPLs for each ClojureScript form it evaluates.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can learn more about this difference <a href="https://github.com/nrepl/piggieback/pull/98">here</a>.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -387,6 +474,31 @@ as now we have the extra REPL "upgrade" step.</p>
 <p>CIDER doesn&#8217;t handle automatically ClojureScript REPL dependencies when you&#8217;re doing
 <code>cider-jack-in-clojurescript</code>. You&#8217;ll have to configure those manually yourselves
 as documented in the subsequent sections of this manual.</p>
+</div>
+<div class="paragraph">
+<p>Actually, CIDER will handle automatically the most important dependency - namely Piggieback.
+The problem with the other dependencies, however, is that you might need to install
+some external tools (e.g. <code>node</code>, <code>shadow-cljs</code>) and that ClojureScript development
+tools like Figwheel and shadow-cljs also require some setup to be useful.</p>
+</div>
+<div class="paragraph">
+<p>CIDER will try to help you identify missing requirements by running a check, right before
+attempting to upgrade a Clojure REPL to a ClojureScript REPL. The nature of this check
+differs for the different REPL types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For a <code>node</code> REPL we check whether the <code>node</code> binary is on your <code>exec-path</code> (Emacs&#8217;s version of <code>PATH</code>)</p>
+</li>
+<li>
+<p>For tools like <code>figwheel</code> we check whether they are available on the classpath (by trying to require
+some of their namespaces)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We&#8217;ll discuss those checks further in the upcoming sections.</p>
 </div>
 </div>
 </div>
@@ -399,6 +511,11 @@ The reason for this is that there&#8217;s no self-hosted version of nREPL (imple
 available today.</p>
 </div>
 <div class="paragraph">
+<p>Another unsupported REPL is Rhino. Supporting in it Piggieback required a lot of ugly hacks
+and eventually it was decided we were better off without Rhino. Given the abundance
+of better solutions today, I doubt anyone&#8217;s going to miss Rhino anyways.</p>
+</div>
+<div class="paragraph">
 <p>Additionally, as noted earlier on this page - many of CIDER&#8217;s advanced features are
 currently not available for ClojureScript.</p>
 </div>
@@ -408,7 +525,7 @@ currently not available for ClojureScript.</p>
 <h2 id="_next"><a class="anchor" href="#_next"></a>Next</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In the next article we&#8217;ll show you how to start a ClojureScript REPL with CIDER.</p>
+<p>In the next section we&#8217;ll show you how to start a ClojureScript REPL with CIDER.</p>
 </div>
 </div>
 </div>
