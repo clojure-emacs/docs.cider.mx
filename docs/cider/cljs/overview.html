@@ -403,9 +403,9 @@ differences everyone has to be aware of.</p>
 <div class="paragraph">
 <p>Here&#8217;s how the standard ClojureScript behaves with multiple input forms:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>cljs.user&gt;
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">cljs.user&gt;
 (declare is-odd?)
 (defn is-even? [n] (if (= n 0) true (is-odd? (dec n))))
 (defn is-odd? [n] (if (= n 0) false (is-even? (dec n))))
@@ -413,39 +413,30 @@ differences everyone has to be aware of.</p>
 #'cljs.user/is-even?
 #'cljs.user/is-odd?
 cljs.user&gt; (is-even? 4)
-true</pre>
+true</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>And here&#8217;s how a Piggieback-powerd REPL behaves:</p>
+<p>And here&#8217;s how a Piggieback-powered REPL behaves:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>cljs.user&gt;
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">cljs.user&gt;
 (declare is-odd?)
 (defn is-even? [n] (if (= n 0) true (is-odd? (dec n))))
 (defn is-odd? [n] (if (= n 0) false (is-even? (dec n))))
 #'cljs.user/is-odd?
 cljs.user&gt; (is-even? 4)
-Compile Warning   &lt;cljs repl&gt;   line:1  column:2</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Use of undeclared Var cljs.user/is-even?</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>1  (is-even? 4)
-    ^---</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>#object[TypeError TypeError: Cannot read property 'call' of undefined]
+Compile Warning   &lt;cljs repl&gt;   line:1  column:2
+
+  Use of undeclared Var cljs.user/is-even?
+
+  1  (is-even? 4)
+      ^---
+
+#object[TypeError TypeError: Cannot read property 'call' of undefined]
 	 (&lt;NO_SOURCE_FILE&gt;)
-cljs.user&gt;</pre>
+cljs.user&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
