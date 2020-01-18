@@ -340,7 +340,7 @@ explore a new library you&#8217;re interested in using. The CIDER REPL offers a 
 <div class="ulist">
 <ul>
 <li>
-<p>auto-completion</p>
+<p>code completion</p>
 </li>
 <li>
 <p>font-locking (the same as in <code>clojure-mode</code>)</p>
@@ -350,6 +350,15 @@ explore a new library you&#8217;re interested in using. The CIDER REPL offers a 
 </li>
 <li>
 <p>pretty-printing of evaluation results</p>
+</li>
+<li>
+<p>inline display of images</p>
+</li>
+<li>
+<p>persistent REPL history</p>
+</li>
+<li>
+<p>powerful REPL history browser</p>
 </li>
 <li>
 <p>eldoc support</p>
@@ -376,7 +385,7 @@ other Clojure REPLs. Some examples of such things would be:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>You can close an incomplete expression with <kbd>C-Ret</kbd></p>
+<p>You can close an incomplete expression with <kbd>C-RET</kbd></p>
 </li>
 <li>
 <p>You can enter a multi-line expression by pressing <kbd>C-j</kbd> at the end of each line</p>
@@ -431,8 +440,18 @@ namely <kbd>C-c C-b</kbd>.
 <div class="paragraph">
 <p>When you&#8217;re done with a REPL you can dispose of it with <kbd>C-c C-q</kbd>.</p>
 </div>
-<div class="paragraph">
-<p>Please, avoid killing REPL buffers with <kbd>C-c C-k</kbd>.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Avoid killing REPL buffers with <kbd>C-c C-k</kbd>. This will forgo
+some of the operations needed to properly dispose of a REPL buffer.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
