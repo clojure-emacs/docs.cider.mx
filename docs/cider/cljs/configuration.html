@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Miscellaneous Configuration :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/config/misc.html">
+    <title>Configuration :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/cljs/configuration.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -88,22 +88,22 @@
     <span class="nav-text">ClojureScript Setup</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+    <a class="nav-link" href="overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+    <a class="nav-link" href="up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="configuration.html">Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/configuration.html">Configuration</a>
+    <a class="nav-link" href="figwheel.html">Using Figwheel</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+    <a class="nav-link" href="shadow-cljs.html">Using shadow-cljs</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+    <a class="nav-link" href="other_repls.html">Using Other REPLs</a>
   </li>
 </ul>
   </li>
@@ -190,22 +190,22 @@
     <span class="nav-text">Configuration</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="basic_config.html">Basic Configuration</a>
+    <a class="nav-link" href="../config/basic_config.html">Basic Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="syntax_highlighting.html">Syntax Highlighting</a>
+    <a class="nav-link" href="../config/syntax_highlighting.html">Syntax Highlighting</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="indentation.html">Indentation</a>
+    <a class="nav-link" href="../config/indentation.html">Indentation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="eldoc.html">Eldoc</a>
-  </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="misc.html">Misc</a>
+    <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="project_config.html">Project-specific Configuration</a>
+    <a class="nav-link" href="../config/misc.html">Misc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
   </li>
 </ul>
   </li>
@@ -317,95 +317,140 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
-    <li>Configuration</li>
-    <li><a href="misc.html">Misc</a></li>
+    <li>ClojureScript Setup</li>
+    <li><a href="configuration.html">Configuration</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
-    <a class="version is-current" href="misc.html">master</a>
-    <a class="version" href="../0.23/config/misc.html">0.23</a>
+    <a class="version is-current" href="configuration.html">master</a>
+    <a class="version is-missing" href="../0.23/index.html">0.23</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/config/misc.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/cljs/configuration.adoc">Edit this Page</a></div>
   </div>
 <article class="doc">
-<h1 class="page">Miscellaneous Configuration</h1>
-<div class="sect1">
-<h2 id="_overlays"><a class="anchor" href="#_overlays"></a>Overlays</h2>
+<h1 class="page">Configuration</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you evaluate code in Clojure files, the result is displayed in the buffer
-itself, in an overlay right after the evaluated code.  If you want this overlay
-to be font-locked (syntax-highlighted) like Clojure code, set the following
-variable.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-overlays-use-font-lock t)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can disable overlays entirely (and display results in the echo-area at the
-bottom) with the <code>cider-use-overlays</code> variable.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-use-overlays nil)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>By default, result overlays are displayed at the end of the line. You can set
-the variable <code>cider-result-overlay-position</code> to display results at the end of
-their respective forms instead.
-Note that this also affects the position of debugger overlays.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-result-overlay-position 'at-point)</code></pre>
-</div>
+<p>In this section we&#8217;ll briefly examine some common configuration
+options related to ClojureScript. Configuration that is specific
+to a particular REPL (e.g. <code>shadow-cljs</code>) is covered separately
+in the individual REPL setup sections.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_minibuffer_completion"><a class="anchor" href="#_minibuffer_completion"></a>Minibuffer completion</h2>
+<h2 id="_modifying_the_clojurescript_jack_in_dependencies"><a class="anchor" href="#_modifying_the_clojurescript_jack_in_dependencies"></a>Modifying the ClojureScript jack-in dependencies</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Out-of-the box, CIDER uses the standard <code>completing-read</code> Emacs mechanism. While
-it&#8217;s not fancy it certainly gets the job done (just press <kbd>TAB</kbd>). There
-are, however, ways to improve upon the standard completion if you wish to.</p>
-</div>
-<div class="sect2">
-<h3 id="_icomplete"><a class="anchor" href="#_icomplete"></a>icomplete</h3>
-<div class="paragraph">
-<p><code>icomplete</code> is bundled with Emacs and enhances the default minibuffer completion:</p>
+<p>Out-of-the-box, CIDER injects a single dependency into ClojureScript REPLs - namely <code>piggieback</code>.
+If you&#8217;d like to inject more deps you&#8217;ll have to modify the <code>cider-jack-in-cljs-dependencies</code>
+variable. Here&#8217;s an example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(require 'icomplete)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; let's add Weasel on jack-in
+(cider-add-to-alist 'cider-jack-in-cljs-dependencies "weasel/weasel" "0.7.1")</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can learn more about <code>icomplete</code>
-<a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Icomplete.html">here</a>.</p>
+<p>Typically, modifying this variable is not needed, as ClojureScript dependencies are declared
+explicitly in your project configuration most of the time.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Modifying this variable will affect all ClojureScript REPL types.
+</td>
+</tr>
+</table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_ido"><a class="anchor" href="#_ido"></a>ido</h3>
+</div>
+<div class="sect1">
+<h2 id="_setting_a_default_clojurescript_repl_type"><a class="anchor" href="#_setting_a_default_clojurescript_repl_type"></a>Setting a Default ClojureScript REPL Type</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p><code>ido</code> is also bundled with Emacs and offers more features than <code>icomplete</code>.
-If you are using <code>ido</code>, be sure to use both <code>ido-everywhere</code>
-and <a href="https://github.com/DarwinAwardWinner/ido-completing-read-plus"><code>ido-completing-read+</code></a>.
-You might also want to install <a href="https://github.com/lewang/flx"><code>ido-flex</code></a>.</p>
+<p>If you frequently use the same ClojureScript REPL, you can set
+<code>cider-default-cljs-repl</code> and CIDER will skip the prompt and use this
+instead. For example, the following will make Nashorn the default:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-default-cljs-repl 'nashorn)</code></pre>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_ivy_recommended"><a class="anchor" href="#_ivy_recommended"></a>ivy (recommended)</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_defining_custom_clojurescript_repl_types"><a class="anchor" href="#_defining_custom_clojurescript_repl_types"></a>Defining Custom ClojureScript REPL Types</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>If you&#8217;re fine with installing a third-party package for enhanced minibuffer
-completion you can&#8217;t go wrong with the modern and versatile
-<a href="http://oremacs.com/2015/04/16/ivy-mode/">ivy</a>.</p>
+<p>All supported ClojureScript REPLs are stored in
+<code>cider-cljs-repl-types</code>. If you need to extend it, you should use
+<code>cider-register-cljs-repl-type</code> in your Emacs configuration.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(cider-register-cljs-repl-type 'super-cljs "(do (...))" optional-requirements-function)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also modify the known ClojureScript REPLs on a per-project basis using
+<code>.dir-locals.el</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; replace the list of REPL types and set some default
+((nil
+  (cider-default-cljs-repl . super-cljs)
+  (cider-cljs-repl-types . ((super-cljs "(do (foo) (bar))")))))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; modify the list of known REPLs and set some default
+((nil
+  (eval . (cider-register-cljs-repl-type 'super-cljs "(do (foo) (bar))"))
+  (cider-default-cljs-repl . super-cljs)))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For one-off REPLs you can also use the custom REPL init form like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; modify the list of known REPLs and set some default
+((nil
+  (cider-custom-cljs-repl-init-form . "(do (foo) (bar))"
+  (cider-default-cljs-repl . custom)))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you already have a Clojure REPL running and want to add a
+ClojureScript REPL, you can invoke
+<code>cider-jack-in-sibling-clojurescript</code> to add it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enhanced_completion"><a class="anchor" href="#_enhanced_completion"></a>Enhanced Completion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default CIDER will enrich the ClojureScript completion results using
+the <a href="https://github.com/rksm/clj-suitable">suitable</a> library. If case you run
+into any <code>suitable</code>-related issues you can disable the enhanced completion like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-enhanced-cljs-completion-p nil)</code></pre>
 </div>
 </div>
 </div>

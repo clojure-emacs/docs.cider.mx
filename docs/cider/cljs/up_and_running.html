@@ -94,6 +94,9 @@
     <a class="nav-link" href="up_and_running.html">Up and Running</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="figwheel.html">Using Figwheel</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -443,67 +446,6 @@ future versions of the JDK.
 </td>
 </tr>
 </table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_customization"><a class="anchor" href="#_customization"></a>Customization</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>If you frequently use the same ClojureScript REPL, you can set
-<code>cider-default-cljs-repl</code> and CIDER will skip the prompt and use this
-instead. For example, the following will make Nashorn the default:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-default-cljs-repl 'nashorn)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>All supported ClojureScript REPLs are stored in
-<code>cider-cljs-repl-types</code>. If you need to extend it, you should use
-<code>cider-register-cljs-repl-type</code> in your Emacs configuration.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(cider-register-cljs-repl-type 'super-cljs "(do (...))" optional-requirements-function)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can also modify the known ClojureScript REPLs on a per-project basis using
-<code>.dir-locals.el</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; replace the list of REPL types and set some default
-((nil
-  (cider-default-cljs-repl . super-cljs)
-  (cider-cljs-repl-types . ((super-cljs "(do (foo) (bar))")))))</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; modify the list of known REPLs and set some default
-((nil
-  (eval . (cider-register-cljs-repl-type 'super-cljs "(do (foo) (bar))"))
-  (cider-default-cljs-repl . super-cljs)))</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For one-off REPLs you can also use the custom REPL init form like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; modify the list of known REPLs and set some default
-((nil
-  (cider-custom-cljs-repl-init-form . "(do (foo) (bar))"
-  (cider-default-cljs-repl . custom)))</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If you already have a Clojure REPL running and want to add a
-ClojureScript REPL, you can invoke
-<code>cider-jack-in-sibling-clojurescript</code> to add it.</p>
 </div>
 </div>
 </div>
