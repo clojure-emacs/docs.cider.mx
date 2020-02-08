@@ -460,7 +460,7 @@ only the arglist is indented specially and the rest is the body).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For something even more complicated: <code>letfn</code> is <code>[1 <a id=":defn"></a> :form]</code>. This means</p>
+<p>For something even more complicated: <code>letfn</code> is <code>[1 [[:defn]] :form]</code>. This means</p>
 </div>
 <div class="ulist">
 <ul>
@@ -468,7 +468,7 @@ only the arglist is indented specially and the rest is the body).</p>
 <p><code>letfn</code> has one special argument (the bindings list).</p>
 </li>
 <li>
-<p>The first arg has an indent spec of <code><a id=":defn"></a></code>, which means all forms
+<p>The first arg has an indent spec of <code>[[:defn]]</code>, which means all forms
 <em>inside</em> the first arg have an indent spec of <code>[:defn]</code>.</p>
 </li>
 <li>

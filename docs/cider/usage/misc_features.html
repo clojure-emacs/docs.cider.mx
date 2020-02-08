@@ -509,7 +509,7 @@ binding in your Emacs config:</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s a list of all of `cider-selector&#8217;s keybindings:</p>
+<p>Here&#8217;s a list of all of <code>cider-selector</code>'s keybindings:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -754,9 +754,10 @@ meets the spec.</p>
 <div class="paragraph">
 <p>Sometimes in your documentation strings, you&#8217;d like to be able to
 point other programmers at different definitions. If you specify the
-name of a definition in backticks (<code>`</code>), CIDER will convert these
-references into live links when it displays the documentation string
-in the documentation buffer.</p>
+name of a definition as a fully qualified symbol, or surround it in
+backticks (<code>`...`</code>) or Codox-style delimiters (<code>[[...]]</code>), CIDER
+will convert these references into live links when it displays the
+documentation string in the documentation buffer.</p>
 </div>
 <div class="paragraph">
 <p>If the name is in another namespace, then you&#8217;ll have to include the
@@ -769,8 +770,8 @@ fully qualified name in the docstring.</p>
 <div class="content">
 <pre>(defn test-fn
   "Test function.
-  Also see: `clojure.core/map`, `clojure.core/reduce`, `defn`.
-  You can reference variables like `thor`, `kubaru.data.zookeeper/yoda`.
+  Also see: clojure.core/map, clojure.core/reduce, `defn`.
+  You can reference variables like `thor`, [[kubaru.data.zookeeper/yoda]].
   Also works with references to java interop forms, `java.lang.String/.length`."
   []
   (+ 1 1))</pre>
@@ -778,16 +779,15 @@ fully qualified name in the docstring.</p>
 </div>
 <div class="paragraph">
 <p>You can change the delimiters that CIDER uses to find references if
-you don&#8217;t like using backticks.  Simply update the regexp in
+you want to support other reference formats.  Simply update the regexp in
 <code>cider-doc-xref-regexp</code> to match your preferred format. The first
 group of the regexp should always match the cross-reference name. For
-example, if you want to want to use
-<a href="https://github.com/weavejester/codox">Codox&#8217;s</a> delimiter style
-(<code>[[...]]</code>) instead of backticks, the regexp would be:</p>
+example, if you want to want to use Latex-style references
+(<code>\ref{...}</code>) instead, the regexp would be:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>(setq cider-doc-xref-regexp "\\[\\[\\(.*?\\)\\]\\]")</pre>
+<pre>(setq cider-doc-xref-regexp "\\\\ref{\\(?1:[^}]+\\)}")</pre>
 </div>
 </div>
 <div class="imageblock">
