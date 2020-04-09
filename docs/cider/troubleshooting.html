@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Troubleshooting :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/troubleshooting.html">
-    <meta name="generator" content="Antora 2.0.1">
+    <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
@@ -310,7 +310,7 @@
     </div>
   </aside>
 </div>
-<main>
+<main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
   <a href="index.html" class="home-link"></a>
@@ -329,6 +329,7 @@
 </div>
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/troubleshooting.adoc">Edit this Page</a></div>
   </div>
+  <div class="content">
 <article class="doc">
 <h1 class="page">Troubleshooting</h1>
 <div id="preamble">
@@ -341,11 +342,6 @@ problem.</p>
 <p>Generally, it&#8217;s not a bad idea to configure Emacs to spit the backtrace on error
 (instead of just logging the error in the <code>*Messages*</code> buffer). You can toggle
 this behavior by using <kbd>M-x</kbd> <code>toggle-debug-on-error</code>.</p>
-</div>
-<div class="paragraph">
-<p>Another good idea is to check the exchange of requests and responses between
-CIDER and the nREPL server. You can find them in the <code>*nrepl-messages*</code> buffer,
-provided you&#8217;ve enabled nREPL message logging.</p>
 </div>
 </div>
 </div>
@@ -430,6 +426,54 @@ save the report buffer to a file with <kbd>C-x C-w</kbd>.
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_debugging_the_communication_with_nrepl"><a class="anchor" href="#_debugging_the_communication_with_nrepl"></a>Debugging the communication with nREPL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>From time to time it might be a good idea to inspect the messages exchanged
+between CIDER and nREPL. CIDER has a simple message log that looks like this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(--&gt;
+  id         "16"
+  op         "eval"
+  session    "eb3ef563-86ec-4d9e-9fa8-a56ce0e0f0b0"
+  time-stamp "2020-03-15 16:01:42.963936000"
+  code       "(in-ns 'nrepl.completion)"
+)
+(&lt;--
+  id         "16"
+  session    "eb3ef563-86ec-4d9e-9fa8-a56ce0e0f0b0"
+  time-stamp "2020-03-15 16:01:43.027347000"
+  ns         "nrepl.completion"
+  value      "#namespace[nrepl.completion]"
+)
+(&lt;--
+  id         "16"
+  session    "eb3ef563-86ec-4d9e-9fa8-a56ce0e0f0b0"
+  time-stamp "2020-03-15 16:01:43.195358000"
+  status     ("done")
+)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That&#8217;s CIDER&#8217;s way of representing the request (marked with <code>-&#8594;</code>) and response maps (marked with <code>&#8592;-</code>).</p>
+</div>
+<div class="paragraph">
+<p>nREPL message logging is not enabled by default. Set <code>nrepl-log-messages</code> to <code>t</code>
+to activate it. Alternatively you can use <kbd>M-x</kbd>
+<code>nrepl-toggle-message-logging</code> to enable/disable logging temporary within your
+current Emacs session. Note that enabling message logging can impact
+performance.</p>
+</div>
+<div class="paragraph">
+<p>You can find the message log in the <code>*nrepl-messages repl-info*</code> buffer,
+provided you&#8217;ve enabled nREPL message logging. There&#8217;s going to be one buffer
+per each active REPL.</p>
 </div>
 </div>
 </div>
@@ -669,6 +713,10 @@ snapshots or most recent stable releases)</p>
 </div>
 </div>
 </article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
 </main>
 </div>
 <footer class="footer">
