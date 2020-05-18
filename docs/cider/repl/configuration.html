@@ -181,7 +181,10 @@
     <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../debugging/misc.html">Misc</a>
+    <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
   </li>
 </ul>
   </li>
@@ -577,13 +580,28 @@ width (i.e. any of them except for <code>pr</code>) will keep your REPL running 
 <div class="sectionbody">
 <div class="paragraph">
 <p>Starting with CIDER 0.17 (Andalucía) expressions that evaluate to
-images will be rendered as images in the REPL. You can disable this
-behavior if you don&#8217;t like it.</p>
+images can be rendered as images in the REPL. You can enable this
+behavior like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-use-content-types nil)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-use-content-types t)</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This setting used to be enabled by default until CIDER 0.25 when it was
+disabled due to some rough edges with the feature that were
+never properly addressed. See this <a href="https://github.com/clojure-emacs/cider/issues/2825">bug report</a>
+for details.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Alternatively, you can toggle this behaviour on and off using <kbd>M-x cider-repl-toggle-content-types</kbd>.</p>

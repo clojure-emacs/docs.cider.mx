@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Basic Usage :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/repl/basic_usage.html">
+    <title>Inspector :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/debugging/inspector.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -138,17 +138,17 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Using the REPL</span>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="basic_usage.html">Basic Usage</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/basic_usage.html">Basic Usage</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="keybindings.html">Keybindings</a>
+    <a class="nav-link" href="../repl/keybindings.html">Keybindings</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="configuration.html">Configuration</a>
+    <a class="nav-link" href="../repl/configuration.html">Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="history.html">REPL History</a>
+    <a class="nav-link" href="../repl/history.html">REPL History</a>
   </li>
 </ul>
   </li>
@@ -172,19 +172,19 @@
     <span class="nav-text">Debugging</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
+    <a class="nav-link" href="tracing.html">Tracing</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
+    <a class="nav-link" href="enlighten.html">Enlighten</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+    <a class="nav-link" href="debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="inspector.html">Inspector</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
+    <a class="nav-link" href="macroexpansion.html">Macroexpansion</a>
   </li>
 </ul>
   </li>
@@ -320,111 +320,47 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
-    <li>Using the REPL</li>
-    <li><a href="basic_usage.html">Basic Usage</a></li>
+    <li>Debugging</li>
+    <li><a href="inspector.html">Inspector</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
-    <a class="version is-current" href="basic_usage.html">master</a>
-    <a class="version" href="../0.24/repl/basic_usage.html">0.24</a>
+    <a class="version is-current" href="inspector.html">master</a>
+    <a class="version is-missing" href="../0.24/index.html">0.24</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/repl/basic_usage.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/debugging/inspector.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Basic Usage</h1>
+<h1 class="page">Inspector</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>CIDER comes with a powerful REPL that complements the interactive
-development functionality in <code>cider-mode</code>. Using the CIDER REPL you
-can experiment with your running program, test functions, or just
-explore a new library you&#8217;re interested in using. The CIDER REPL offers a number of advanced features:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>code completion</p>
-</li>
-<li>
-<p>font-locking (the same as in <code>clojure-mode</code>)</p>
-</li>
-<li>
-<p>quick access to many CIDER commands (e.g. definition and documentation lookup, tracing, etc)</p>
-</li>
-<li>
-<p>pretty-printing of evaluation results</p>
-</li>
-<li>
-<p>inline display of images</p>
-</li>
-<li>
-<p>persistent REPL history</p>
-</li>
-<li>
-<p>powerful REPL history browser</p>
-</li>
-<li>
-<p>eldoc support</p>
-</li>
-<li>
-<p>highly customizable REPL prompt</p>
-</li>
-</ul>
+<p>The value inspector allows you inspect and navigate the structure of data. While you can use
+it for pretty much anything (e.g. primitive data types, var, ref types) it&#8217;s most
+useful when you&#8217;re dealing with (deeply) nested collection-like data types (e.g. a vector of maps).</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_interacting_with_the_repl"><a class="anchor" href="#_interacting_with_the_repl"></a>Interacting with the REPL</h2>
+<h2 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Interacting with CIDER&#8217;s REPL is pretty simple - most of the time
-you&#8217;d just write expressions there and press <kbd>RET</kbd> to
-evaluate them.</p>
+<p>Typing <kbd>C-c M-i</kbd> (<code>cider-inspect</code>) after some form in a source
+buffer or the REPL will show you the structure for the result of the
+form in a new buffer. You can also use <kbd>C-u C-c M-i</kbd> to inspect
+the result of the current top-level form and <kbd>C-u C-u C-c M-i</kbd> to
+read an expression from the minibuffer and inspect its result.</p>
 </div>
 <div class="paragraph">
-<p>But the REPL is a bit more powerful than that and it allows you to do some things that might not be available in
-other Clojure REPLs. Some examples of such things would be:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>You can close an incomplete expression with <kbd>C-RET</kbd></p>
-</li>
-<li>
-<p>You can enter a multi-line expression by pressing <kbd>C-j</kbd> at the end of each line</p>
-</li>
-<li>
-<p>You can quickly jump to the definition of a symbol (<kbd>.</kbd>) or to its documentation (<kbd>C-c C-d d</kbd>)</p>
-</li>
-<li>
-<p>You can clear the output of the last expression with <kbd>C-c C-o</kbd></p>
-</li>
-<li>
-<p>You can clear the REPL buffer with <kbd>C-u C-c C-o</kbd></p>
-</li>
-<li>
-<p>You can jump between your source buffers and the REPL with <kbd>C-c C-z</kbd></p>
-</li>
-<li>
-<p>You can jump between your Clojure and ClojureScript REPLs with <kbd>C-c M-o</kbd></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>On top of this the REPL is extremely configurable and you can tweak almost every aspect of it.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_interrupting_evaluations"><a class="anchor" href="#_interrupting_evaluations"></a>Interrupting Evaluations</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>If you accidentally try to evaluate something that&#8217;s going to take a lot of time (if it finishes at all), you
-can interrupt the rouge evaluation operation by pressing <kbd>C-c C-c</kbd>.</p>
+<p>Alternatively, after a regular eval command, you can inspect the last
+evaluated value using <code>cider-inspect-last-result</code>. When a inspector
+buffer is visible in the background, it is automatically updated with
+the last result. This behavior can be controlled with the variable
+<code>cider-auto-inspect-after-eval</code>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -433,49 +369,78 @@ can interrupt the rouge evaluation operation by pressing <kbd>C-c C-c</kbd>.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Note that this is different from the keybinding for interrupting evaluations in source buffers,
-namely <kbd>C-c C-b</kbd>.
+The inspector can also be invoked in the middle of a debugging
+session, see <a href="#">debugger.adoc</a> for more details.
 </td>
 </tr>
 </table>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_quitting_a_repl"><a class="anchor" href="#_quitting_a_repl"></a>Quitting a REPL</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>When you&#8217;re done with a REPL you can dispose of it with <kbd>C-c C-q</kbd>.</p>
+<p>You&#8217;ll have access to additional keybindings in the inspector buffer
+(which is internally using <code>cider-inspector-mode</code>):</p>
 </div>
-<div class="admonitionblock tip">
-<table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
 <tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Avoid killing REPL buffers with <kbd>C-c C-k</kbd>. This will forgo
-some of the operations needed to properly dispose of a REPL buffer.
-</td>
+<th class="tableblock halign-left valign-top">Keyboard shortcut</th>
+<th class="tableblock halign-left valign-top">Description</th>
 </tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>Tab</kbd> and <kbd>Shift-Tab</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Navigate inspectable sub-objects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>Return</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inspect sub-objects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pop to the parent object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>g</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Refresh the inspector (e.g. if viewing an atom/ref/agent)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>SPC</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jump to next page in paginated view</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>M-SPC</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jump to previous page in paginated view</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set a new page size in paginated view</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines a var in the REPL namespace with current inspector value</p></td>
+</tr>
+</tbody>
 </table>
+<div class="paragraph">
+<p>By default, navigation skips over values like nils, numbers and
+keywords, which are not interesting to inspect. You can control this
+behavior using the variable <code>cider-inspector-skip-uninteresting</code>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_known_limitations"><a class="anchor" href="#_known_limitations"></a>Known Limitations</h2>
+<h2 id="_additional_resources"><a class="anchor" href="#_additional_resources"></a>Additional Resources</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Performance can degrade when the REPL buffer grows very large. This is
-especially true if either <code>cider-repl-use-clojure-font-lock</code> or
-<code>nrepl-log-messages</code> are enabled. You can use <code>cider-repl-clear-output</code> to
-either clear the result of the previous evaluation, or with a prefix argument
-clear the entire REPL buffer.</p>
-</div>
-<div class="paragraph">
-<p>Very long lines are guaranteed to bring Emacs to a crawl, so using a value of
-<code>cider-print-fn</code> that wraps lines beyond a certain width (i.e. any of the
-built-in options except for <code>pr</code>) is advised.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://practicalli.github.io/spacemacs/evaluating-clojure/inspect.html">Using CIDER&#8217;s Inspector in Spacemacs</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>

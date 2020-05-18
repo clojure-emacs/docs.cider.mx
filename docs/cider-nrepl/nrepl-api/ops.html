@@ -177,7 +177,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="small">generated from a verbose 'describe' response (cider-nrepl v0.24.0)</span></p>
+<p><span class="small">generated from a verbose 'describe' response (cider-nrepl v0.25.0-SNAPSHOT)</span></p>
 </div>
 </div>
 </div>
@@ -403,13 +403,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p><code>:ns</code> The symbol&#8217;s namespace</p>
+<p><code>:ns</code> The namespace is which to look for completions (falls back to *ns* if not specified)</p>
+</li>
+<li>
+<p><code>:prefix</code> The prefix for completion candidates</p>
 </li>
 <li>
 <p><code>:session</code> The current session</p>
-</li>
-<li>
-<p><code>:symbol</code> The symbol to lookup</p>
 </li>
 </ul>
 </div>
@@ -455,7 +455,7 @@
 <p><code>:ns</code> The symbol&#8217;s namespace</p>
 </li>
 <li>
-<p><code>:symbol</code> The symbol to lookup</p>
+<p><code>:sym</code> The symbol to lookup</p>
 </li>
 </ul>
 </div>
@@ -653,7 +653,7 @@
 <p><code>:ns</code> The current namespace</p>
 </li>
 <li>
-<p><code>:symbol</code> The symbol to lookup</p>
+<p><code>:sym</code> The symbol to lookup</p>
 </li>
 </ul>
 </div>
@@ -690,7 +690,7 @@
 <p><code>:ns</code> The current namespace</p>
 </li>
 <li>
-<p><code>:symbol</code> The symbol to lookup</p>
+<p><code>:sym</code> The symbol to lookup</p>
 </li>
 </ul>
 </div>
@@ -933,7 +933,7 @@
 <p><code>:ns</code> The current namespace</p>
 </li>
 <li>
-<p><code>:symbol</code> The symbol to lookup</p>
+<p><code>:sym</code> The symbol to lookup</p>
 </li>
 </ul>
 </div>
@@ -2370,7 +2370,13 @@
 <dl>
 <dt class="hdlist1">Required parameters</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:var-query</code> A search query specifying the test vars to execute. See Orchard&#8217;s var query documentation for more details.</p>
+</li>
+</ul>
+</div>
 </dd>
 <dt class="hdlist1">Optional parameters</dt>
 <dd>
@@ -2399,7 +2405,16 @@
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:results</code> A map of test run data.</p>
+</li>
+<li>
+<p><code>:status</code> Either done or indication of an error</p>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
@@ -2586,10 +2601,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p><code>:ns</code> The current namespace</p>
+<p><code>:ns</code> The namespace is which to resolve sym (falls back to *ns* if not specified)</p>
 </li>
 <li>
-<p><code>:symbol</code> The symbol to undefine</p>
+<p><code>:sym</code> The symbol to undefine</p>
 </li>
 </ul>
 </div>

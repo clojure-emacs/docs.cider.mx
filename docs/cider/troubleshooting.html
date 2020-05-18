@@ -181,7 +181,10 @@
     <a class="nav-link" href="debugging/debugger.html">Debugger</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="debugging/misc.html">Misc</a>
+    <a class="nav-link" href="debugging/inspector.html">Inspector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debugging/macroexpansion.html">Macroexpansion</a>
   </li>
 </ul>
   </li>
@@ -373,17 +376,17 @@ Here&#8217;s a <a href="https://www.youtube.com/watch?v=odkYXXYOxpo">great crash
 <ul>
 <li>
 <p>Figure out the name of the command you want to debug (e.g. by using <kbd>C-h k</kbd>
-to see which command is associated with some keybinding)</p>
+to see which command is associated with some keybinding).</p>
 </li>
 <li>
 <p>Find the source of the command (e.g. by using <kbd>M-x</kbd> <code>find-function</code>
-<kbd>RET</kbd> <code>function-name</code>)</p>
+<kbd>RET</kbd> <code>function-name</code>).</p>
 </li>
 <li>
 <p>Press <kbd>C-u C-M-x</kbd> while in the body of the function</p>
 </li>
 <li>
-<p>Run the command again</p>
+<p>Run the command again.</p>
 </li>
 </ul>
 </div>
@@ -537,6 +540,36 @@ cider.nrepl.middleware.util.instrument&gt; (def verbose-debug true)</pre>
 <p>This will cause CIDER to print extensive information to the REPL buffer when you
 try to debug an expression (e.g., with <kbd>C-u C-M-x</kbd>). <a href="https://github.com/clojure-emacs/cider-nrepl/issues/new">File an issue</a>
 and copy this information.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_repl_blows_up_when_some_function_returns_an_url"><a class="anchor" href="#_the_repl_blows_up_when_some_function_returns_an_url"></a>The REPL blows up when some function returns an URL</h3>
+<div class="paragraph">
+<p>Most likely you&#8217;ve encountered some issue with the <code>content-type</code> middleware. Generally, that&#8217;s
+easy to confirm by inspecting the stracktrace:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">user&gt; (java.net.URI. "mailto:foo@bar.com")
+#object[java.net.URI 0x36966ca2 "mailto:foo@bar.com"]ERROR: Unhandled REPL handler exception processing message {:op slurp, :url mailto:foo@bar.com, :session 69c4d8e1-7bb4-45ad-8075-d21995fd50ab, :id 1579}
+java.net.UnknownServiceException: protocol doesn't support input
+	at java.base/java.net.URLConnection.getInputStream(URLConnection.java:840)
+	at cider.nrepl.middleware.slurp$slurp_url_to_content_PLUS_body.invokeStatic(slurp.clj:100)
+	at cider.nrepl.middleware.slurp$slurp_url_to_content_PLUS_body.invoke(slurp.clj:82)
+	at cider.nrepl.middleware.slurp$handle_slurp.invokeStatic(slurp.clj:117)
+	at cider.nrepl.middleware.slurp$handle_slurp.invoke(slurp.clj:109)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can disable the middleware like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-use-content-types t)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It&#8217;s disabled by default starting with CIDER 0.25.</p>
 </div>
 </div>
 <div class="sect2">
