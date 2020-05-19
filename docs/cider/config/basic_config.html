@@ -392,6 +392,86 @@ CIDER releases).</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_control_what_window_to_use_when_jumping_to_a_definition"><a class="anchor" href="#_control_what_window_to_use_when_jumping_to_a_definition"></a>Control what window to use when jumping to a definition</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default <kbd>M-.</kbd> and other commands that jump to a definition have the following behaviour:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the definition buffer is visible simply switch to it.</p>
+</li>
+<li>
+<p>Otherwise, use the current window to show the definition.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Other behaviour is possible, and is controlled with
+<code>cider-jump-to-pop-to-buffer-actions</code>; the value of this is passed as the
+<code>action</code> argument to <code>pop-to-buffer</code>.</p>
+</div>
+<div class="paragraph">
+<p>The default value is <code>((display-buffer-reuse-window display-buffer-same-window))</code>.</p>
+</div>
+<div class="paragraph">
+<p>Some people might prefer to always display the definition in the current
+window. Here&#8217;s how you can achieve this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-jump-to-pop-to-buffer-actions
+      '((display-buffer-same-window)))</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Keep in mind this might cause problems with some special buffers (e.g. test report buffers),
+as when you try to navigate to a definition this will clobber the special buffer.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For other possibilities, see the documentation for <code>display-buffer</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_example_1"><a class="anchor" href="#_example_1"></a>Example 1</h3>
+<div class="paragraph">
+<p>You jump to <code>map</code> in <code>core.clj</code> when <code>core.clj</code> <strong><em>is not</em></strong> being displayed in another
+window in the current frame.</p>
+</div>
+<div class="paragraph">
+<p>With both the default behaviour and the alternative behaviour defined above, the
+definition of <code>map</code> will be shown in the current window.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_2"><a class="anchor" href="#_example_2"></a>Example 2</h3>
+<div class="paragraph">
+<p>You jump to <code>map</code> in <code>core.clj</code> when <code>core.clj</code> <strong><em>is</em></strong> being displayed in another window
+in the current frame.</p>
+</div>
+<div class="paragraph">
+<p>With the default behaviour, the definition of <code>map</code> will be shown in the current
+window; you will now have two windows showing <code>core.clj</code>, and the existing
+<code>core.clj</code> window will be unchanged.</p>
+</div>
+<div class="paragraph">
+<p>With the alternative behaviour defined above, the definition of <code>map</code> will be
+shown in the existing <code>core.clj</code> window; all windows will show the same buffer as
+before the jump, and the current window will now be the one showing <code>core.clj</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_log_nrepl_communications"><a class="anchor" href="#_log_nrepl_communications"></a>Log nREPL Communications</h2>
 <div class="sectionbody">
 <div class="paragraph">
