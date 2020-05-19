@@ -528,8 +528,65 @@ use:</p>
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-use-clojure-font-lock nil)</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Using Clojure font-locking in the REPL can impact performance negatively, especially
+when it comes to font-locking huge results. That, however, is mitigated to a big extent
+by result streaming.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_font_locking_of_results"><a class="anchor" href="#_font_locking_of_results"></a>Font-locking of Results</h3>
 <div class="paragraph">
-<p>Note that enabling font-locking in the REPL can negatively impact performance.</p>
+<p>There are a few things you need to keep in mind about Clojure font-locking of results:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When streaming is enabled only single-chunk results will be font-locked as Clojure, as
+each chunk is font-locked by itself and the results can&#8217;t really be combined</p>
+</li>
+<li>
+<p>The font-locking of results is an expensive operation which involves copying the value
+to a temporary buffer, where we check its integrity and do the actual font-locking.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By default CIDER instructs nREPL to stream data in 4K chunks, but you can easily modify this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; let's stream data in 8K chunks
+(setq cider-print-buffer-size (8 * 1024))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Setting this to <code>nil</code> will result in using nREPL&#8217;s default <code>buffer-size</code> of 1024 bytes.
+The smaller the print buffer size the faster you&#8217;ll get feedback/updates in the REPL, so generally
+it&#8217;s a good idea to stick to some relatively small size.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you&#8217;d like to learn more about the font-locking of results you can check
+out the definition of <code>clojure-font-lock-as</code> and <code>clojure-font-lock-as-clojure</code>
+in <code>cider-util.el</code>.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
