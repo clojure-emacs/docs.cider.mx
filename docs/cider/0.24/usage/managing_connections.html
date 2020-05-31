@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Managing Connections :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/usage/managing_connections.html">
+    <link rel="prev" href="dealing_with_errors.html">
+    <link rel="next" href="misc_features.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="stylesheet" href="../../../_/css/site-extra.css">
@@ -298,7 +300,7 @@
       <span class="title">CIDER nREPL</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../../cider-nrepl/index.html">master</a>
+          <a href="../../../cider-nrepl/0.25/index.html">0.25</a>
         </li>
         <li class="version">
           <a href="../../../cider-nrepl/0.24/index.html">0.24</a>
@@ -405,7 +407,7 @@ fairly straightforward once you get to know the terminology and wrap your head a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sessions"><a class="anchor" href="#_sessions"></a>Sessions</h2>
+<h2 id="sessions"><a class="anchor" href="#sessions"></a>Sessions</h2>
 <div class="sectionbody">
 <div class="admonitionblock important">
 <table>
@@ -501,7 +503,7 @@ ever need this).</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_current_session"><a class="anchor" href="#_current_session"></a>Current Session</h2>
+<h2 id="current-session"><a class="anchor" href="#current-session"></a>Current Session</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>All CIDER commands (evaluation, completion, switching to REPL etc.) operate on
@@ -529,7 +531,7 @@ you would like to change that.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_current_repl"><a class="anchor" href="#_current_repl"></a>Current REPL</h2>
+<h2 id="current-repl"><a class="anchor" href="#current-repl"></a>Current REPL</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The current REPL is the most relevant REPL from the current session. REPL relevance
@@ -553,7 +555,7 @@ Clojure(Script) buffer.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_context_links"><a class="anchor" href="#_context_links"></a>Context Links</h2>
+<h2 id="context-links"><a class="anchor" href="#context-links"></a>Context Links</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sessions can be linked to contexts (projects, directories and buffers)</p>
@@ -590,7 +592,7 @@ them in a REPL buffer, as a REPL is an integral part of a session.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_friendly_sessions"><a class="anchor" href="#_friendly_sessions"></a>Friendly Sessions</h2>
+<h2 id="friendly-sessions"><a class="anchor" href="#friendly-sessions"></a>Friendly Sessions</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://github.com/vspinu/sesman">Sesman</a> defines "friendly" session to allow for on-the-fly operation on
@@ -612,7 +614,7 @@ code. Explicitly linked sessions have precedence over the friendly sessions.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_displaying_session_info"><a class="anchor" href="#_displaying_session_info"></a>Displaying Session Info</h2>
+<h2 id="displaying-session-info"><a class="anchor" href="#displaying-session-info"></a>Displaying Session Info</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Get info on all linked and friendly sessions in the current context with
@@ -627,7 +629,7 @@ CIDER sessions. For the connection specific information use CIDER&#8217;s built-
 </div>
 </div>
 <div class="sect1">
-<h2 id="_customizing_session_and_repl_names"><a class="anchor" href="#_customizing_session_and_repl_names"></a>Customizing Session and REPL Names</h2>
+<h2 id="customizing-session-and-repl-names"><a class="anchor" href="#customizing-session-and-repl-names"></a>Customizing Session and REPL Names</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default session names consist of abbreviated project name, host and port
@@ -642,6 +644,10 @@ names with <code>nrepl-repl-buffer-name-template</code>. See also
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="dealing_with_errors.html">Dealing with Errors</a></span>
+  <span class="next"><a href="misc_features.html">Misc Features</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

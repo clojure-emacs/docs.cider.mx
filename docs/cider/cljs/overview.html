@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>ClojureScript :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/cljs/overview.html">
+    <link rel="prev" href="../basics/middleware_setup.html">
+    <link rel="next" href="up_and_running.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -301,7 +303,7 @@
       <span class="title">CIDER nREPL</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/index.html">master</a>
+          <a href="../../cider-nrepl/0.25/index.html">0.25</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.24/index.html">0.24</a>
@@ -355,7 +357,7 @@ debugger are currently Clojure-only features.
 <div class="paragraph">
 <p>Unlike the Clojure ecosystem that is dominated by a single REPL, the
 ClojureScript ecosystem has a number of different choices for REPLs
-(e.g. <code>nashorn</code>, <code>node</code>, <code>weasel</code>, <code>figwheel</code> and <code>shadow-cljs</code>). You&#8217;ll have to
+(e.g. <code>browser</code>, <code>node</code>, <code>weasel</code>, <code>figwheel</code> and <code>shadow-cljs</code>). You&#8217;ll have to
 decide which one you want to run and how you want CIDER to interact with it.</p>
 </div>
 <div class="paragraph">
@@ -366,7 +368,7 @@ and how to setup the most popular ClojureScript REPLs.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_nrepl_and_clojurescript"><a class="anchor" href="#_nrepl_and_clojurescript"></a>nREPL and ClojureScript</h2>
+<h2 id="nrepl-and-clojurescript"><a class="anchor" href="#nrepl-and-clojurescript"></a>nREPL and ClojureScript</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>nREPL doesn&#8217;t natively support ClojureScript evaluation, that why an additional
@@ -398,7 +400,7 @@ that we&#8217;ll discuss later on.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_differences_with_the_standard_clojurescript_repl"><a class="anchor" href="#_differences_with_the_standard_clojurescript_repl"></a>Differences with the Standard ClojureScript REPL</h2>
+<h2 id="differences-with-the-standard-clojurescript-repl"><a class="anchor" href="#differences-with-the-standard-clojurescript-repl"></a>Differences with the Standard ClojureScript REPL</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>While the Piggieback-powered ClojureScript REPLs behave more or less
@@ -406,7 +408,7 @@ the same as the standard ClojureScript REPL, there are few subtle
 differences everyone has to be aware of.</p>
 </div>
 <div class="sect2">
-<h3 id="_handling_of_multiple_forms"><a class="anchor" href="#_handling_of_multiple_forms"></a>Handling of Multiple Forms</h3>
+<h3 id="handling-of-multiple-forms"><a class="anchor" href="#handling-of-multiple-forms"></a>Handling of Multiple Forms</h3>
 <div class="paragraph">
 <p>Here&#8217;s how the standard ClojureScript behaves with multiple input forms:</p>
 </div>
@@ -466,7 +468,7 @@ You can learn more about this difference <a href="https://github.com/nrepl/piggi
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dealing_with_dependencies"><a class="anchor" href="#_dealing_with_dependencies"></a>Dealing with Dependencies</h2>
+<h2 id="dealing-with-dependencies"><a class="anchor" href="#dealing-with-dependencies"></a>Dealing with Dependencies</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>CIDER doesn&#8217;t handle automatically ClojureScript REPL dependencies when you&#8217;re doing
@@ -501,7 +503,7 @@ some of their namespaces)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_limitations"><a class="anchor" href="#_limitations"></a>Limitations</h2>
+<h2 id="limitations"><a class="anchor" href="#limitations"></a>Limitations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>CIDER currently doesn&#8217;t support self-hosted ClojureScript implementations (e.g. Lumo).
@@ -520,13 +522,17 @@ currently not available for ClojureScript.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_next"><a class="anchor" href="#_next"></a>Next</h2>
+<h2 id="next"><a class="anchor" href="#next"></a>Next</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In the next section we&#8217;ll show you how to start a ClojureScript REPL with CIDER.</p>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="../basics/middleware_setup.html">nREPL Middleware Setup</a></span>
+  <span class="next"><a href="up_and_running.html">Up and Running</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

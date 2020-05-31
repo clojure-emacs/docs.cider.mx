@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Basic Configuration :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/config/basic_config.html">
+    <link rel="prev" href="../debugging/macroexpansion.html">
+    <link rel="next" href="syntax_highlighting.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -301,7 +303,7 @@
       <span class="title">CIDER nREPL</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/index.html">master</a>
+          <a href="../../cider-nrepl/0.25/index.html">0.25</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.24/index.html">0.24</a>
@@ -358,7 +360,7 @@ offers, but here are some of the most popular.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_disable_automatic_cider_mode_in_clojure_mode_buffers"><a class="anchor" href="#_disable_automatic_cider_mode_in_clojure_mode_buffers"></a>Disable Automatic cider-mode in clojure-mode Buffers</h2>
+<h2 id="disable-automatic-cider-mode-in-clojure-mode-buffers"><a class="anchor" href="#disable-automatic-cider-mode-in-clojure-mode-buffers"></a>Disable Automatic cider-mode in clojure-mode Buffers</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default, CIDER enables <code>cider-mode</code> in all <code>clojure-mode</code> buffers
@@ -374,7 +376,7 @@ buffers. You can override this behavior, however:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_disable_symbol_confirmation"><a class="anchor" href="#_disable_symbol_confirmation"></a>Disable Symbol Confirmation</h2>
+<h2 id="disable-symbol-confirmation"><a class="anchor" href="#disable-symbol-confirmation"></a>Disable Symbol Confirmation</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default, CIDER prompts you for a symbol when it executes
@@ -392,7 +394,7 @@ CIDER releases).</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_control_what_window_to_use_when_jumping_to_a_definition"><a class="anchor" href="#_control_what_window_to_use_when_jumping_to_a_definition"></a>Control what window to use when jumping to a definition</h2>
+<h2 id="control-what-window-to-use-when-jumping-to-a-definition"><a class="anchor" href="#control-what-window-to-use-when-jumping-to-a-definition"></a>Control what window to use when jumping to a definition</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default <kbd>M-.</kbd> and other commands that jump to a definition have the following behaviour:</p>
@@ -442,7 +444,7 @@ as when you try to navigate to a definition this will clobber the special buffer
 <p>For other possibilities, see the documentation for <code>display-buffer</code>.</p>
 </div>
 <div class="sect2">
-<h3 id="_example_1"><a class="anchor" href="#_example_1"></a>Example 1</h3>
+<h3 id="example-1"><a class="anchor" href="#example-1"></a>Example 1</h3>
 <div class="paragraph">
 <p>You jump to <code>map</code> in <code>core.clj</code> when <code>core.clj</code> <strong><em>is not</em></strong> being displayed in another
 window in the current frame.</p>
@@ -453,7 +455,7 @@ definition of <code>map</code> will be shown in the current window.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_example_2"><a class="anchor" href="#_example_2"></a>Example 2</h3>
+<h3 id="example-2"><a class="anchor" href="#example-2"></a>Example 2</h3>
 <div class="paragraph">
 <p>You jump to <code>map</code> in <code>core.clj</code> when <code>core.clj</code> <strong><em>is</em></strong> being displayed in another window
 in the current frame.</p>
@@ -472,7 +474,7 @@ before the jump, and the current window will now be the one showing <code>core.c
 </div>
 </div>
 <div class="sect1">
-<h2 id="_log_nrepl_communications"><a class="anchor" href="#_log_nrepl_communications"></a>Log nREPL Communications</h2>
+<h2 id="log-nrepl-communications"><a class="anchor" href="#log-nrepl-communications"></a>Log nREPL Communications</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you want to see all communications between CIDER and the nREPL
@@ -495,7 +497,7 @@ you are facing such issues.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hide_special_nrepl_buffers"><a class="anchor" href="#_hide_special_nrepl_buffers"></a>Hide Special nREPL Buffers</h2>
+<h2 id="hide-special-nrepl-buffers"><a class="anchor" href="#hide-special-nrepl-buffers"></a>Hide Special nREPL Buffers</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you&#8217;re finding that <code>*nrepl-connection*</code> and <code>*nrepl-server*</code>
@@ -516,7 +518,7 @@ hidden buffers will always be visible in <code>list-buffers</code> (<kbd>C-x C-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_prefer_local_resources_over_remote_resources"><a class="anchor" href="#_prefer_local_resources_over_remote_resources"></a>Prefer Local Resources Over Remote Resources</h2>
+<h2 id="prefer-local-resources-over-remote-resources"><a class="anchor" href="#prefer-local-resources-over-remote-resources"></a>Prefer Local Resources Over Remote Resources</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To prefer local resources to remote resources (tramp) when both are available:</p>
@@ -529,7 +531,7 @@ hidden buffers will always be visible in <code>list-buffers</code> (<kbd>C-x C-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_translate_file_paths"><a class="anchor" href="#_translate_file_paths"></a>Translate File Paths</h2>
+<h2 id="translate-file-paths"><a class="anchor" href="#translate-file-paths"></a>Translate File Paths</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you wish to translate file paths from your running instance you may use the
@@ -557,7 +559,7 @@ back to the user&#8217;s computer so that navigation to definition would work.</
 </div>
 </div>
 <div class="sect1">
-<h2 id="_auto_save_clojure_buffers_on_load"><a class="anchor" href="#_auto_save_clojure_buffers_on_load"></a>Auto-Save Clojure Buffers on Load</h2>
+<h2 id="auto-save-clojure-buffers-on-load"><a class="anchor" href="#auto-save-clojure-buffers-on-load"></a>Auto-Save Clojure Buffers on Load</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Normally, CIDER prompts you to save a modified Clojure buffer when you
@@ -583,7 +585,7 @@ behaviour by adjusting <code>cider-save-file-on-load</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_change_the_result_prefix_for_interactive_evaluation"><a class="anchor" href="#_change_the_result_prefix_for_interactive_evaluation"></a>Change the Result Prefix for Interactive Evaluation</h2>
+<h2 id="change-the-result-prefix-for-interactive-evaluation"><a class="anchor" href="#change-the-result-prefix-for-interactive-evaluation"></a>Change the Result Prefix for Interactive Evaluation</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Change the result prefix for interactive evaluation (not the REPL
@@ -600,7 +602,7 @@ prefix). By default the prefix is `&#8658; `.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_use_a_local_copy_of_the_jdk_api_documentation"><a class="anchor" href="#_use_a_local_copy_of_the_jdk_api_documentation"></a>Use a Local Copy of the JDK API Documentation</h2>
+<h2 id="use-a-local-copy-of-the-jdk-api-documentation"><a class="anchor" href="#use-a-local-copy-of-the-jdk-api-documentation"></a>Use a Local Copy of the JDK API Documentation</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you are targeting the JVM and prefer a local copy of the JDK API
@@ -633,7 +635,7 @@ path being <code>/usr/share/doc/java/api/</code>, put the following line in
 </div>
 </div>
 <div class="sect1">
-<h2 id="_use_a_local_copy_of_the_java_source_code"><a class="anchor" href="#_use_a_local_copy_of_the_java_source_code"></a>Use a Local Copy of the Java Source Code</h2>
+<h2 id="use-a-local-copy-of-the-java-source-code"><a class="anchor" href="#use-a-local-copy-of-the-java-source-code"></a>Use a Local Copy of the Java Source Code</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>When an exception is thrown, e.g. when eval-ing <code>(. clojure.lang.RT foo)</code>, a
@@ -679,7 +681,7 @@ them is better since you can use features like <code>ag</code> or <code>dired-ju
 </div>
 </div>
 <div class="sect1">
-<h2 id="_filter_out_namespaces_in_certain_namespace_related_commands"><a class="anchor" href="#_filter_out_namespaces_in_certain_namespace_related_commands"></a>Filter out namespaces in certain namespace-related commands</h2>
+<h2 id="filter-out-namespaces-in-certain-namespace-related-commands"><a class="anchor" href="#filter-out-namespaces-in-certain-namespace-related-commands"></a>Filter out namespaces in certain namespace-related commands</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can hide all nREPL middleware details from <code>cider-browse-ns*</code> and <code>cider-apropos*</code>
@@ -711,7 +713,7 @@ with <kbd>M-x</kbd> <code>customize-variable</code> <kbd>RET</kbd> <code>cider-f
 </div>
 </div>
 <div class="sect1">
-<h2 id="_truncate_long_lines_in_special_buffers"><a class="anchor" href="#_truncate_long_lines_in_special_buffers"></a>Truncate long lines in special buffers</h2>
+<h2 id="truncate-long-lines-in-special-buffers"><a class="anchor" href="#truncate-long-lines-in-special-buffers"></a>Truncate long lines in special buffers</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default contents of CIDER&#8217;s special buffers such as <code>*cider-test-report*</code>
@@ -730,6 +732,10 @@ wrapping instead of line truncating.</p>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="../debugging/macroexpansion.html">Macroexpansion</a></span>
+  <span class="next"><a href="syntax_highlighting.html">Syntax Highlighting</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>ElDoc :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/config/eldoc.html">
+    <link rel="prev" href="indentation.html">
+    <link rel="next" href="misc.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -301,7 +303,7 @@
       <span class="title">CIDER nREPL</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/index.html">master</a>
+          <a href="../../cider-nrepl/0.25/index.html">0.25</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.24/index.html">0.24</a>
@@ -357,7 +359,7 @@ long as <code>eldoc-mode</code> is enabled.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_enabling_eldoc"><a class="anchor" href="#_enabling_eldoc"></a>Enabling ElDoc</h2>
+<h2 id="enabling-eldoc"><a class="anchor" href="#enabling-eldoc"></a>Enabling ElDoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><code>global-eldoc-mode</code> is enabled by default in Emacs 25.1, so you don&#8217;t really have
@@ -369,10 +371,10 @@ to do anything to enable it.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_configuring_eldoc"><a class="anchor" href="#_configuring_eldoc"></a>Configuring ElDoc</h2>
+<h2 id="configuring-eldoc"><a class="anchor" href="#configuring-eldoc"></a>Configuring ElDoc</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_displaying_eldoc_for_the_symbol_at_point"><a class="anchor" href="#_displaying_eldoc_for_the_symbol_at_point"></a>Displaying ElDoc for the Symbol at Point</h3>
+<h3 id="displaying-eldoc-for-the-symbol-at-point"><a class="anchor" href="#displaying-eldoc-for-the-symbol-at-point"></a>Displaying ElDoc for the Symbol at Point</h3>
 <div class="paragraph">
 <p>Typically you&#8217;d see the eldoc for the containing function/macro/special form (with
 respect to your cursor&#8217;s position).</p>
@@ -389,7 +391,7 @@ behaviour by:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dealing_with_long_eldoc"><a class="anchor" href="#_dealing_with_long_eldoc"></a>Dealing with Long ElDoc</h3>
+<h3 id="dealing-with-long-eldoc"><a class="anchor" href="#dealing-with-long-eldoc"></a>Dealing with Long ElDoc</h3>
 <div class="paragraph">
 <p>CIDER respects the value of <code>eldoc-echo-area-use-multiline-p</code> when
 displaying documentation in the minibuffer. You can customize this variable to change
@@ -423,7 +425,7 @@ its behaviour.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_context_dependent_eldoc"><a class="anchor" href="#_context_dependent_eldoc"></a>Context-dependent ElDoc</h3>
+<h3 id="context-dependent-eldoc"><a class="anchor" href="#context-dependent-eldoc"></a>Context-dependent ElDoc</h3>
 <div class="paragraph">
 <p>CIDER will try to add expected function arguments based on the current context
 (for example for the <code>datomic.api/q</code> function where it will show the expected
@@ -438,6 +440,10 @@ is non-nil:</p>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="indentation.html">Indentation</a></span>
+  <span class="next"><a href="misc.html">Misc</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Hacking on CIDER :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/contributing/hacking.html">
+    <link rel="prev" href="docs.html">
+    <link rel="next" href="funding.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -301,7 +303,7 @@
       <span class="title">CIDER nREPL</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/index.html">master</a>
+          <a href="../../cider-nrepl/0.25/index.html">0.25</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.24/index.html">0.24</a>
@@ -346,10 +348,10 @@ working on the Emacs Lisp side (CIDER) and the Clojure side (<code>cider-nrepl</
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hacking_on_cider_elisp"><a class="anchor" href="#_hacking_on_cider_elisp"></a>Hacking on CIDER (Elisp)</h2>
+<h2 id="hacking-on-cider-elisp"><a class="anchor" href="#hacking-on-cider-elisp"></a>Hacking on CIDER (Elisp)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_obtaining_the_source_code"><a class="anchor" href="#_obtaining_the_source_code"></a>Obtaining the source code</h3>
+<h3 id="obtaining-the-source-code"><a class="anchor" href="#obtaining-the-source-code"></a>Obtaining the source code</h3>
 <div class="paragraph">
 <p>People typically install CIDER via <code>package.el</code>. While this gives you access the
 source code (as it&#8217;s part of the package), it&#8217;s always a much better idea to
@@ -388,7 +390,7 @@ manually in this case:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_changing_the_code"><a class="anchor" href="#_changing_the_code"></a>Changing the code</h3>
+<h3 id="changing-the-code"><a class="anchor" href="#changing-the-code"></a>Changing the code</h3>
 <div class="paragraph">
 <p>It&#8217;s perfectly fine to load CIDER from <code>package.el</code> and then to start making
 experiments by changing existing code and adding new code.</p>
@@ -408,7 +410,7 @@ can open an Emacs Lisp REPL with <code>M-x ielm</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_testing_the_code"><a class="anchor" href="#_testing_the_code"></a>Testing the code</h3>
+<h3 id="testing-the-code"><a class="anchor" href="#testing-the-code"></a>Testing the code</h3>
 <div class="paragraph">
 <p>The code you&#8217;ve wrote should ideally be covered by specs. We use
 the <a href="https://github.com/jorgenschaefer/emacs-buttercup">buttercup</a> library for
@@ -422,7 +424,7 @@ the
 all the details.</p>
 </div>
 <div class="sect3">
-<h4 id="_running_the_tests_in_batch_mode"><a class="anchor" href="#_running_the_tests_in_batch_mode"></a>Running the tests in batch mode</h4>
+<h4 id="running-the-tests-in-batch-mode"><a class="anchor" href="#running-the-tests-in-batch-mode"></a>Running the tests in batch mode</h4>
 <div class="paragraph">
 <p>If you prefer running all tests outside Emacs that&#8217;s also an option.</p>
 </div>
@@ -467,7 +469,7 @@ them in a terminal is recommended.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_running_the_tests_in_circleci"><a class="anchor" href="#_running_the_tests_in_circleci"></a>Running the tests in CircleCI</h4>
+<h4 id="running-the-tests-in-circleci"><a class="anchor" href="#running-the-tests-in-circleci"></a>Running the tests in CircleCI</h4>
 <div class="paragraph">
 <p>If you prefer to see the full CircleCI CI test suite run successfully, the easiest
 way to achieve that is to create your own personal account on
@@ -480,7 +482,7 @@ for success or failure.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_simulating_the_circle_ci_tests_locally_in_docker"><a class="anchor" href="#_simulating_the_circle_ci_tests_locally_in_docker"></a>Simulating the Circle CI tests locally in Docker</h4>
+<h4 id="simulating-the-circle-ci-tests-locally-in-docker"><a class="anchor" href="#simulating-the-circle-ci-tests-locally-in-docker"></a>Simulating the Circle CI tests locally in Docker</h4>
 <div class="paragraph">
 <p>If you prefer not to wait for CircleCI all the time, or if you need to debug
 something that fails in CircleCI but does not fail for you on your own machine,
@@ -546,16 +548,16 @@ the first time you run the tests locally.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hacking_on_cider_nrepl_clojure"><a class="anchor" href="#_hacking_on_cider_nrepl_clojure"></a>Hacking on cider-nrepl (Clojure)</h2>
+<h2 id="hacking-on-cider-nrepl-clojure"><a class="anchor" href="#hacking-on-cider-nrepl-clojure"></a>Hacking on cider-nrepl (Clojure)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_obtaining_the_code"><a class="anchor" href="#_obtaining_the_code"></a>Obtaining the code</h3>
+<h3 id="obtaining-the-code"><a class="anchor" href="#obtaining-the-code"></a>Obtaining the code</h3>
 <div class="paragraph">
 <p>Just clone it from GitHub.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_changing_the_code_2"><a class="anchor" href="#_changing_the_code_2"></a>Changing the code</h3>
+<h3 id="changing-the-code-2"><a class="anchor" href="#changing-the-code-2"></a>Changing the code</h3>
 <div class="paragraph">
 <p>Just do <code>cider-jack-in</code> within the <code>cider-nrepl</code> project and start hacking as
 you would on any other Clojure project.  The only thing to keep in mind is that
@@ -568,7 +570,7 @@ immediate feedback for the changes you&#8217;ve made.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_testing_the_code_2"><a class="anchor" href="#_testing_the_code_2"></a>Testing the code</h3>
+<h3 id="testing-the-code-2"><a class="anchor" href="#testing-the-code-2"></a>Testing the code</h3>
 <div class="paragraph">
 <p>The code you&#8217;ve wrote should ideally be covered by test. We use the
 <code>clojure.test</code> library for <code>cider-nrepl</code>'s tests.</p>
@@ -578,7 +580,7 @@ immediate feedback for the changes you&#8217;ve made.</p>
 <a href="../testing/running_tests.html" class="page">CIDER documentation</a> for all the details.</p>
 </div>
 <div class="sect3">
-<h4 id="_running_the_tests_in_batch_mode_2"><a class="anchor" href="#_running_the_tests_in_batch_mode_2"></a>Running the tests in batch mode</h4>
+<h4 id="running-the-tests-in-batch-mode-2"><a class="anchor" href="#running-the-tests-in-batch-mode-2"></a>Running the tests in batch mode</h4>
 <div class="paragraph">
 <p>You can also run the tests in an external shell. Running <code>lein test</code> won&#8217;t run
 pretty much anything, though. (perhaps we should change this?) To run the
@@ -598,6 +600,10 @@ languages.</p>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="docs.html">Documentation</a></span>
+  <span class="next"><a href="funding.html">Funding</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

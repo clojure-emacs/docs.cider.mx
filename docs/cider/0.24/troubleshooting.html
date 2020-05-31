@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Troubleshooting :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/troubleshooting.html">
+    <link rel="prev" href="caveats.html">
+    <link rel="next" href="faq.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -298,7 +300,7 @@
       <span class="title">CIDER nREPL</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/index.html">master</a>
+          <a href="../../cider-nrepl/0.25/index.html">0.25</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.24/index.html">0.24</a>
@@ -351,7 +353,7 @@ provided you&#8217;ve enabled nREPL message logging.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_debugging_cider_commands"><a class="anchor" href="#_debugging_cider_commands"></a>Debugging CIDER commands</h2>
+<h2 id="debugging-cider-commands"><a class="anchor" href="#debugging-cider-commands"></a>Debugging CIDER commands</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Emacs features a super powerful built-in
@@ -399,7 +401,7 @@ you find the problem.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_profiling_cider_commands"><a class="anchor" href="#_profiling_cider_commands"></a>Profiling CIDER commands</h2>
+<h2 id="profiling-cider-commands"><a class="anchor" href="#profiling-cider-commands"></a>Profiling CIDER commands</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Emacs comes with a <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Profiling.html">built-in
@@ -435,10 +437,10 @@ save the report buffer to a file with <kbd>C-x C-w</kbd>.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_commonly_encountered_problems_and_how_to_solve_them"><a class="anchor" href="#_commonly_encountered_problems_and_how_to_solve_them"></a>Commonly encountered problems (and how to solve them)</h2>
+<h2 id="commonly-encountered-problems-and-how-to-solve-them"><a class="anchor" href="#commonly-encountered-problems-and-how-to-solve-them"></a>Commonly encountered problems (and how to solve them)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_repl_not_starting"><a class="anchor" href="#_repl_not_starting"></a>REPL not starting</h3>
+<h3 id="repl-not-starting"><a class="anchor" href="#repl-not-starting"></a>REPL not starting</h3>
 <div class="paragraph">
 <p>Make sure that your CIDER version matches your <code>cider-nrepl</code> version. Check
 the contents of the <code>*Messages*</code> buffer for CIDER-related errors. You should
@@ -447,7 +449,7 @@ also check the nREPL messages passed between CIDER and nREPL in
 out the big guns.</p>
 </div>
 <div class="sect3">
-<h4 id="_debugging_the_repl_init"><a class="anchor" href="#_debugging_the_repl_init"></a>Debugging the REPL init</h4>
+<h4 id="debugging-the-repl-init"><a class="anchor" href="#debugging-the-repl-init"></a>Debugging the REPL init</h4>
 <div class="paragraph">
 <p>To debug CIDER&#8217;s REPL initialization it&#8217;s a good idea to hook into one of its
 entry points. Add a breakpoint to <code>cider-make-repl</code> (<kbd>C-u C-M-x</kbd>, while
@@ -457,7 +459,7 @@ you can step forward until you find the problem.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_missing_nrepl_messages_buffer"><a class="anchor" href="#_missing_nrepl_messages_buffer"></a>Missing <code>*nrepl-messages*</code> buffer</h3>
+<h3 id="missing-nrepl-messages-buffer"><a class="anchor" href="#missing-nrepl-messages-buffer"></a>Missing <code>*nrepl-messages*</code> buffer</h3>
 <div class="paragraph">
 <p>nREPL message logging is not enabled by default. Set <code>nrepl-log-messages</code> to <code>t</code>
 to activate it. Alternatively you can use <kbd>M-x</kbd>
@@ -467,7 +469,7 @@ performance.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cider_debug_complains_that_it_failed_to_instrument"><a class="anchor" href="#_cider_debug_complains_that_it_failed_to_instrument"></a><code>cider-debug</code> complains that it &#8220;failed to instrument &#8230;&#8203;&#8221;</h3>
+<h3 id="cider-debug-complains-that-it-failed-to-instrument"><a class="anchor" href="#cider-debug-complains-that-it-failed-to-instrument"></a><code>cider-debug</code> complains that it &#8220;failed to instrument &#8230;&#8203;&#8221;</h3>
 <div class="paragraph">
 <p>In the REPL buffer, issue the following.</p>
 </div>
@@ -484,7 +486,7 @@ and copy this information.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_debugging_freezes_lock_ups"><a class="anchor" href="#_debugging_freezes_lock_ups"></a>Debugging freezes &amp; lock-ups</h3>
+<h3 id="debugging-freezes-lock-ups"><a class="anchor" href="#debugging-freezes-lock-ups"></a>Debugging freezes &amp; lock-ups</h3>
 <div class="paragraph">
 <p>Sometimes a CIDER command might hang for a while (e.g. due to a bug or a
 configuration issue). Such problems are super annoying, but are relatively easy
@@ -510,7 +512,7 @@ least what&#8217;s being required).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_warning_saying_you_have_to_use_newer_nrepl"><a class="anchor" href="#_warning_saying_you_have_to_use_newer_nrepl"></a>Warning saying you have to use newer nREPL</h3>
+<h3 id="warning-saying-you-have-to-use-newer-nrepl"><a class="anchor" href="#warning-saying-you-have-to-use-newer-nrepl"></a>Warning saying you have to use newer nREPL</h3>
 <div class="paragraph">
 <p>CIDER currently requires at least nREPL 0.6 to work properly. As nREPL comes
 bundled with Leiningen and Boot, from time to time you might have to override the
@@ -546,7 +548,7 @@ in pretty much every release.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_missing_clojure_function_after_cider_update"><a class="anchor" href="#_missing_clojure_function_after_cider_update"></a>Missing clojure-&#8230;&#8203; function after CIDER update</h3>
+<h3 id="missing-clojure-function-after-cider-update"><a class="anchor" href="#missing-clojure-function-after-cider-update"></a>Missing clojure-&#8230;&#8203; function after CIDER update</h3>
 <div class="paragraph">
 <p>Most likely you&#8217;ve updated CIDER, without updating <code>clojure-mode</code> as well.</p>
 </div>
@@ -557,7 +559,7 @@ the latest CIDER version might depend on functionality present only in the lates
 </div>
 </div>
 <div class="sect2">
-<h3 id="_i_upgraded_cider_using_package_el_and_it_broke"><a class="anchor" href="#_i_upgraded_cider_using_package_el_and_it_broke"></a>I upgraded CIDER using <code>package.el</code> and it broke</h3>
+<h3 id="i-upgraded-cider-using-package-el-and-it-broke"><a class="anchor" href="#i-upgraded-cider-using-package-el-and-it-broke"></a>I upgraded CIDER using <code>package.el</code> and it broke</h3>
 <div class="paragraph">
 <p>The built-in package manager isn&#8217;t perfect and sometimes it messes up.  If you
 just updated and encountered an error you should try the following before
@@ -567,14 +569,14 @@ that the order here matters.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_i_upgraded_cider_using_package_el_and_nothing_changed"><a class="anchor" href="#_i_upgraded_cider_using_package_el_and_nothing_changed"></a>I upgraded CIDER using <code>package.el</code> and nothing changed</h3>
+<h3 id="i-upgraded-cider-using-package-el-and-nothing-changed"><a class="anchor" href="#i-upgraded-cider-using-package-el-and-nothing-changed"></a>I upgraded CIDER using <code>package.el</code> and nothing changed</h3>
 <div class="paragraph">
 <p>Emacs doesn&#8217;t load the new files, it only installs them on disk.  To see the
 effect of changes you have to restart Emacs.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cider_complains_of_the_cider_nrepl_version"><a class="anchor" href="#_cider_complains_of_the_cider_nrepl_version"></a>CIDER complains of the <code>cider-nrepl</code> version</h3>
+<h3 id="cider-complains-of-the-cider-nrepl-version"><a class="anchor" href="#cider-complains-of-the-cider-nrepl-version"></a>CIDER complains of the <code>cider-nrepl</code> version</h3>
 <div class="paragraph">
 <p>This is a warning displayed on the REPL buffer when it starts, and usually looks like this:</p>
 </div>
@@ -590,7 +592,7 @@ effect of changes you have to restart Emacs.</p>
 The solution to this depends on what you see and on what you&#8217;re doing.</p>
 </div>
 <div class="sect3">
-<h4 id="_you_see_a_number_like_x_x_x_and_youre_starting_the_repl_with_cider_connect"><a class="anchor" href="#_you_see_a_number_like_x_x_x_and_youre_starting_the_repl_with_cider_connect"></a>You see a number like <code>X.X.X</code>, and you&#8217;re starting the REPL with <code>cider-connect</code></h4>
+<h4 id="you-see-a-number-like-x-x-x-and-youre-starting-the-repl-with-cider-connect"><a class="anchor" href="#you-see-a-number-like-x-x-x-and-youre-starting-the-repl-with-cider-connect"></a>You see a number like <code>X.X.X</code>, and you&#8217;re starting the REPL with <code>cider-connect</code></h4>
 <div class="paragraph">
 <p>Your project specifies the wrong version for the cider-nrepl middleware. See the
 <a href="installation/#ciders-nrepl-middleware">instructions</a>
@@ -598,7 +600,7 @@ on the Installation section.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_you_see_not_installed_or_nil_and_youre_starting_the_repl_with_cider_connect"><a class="anchor" href="#_you_see_not_installed_or_nil_and_youre_starting_the_repl_with_cider_connect"></a>You see <code>not installed</code> or <code>nil</code>, and you&#8217;re starting the REPL with <code>cider-connect</code></h4>
+<h4 id="you-see-not-installed-or-nil-and-youre-starting-the-repl-with-cider-connect"><a class="anchor" href="#you-see-not-installed-or-nil-and-youre-starting-the-repl-with-cider-connect"></a>You see <code>not installed</code> or <code>nil</code>, and you&#8217;re starting the REPL with <code>cider-connect</code></h4>
 <div class="paragraph">
 <p>To use <code>cider-connect</code> you need to add the cider-nrepl middleware to your project. See the
 <a href="installation/#ciders-nrepl-middleware">instructions</a>
@@ -606,7 +608,7 @@ on the Installation section.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_you_see_not_installed_or_nil_and_youre_starting_the_repl_with_cider_jack_in"><a class="anchor" href="#_you_see_not_installed_or_nil_and_youre_starting_the_repl_with_cider_jack_in"></a>You see <code>not installed</code> or <code>nil</code>, and you&#8217;re starting the REPL with <code>cider-jack-in</code></h4>
+<h4 id="you-see-not-installed-or-nil-and-youre-starting-the-repl-with-cider-jack-in"><a class="anchor" href="#you-see-not-installed-or-nil-and-youre-starting-the-repl-with-cider-jack-in"></a>You see <code>not installed</code> or <code>nil</code>, and you&#8217;re starting the REPL with <code>cider-jack-in</code></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -631,7 +633,7 @@ on the Installation section.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_you_see_a_number_like_x_x_x_and_youre_starting_the_repl_with_cider_jack_in"><a class="anchor" href="#_you_see_a_number_like_x_x_x_and_youre_starting_the_repl_with_cider_jack_in"></a>You see a number like <code>X.X.X</code>, and you&#8217;re starting the REPL with <code>cider-jack-in</code></h4>
+<h4 id="you-see-a-number-like-x-x-x-and-youre-starting-the-repl-with-cider-jack-in"><a class="anchor" href="#you-see-a-number-like-x-x-x-and-youre-starting-the-repl-with-cider-jack-in"></a>You see a number like <code>X.X.X</code>, and you&#8217;re starting the REPL with <code>cider-jack-in</code></h4>
 <div class="paragraph">
 <p>This means you&#8217;re manually adding the cider-nrepl middleware in your project,
 but you shouldn&#8217;t do that because <code>cider-jack-in</code> already does that for
@@ -642,7 +644,7 @@ you. Look into the following files, and ensure you&#8217;ve removed all referenc
 </div>
 </div>
 <div class="sect2">
-<h3 id="_i_get_some_error_related_to_refactor_nrepl_on_startup"><a class="anchor" href="#_i_get_some_error_related_to_refactor_nrepl_on_startup"></a>I get some error related to refactor-nrepl on startup</h3>
+<h3 id="i-get-some-error-related-to-refactor-nrepl-on-startup"><a class="anchor" href="#i-get-some-error-related-to-refactor-nrepl-on-startup"></a>I get some error related to refactor-nrepl on startup</h3>
 <div class="paragraph">
 <p>The package <code>clj-refactor</code> would normally inject its own middleware on
 <code>cider-jack-in</code>, just as CIDER itself would. Usually that&#8217;s not a
@@ -669,6 +671,10 @@ snapshots or most recent stable releases)</p>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="caveats.html">Caveats</a></span>
+  <span class="next"><a href="faq.html">FAQ</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

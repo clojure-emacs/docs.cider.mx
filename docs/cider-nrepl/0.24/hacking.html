@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Hacking on cider-nrepl :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/hacking.html">
+    <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/0.25/hacking.html">
+    <link rel="prev" href="nrepl-api/ops.html">
+    <link rel="next" href="compatibility.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -139,7 +141,7 @@
       <span class="title">CIDER nREPL</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../index.html">master</a>
+          <a href="../0.25/index.html">0.25</a>
         </li>
         <li class="version is-current">
           <a href="index.html">0.24</a>
@@ -164,7 +166,7 @@
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">0.24</button>
   <div class="version-menu">
-    <a class="version" href="../hacking.html">master</a>
+    <a class="version" href="../0.25/hacking.html">0.25</a>
     <a class="version is-current" href="hacking.html">0.24</a>
   </div>
 </div>
@@ -183,7 +185,7 @@ while working on the project.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_makefile"><a class="anchor" href="#_makefile"></a>Makefile</h2>
+<h2 id="makefile"><a class="anchor" href="#makefile"></a>Makefile</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>cider-nrepl has some pretty complicated Lein profiles, as it has to deal with multiple version of
@@ -197,7 +199,7 @@ and just focus on the tasks at hand.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_testing_your_changes"><a class="anchor" href="#_testing_your_changes"></a>Testing your changes</h2>
+<h2 id="testing-your-changes"><a class="anchor" href="#testing-your-changes"></a>Testing your changes</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You&#8217;ve got several options for doing this:</p>
@@ -222,7 +224,7 @@ code will normally result in those changes becoming immediately available to you
 </div>
 </div>
 <div class="sect1">
-<h2 id="_running_the_tests"><a class="anchor" href="#_running_the_tests"></a>Running the tests</h2>
+<h2 id="running-the-tests"><a class="anchor" href="#running-the-tests"></a>Running the tests</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Just do:</p>
@@ -240,7 +242,7 @@ Clojure version that&#8217;s supported.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_linting"><a class="anchor" href="#_linting"></a>Linting</h2>
+<h2 id="linting"><a class="anchor" href="#linting"></a>Linting</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>cider-nrepl uses eastwood and cljfmt. Make sure your changes conform to the project&#8217;s baseline by doing:</p>
@@ -254,7 +256,7 @@ $ make cljfmt</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_deploying"><a class="anchor" href="#_deploying"></a>Deploying</h2>
+<h2 id="deploying"><a class="anchor" href="#deploying"></a>Deploying</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Just do:</p>
@@ -269,6 +271,10 @@ $ make cljfmt</pre>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="nrepl-api/ops.html">Supplied Ops</a></span>
+  <span class="next"><a href="compatibility.html">Compatibility</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

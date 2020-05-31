@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Up and Running :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/basics/up_and_running.html">
+    <link rel="prev" href="installation.html">
+    <link rel="next" href="middleware_setup.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="stylesheet" href="../../../_/css/site-extra.css">
@@ -298,7 +300,7 @@
       <span class="title">CIDER nREPL</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../../cider-nrepl/index.html">master</a>
+          <a href="../../../cider-nrepl/0.25/index.html">0.25</a>
         </li>
         <li class="version">
           <a href="../../../cider-nrepl/0.24/index.html">0.24</a>
@@ -375,7 +377,7 @@ CIDER will automatically work with Leiningen 2.9.0+ or Boot
 </div>
 </div>
 <div class="sect1">
-<h2 id="_launch_an_nrepl_server_from_emacs"><a class="anchor" href="#_launch_an_nrepl_server_from_emacs"></a>Launch an nREPL Server From Emacs</h2>
+<h2 id="launch-an-nrepl-server-from-emacs"><a class="anchor" href="#launch-an-nrepl-server-from-emacs"></a>Launch an nREPL Server From Emacs</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you have a Clojure project in your file system and want CIDER to
@@ -431,7 +433,7 @@ waiting for nREPL to start. You can also find this command in Emacs&#8217;s <cod
 </table>
 </div>
 <div class="sect2">
-<h3 id="_auto_injecting_dependencies"><a class="anchor" href="#_auto_injecting_dependencies"></a>Auto-Injecting Dependencies</h3>
+<h3 id="auto-injecting-dependencies"><a class="anchor" href="#auto-injecting-dependencies"></a>Auto-Injecting Dependencies</h3>
 <div class="paragraph">
 <p>While CIDER&#8217;s core functionality requires nothing more than an nREPL server,
 there are many advanced features that depend on the presence of additional
@@ -501,7 +503,7 @@ way to pass extra dependencies to Gradle via its command-line interface.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_jacking_in_without_a_project"><a class="anchor" href="#_jacking_in_without_a_project"></a>Jacking-in without a Project</h3>
+<h3 id="jacking-in-without-a-project"><a class="anchor" href="#jacking-in-without-a-project"></a>Jacking-in without a Project</h3>
 <div class="paragraph">
 <p>If you try to run <code>cider-jack-in</code> outside a project
 directory, CIDER will warn you and ask you to confirm whether you
@@ -525,7 +527,7 @@ disable the warning displayed when jacking-in outside a project.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_customizing_the_jack_in_command_behaviour"><a class="anchor" href="#_customizing_the_jack_in_command_behaviour"></a>Customizing the Jack-in Command Behaviour</h3>
+<h3 id="customizing-the-jack-in-command-behaviour"><a class="anchor" href="#customizing-the-jack-in-command-behaviour"></a>Customizing the Jack-in Command Behaviour</h3>
 <div class="paragraph">
 <p>You can use <kbd>C-u M-x</kbd> <code>cider-jack-in</code> <kbd>RET</kbd> to
 specify the exact command that <code>cider-jack-in</code> would run.
@@ -584,7 +586,7 @@ passing it to PowerShell and avoids shell-escaping issues.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_connect_to_a_running_nrepl_server"><a class="anchor" href="#_connect_to_a_running_nrepl_server"></a>Connect to a Running nREPL Server</h2>
+<h2 id="connect-to-a-running-nrepl-server"><a class="anchor" href="#connect-to-a-running-nrepl-server"></a>Connect to a Running nREPL Server</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you have an nREPL server already running, CIDER can connect to
@@ -654,7 +656,7 @@ reads for the host and port prompts when you invoke
 </div>
 </div>
 <div class="sect1">
-<h2 id="_working_with_remote_hosts"><a class="anchor" href="#_working_with_remote_hosts"></a>Working with Remote Hosts</h2>
+<h2 id="working-with-remote-hosts"><a class="anchor" href="#working-with-remote-hosts"></a>Working with Remote Hosts</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>While most of the time you&#8217;d be connecting to a locally running nREPL
@@ -717,6 +719,10 @@ will handle this use-case transparently for you.</p>
 <a href="#_footnoteref_1">1</a>. Yeah, that&#8217;s a "Neuromancer" reference.
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="installation.html">Installation</a></span>
+  <span class="next"><a href="middleware_setup.html">nREPL Middleware Setup</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

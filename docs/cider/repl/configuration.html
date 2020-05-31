@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>REPL Configuration :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/repl/configuration.html">
+    <link rel="prev" href="keybindings.html">
+    <link rel="next" href="history.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -301,7 +303,7 @@
       <span class="title">CIDER nREPL</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/index.html">master</a>
+          <a href="../../cider-nrepl/0.25/index.html">0.25</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.24/index.html">0.24</a>
@@ -337,7 +339,7 @@
 <article class="doc">
 <h1 class="page">REPL Configuration</h1>
 <div class="sect1">
-<h2 id="_behavior_on_connect"><a class="anchor" href="#_behavior_on_connect"></a>Behavior on connect</h2>
+<h2 id="behavior-on-connect"><a class="anchor" href="#behavior-on-connect"></a>Behavior on connect</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Normally, when you first establish a REPL connection, the REPL buffer is
@@ -361,7 +363,7 @@ focused, use this:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_behavior_on_switch"><a class="anchor" href="#_behavior_on_switch"></a>Behavior on switch</h2>
+<h2 id="behavior-on-switch"><a class="anchor" href="#behavior-on-switch"></a>Behavior on switch</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default <kbd>C-c C-z</kbd> will display the REPL buffer in a
@@ -376,7 +378,7 @@ REPL buffer in the current window:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_customizing_the_repl_prompt"><a class="anchor" href="#_customizing_the_repl_prompt"></a>Customizing the REPL prompt</h2>
+<h2 id="customizing-the-repl-prompt"><a class="anchor" href="#customizing-the-repl-prompt"></a>Customizing the REPL prompt</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can customize the REPL buffer prompt by setting
@@ -442,7 +444,7 @@ namespace. Here is an example function that will do exactly that:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_tab_completion"><a class="anchor" href="#_tab_completion"></a>TAB Completion</h2>
+<h2 id="tab-completion"><a class="anchor" href="#tab-completion"></a>TAB Completion</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can control the <kbd>TAB</kbd> key behavior in the REPL using the
@@ -461,7 +463,29 @@ following:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_auto_scrolling_the_repl_on_output"><a class="anchor" href="#_auto_scrolling_the_repl_on_output"></a>Auto-scrolling the REPL on Output</h2>
+<h2 id="customizing-the-return-keys-behavior"><a class="anchor" href="#customizing-the-return-keys-behavior"></a>Customizing the <code>Return</code> key&#8217;s behavior</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ordinarily, <kbd>Return</kbd> immediate sends a form for
+evaluation. If you want to insert a newline into the REPL buffer as
+you&#8217;re editing, you can do so using <kbd>C-j</kbd>. If you are
+entering a lot of longer forms that span multiple lines, it may be
+more convenient to change the keybindings:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(define-key cider-repl-mode-map (kbd "RET") #'cider-repl-newline-and-indent)
+(define-key cider-repl-mode-map (kbd "C-&lt;return&gt;") #'cider-repl-return)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will make <kbd>Return</kbd> insert a newline into the REPL buffer
+and <kbd>C-Return</kbd> send the form off for evaluation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="auto-scrolling-the-repl-on-output"><a class="anchor" href="#auto-scrolling-the-repl-on-output"></a>Auto-scrolling the REPL on Output</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Prior to version 0.21.0, the REPL buffer would be automatically re-centered
@@ -478,7 +502,7 @@ built-in option <code>scroll-conservatively</code>, for example:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_result_prefix"><a class="anchor" href="#_result_prefix"></a>Result Prefix</h2>
+<h2 id="result-prefix"><a class="anchor" href="#result-prefix"></a>Result Prefix</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can change the string used to prefix REPL results:</p>
@@ -503,7 +527,40 @@ built-in option <code>scroll-conservatively</code>, for example:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_customize_the_repl_buffers_name"><a class="anchor" href="#_customize_the_repl_buffers_name"></a>Customize the REPL Buffer&#8217;s Name</h2>
+<h2 id="set-ns-in-repl"><a class="anchor" href="#set-ns-in-repl"></a>Set ns in REPL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default <code>cider-repl-set-ns</code> won&#8217;t require the target ns, just set
+it. That&#8217;s done with the assumption that you&#8217;ve probably evaluated the ns in
+question already before switching to it (e.g. by doing <kbd>C-c C-k</kbd>
+(<code>cider-load-buffer</code>) in its source buffer). If you want to change this behaviour
+(to avoid calling <code>cider-repl-set-ns</code> and then <code>(require 'my-ns)</code> manually), you
+can set:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-require-ns-on-set t)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="customizing-the-initial-repl-namespace"><a class="anchor" href="#customizing-the-initial-repl-namespace"></a>Customizing the initial REPL namespace</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Normally, the CIDER REPL will start in the <code>user</code> namespace.  You can
+supply an initial namespace for REPL sessions in the <code>repl-options</code>
+section of your Leiningen project configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:repl-options {:init-ns 'my-ns}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="customize-the-repl-buffers-name"><a class="anchor" href="#customize-the-repl-buffers-name"></a>Customize the REPL Buffer&#8217;s Name</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can customize the buffer name using the variable
@@ -513,7 +570,7 @@ details.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_font_locking"><a class="anchor" href="#_font_locking"></a>Font-locking</h2>
+<h2 id="font-locking"><a class="anchor" href="#font-locking"></a>Font-locking</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Normally, code in the REPL is font-locked the same way as in
@@ -527,6 +584,18 @@ use:</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-use-clojure-font-lock nil)</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>You can temporarily disable the Clojure font-locking by using
+<kbd>M-x cider-repl-toggle-clojure-font-lock</kbd>
+or the REPL shortcut <code>toggle-font-lock</code>.</p>
+</div>
+<div class="paragraph">
+<p>Keep in mind that by default <code>cider-repl-input-face</code> simply makes the input bold
+and <code>cider-repl-result-face</code> is blank (meaning it doesn&#8217;t really apply any
+font-locking to results), so you might want to adjust those faces to your
+preferences. Some Emacs color themes might be providing different defaults for
+them.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -543,7 +612,7 @@ by result streaming.
 </table>
 </div>
 <div class="sect2">
-<h3 id="_font_locking_of_results"><a class="anchor" href="#_font_locking_of_results"></a>Font-locking of Results</h3>
+<h3 id="font-locking-of-results"><a class="anchor" href="#font-locking-of-results"></a>Font-locking of Results</h3>
 <div class="paragraph">
 <p>There are a few things you need to keep in mind about Clojure font-locking of results:</p>
 </div>
@@ -591,7 +660,7 @@ in <code>cider-util.el</code>.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pretty_printing_in_the_repl"><a class="anchor" href="#_pretty_printing_in_the_repl"></a>Pretty printing in the REPL</h2>
+<h2 id="pretty-printing-in-the-repl"><a class="anchor" href="#pretty-printing-in-the-repl"></a>Pretty printing in the REPL</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default the REPL always prints the results of your evaluations using the
@@ -612,7 +681,8 @@ pretty-printing was disabled by default.
 </div>
 <div class="paragraph">
 <p>You can temporarily disable this behaviour and revert to the default behaviour
-(equivalent to <code>clojure.core/pr</code>) using <kbd>M-x cider-repl-toggle-pretty-printing</kbd>.</p>
+(equivalent to <code>clojure.core/pr</code>) using <kbd>M-x cider-repl-toggle-pretty-printing</kbd>
+or the REPL shortcut <code>toggle-pprint</code>.</p>
 </div>
 <div class="paragraph">
 <p>If you want to disable using <code>cider-print-fn</code> entirely, use:</p>
@@ -643,7 +713,7 @@ more information on configuring printing.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_displaying_images_in_the_repl"><a class="anchor" href="#_displaying_images_in_the_repl"></a>Displaying images in the REPL</h2>
+<h2 id="displaying-images-in-the-repl"><a class="anchor" href="#displaying-images-in-the-repl"></a>Displaying images in the REPL</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Starting with CIDER 0.17 (Andalucía) expressions that evaluate to
@@ -671,49 +741,49 @@ for details.
 </table>
 </div>
 <div class="paragraph">
-<p>Alternatively, you can toggle this behaviour on and off using <kbd>M-x cider-repl-toggle-content-types</kbd>.</p>
+<p>Alternatively, you can toggle this behaviour on and off using <kbd>M-x cider-repl-toggle-content-types</kbd>
+or the REPL shortcut <code>toggle-content-types</code>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_customizing_the_initial_repl_namespace"><a class="anchor" href="#_customizing_the_initial_repl_namespace"></a>Customizing the initial REPL namespace</h2>
+<h2 id="repl-type-detection"><a class="anchor" href="#repl-type-detection"></a>REPL type detection</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Normally, the CIDER REPL will start in the <code>user</code> namespace.  You can
-supply an initial namespace for REPL sessions in the <code>repl-options</code>
-section of your Leiningen project configuration:</p>
+<p>Normally CIDER would detect automatically the type of a REPL (Clojure or ClojureScript), based
+on information it receives from the <code>track-state</code> middleware, that&#8217;s part of <code>cider-nrepl</code>.</p>
+</div>
+<div class="paragraph">
+<p>In some rare cases (e.g. a bug in <code>cider-nrepl</code> or <code>shadow-cljs</code>) this
+auto-detection might fail and return the wrong type (e.g. Clojure instead of
+ClojureScript).  You can disable the auto-detection logic like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:repl-options {:init-ns 'my-ns}</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-auto-detect-type nil)</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Afterwards you can use <code>cider-repl-set-type</code> to set the right type manually.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Using <code>cider-repl-set-type</code> without disabling
+<code>cider-repl-auto-detect-type</code> won&#8217;t do much, as the REPL type will constantly be
+reset automatically by the <code>track-state</code> middleware.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_customizing_newline_interaction"><a class="anchor" href="#_customizing_newline_interaction"></a>Customizing newline interaction</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Ordinarily, <kbd>Return</kbd> immediate sends a form for
-evaluation. If you want to insert a newline into the REPL buffer as
-you&#8217;re editing, you can do so using <kbd>C-j</kbd>. If you are
-entering a lot of longer forms that span multiple lines, it may be
-more convenient to change the keybindings:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(define-key cider-repl-mode-map (kbd "RET") #'cider-repl-newline-and-indent)
-(define-key cider-repl-mode-map (kbd "C-&lt;return&gt;") #'cider-repl-return)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This will make <kbd>Return</kbd> insert a newline into the REPL buffer
-and <kbd>C-Return</kbd> send the form off for evaluation.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_repl_history"><a class="anchor" href="#_repl_history"></a>REPL history</h2>
+<h2 id="repl-history"><a class="anchor" href="#repl-history"></a>REPL history</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -757,24 +827,10 @@ buffer, which includes invoking <code>cider-quit</code>, or when you quit Emacs.
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_set_ns_in_repl"><a class="anchor" href="#_set_ns_in_repl"></a>Set ns in REPL</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>By default <code>cider-repl-set-ns</code> won&#8217;t require the target ns, just set
-it. That&#8217;s done with the assumption that you&#8217;ve probably evaluated the
-ns in question already before switching to it (e.g. by doing <code>C-c C-k</code>
-in its source file). If you want to change this behaviour (to avoid
-calling <code>cider-repl-set-ns</code> and then <code>(require 'my-ns)</code> manually), you
-can set:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-require-ns-on-set t)</code></pre>
-</div>
-</div>
-</div>
-</div>
+<nav class="pagination">
+  <span class="prev"><a href="keybindings.html">Keybindings</a></span>
+  <span class="next"><a href="history.html">REPL History</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

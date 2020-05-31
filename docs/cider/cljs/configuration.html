@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Configuration :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/cljs/configuration.html">
+    <link rel="prev" href="up_and_running.html">
+    <link rel="next" href="figwheel.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -301,7 +303,7 @@
       <span class="title">CIDER nREPL</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/index.html">master</a>
+          <a href="../../cider-nrepl/0.25/index.html">0.25</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.24/index.html">0.24</a>
@@ -347,7 +349,7 @@ in the individual REPL setup sections.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_modifying_the_clojurescript_jack_in_dependencies"><a class="anchor" href="#_modifying_the_clojurescript_jack_in_dependencies"></a>Modifying the ClojureScript jack-in dependencies</h2>
+<h2 id="modifying-the-clojurescript-jack-in-dependencies"><a class="anchor" href="#modifying-the-clojurescript-jack-in-dependencies"></a>Modifying the ClojureScript jack-in dependencies</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Out-of-the-box, CIDER injects a single dependency into ClojureScript REPLs - namely <code>piggieback</code>.
@@ -379,22 +381,22 @@ Modifying this variable will affect all ClojureScript REPL types.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_setting_a_default_clojurescript_repl_type"><a class="anchor" href="#_setting_a_default_clojurescript_repl_type"></a>Setting a Default ClojureScript REPL Type</h2>
+<h2 id="setting-a-default-clojurescript-repl-type"><a class="anchor" href="#setting-a-default-clojurescript-repl-type"></a>Setting a Default ClojureScript REPL Type</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you frequently use the same ClojureScript REPL, you can set
 <code>cider-default-cljs-repl</code> and CIDER will skip the prompt and use this
-instead. For example, the following will make Nashorn the default:</p>
+instead. For example, the following will make Node.js the default:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-default-cljs-repl 'nashorn)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-default-cljs-repl 'node)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_defining_custom_clojurescript_repl_types"><a class="anchor" href="#_defining_custom_clojurescript_repl_types"></a>Defining Custom ClojureScript REPL Types</h2>
+<h2 id="defining-custom-clojurescript-repl-types"><a class="anchor" href="#defining-custom-clojurescript-repl-types"></a>Defining Custom ClojureScript REPL Types</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>All supported ClojureScript REPLs are stored in
@@ -445,7 +447,7 @@ ClojureScript REPL, you can invoke
 </div>
 </div>
 <div class="sect1">
-<h2 id="_enhanced_completion"><a class="anchor" href="#_enhanced_completion"></a>Enhanced Completion</h2>
+<h2 id="enhanced-completion"><a class="anchor" href="#enhanced-completion"></a>Enhanced Completion</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default CIDER will enrich the ClojureScript completion results using
@@ -459,6 +461,10 @@ into any <code>suitable</code>-related issues you can disable the enhanced compl
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="up_and_running.html">Up and Running</a></span>
+  <span class="next"><a href="figwheel.html">Using Figwheel</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
