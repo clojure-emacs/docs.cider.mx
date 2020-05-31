@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>CIDER nREPL :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/index.html">
+    <link rel="next" href="usage.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
@@ -142,6 +143,9 @@
           <a href="index.html">master</a>
         </li>
         <li class="version">
+          <a href="0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
           <a href="0.24/index.html">0.24</a>
         </li>
       </ul>
@@ -165,6 +169,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
     <a class="version is-current" href="index.html">master</a>
+    <a class="version" href="0.25/index.html">0.25</a>
     <a class="version" href="0.24/index.html">0.24</a>
   </div>
 </div>
@@ -174,7 +179,7 @@
 <article class="doc">
 <h1 class="page">CIDER nREPL</h1>
 <div class="sect1">
-<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><code>cider-nrepl</code> aims to extent the base functionality of an nREPL server to cater
@@ -222,7 +227,7 @@ venture between all interested tool authors.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_design"><a class="anchor" href="#_design"></a>Design</h2>
+<h2 id="design"><a class="anchor" href="#design"></a>Design</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section documents some of the major design decisions in cider-nrepl.</p>
@@ -233,7 +238,7 @@ make a few important design decision here and there that influenced
 the code base and the usability of cider-nrepl in various ways.</p>
 </div>
 <div class="sect2">
-<h3 id="_repl_powered"><a class="anchor" href="#_repl_powered"></a>REPL-powered</h3>
+<h3 id="repl-powered"><a class="anchor" href="#repl-powered"></a>REPL-powered</h3>
 <div class="paragraph">
 <p>All of the middleware that are currently part of <code>cider-nrepl</code> are relying on
 REPL state introspection to perform their work. While we might leverage
@@ -242,7 +247,7 @@ be a REPL-first tool.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_editor_agnostic"><a class="anchor" href="#_editor_agnostic"></a>Editor Agnostic</h3>
+<h3 id="editor-agnostic"><a class="anchor" href="#editor-agnostic"></a>Editor Agnostic</h3>
 <div class="paragraph">
 <p>Although those middlewares were created for use with CIDER almost all
 of them are extremely generic and can be leveraged from other editors.</p>
@@ -253,7 +258,7 @@ cider-nrepl already.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_reusable_core_logic"><a class="anchor" href="#_reusable_core_logic"></a>Reusable Core Logic</h3>
+<h3 id="reusable-core-logic"><a class="anchor" href="#reusable-core-logic"></a>Reusable Core Logic</h3>
 <div class="paragraph">
 <p>cider-nrepl tries to have as little logic as possible and mostly
 provides thin wrappers over existing libraries (e.g. <a href="https://github.com/alexander-yakushev/compliment">compliment</a>,
@@ -273,7 +278,7 @@ editors can directly leverage the work we&#8217;ve done so far.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_clojurescript_support"><a class="anchor" href="#_clojurescript_support"></a>ClojureScript Support</h3>
+<h3 id="clojurescript-support"><a class="anchor" href="#clojurescript-support"></a>ClojureScript Support</h3>
 <div class="paragraph">
 <p>We want cider-nrepl to offer feature parity between Clojure and
 ClojureScript, but we&#8217;re not quite there yet and many features right
@@ -285,7 +290,7 @@ hackers to make this a reality.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_isolated_runtime_dependencies"><a class="anchor" href="#_isolated_runtime_dependencies"></a>Isolated Runtime Dependencies</h3>
+<h3 id="isolated-runtime-dependencies"><a class="anchor" href="#isolated-runtime-dependencies"></a>Isolated Runtime Dependencies</h3>
 <div class="paragraph">
 <p>All of cider-nrepl&#8217;s dependencies are processed with
 <a href="https://github.com/benedekfazekas/mranderson">mranderson</a>, so that
@@ -301,7 +306,7 @@ we&#8217;re all ears!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deferred_middleware_loading"><a class="anchor" href="#_deferred_middleware_loading"></a>Deferred Middleware Loading</h3>
+<h3 id="deferred-middleware-loading"><a class="anchor" href="#deferred-middleware-loading"></a>Deferred Middleware Loading</h3>
 <div class="paragraph">
 <p>To improve the startup time of the nREPL server all of cider-nrepl&#8217;s
 middlewares are loaded for real only when needed.</p>
@@ -316,13 +321,16 @@ straight to nREPL down the road.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_middleware_errors_never_hang_requests"><a class="anchor" href="#_middleware_errors_never_hang_requests"></a>Middleware Errors Never Hang Requests</h3>
+<h3 id="middleware-errors-never-hang-requests"><a class="anchor" href="#middleware-errors-never-hang-requests"></a>Middleware Errors Never Hang Requests</h3>
 <div class="paragraph">
 <p>See <a href="https://github.com/clojure-emacs/cider-nrepl/pull/327">here</a>.</p>
 </div>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="next"><a href="usage.html">Usage</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

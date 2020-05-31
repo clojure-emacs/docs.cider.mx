@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Usage :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/usage.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="internals.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
@@ -142,6 +144,9 @@
           <a href="index.html">master</a>
         </li>
         <li class="version">
+          <a href="0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
           <a href="0.24/index.html">0.24</a>
         </li>
       </ul>
@@ -165,6 +170,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
     <a class="version is-current" href="usage.html">master</a>
+    <a class="version" href="0.25/usage.html">0.25</a>
     <a class="version" href="0.24/usage.html">0.24</a>
   </div>
 </div>
@@ -174,7 +180,7 @@
 <article class="doc">
 <h1 class="page">Usage</h1>
 <div class="sect1">
-<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<h2 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><code>cider-nrepl</code> supports only Clojure(Script) 1.8+ and Java 8+.</p>
@@ -186,7 +192,7 @@ Boot users will need to have version 2.8.2 or newer installed.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_via_leiningen"><a class="anchor" href="#_via_leiningen"></a>Via Leiningen</h2>
+<h2 id="via-leiningen"><a class="anchor" href="#via-leiningen"></a>Via Leiningen</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Use the convenient plugin for defaults, either in your project&#8217;s
@@ -195,7 +201,7 @@ Boot users will need to have version 2.8.2 or newer installed.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.24.0"]]</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.25.0"]]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -203,7 +209,7 @@ Boot users will need to have version 2.8.2 or newer installed.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:user {:plugins [[cider/cider-nrepl "0.24.0"]]}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:user {:plugins [[cider/cider-nrepl "0.25.0"]]}}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -213,7 +219,7 @@ under <code>:repl-options</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:dependencies [[cider/cider-nrepl "0.24.0"]]
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:dependencies [[cider/cider-nrepl "0.25.0"]]
 :repl-options {:nrepl-middleware
                  [cider.nrepl/wrap-apropos
                   cider.nrepl/wrap-classpath
@@ -239,7 +245,7 @@ under <code>:repl-options</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_via_boot"><a class="anchor" href="#_via_boot"></a>Via Boot</h3>
+<h3 id="via-boot"><a class="anchor" href="#via-boot"></a>Via Boot</h3>
 <div class="paragraph">
 <p>Boot users can configure the injected middleware by either specifying
 it on the command line through the <code>cider.tasks/add-middleware</code> task
@@ -248,7 +254,7 @@ functionality):</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>boot -d nrepl:0.6.0 -d cider/cider-nrepl:0.24.0 -i "(require 'cider.tasks)" cider.tasks/add-middleware -m cider.nrepl.middleware.apropos/wrap-apropos -m cider.nrepl.middleware.version/wrap-version repl --server wait</pre>
+<pre>boot -d nrepl:0.6.0 -d cider/cider-nrepl:0.25.0 -i "(require 'cider.tasks)" cider.tasks/add-middleware -m cider.nrepl.middleware.apropos/wrap-apropos -m cider.nrepl.middleware.version/wrap-version repl --server wait</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -257,7 +263,7 @@ functionality):</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(set-env! :dependencies '[[nrepl "0.6.0"]
-                          [cider/cider-nrepl "0.24.0"]])
+                          [cider/cider-nrepl "0.25.0"]])
 
 (require '[cider.tasks :refer [add-middleware]])
 
@@ -278,7 +284,7 @@ functionality):</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_via_clj"><a class="anchor" href="#_via_clj"></a>Via clj</h2>
+<h2 id="via-clj"><a class="anchor" href="#via-clj"></a>Via clj</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can easily boot an nREPL server with the CIDER middleware loaded
@@ -286,7 +292,7 @@ with the following "magic" incantation:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.24.0"} }}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</pre>
+<pre>clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.25.0"} }}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -297,12 +303,12 @@ with the following "magic" incantation:</p>
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{...
  :aliases
  {:cider-clj {:extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}
-                           cider/cider-nrepl {:mvn/version "0.24.0"}}
+                           cider/cider-nrepl {:mvn/version "0.25.0"}}
               :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :cider-cljs {:extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}
                             org.clojure/clojurescript {:mvn/version "1.10.339"}
-                            cider/cider-nrepl {:mvn/version "0.24.0"}
+                            cider/cider-nrepl {:mvn/version "0.25.0"}
                             cider/piggieback {:mvn/version "0.4.1"}}
                :main-opts ["-m" "nrepl.cmdline" "--middleware"
                            "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}}}</code></pre>
@@ -322,7 +328,7 @@ with the following "magic" incantation:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_via_embedding_nrepl_in_your_app"><a class="anchor" href="#_via_embedding_nrepl_in_your_app"></a>Via embedding nREPL in your app</h2>
+<h2 id="via-embedding-nrepl-in-your-app"><a class="anchor" href="#via-embedding-nrepl-in-your-app"></a>Via embedding nREPL in your app</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you&#8217;re embedding nREPL in your application you&#8217;ll have to start the
@@ -347,7 +353,7 @@ server with CIDER&#8217;s own nREPL handler.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_with_jboss_asjboss_eapwildfly"><a class="anchor" href="#_with_jboss_asjboss_eapwildfly"></a>With JBoss AS/JBoss EAP/WildFly</h2>
+<h2 id="with-jboss-asjboss-eapwildfly"><a class="anchor" href="#with-jboss-asjboss-eapwildfly"></a>With JBoss AS/JBoss EAP/WildFly</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Using the advanced features of the <code>info</code> middleware with one of the
@@ -375,6 +381,10 @@ server directly. If you are using <a href="http://immutant.org/">Immutant</a>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Home</a></span>
+  <span class="next"><a href="internals.html">Understanding the Internals</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

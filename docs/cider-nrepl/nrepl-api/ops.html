@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Supported nREPL operations :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/nrepl-api/ops.html">
+    <link rel="prev" href="supplied_middleware.html">
+    <link rel="next" href="../hacking.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -142,6 +144,9 @@
           <a href="../index.html">master</a>
         </li>
         <li class="version">
+          <a href="../0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
           <a href="../0.24/index.html">0.24</a>
         </li>
       </ul>
@@ -166,6 +171,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
     <a class="version is-current" href="ops.html">master</a>
+    <a class="version" href="../0.25/nrepl-api/ops.html">0.25</a>
     <a class="version" href="../0.24/nrepl-api/ops.html">0.24</a>
   </div>
 </div>
@@ -182,10 +188,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_operations"><a class="anchor" href="#_operations"></a>Operations</h2>
+<h2 id="operations"><a class="anchor" href="#operations"></a>Operations</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_apropos"><a class="anchor" href="#_apropos"></a><code>apropos</code></h3>
+<h3 id="apropos"><a class="anchor" href="#apropos"></a><code>apropos</code></h3>
 <div class="paragraph">
 <p>Return a sequence of vars whose name matches the query pattern, or if specified, having the pattern in their docstring.</p>
 </div>
@@ -225,7 +231,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cider_version"><a class="anchor" href="#_cider_version"></a><code>cider-version</code></h3>
+<h3 id="cider-version"><a class="anchor" href="#cider-version"></a><code>cider-version</code></h3>
 <div class="paragraph">
 <p>Returns the version of the CIDER-nREPL middleware.</p>
 </div>
@@ -256,7 +262,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_classpath"><a class="anchor" href="#_classpath"></a><code>classpath</code></h3>
+<h3 id="classpath"><a class="anchor" href="#classpath"></a><code>classpath</code></h3>
 <div class="paragraph">
 <p>Obtain a list of entries in the Java classpath.</p>
 </div>
@@ -284,7 +290,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_clear_profile"><a class="anchor" href="#_clear_profile"></a><code>clear-profile</code></h3>
+<h3 id="clear-profile"><a class="anchor" href="#clear-profile"></a><code>clear-profile</code></h3>
 <div class="paragraph">
 <p>Clears profile of samples.</p>
 </div>
@@ -312,7 +318,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_clojuredocs_lookup"><a class="anchor" href="#_clojuredocs_lookup"></a><code>clojuredocs-lookup</code></h3>
+<h3 id="clojuredocs-lookup"><a class="anchor" href="#clojuredocs-lookup"></a><code>clojuredocs-lookup</code></h3>
 <div class="paragraph">
 <p>Return a map of information in ClojureDocs.</p>
 </div>
@@ -358,7 +364,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_clojuredocs_refresh_cache"><a class="anchor" href="#_clojuredocs_refresh_cache"></a><code>clojuredocs-refresh-cache</code></h3>
+<h3 id="clojuredocs-refresh-cache"><a class="anchor" href="#clojuredocs-refresh-cache"></a><code>clojuredocs-refresh-cache</code></h3>
 <div class="paragraph">
 <p>Reload exported documents file from ClojureDocs, and store it as a cache.</p>
 </div>
@@ -392,7 +398,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_complete"><a class="anchor" href="#_complete"></a><code>complete</code></h3>
+<h3 id="complete"><a class="anchor" href="#complete"></a><code>complete</code></h3>
 <div class="paragraph">
 <p>Return a list of symbols matching the specified (partial) symbol.</p>
 </div>
@@ -441,7 +447,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_complete_doc"><a class="anchor" href="#_complete_doc"></a><code>complete-doc</code></h3>
+<h3 id="complete-doc"><a class="anchor" href="#complete-doc"></a><code>complete-doc</code></h3>
 <div class="paragraph">
 <p>Retrieve documentation suitable for display in completion popup</p>
 </div>
@@ -478,7 +484,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_complete_flush_caches"><a class="anchor" href="#_complete_flush_caches"></a><code>complete-flush-caches</code></h3>
+<h3 id="complete-flush-caches"><a class="anchor" href="#complete-flush-caches"></a><code>complete-flush-caches</code></h3>
 <div class="paragraph">
 <p>Forces the completion backend to repopulate all its caches</p>
 </div>
@@ -500,7 +506,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_content_type_middleware"><a class="anchor" href="#_content_type_middleware"></a><code>content-type-middleware</code></h3>
+<h3 id="content-type-middleware"><a class="anchor" href="#content-type-middleware"></a><code>content-type-middleware</code></h3>
 <div class="paragraph">
 <p>Enhances the <code>eval</code> op by adding <code>content-type</code> and friends to some responses. Not an op in itself.</p>
 </div>
@@ -528,7 +534,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_debug_input"><a class="anchor" href="#_debug_input"></a><code>debug-input</code></h3>
+<h3 id="debug-input"><a class="anchor" href="#debug-input"></a><code>debug-input</code></h3>
 <div class="paragraph">
 <p>Read client input on debug action.</p>
 </div>
@@ -562,7 +568,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_debug_instrumented_defs"><a class="anchor" href="#_debug_instrumented_defs"></a><code>debug-instrumented-defs</code></h3>
+<h3 id="debug-instrumented-defs"><a class="anchor" href="#debug-instrumented-defs"></a><code>debug-instrumented-defs</code></h3>
 <div class="paragraph">
 <p>Return an alist of definitions currently thought to be instrumented on each namespace. Due to Clojure&#8217;s versatility, this could include false postives, but there will not be false negatives. Instrumentations inside protocols are not listed.</p>
 </div>
@@ -593,7 +599,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_debug_middleware"><a class="anchor" href="#_debug_middleware"></a><code>debug-middleware</code></h3>
+<h3 id="debug-middleware"><a class="anchor" href="#debug-middleware"></a><code>debug-middleware</code></h3>
 <div class="paragraph">
 <p>Debug a code form or fall back on regular eval.</p>
 </div>
@@ -639,7 +645,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_eldoc"><a class="anchor" href="#_eldoc"></a><code>eldoc</code></h3>
+<h3 id="eldoc"><a class="anchor" href="#eldoc"></a><code>eldoc</code></h3>
 <div class="paragraph">
 <p>Return a map of information about the specified symbol.</p>
 </div>
@@ -676,7 +682,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_eldoc_datomic_query"><a class="anchor" href="#_eldoc_datomic_query"></a><code>eldoc-datomic-query</code></h3>
+<h3 id="eldoc-datomic-query"><a class="anchor" href="#eldoc-datomic-query"></a><code>eldoc-datomic-query</code></h3>
 <div class="paragraph">
 <p>Return a map containing the inputs of the datomic query.</p>
 </div>
@@ -713,7 +719,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fn_deps"><a class="anchor" href="#_fn_deps"></a><code>fn-deps</code></h3>
+<h3 id="fn-deps"><a class="anchor" href="#fn-deps"></a><code>fn-deps</code></h3>
 <div class="paragraph">
 <p>Look up the function dependencies of particular function.</p>
 </div>
@@ -753,7 +759,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fn_refs"><a class="anchor" href="#_fn_refs"></a><code>fn-refs</code></h3>
+<h3 id="fn-refs"><a class="anchor" href="#fn-refs"></a><code>fn-refs</code></h3>
 <div class="paragraph">
 <p>Look up functions that reference a particular function.</p>
 </div>
@@ -793,7 +799,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_format_code"><a class="anchor" href="#_format_code"></a><code>format-code</code></h3>
+<h3 id="format-code"><a class="anchor" href="#format-code"></a><code>format-code</code></h3>
 <div class="paragraph">
 <p>Reformats the given Clojure code, returning the result as a string.</p>
 </div>
@@ -833,7 +839,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_format_edn"><a class="anchor" href="#_format_edn"></a><code>format-edn</code></h3>
+<h3 id="format-edn"><a class="anchor" href="#format-edn"></a><code>format-edn</code></h3>
 <div class="paragraph">
 <p>Reformats the given EDN data, returning the result as a string.</p>
 </div>
@@ -888,7 +894,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_get_max_samples"><a class="anchor" href="#_get_max_samples"></a><code>get-max-samples</code></h3>
+<h3 id="get-max-samples"><a class="anchor" href="#get-max-samples"></a><code>get-max-samples</code></h3>
 <div class="paragraph">
 <p>Returns maximum number of samples to be collected for any var.</p>
 </div>
@@ -919,7 +925,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_info"><a class="anchor" href="#_info"></a><code>info</code></h3>
+<h3 id="info"><a class="anchor" href="#info"></a><code>info</code></h3>
 <div class="paragraph">
 <p>Return a map of information about the specified symbol.</p>
 </div>
@@ -956,7 +962,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_init_debugger"><a class="anchor" href="#_init_debugger"></a><code>init-debugger</code></h3>
+<h3 id="init-debugger"><a class="anchor" href="#init-debugger"></a><code>init-debugger</code></h3>
 <div class="paragraph">
 <p>Initialize the debugger so that <code>breakpoint</code> works correctly. This usually does not respond immediately. It sends a response when a breakpoint is reached or when the message is discarded.</p>
 </div>
@@ -984,7 +990,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_inspect_clear"><a class="anchor" href="#_inspect_clear"></a><code>inspect-clear</code></h3>
+<h3 id="inspect-clear"><a class="anchor" href="#inspect-clear"></a><code>inspect-clear</code></h3>
 <div class="paragraph">
 <p>Clears the state state of the inspector.</p>
 </div>
@@ -1018,7 +1024,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_inspect_def_current_value"><a class="anchor" href="#_inspect_def_current_value"></a><code>inspect-def-current-value</code></h3>
+<h3 id="inspect-def-current-value"><a class="anchor" href="#inspect-def-current-value"></a><code>inspect-def-current-value</code></h3>
 <div class="paragraph">
 <p>Define the currently inspected value as a var with the given var-name in the provided namespace.</p>
 </div>
@@ -1058,7 +1064,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_inspect_get_path"><a class="anchor" href="#_inspect_get_path"></a><code>inspect-get-path</code></h3>
+<h3 id="inspect-get-path"><a class="anchor" href="#inspect-get-path"></a><code>inspect-get-path</code></h3>
 <div class="paragraph">
 <p>Returns the path to the current position in the inspected value.</p>
 </div>
@@ -1092,7 +1098,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_inspect_next_page"><a class="anchor" href="#_inspect_next_page"></a><code>inspect-next-page</code></h3>
+<h3 id="inspect-next-page"><a class="anchor" href="#inspect-next-page"></a><code>inspect-next-page</code></h3>
 <div class="paragraph">
 <p>Jumps to the next page in paginated collection view.</p>
 </div>
@@ -1126,7 +1132,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_inspect_pop"><a class="anchor" href="#_inspect_pop"></a><code>inspect-pop</code></h3>
+<h3 id="inspect-pop"><a class="anchor" href="#inspect-pop"></a><code>inspect-pop</code></h3>
 <div class="paragraph">
 <p>Moves one level up in the inspector stack.</p>
 </div>
@@ -1160,7 +1166,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_inspect_prev_page"><a class="anchor" href="#_inspect_prev_page"></a><code>inspect-prev-page</code></h3>
+<h3 id="inspect-prev-page"><a class="anchor" href="#inspect-prev-page"></a><code>inspect-prev-page</code></h3>
 <div class="paragraph">
 <p>Jumps to the previous page in paginated collection view.</p>
 </div>
@@ -1194,7 +1200,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_inspect_push"><a class="anchor" href="#_inspect_push"></a><code>inspect-push</code></h3>
+<h3 id="inspect-push"><a class="anchor" href="#inspect-push"></a><code>inspect-push</code></h3>
 <div class="paragraph">
 <p>Inspects the inside value specified by index.</p>
 </div>
@@ -1231,7 +1237,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_inspect_refresh"><a class="anchor" href="#_inspect_refresh"></a><code>inspect-refresh</code></h3>
+<h3 id="inspect-refresh"><a class="anchor" href="#inspect-refresh"></a><code>inspect-refresh</code></h3>
 <div class="paragraph">
 <p>Re-renders the currently inspected value.</p>
 </div>
@@ -1265,7 +1271,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_inspect_set_page_size"><a class="anchor" href="#_inspect_set_page_size"></a><code>inspect-set-page-size</code></h3>
+<h3 id="inspect-set-page-size"><a class="anchor" href="#inspect-set-page-size"></a><code>inspect-set-page-size</code></h3>
 <div class="paragraph">
 <p>Sets the page size in paginated view to specified value.</p>
 </div>
@@ -1302,7 +1308,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_is_var_profiled"><a class="anchor" href="#_is_var_profiled"></a><code>is-var-profiled</code></h3>
+<h3 id="is-var-profiled"><a class="anchor" href="#is-var-profiled"></a><code>is-var-profiled</code></h3>
 <div class="paragraph">
 <p>Reports wheth symbol is currently profiled.</p>
 </div>
@@ -1342,7 +1348,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_macroexpand"><a class="anchor" href="#_macroexpand"></a><code>macroexpand</code></h3>
+<h3 id="macroexpand"><a class="anchor" href="#macroexpand"></a><code>macroexpand</code></h3>
 <div class="paragraph">
 <p>Produces macroexpansion of some form using the given expander.</p>
 </div>
@@ -1391,7 +1397,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ns_aliases"><a class="anchor" href="#_ns_aliases"></a><code>ns-aliases</code></h3>
+<h3 id="ns-aliases"><a class="anchor" href="#ns-aliases"></a><code>ns-aliases</code></h3>
 <div class="paragraph">
 <p>Returns a map of [ns-alias] to [ns-name] in a namespace.</p>
 </div>
@@ -1419,7 +1425,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ns_list"><a class="anchor" href="#_ns_list"></a><code>ns-list</code></h3>
+<h3 id="ns-list"><a class="anchor" href="#ns-list"></a><code>ns-list</code></h3>
 <div class="paragraph">
 <p>Return a sorted list of all namespaces.</p>
 </div>
@@ -1456,7 +1462,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ns_list_vars_by_name"><a class="anchor" href="#_ns_list_vars_by_name"></a><code>ns-list-vars-by-name</code></h3>
+<h3 id="ns-list-vars-by-name"><a class="anchor" href="#ns-list-vars-by-name"></a><code>ns-list-vars-by-name</code></h3>
 <div class="paragraph">
 <p>Return a list of vars named <code>name</code> amongst all namespaces.</p>
 </div>
@@ -1493,7 +1499,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ns_load_all"><a class="anchor" href="#_ns_load_all"></a><code>ns-load-all</code></h3>
+<h3 id="ns-load-all"><a class="anchor" href="#ns-load-all"></a><code>ns-load-all</code></h3>
 <div class="paragraph">
 <p>Loads all project namespaces.</p>
 </div>
@@ -1515,7 +1521,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ns_path"><a class="anchor" href="#_ns_path"></a><code>ns-path</code></h3>
+<h3 id="ns-path"><a class="anchor" href="#ns-path"></a><code>ns-path</code></h3>
 <div class="paragraph">
 <p>Returns the path to the file containing ns.</p>
 </div>
@@ -1543,7 +1549,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ns_vars"><a class="anchor" href="#_ns_vars"></a><code>ns-vars</code></h3>
+<h3 id="ns-vars"><a class="anchor" href="#ns-vars"></a><code>ns-vars</code></h3>
 <div class="paragraph">
 <p>Returns a sorted list of public vars in a namespace.</p>
 </div>
@@ -1586,7 +1592,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ns_vars_with_meta"><a class="anchor" href="#_ns_vars_with_meta"></a><code>ns-vars-with-meta</code></h3>
+<h3 id="ns-vars-with-meta"><a class="anchor" href="#ns-vars-with-meta"></a><code>ns-vars-with-meta</code></h3>
 <div class="paragraph">
 <p>Returns a map of [var-name] to [var-metadata] for public vars in a namespace.</p>
 </div>
@@ -1629,7 +1635,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_out_subscribe"><a class="anchor" href="#_out_subscribe"></a><code>out-subscribe</code></h3>
+<h3 id="out-subscribe"><a class="anchor" href="#out-subscribe"></a><code>out-subscribe</code></h3>
 <div class="paragraph">
 <p>Change #'*out* so that it also prints to active sessions, even outside an eval scope.</p>
 </div>
@@ -1651,7 +1657,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_out_unsubscribe"><a class="anchor" href="#_out_unsubscribe"></a><code>out-unsubscribe</code></h3>
+<h3 id="out-unsubscribe"><a class="anchor" href="#out-unsubscribe"></a><code>out-unsubscribe</code></h3>
 <div class="paragraph">
 <p>Change #'*out* so that it no longer prints to active sessions outside an eval scope.</p>
 </div>
@@ -1673,7 +1679,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_profile_summary"><a class="anchor" href="#_profile_summary"></a><code>profile-summary</code></h3>
+<h3 id="profile-summary"><a class="anchor" href="#profile-summary"></a><code>profile-summary</code></h3>
 <div class="paragraph">
 <p>Return profiling data summary.</p>
 </div>
@@ -1704,7 +1710,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_profile_var_summary"><a class="anchor" href="#_profile_var_summary"></a><code>profile-var-summary</code></h3>
+<h3 id="profile-var-summary"><a class="anchor" href="#profile-var-summary"></a><code>profile-var-summary</code></h3>
 <div class="paragraph">
 <p>Return profiling data summary for a single var.</p>
 </div>
@@ -1744,7 +1750,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_refresh"><a class="anchor" href="#_refresh"></a><code>refresh</code></h3>
+<h3 id="refresh"><a class="anchor" href="#refresh"></a><code>refresh</code></h3>
 <div class="paragraph">
 <p>Reloads all changed files in dependency order.</p>
 </div>
@@ -1811,7 +1817,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_refresh_all"><a class="anchor" href="#_refresh_all"></a><code>refresh-all</code></h3>
+<h3 id="refresh-all"><a class="anchor" href="#refresh-all"></a><code>refresh-all</code></h3>
 <div class="paragraph">
 <p>Reloads all files in dependency order.</p>
 </div>
@@ -1878,7 +1884,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_refresh_clear"><a class="anchor" href="#_refresh_clear"></a><code>refresh-clear</code></h3>
+<h3 id="refresh-clear"><a class="anchor" href="#refresh-clear"></a><code>refresh-clear</code></h3>
 <div class="paragraph">
 <p>Clears the state of the refresh middleware. This can help recover from a failed load or a circular dependency error.</p>
 </div>
@@ -1900,7 +1906,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_resource"><a class="anchor" href="#_resource"></a><code>resource</code></h3>
+<h3 id="resource"><a class="anchor" href="#resource"></a><code>resource</code></h3>
 <div class="paragraph">
 <p>Obtain the path to a resource.</p>
 </div>
@@ -1934,7 +1940,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_resources_list"><a class="anchor" href="#_resources_list"></a><code>resources-list</code></h3>
+<h3 id="resources-list"><a class="anchor" href="#resources-list"></a><code>resources-list</code></h3>
 <div class="paragraph">
 <p>Obtain a list of all resources on the classpath.</p>
 </div>
@@ -1971,7 +1977,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_retest"><a class="anchor" href="#_retest"></a><code>retest</code></h3>
+<h3 id="retest"><a class="anchor" href="#retest"></a><code>retest</code></h3>
 <div class="paragraph">
 <p>Return exception cause and stack frame info for an erring test via the <code>stacktrace</code> middleware. The error to be retrieved is referenced by namespace, var name, and assertion index within the var.</p>
 </div>
@@ -2014,7 +2020,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_set_max_samples"><a class="anchor" href="#_set_max_samples"></a><code>set-max-samples</code></h3>
+<h3 id="set-max-samples"><a class="anchor" href="#set-max-samples"></a><code>set-max-samples</code></h3>
 <div class="paragraph">
 <p>Sets maximum sample count. Returns new max-sample-count.</p>
 </div>
@@ -2051,7 +2057,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_slurp"><a class="anchor" href="#_slurp"></a><code>slurp</code></h3>
+<h3 id="slurp"><a class="anchor" href="#slurp"></a><code>slurp</code></h3>
 <div class="paragraph">
 <p>Slurps a URL from the nREPL server, returning MIME data.</p>
 </div>
@@ -2073,7 +2079,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spec_example"><a class="anchor" href="#_spec_example"></a><code>spec-example</code></h3>
+<h3 id="spec-example"><a class="anchor" href="#spec-example"></a><code>spec-example</code></h3>
 <div class="paragraph">
 <p>Return a string with a pretty printed example for a spec</p>
 </div>
@@ -2110,7 +2116,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spec_form"><a class="anchor" href="#_spec_form"></a><code>spec-form</code></h3>
+<h3 id="spec-form"><a class="anchor" href="#spec-form"></a><code>spec-form</code></h3>
 <div class="paragraph">
 <p>Return the form of a given spec</p>
 </div>
@@ -2147,7 +2153,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spec_list"><a class="anchor" href="#_spec_list"></a><code>spec-list</code></h3>
+<h3 id="spec-list"><a class="anchor" href="#spec-list"></a><code>spec-list</code></h3>
 <div class="paragraph">
 <p>Return a sorted list of all specs in the registry</p>
 </div>
@@ -2184,7 +2190,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_stacktrace"><a class="anchor" href="#_stacktrace"></a><code>stacktrace</code></h3>
+<h3 id="stacktrace"><a class="anchor" href="#stacktrace"></a><code>stacktrace</code></h3>
 <div class="paragraph">
 <p>Return messages describing each cause and stack frame of the most recent exception.</p>
 </div>
@@ -2233,7 +2239,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_test"><a class="anchor" href="#_test"></a><code>test</code></h3>
+<h3 id="test"><a class="anchor" href="#test"></a><code>test</code></h3>
 <div class="paragraph">
 <p>[DEPRECATED] Run tests in the specified namespace and return results. This accepts a set of <code>tests</code> to be run; if nil, runs all tests. Results are cached for exception retrieval and to enable re-running of failed/erring tests.</p>
 </div>
@@ -2276,7 +2282,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_test_all"><a class="anchor" href="#_test_all"></a><code>test-all</code></h3>
+<h3 id="test-all"><a class="anchor" href="#test-all"></a><code>test-all</code></h3>
 <div class="paragraph">
 <p>[DEPRECATED] Run all tests in the project. If <code>load?</code> is truthy, all project namespaces are loaded; otherwise, only tests in presently loaded namespaces are run. Results are cached for exception retrieval and to enable re-running of failed/erring tests.</p>
 </div>
@@ -2319,7 +2325,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_test_stacktrace"><a class="anchor" href="#_test_stacktrace"></a><code>test-stacktrace</code></h3>
+<h3 id="test-stacktrace"><a class="anchor" href="#test-stacktrace"></a><code>test-stacktrace</code></h3>
 <div class="paragraph">
 <p>Rerun all tests that did not pass when last run. Results are cached for exception retrieval and to enable re-running of failed/erring tests.</p>
 </div>
@@ -2362,7 +2368,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_test_var_query"><a class="anchor" href="#_test_var_query"></a><code>test-var-query</code></h3>
+<h3 id="test-var-query"><a class="anchor" href="#test-var-query"></a><code>test-var-query</code></h3>
 <div class="paragraph">
 <p>Run tests specified by the <code>var-query</code> and return results. Results are cached for exception retrieval and to enable re-running of failed/erring tests.</p>
 </div>
@@ -2420,7 +2426,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_toggle_profile"><a class="anchor" href="#_toggle_profile"></a><code>toggle-profile</code></h3>
+<h3 id="toggle-profile"><a class="anchor" href="#toggle-profile"></a><code>toggle-profile</code></h3>
 <div class="paragraph">
 <p>Toggle profiling of a given var.</p>
 </div>
@@ -2460,7 +2466,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_toggle_profile_ns"><a class="anchor" href="#_toggle_profile_ns"></a><code>toggle-profile-ns</code></h3>
+<h3 id="toggle-profile-ns"><a class="anchor" href="#toggle-profile-ns"></a><code>toggle-profile-ns</code></h3>
 <div class="paragraph">
 <p>Toggle profiling of given namespace.</p>
 </div>
@@ -2497,7 +2503,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_toggle_trace_ns"><a class="anchor" href="#_toggle_trace_ns"></a><code>toggle-trace-ns</code></h3>
+<h3 id="toggle-trace-ns"><a class="anchor" href="#toggle-trace-ns"></a><code>toggle-trace-ns</code></h3>
 <div class="paragraph">
 <p>Toggle tracing of a given ns.</p>
 </div>
@@ -2531,7 +2537,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_toggle_trace_var"><a class="anchor" href="#_toggle_trace_var"></a><code>toggle-trace-var</code></h3>
+<h3 id="toggle-trace-var"><a class="anchor" href="#toggle-trace-var"></a><code>toggle-trace-var</code></h3>
 <div class="paragraph">
 <p>Toggle tracing of a given var.</p>
 </div>
@@ -2571,7 +2577,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_track_state_middleware"><a class="anchor" href="#_track_state_middleware"></a><code>track-state-middleware</code></h3>
+<h3 id="track-state-middleware"><a class="anchor" href="#track-state-middleware"></a><code>track-state-middleware</code></h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Required parameters</dt>
@@ -2590,7 +2596,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_undef"><a class="anchor" href="#_undef"></a><code>undef</code></h3>
+<h3 id="undef"><a class="anchor" href="#undef"></a><code>undef</code></h3>
 <div class="paragraph">
 <p>Undefine a symbol</p>
 </div>
@@ -2628,6 +2634,10 @@
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="supplied_middleware.html">Supplied Middleware</a></span>
+  <span class="next"><a href="../hacking.html">Hacking on CIDER nREPL</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>

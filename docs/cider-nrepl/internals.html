@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>CIDER nREPL Internals :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/internals.html">
+    <link rel="prev" href="usage.html">
+    <link rel="next" href="nrepl-api/supplied_middleware.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
@@ -142,6 +144,9 @@
           <a href="index.html">master</a>
         </li>
         <li class="version">
+          <a href="0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
           <a href="0.24/index.html">0.24</a>
         </li>
       </ul>
@@ -165,6 +170,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
     <a class="version is-current" href="internals.html">master</a>
+    <a class="version" href="0.25/internals.html">0.25</a>
     <a class="version" href="0.24/internals.html">0.24</a>
   </div>
 </div>
@@ -174,7 +180,7 @@
 <article class="doc">
 <h1 class="page">CIDER nREPL Internals</h1>
 <div class="sect1">
-<h2 id="_lazy_middleware_loading"><a class="anchor" href="#_lazy_middleware_loading"></a>Lazy middleware loading</h2>
+<h2 id="lazy-middleware-loading"><a class="anchor" href="#lazy-middleware-loading"></a>Lazy middleware loading</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Eager loading of all of `cider-nrepl&#8217;s middleware resulted in a significant impact to the
@@ -189,7 +195,7 @@ nREPL convention to be supplied in the same file where the middleware is defined
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dealing_with_unhandled_exception"><a class="anchor" href="#_dealing_with_unhandled_exception"></a>Dealing with unhandled exception</h2>
+<h2 id="dealing-with-unhandled-exception"><a class="anchor" href="#dealing-with-unhandled-exception"></a>Dealing with unhandled exception</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Even though nREPL requests are asychronous in their nature, some editors might be forced
@@ -200,7 +206,7 @@ a "safe transport" that does some reasonable handling of such errors.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_operating_on_unresolved_symbols"><a class="anchor" href="#_operating_on_unresolved_symbols"></a>Operating on unresolved symbols</h2>
+<h2 id="operating-on-unresolved-symbols"><a class="anchor" href="#operating-on-unresolved-symbols"></a>Operating on unresolved symbols</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>All middleware ops operating on some symbol that needs to be resolved would normally do the
@@ -215,7 +221,7 @@ for some operation to be performed for some unresolved symbol in the current nam
 </div>
 </div>
 <div class="sect1">
-<h2 id="_clojurescript_support"><a class="anchor" href="#_clojurescript_support"></a>ClojureScript Support</h2>
+<h2 id="clojurescript-support"><a class="anchor" href="#clojurescript-support"></a>ClojureScript Support</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Currently the ClojureScript support relies on inspecting the ClojureScript compiler
@@ -233,7 +239,7 @@ a string). Hopefully this will change down the road.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dependency_obfuscation"><a class="anchor" href="#_dependency_obfuscation"></a>Dependency obfuscation</h2>
+<h2 id="dependency-obfuscation"><a class="anchor" href="#dependency-obfuscation"></a>Dependency obfuscation</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>`cider-nrepl&#8217;s dependency would conflict with the dependencies of the application using it,
@@ -254,6 +260,10 @@ ops would filter out the inlined namespaces.</p>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="usage.html">Usage</a></span>
+  <span class="next"><a href="nrepl-api/supplied_middleware.html">Supplied Middleware</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
