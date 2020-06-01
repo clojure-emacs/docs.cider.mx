@@ -417,17 +417,38 @@ by a source file or by the REPL, using <kbd>C-c C-t n</kbd> or
 <kbd>C-c C-t C-n</kbd>. Note that it&#8217;s idiomatic for Clojure projects
 to locate tests in a separate namespace than the code that is being
 tested. CIDER uses a simple algorithm to figure out where the tests
-are located. The algorithm works as follows.  If you&#8217;re in an
-implementation namespace (e.g. <code>some.ns</code>), CIDER will try to find a
+are located. The algorithm works as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you&#8217;re in an implementation namespace (e.g. <code>some.ns</code>), CIDER will try to find a
 matching test namespace (by default <code>some.ns-test</code>) and run the tests
-there. But if you&#8217;re in something that already looks like a test
+there.</p>
+</li>
+<li>
+<p>If you&#8217;re in something that already looks like a test
 namespace (e.g. <code>some.ns-test</code>), CIDER will simply run the tests in
-that namespace. If you have put some of your tests into your
-implementation namespace, using <code>clojure.test/with-test</code>, for
-instance, you might want to suppress the namespace inference logic and
-force CIDER to run tests in the current namespace unconditionally.
-You can do this by adding a prefix to the namespace commands: <kbd>C-u C-c C-t C-n</kbd>. This will simply run whatever tests are present in
-the currently visited or active namespace.</p>
+that namespace.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you have put some of your tests into your implementation namespace, using
+<code>clojure.test/with-test</code>, for instance, you might want to suppress the namespace
+inference logic and force CIDER to run tests in the current namespace
+unconditionally.  You can do this by adding a prefix to the namespace commands:
+<kbd>C-u C-c C-t C-n</kbd>. This will simply run whatever tests are present in the
+currently visited or active namespace.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>You can also run a subset of the tests defined in the namespace,
@@ -454,7 +475,22 @@ you can set the variable <code>cider-test-infer-test-ns</code> to a function tha
 takes the current namespace and returns the matching test namespace
 (which may be the same as the current namespace). This provides
 complete flexibility to structure your test suite using whatever
-conventions you might want.</p>
+conventions you might want. Here&#8217;s how you can configure the test running
+to look for <code>some.test-ns</code> instead of <code>some.ns-test</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(defun cider-custom-test-ns-fn (ns)
+  "For a NS, return the test namespace, which may be the argument itself.
+This uses the convention of prepending 'test-' to the namespace name."
+  (when ns
+    (let ((prefix "test-"))
+      (if (string-prefix-p prefix ns)
+          ns
+        (concat prefix ns)))))
+
+(setq cider-test-infer-test-ns #'cider-custom-test-ns-fn)</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>If your individual tests are not defined by <code>deftest</code> or <code>defspec</code>, CIDER will
