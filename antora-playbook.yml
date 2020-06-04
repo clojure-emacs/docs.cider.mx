@@ -8,7 +8,7 @@ content:
   sources:
   - url: https://github.com/clojure-emacs/cider.git
     branches: master
-    tags: ['v0.24.0']
+    tags: ['v0.24.0', 'v0.25.0']
     start_path: doc
   - url: https://github.com/clojure-emacs/cider-nrepl.git
     branches: master
