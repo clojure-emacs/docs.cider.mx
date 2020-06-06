@@ -1,7 +1,7 @@
 site:
   title: CIDER Docs
   url: https://docs.cider.mx
-  start_page: master@cider::index.adoc
+  start_page: 0.25@cider::index.adoc
   keys:
     google_analytics: 'UA-140176314-1'
 content:
