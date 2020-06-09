@@ -690,16 +690,16 @@ The solution to this depends on what you see and on what you&#8217;re doing.</p>
 <h4 id="you-see-a-number-like-x-x-x-and-youre-starting-the-repl-with-cider-connect"><a class="anchor" href="#you-see-a-number-like-x-x-x-and-youre-starting-the-repl-with-cider-connect"></a>You see a number like <code>X.X.X</code>, and you&#8217;re starting the REPL with <code>cider-connect</code></h4>
 <div class="paragraph">
 <p>Your project specifies the wrong version for the cider-nrepl middleware. See the
-<a href="installation/#ciders-nrepl-middleware">instructions</a>
-on the Installation section.</p>
+<a href="basics/middleware_setup.html" class="page">instructions</a>
+in the "Middleware Setup" section.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="you-see-not-installed-or-nil-and-youre-starting-the-repl-with-cider-connect"><a class="anchor" href="#you-see-not-installed-or-nil-and-youre-starting-the-repl-with-cider-connect"></a>You see <code>not installed</code> or <code>nil</code>, and you&#8217;re starting the REPL with <code>cider-connect</code></h4>
 <div class="paragraph">
 <p>To use <code>cider-connect</code> you need to add the cider-nrepl middleware to your project. See the
-<a href="installation/#ciders-nrepl-middleware">instructions</a>
-on the Installation section.</p>
+<a href="basics/middleware_setup.html" class="page">instructions</a>
+in the "Middleware Setup" section.</p>
 </div>
 </div>
 <div class="sect3">
@@ -723,8 +723,8 @@ on the Installation section.</p>
 <div class="paragraph">
 <p>If the above doesn&#8217;t work, you can try specifying the cider-nrepl middleware
 manually, as per the
-<a href="installation/#ciders-nrepl-middleware">instructions</a>
-on the Installation section.</p>
+<a href="basics/middleware_setup.html" class="page">instructions</a>
+in the "Middleware Setup" section.</p>
 </div>
 </div>
 <div class="sect3">
@@ -762,6 +762,15 @@ snapshots or most recent stable releases)</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cljr-inject-dependencies-at-jack-in nil)</code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="off-by-one-column-numbers"><a class="anchor" href="#off-by-one-column-numbers"></a>Off-by-one column numbers</h3>
+<div class="paragraph">
+<p>Emacs and Clojure differ in their indexing of column numbers&#8201;&#8212;&#8201;Emacs starts
+counting from 0 while Clojure starts from 1. Accordingly, the <code>cider-nrepl</code>
+middleware uses 1-based indexing and all conversions to 0-based indexing should
+be handled client-side. See <a href="https://github.com/clojure-emacs/cider/issues/2852" class="bare">https://github.com/clojure-emacs/cider/issues/2852</a>.</p>
 </div>
 </div>
 </div>
