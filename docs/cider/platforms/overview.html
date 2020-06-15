@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Project-specific Configuration :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/config/project_config.html">
-    <link rel="prev" href="misc.html">
-    <link rel="next" href="../indent_spec.html">
+    <title>Overview :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/platforms/overview.html">
+    <link rel="prev" href="../cljs/other_repls.html">
+    <link rel="next" href="babashka.html">
     <meta name="generator" content="Antora 2.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -112,11 +112,11 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Alternative Platforms</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../platforms/overview.html">Overview</a>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../platforms/babashka.html">Babashka</a>
+    <a class="nav-link" href="babashka.html">Babashka</a>
   </li>
 </ul>
   </li>
@@ -206,22 +206,22 @@
     <span class="nav-text">Configuration</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="basic_config.html">Basic Configuration</a>
+    <a class="nav-link" href="../config/basic_config.html">Basic Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="syntax_highlighting.html">Syntax Highlighting</a>
+    <a class="nav-link" href="../config/syntax_highlighting.html">Syntax Highlighting</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="indentation.html">Indentation</a>
+    <a class="nav-link" href="../config/indentation.html">Indentation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="eldoc.html">Eldoc</a>
+    <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="misc.html">Misc</a>
+    <a class="nav-link" href="../config/misc.html">Misc</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="project_config.html">Project-specific Configuration</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
   </li>
 </ul>
   </li>
@@ -339,172 +339,105 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
-    <li>Configuration</li>
-    <li><a href="project_config.html">Project-specific Configuration</a></li>
+    <li>Alternative Platforms</li>
+    <li><a href="overview.html">Overview</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
-    <a class="version is-current" href="project_config.html">master</a>
-    <a class="version" href="../0.25/config/project_config.html">0.25</a>
-    <a class="version" href="../0.24/config/project_config.html">0.24</a>
+    <a class="version is-current" href="overview.html">master</a>
+    <a class="version is-missing" href="../0.25/index.html">0.25</a>
+    <a class="version is-missing" href="../0.24/index.html">0.24</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/config/project_config.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/platforms/overview.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Project-specific Configuration</h1>
-<div class="paragraph">
-<p>A pretty common question about CIDER is how to handle project-specific configuration.
-There are many reasons for wanting to do something like this, but probably the first
-that comes to mind is running Leiningen with some specific profile or adding "-A:fig"
-to the jack-in command when using the Clojure CLI (a.k.a. <code>tools.deps</code>).</p>
-</div>
-<div class="admonitionblock tip">
+<h1 class="page">Overview</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you simply need to edit a jack-in command on the fly you&#8217;re probably better off
-prefixing the command with <kbd>C-u</kbd> (e.g. <kbd>C-u C-c C-x j j</kbd>), which will
-allow you to edit the entire command string in the minibuffer.
+This section is work in progress.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>CIDER doesn&#8217;t have any special provisions for project-specific configuration, as this
-is something well supported in Emacs itself. Unfortunately the functionality in Emacs has the
-slightly weird name "dir-local variables", which is probably not the thing people would
-start googling for. On the bright side - the Emacs functionality is much more generic
-than dealing with project-specific configuration.</p>
+<p>While CIDER was created to serve as a Clojure(Script) programming environment, due to the flexibility of the nREPL
+protocol it can actually be used with other programming languages/platforms as well.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="challenges"><a class="anchor" href="#challenges"></a>Challenges</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The biggest problem with supporting multiple programming languages are the assumptions that CIDER has that it&#8217;s being
+used together with Clojure. In practice this translates to CIDER evaluating Clojure code in some cases to power its
+functionality. One simple example here would be switching the REPL&#8217;s namespace - CIDER simply evals <code>in-ns</code> behind the curtains to achieve this.</p>
 </div>
 <div class="paragraph">
-<p>Very simply put, all you need to do is to create in the root of your project a file named
-<code>.dir-locals.el</code> which should look something like:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-emacs-lisp hljs" data-lang="emacs-lisp">((clojurescript-mode
-  (cider-clojure-cli-global-options . "-A:fig")
-  (eval . (cider-register-cljs-repl-type 'super-cljs "(do (foo) (bar))"))
-  (cider-default-cljs-repl . super-cljs)))</code></pre>
-</div>
+<p>You also have to keep in mind that much of the advanced functionality (e.g. everything related to debugging) is not part
+of the core nREPL protocol and is provided by the <code>cider-nrepl</code> middleware. Other platforms will need to provide
+compatible implementation of that functionality, so that CIDER would work with.</p>
 </div>
 <div class="paragraph">
-<p>The structure of the file is a mapping of major modes and some variables
-that need to be set in them. As CIDER is not a major mode most of the time you&#8217;ll
-probably be setting variables in <code>clojure-mode</code> or <code>clojurescript-mode</code>. Note that
-<code>clojurescript-mode</code> derives from <code>clojure-mode</code>, so whatever applies to <code>clojure-mode</code>
-will apply to <code>clojurescript-mode</code> as well. You can also evaluate code by using
-<code>eval</code> as the variable name in the variable to value mapping, but that&#8217;s something
-you&#8217;ll rarely need in practice.</p>
+<p>Another problem is that some of the functionality is specific to Clojure and doesn&#8217;t make much sense in other languages, but that&#8217;s
+something that functionality can be simply ignored when non-applicable. There&#8217;s also some coupling with <code>clojure-mode</code>, but that&#8217;s
+not that hard to overcome. Some examples here would be the REPL (which uses <code>clojure-mode</code> syntax table and indentation rules),
+the logic for finding the current namespace (which uses <code>clojure-find-ns</code>), and so on. All such instances will need to be replaced
+eventually with more generic versions that dispatch on the type of the nREPL connection (e.g. Clojure, Racket, Fennel, etc).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="current-status"><a class="anchor" href="#current-status"></a>Current Status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Right now CIDER the supports to some extent the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Babashka</p>
+</li>
+<li>
+<p>ClojureCLR (via Arcadia&#8217;s nREPL server)</p>
+</li>
+<li>
+<p>Lumo (via <a href="https://github.com/djblue/nrepl-cljs" class="bare">https://github.com/djblue/nrepl-cljs</a>)</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Normally, you&#8217;d simply create the <code>.dir-locals.el</code> manually and edit it like any other
-Emacs Lisp code. If you, however, feel
-overwhelmed by its syntax you can simply do <code>M-x add-dir-local-variable</code> and
-you&#8217;ll be able to select the major-mode, the variable and its value
-interactively.  One small problem with this approach is that the resulting
-<code>.dir-local.el</code> will be created in the current directory, which may be a problem
-depending on what you&#8217;re trying to do. Users of
-<a href="https://github.com/bbatsov/projectile">Projectile</a> may leverage the
-project-aware <code>projectile-edit-dir-locals</code> command instead.</p>
+<p>All of them are derived from Clojure, so supporting them didn&#8217;t really require much work.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="future-plans"><a class="anchor" href="#future-plans"></a>Future Plans</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While not a very high priority, making CIDER usable with any nREPL server is certainly on the project&#8217;s roadmap.
+<a href="https://github.com/clojure-emacs/cider/issues/2848">Here</a> you can find a discussion about the changes needed to
+get CIDER to work with Fennel, plus a couple of commits that illustrate them.</p>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s one slightly more complex <code>.dir-locals.el</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-emacs-lisp hljs" data-lang="emacs-lisp">((emacs-lisp-mode
-  (bug-reference-url-format . "https://github.com/clojure-emacs/cider/issues/%s")
-  (bug-reference-bug-regexp . "#\\(?2:[[:digit:]]+\\)")
-  (indent-tabs-mode . nil)
-  (fill-column . 80)
-  (sentence-end-double-space . t)
-  (emacs-lisp-docstring-fill-column . 75)
-  (checkdoc-symbol-words . ("top-level" "major-mode" "macroexpand-all" "print-level" "print-length"))
-  (checkdoc-package-keywords-flag)
-  (checkdoc-arguments-in-order-flag)
-  (checkdoc-verb-check-experimental-flag)
-  (elisp-lint-indent-specs . ((if-let* . 2)
-                              (when-let* . 1)
-                              (let* . defun)
-                              (nrepl-dbind-response . 2)
-                              (cider-save-marker . 1)
-                              (cider-propertize-region . 1)
-                              (cider-map-repls . 1)
-                              (cider--jack-in . 1)
-                              (cider--make-result-overlay . 1)
-                              ;; need better solution for indenting cl-flet bindings
-                              (insert-label . defun)              ;; cl-flet
-                              (insert-align-label . defun)        ;; cl-flet
-                              (insert-rect . defun)               ;; cl-flet
-                              (cl-defun . 2)
-                              (with-parsed-tramp-file-name . 2)
-                              (thread-first . 1)
-                              (thread-last . 1)))))</code></pre>
+<p>Any help on that front would greatly appreciated!</p>
 </div>
 </div>
-<div class="paragraph">
-<p>Did you manage to guess what it is? That&#8217;s CIDER&#8217;s own <code>.dir-locals.el</code>, which
-ensures that all people hacking on the Elisp codebase are going to be using some
-common code style settings. That&#8217;s why everything&#8217;s scoped to <code>emacs-lisp-mode</code>.</p>
-</div>
-<div class="paragraph">
-<p>For a Clojure-centric example let&#8217;s take a look at  <code>cider-nrepl</code>'s <code>.dir-locals.el</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-emacs-lisp hljs" data-lang="emacs-lisp">((clojure-mode
-  (clojure-indent-style . :always-align)
-  (indent-tabs-mode . nil)
-  (fill-column . 80)))</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Here the point is to ensure everyone working on the Clojure codebase using Emacs would
-be sharing the same code style settings.</p>
-</div>
-<div class="paragraph">
-<p>Often in the wild you&#8217;ll see dir-local entries with <code>nil</code> as the major mode there.
-This odd looking notation simply means that the configuration specified there will
-be applied to every buffer regardless of its major mode. Use this approach sparingly, as there&#8217;s
-rarely a good reason to do this.</p>
-</div>
-<div class="paragraph">
-<p>Another thing to keep in mind is that you can have multiple <code>.dir-locals.el</code> files in your project.
-Their overall effect will be cumulative with the innermost file taking precedence for any files
-in the directories beneath it. I&#8217;ve never needed this in practice, but I can imagine it being
-useful for people who have multiple projects in a mono repo, or people who apply different conventions
-to "real" code and its tests.</p>
-</div>
-<div class="paragraph">
-<p>You might be wondering when do changes to <code>.dir-locals.el</code> get reflected in the Emacs buffers
-affected by them. The answer is to this question is "when the buffers get created". If you change
-something in <code>.dir-locals.el</code> you&#8217;ll normally have to re-create the related buffers.
-Or you can do it in the hacker way and apply <a href="https://emacs.stackexchange.com/questions/13080/reloading-directory-local-variables">a bit of Elisp magic</a>.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-There are more aspects to dir-locals, but they are beyond the scope of this article.
-If you&#8217;re curious for all the gory details you should check out <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html">the official Emacs documentation on dir-locals</a>.
-</td>
-</tr>
-</table>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="misc.html">Misc</a></span>
-  <span class="next"><a href="../indent_spec.html">Indentation Specification</a></span>
+  <span class="prev"><a href="../cljs/other_repls.html">Using Other REPLs</a></span>
+  <span class="next"><a href="babashka.html">Babashka</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
