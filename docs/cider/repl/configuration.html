@@ -520,15 +520,49 @@ built-in option <code>scroll-conservatively</code>, for example:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="auto-trimming-the-buffer"><a class="anchor" href="#auto-trimming-the-buffer"></a>Auto-trimming the buffer</h2>
+<h2 id="auto-trimming-the-repl-buffer"><a class="anchor" href="#auto-trimming-the-repl-buffer"></a>Auto-trimming the REPL buffer</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Disabled by default (<code>nil</code>).</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This functionality is disabled by default.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>This can be enabled by setting <code>cider-repl-buffer-size-limit</code> to an integer. By setting
-a limit to the number of characters in the buffer, the buffer can be trimmed after
-each evaluation if the set limit has been exceeded.</p>
+<p>As noted <a href="basic_usage.html#known-limitations" class="page">previously</a>, the REPL buffer&#8217;s performance will degrade if its size
+is allowed to grow infinitely. You can obviously clear the REPL manually from time to
+time, but CIDER also has some auto-trimming functionality that can simplify
+the process for you.</p>
+</div>
+<div class="paragraph">
+<p>Auto-trimming can be enabled by setting <code>cider-repl-buffer-size-limit</code> to an integer. By
+setting a limit to the number of characters in the buffer, the buffer can be
+trimmed (from its beginning) after each evaluation if the set limit has been
+exceeded.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-buffer-size-limit 10000)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can also trigger auto-trimming manually by invoking the command <code>cider-repl-trim-buffer</code>
+or the REPL shortcut <code>trim</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

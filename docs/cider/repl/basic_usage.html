@@ -488,16 +488,28 @@ some of the operations needed to properly dispose of a REPL buffer.
 <div class="paragraph">
 <p>Performance can degrade when the REPL buffer grows very large. This is
 especially true if either <code>cider-repl-use-clojure-font-lock</code> or
-<code>nrepl-log-messages</code> are enabled. You can use <code>cider-repl-clear-output</code> to
-either clear the result of the previous evaluation, or with a prefix argument
-clear the entire REPL buffer. You can also set <code>cider-repl-buffer-size-limit</code>
-which will enable trimming the buffer automatically after each evaluation. This
-trimming can also be invoked manually with <code>cider-repl-trim-buffer</code>.</p>
+<code>nrepl-log-messages</code> are enabled.</p>
 </div>
 <div class="paragraph">
 <p>Very long lines are guaranteed to bring Emacs to a crawl, so using a value of
 <code>cider-print-fn</code> that wraps lines beyond a certain width (i.e. any of the
 built-in options except for <code>pr</code>) is advised.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can use <code>cider-repl-clear-output</code> to
+either clear the result of the previous evaluation, or with a prefix argument
+clear the entire REPL buffer. You can also set <code>cider-repl-buffer-size-limit</code>
+which will enable trimming the buffer automatically after each evaluation. This
+trimming can also be invoked manually with <code>cider-repl-trim-buffer</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
