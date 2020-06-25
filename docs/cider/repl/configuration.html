@@ -520,6 +520,19 @@ built-in option <code>scroll-conservatively</code>, for example:</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="auto-trimming-the-buffer"><a class="anchor" href="#auto-trimming-the-buffer"></a>Auto-trimming the buffer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Disabled by default (<code>nil</code>).</p>
+</div>
+<div class="paragraph">
+<p>This can be enabled by setting <code>cider-repl-buffer-size-limit</code> to an integer. By setting
+a limit to the number of characters in the buffer, the buffer can be trimmed after
+each evaluation if the set limit has been exceeded.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="result-prefix"><a class="anchor" href="#result-prefix"></a>Result Prefix</h2>
 <div class="sectionbody">
 <div class="paragraph">
