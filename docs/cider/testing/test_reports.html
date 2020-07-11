@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/testing/test_reports.html">
     <link rel="prev" href="running_tests.html">
     <link rel="next" href="supported_libraries.html">
-    <meta name="generator" content="Antora 2.0.0">
+    <meta name="generator" content="Antora 2.3.3">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
@@ -357,10 +357,25 @@
 <article class="doc">
 <h1 class="page">Interacting with Test Result Reports</h1>
 <div class="paragraph">
-<p>After running your tests, CIDER displays a test result report in the
+<p>Shoud tests fail then CIDER displays a test result report in the
 <code>*cider-test-report*</code> buffer. This buffer uses <code>cider-test-report-mode</code>,
 which makes it easy to review any failures that might have occurred
 and jump directly to the definition of failing tests.</p>
+</div>
+<div class="paragraph">
+<p>Calling test commands again will update the test report.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can also <a href="#testing/running_tests.html#display-test-report-on-success" class="page unresolved">configure test reports to be displayed on success</a>.
+</td>
+</tr>
+</table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -433,6 +448,7 @@ and jump directly to the definition of failing tests.</p>
 </div>
 <footer class="footer">
   <p>Copyright (C) 2012-2020 <a href="https://metaredux.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0)</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 <script type="text/javascript">

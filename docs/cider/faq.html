@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/faq.html">
     <link rel="prev" href="troubleshooting.html">
     <link rel="next" href="additional_packages.html">
-    <meta name="generator" content="Antora 2.0.0">
+    <meta name="generator" content="Antora 2.3.3">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
@@ -586,10 +586,9 @@ there&#8217;s always only one version that&#8217;s available - the latest one.</
 <h2 id="will-cider-eventually-support-the-clojure-1-8-socket-repl"><a class="anchor" href="#will-cider-eventually-support-the-clojure-1-8-socket-repl"></a>Will CIDER eventually support the Clojure 1.8 socket REPL?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Hopefully yes. Adding support for the socket REPL is definitely on our radar, but
-unfortunately it will require both significant changes to CIDER and the development
-of some alternative to essential nREPL functionality (like multiple evaluation sessions)
-for the socket REPL.</p>
+<p>Maybe. Our focus remains making the most out of nREPL, but down the road
+we might explore investing some time in adding support for additional
+REPL servers.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -612,28 +611,6 @@ There&#8217;s more information about the work that needs to be done in our
 <div class="paragraph">
 <p>Same answer as above. One thing is certain - prepl is much more convenient for the purposes of CIDER than
 the plain socket REPL.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="will-cider-ever-drop-support-for-nrepl"><a class="anchor" href="#will-cider-ever-drop-support-for-nrepl"></a>Will CIDER ever drop support for nREPL?</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>That&#8217;s extremely unlikely. Even if we eventually add support for the new socket REPL,
-we&#8217;ll continue supporting nREPL as well.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Recently nREPL was migrated out of <code>clojure-contrib</code> and its development
-has once again picked up. Check out nREPL&#8217;s new home <a href="https://github.com/nrepl/nrepl">here</a>.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -723,6 +700,7 @@ the manual.</p>
 </div>
 <footer class="footer">
   <p>Copyright (C) 2012-2020 <a href="https://metaredux.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0)</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 <script type="text/javascript">

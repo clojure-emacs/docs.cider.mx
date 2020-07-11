@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/basics/middleware_setup.html">
     <link rel="prev" href="up_and_running.html">
     <link rel="next" href="../cljs/overview.html">
-    <meta name="generator" content="Antora 2.0.0">
+    <meta name="generator" content="Antora 2.3.3">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
@@ -432,7 +432,7 @@ release to ship with nREPL 0.6.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.21.1"]]}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.25.2"]]}}</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -474,7 +474,7 @@ all of their projects using a <code>~/.boot/profile.boot</code> file like so:</p
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(require 'boot.repl)
 
 (swap! boot.repl/*default-dependencies*
-       concat '[[cider/cider-nrepl "0.21.1"]])
+       concat '[[cider/cider-nrepl "0.25.2"]])
 
 (swap! boot.repl/*default-middleware*
        conj 'cider.nrepl/cider-middleware)</code></pre>
@@ -592,6 +592,7 @@ cider-nrepl for your version of CIDER by looking at
 </div>
 <footer class="footer">
   <p>Copyright (C) 2012-2020 <a href="https://metaredux.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0)</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 <script type="text/javascript">
