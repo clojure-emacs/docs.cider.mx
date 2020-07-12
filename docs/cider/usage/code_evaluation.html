@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Managing Connections :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/usage/managing_connections.html">
-    <link rel="prev" href="working_with_documentation.html">
-    <link rel="next" href="misc_features.html">
+    <title>Code Evaluation :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/usage/code_evaluation.html">
+    <link rel="prev" href="cider_mode.html">
+    <link rel="next" href="code_completion.html">
     <meta name="generator" content="Antora 2.3.3">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -130,7 +130,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="cider_mode.html">Using cider-mode</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="code_evaluation.html">Code Evaluation</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -145,7 +145,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="working_with_documentation.html">Working with Documentation</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="managing_connections.html">Managing Connections</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -349,24 +349,103 @@
   <ul>
     <li><a href="../index.html">CIDER</a></li>
     <li>Using CIDER</li>
-    <li><a href="managing_connections.html">Managing Connections</a></li>
+    <li><a href="code_evaluation.html">Code Evaluation</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
-    <a class="version is-current" href="managing_connections.html">master</a>
-    <a class="version" href="../0.25/usage/managing_connections.html">0.25</a>
-    <a class="version" href="../0.24/usage/managing_connections.html">0.24</a>
+    <a class="version is-current" href="code_evaluation.html">master</a>
+    <a class="version is-missing" href="../0.25/index.html">0.25</a>
+    <a class="version is-missing" href="../0.24/index.html">0.24</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/usage/managing_connections.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/usage/code_evaluation.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Managing Connections</h1>
+<h1 class="page">Code Evaluation</h1>
 <div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>Code evaluation is at the heart of interactive programming.
+CIDER provides a ton of evaluation-related commands that can cover
+just about any use-case one can possibly imagine.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+All evaluation commands are defined in <code>cider-eval.el</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="terminology"><a class="anchor" href="#terminology"></a>Terminology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CIDER&#8217;s evaluation commands use a terminology that&#8217;s popular within Emacs, but somewhat
+confusing to people not familiar with it. Let&#8217;s take a look at it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>defun</code> - top-level expression</p>
+</li>
+<li>
+<p><code>sexp</code> - s-expression, form</p>
+</li>
+<li>
+<p><code>last-sexp</code> - the form preceding the cursor (<code>point</code> in Emacs lingo)</p>
+</li>
+<li>
+<p><code>sexp-at-point</code> - the form under/around the cursor</p>
+</li>
+<li>
+<p><code>buffer</code> - the abstraction used by Emacs to represent any content; most often backed by a file.</p>
+</li>
+<li>
+<p><code>region</code> - the selected part of a buffer</p>
+</li>
+<li>
+<p><code>load</code> - a synonym for "evaluate"; most often used in the context of buffers/files</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="basic-evaluation"><a class="anchor" href="#basic-evaluation"></a>Basic Evaluation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As CIDER derives almost all of its functionality by inspecting the runtime (REPL) state
+of your application, you need to evaluate something before functionality like code completion,
+<code>eldoc</code> or definition lookup would work.</p>
+</div>
+<div class="paragraph">
+<p>Typically the first think you&#8217;d do when visiting a Clojure buffer would be to load (evaluate) the buffer with <code>cider-load-buffer</code> (<kbd>C-c C-k</kbd>).</p>
+</div>
+<div class="paragraph">
+<p>Afterwards most of the time you&#8217;d be evaluating expressions one at a time either using
+<code>cider-eval-last-sexp</code> (<kbd>C-c C-e</kbd> or <kbd>C-x C-e</kbd>) or <code>cider-eval-defun-at-point</code>
+(<kbd>C-c C-c</kbd> or <kbd>C-M-x</kbd>).</p>
+</div>
+<div class="paragraph">
+<p>Typically this type of evaluation commands would provide you with dual feedback -
+you&#8217;d see the results in both the Emacs minibuffer and in an inline overlay in
+the source buffer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exotic-evaluation-commands"><a class="anchor" href="#exotic-evaluation-commands"></a>Exotic Evaluation Commands</h2>
+<div class="sectionbody">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -374,238 +453,16 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Because nREPL connections map one-to-one to REPL buffers, for the purpose of this
-section we use "REPL" and "connection" interchangeably.
+WIP
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Life&#8217;s easy when you&#8217;re working only on a single project with a single Clojure connection. If you&#8217;re lucky
-enough to be one of those people then you can safely skip reading this section. Its target audience are
-people who have to work simultaneously on multiple projects or have multiple connections opened for the same project.</p>
-</div>
-<div class="paragraph">
-<p>It turns out that it&#8217;s really hard to map reliably operations originating in source buffers (e.g. code evaluation) to the right
-connection buffer, as there are many things you have to take into account:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Is the connection mapped to some project or not?</p>
-</li>
-<li>
-<p>Do you have multiple connections mapped to the same project? (e.g. a Clojure and ClojureScript REPL)</p>
-</li>
-<li>
-<p>Do you have multiple connections of the same type mapped to the same project? (e.g. several Clojure REPLs)</p>
-</li>
-<li>
-<p>What should happen if you try to evaluate code that&#8217;s outside of a project?</p>
-</li>
-<li>
-<p>Where should you dispatch operations originating in <code>.cljc</code> files? To the Clojure REPL? The ClojureScript REPL? To both REPLs?</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>CIDER started out without any support for multiple connections and through the years we&#8217;ve had several different ideas on how to support multiple connections:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Originally there was a static dispatch mechanism. You&#8217;d just manually select the active connection from a list of connections and
-all operations would be routed to it. This approach was simple and effective, but required you to constantly keep track of whether
-you&#8217;re using the right connection. This problem was further compounded by the creation of ClojureScript.</p>
-</li>
-<li>
-<p>Eventually we introduced the concept of dynamic dispatch, where we&#8217;d use a combination of the filename extension and the project directory to figure out where to send operations. This approach worked reasonably well, but was problematic when you had multiple connections of the same type for the same project. There was also no logical grouping of related connections.</p>
-</li>
-<li>
-<p>This brings us to the present - today&#8217;s approach to managing multiple connections is an evolution of the dynamic dispatch.
-Related connections are grouped together in sessions, which are tied to some context (typically a project directory). If some
-operation dispatch is ambiguous it will fail with an error message. You can manually link buffers, files and directories
-to sessions in such situations.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>In the following sections we&#8217;ll go over the basic terminology with respect to connection management, and we&#8217;ll cover
-the typical scenarios you&#8217;d normally have to deal with. The topic might seem a bit intimidating, but it&#8217;s actually
-fairly straightforward once you get to know the terminology and wrap your head around the basic idea.</p>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="sessions"><a class="anchor" href="#sessions"></a>Sessions</h2>
+<h2 id="evaluation-hooks"><a class="anchor" href="#evaluation-hooks"></a>Evaluation Hooks</h2>
 <div class="sectionbody">
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-In the context of this section "session" stands for a group of nREPL connections. That should not be
-confused with nREPL&#8217;s own notion of a session (each nREPL connection can be segregated into multiple sessions).
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>CIDER maintains a grouped view of opened nREPL connections through <a href="https://github.com/vspinu/sesman">Sesman</a>
-sessions. Each session is a collection of connections which share the same nREPL
-server. You can, however, have multiple sessions sharing the same nREPL server (although you&#8217;re unlikely to
-ever need this).</p>
-</div>
-<div class="paragraph">
-<p>Start new sessions with</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><kbd>C-c C-x j j</kbd> <code>cider-jack-in-clj</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x j s</kbd> <code>cider-jack-in-cljs</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x j m</kbd> <code>cider-jack-in-clj&amp;cljs</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x c j</kbd> <code>cider-connect-clj</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x c s</kbd> <code>cider-connect-cljs</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x c m</kbd> <code>cider-connect-clj&amp;cljs</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Add new REPLs to the current session with</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><kbd>C-c C-x s j</kbd> <code>cider-connect-sibling-clj</code></p>
-</li>
-<li>
-<p><kbd>C-c C-x s s</kbd> <code>cider-connect-sibling-cljs</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Session life-cycle management commands live on the <a href="https://github.com/vspinu/sesman">Sesman</a> map (<kbd>C-c C-s</kbd>)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><kbd>C-c C-s s</kbd> <code>sesman-start</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s r</kbd> <code>sesman-restart</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s q</kbd> <code>sesman-quit</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The command <code>sesman-start</code> wraps around all of the aforementioned <code>jack-in</code> and
-<code>connect</code> commands. You can also invoke same functionality with <kbd>M-x</kbd>
-<code>cider</code> or <kbd>C-c M-x</kbd>.</p>
-</div>
-<div class="paragraph">
-<p>To quit or restart individual connections use cider commands</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><kbd>C-c C-q</kbd> <code>cider-quit</code></p>
-</li>
-<li>
-<p><kbd>C-c M-r</kbd> <code>cider-restart</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="current-session"><a class="anchor" href="#current-session"></a>Current Session</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>All CIDER commands (evaluation, completion, switching to REPL etc.) operate on
-the relevant REPL within the current session. The current session is the most
-relevant session among all linked session (or friendly sessions when no links
-exist). Session relevance is decided by the specificity of the linked contexts
-and recency of the REPL buffers.</p>
-</div>
-<div class="paragraph">
-<p>If the current context is linked to a single session then that session is the
-current one. If multiple sessions are linked to a context (say, a project) then
-the current session is the one containing the most recently viewed REPL.</p>
-</div>
-<div class="paragraph">
-<p>Links to more specific contexts have precedence. For example, if you have two
-sessions linked to the same project and another to a directory within that
-project, then the session linked to the directory is the current session. Thus,
-again, there is no ambiguity.</p>
-</div>
-<div class="paragraph">
-<p>By default <a href="https://github.com/vspinu/sesman">Sesman</a> allows multiple simultaneous links to projects and
-directories, but only one link per buffer. See <code>sesman-single-link-contexts</code> if
-you would like to change that.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="current-repl"><a class="anchor" href="#current-repl"></a>Current REPL</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The current REPL is the most relevant REPL from the current session. REPL relevance
-is determined by the type of the current buffer. For example if the current
-buffer is a <code>clj</code> buffer then a <code>clj</code> REPL is selected. Ambiguous situations could
-arise when, for instance, there are multiple <code>clj</code> REPLs within a session, or
-the current buffer is a <code>cljc</code> buffer and both <code>clj</code> and <code>cljs</code> REPLs exist in
-the session. In such cases the current REPL is the most recently viewed REPL of
-the relevant type.</p>
-</div>
-<div class="paragraph">
-<p>Switch to the current REPL buffer with <kbd>C-c C-z</kbd>. You can then use the
-same key combination to switch back to the Clojure(Script) buffer that you came
-from.</p>
-</div>
-<div class="paragraph">
-<p>The single prefix <kbd>C-u C-c C-z</kbd>, will switch to the current REPL buffer
-and set the namespace in that buffer based on namespace in the current
-Clojure(Script) buffer.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="context-links"><a class="anchor" href="#context-links"></a>Context Links</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Sessions can be linked to contexts (projects, directories and buffers)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><kbd>C-c C-s b</kbd> <code>sesman-link-with-buffer</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s d</kbd> <code>sesman-link-with-directory</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s p</kbd> <code>sesman-link-with-project</code></p>
-</li>
-<li>
-<p><kbd>C-c C-s u</kbd> <code>sesman-unlink</code></p>
-</li>
-</ul>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -613,8 +470,7 @@ Clojure(Script) buffer.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Typically you&#8217;ll want to invoke those commands in file buffers and occasionally is some special buffers (e.g. a scratch buffer). You should never run
-them in a REPL buffer, as a REPL is an integral part of a session.
+WIP
 </td>
 </tr>
 </table>
@@ -622,61 +478,193 @@ them in a REPL buffer, as a REPL is an integral part of a session.
 </div>
 </div>
 <div class="sect1">
-<h2 id="friendly-sessions"><a class="anchor" href="#friendly-sessions"></a>Friendly Sessions</h2>
+<h2 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="auto-save-clojure-buffers-on-load"><a class="anchor" href="#auto-save-clojure-buffers-on-load"></a>Auto-Save Clojure Buffers on Load</h3>
 <div class="paragraph">
-<p><a href="https://github.com/vspinu/sesman">Sesman</a> defines "friendly" session to allow for on-the-fly operation on
-sessions from contexts where there are no explicit links. In CIDER friendly
-sessions are defined by the project dependencies. For example when you use
-<code>cider-find-var</code> (<kbd>M-.</kbd>) to navigate to a var definition in a
-dependency project the current project&#8217;s session becomes a friendly session for
-the dependency.</p>
+<p>Normally, CIDER prompts you to save a modified Clojure buffer when you
+type <kbd>C-c C-k</kbd> (<code>cider-load-buffer</code>).  You can change this
+behaviour by adjusting <code>cider-save-file-on-load</code>.</p>
 </div>
 <div class="paragraph">
-<p>When you evaluate some code from a dependency project and there are no explicit
-links in that project, the most recent friendly session is used to evaluate the
-code. Explicitly linked sessions have precedence over the friendly sessions.</p>
+<p>Don&#8217;t prompt and don&#8217;t save:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-save-file-on-load nil)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>You can disable friendly session inference by customizing
-<code>sesman-use-friendly-sessions</code>.</p>
+<p>Just save without prompting:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-save-file-on-load t)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="change-the-result-prefix-for-interactive-evaluation"><a class="anchor" href="#change-the-result-prefix-for-interactive-evaluation"></a>Change the Result Prefix for Interactive Evaluation</h3>
+<div class="paragraph">
+<p>Change the result prefix for interactive evaluation (not the REPL
+prefix). By default the prefix is `&#8658; `.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-eval-result-prefix ";; =&gt; ")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To remove the prefix altogether, just set it to the empty string (<code>""</code>).</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="displaying-session-info"><a class="anchor" href="#displaying-session-info"></a>Displaying Session Info</h2>
+<h2 id="keybindings"><a class="anchor" href="#keybindings"></a>Keybindings</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Get info on all linked and friendly sessions in the current context with
-<kbd>C-c C-s i</kbd> (<code>sesman-info</code>). On <kbd>C-u</kbd>, display info on all
-CIDER sessions. For the connection specific information use CIDER&#8217;s built-in
-<code>cider-describe-connection</code> (<kbd>C-c M-d</kbd>).</p>
+<p>You might have noticed that CIDER typically has 2-3 different keybindings for
+many evaluation commands. In case you&#8217;ve been wondering "Why?" the answer is
+pretty simple - legacy. The principle sources of inspiration for CIDER, Emacs and SLIME,
+provide more or less the same functionality, but use different keybindings. CIDER
+tried to find a common ground by adopting them both.</p>
 </div>
 <div class="paragraph">
-<p>An interactive view of all CIDER sessions is available through the
-<code>sesman-browser</code> (<kbd>C-c C-s w</kbd>).</p>
+<p>On top of this, at some when it became clear that CIDER has set the world record
+for evaluation command, we&#8217;ve introduced a dedicated keymap for all eval commands
+(that&#8217;s everything with the prefix <kbd>C-c C-v</kbd>). This leads to funny situations
+like <code>cider-eval-defun-at-point</code> having 3 keybindings:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><kbd>C-M-x</kbd> (Emacs style)</p>
+</li>
+<li>
+<p><kbd>C-c C-c</kbd> (SLIME style)</p>
+</li>
+<li>
+<p><kbd>C-c C-v (C-)d</kbd> (CIDER style)</p>
+</li>
+</ul>
 </div>
-</div>
-<div class="sect1">
-<h2 id="customizing-session-and-repl-names"><a class="anchor" href="#customizing-session-and-repl-names"></a>Customizing Session and REPL Names</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>By default session names consist of abbreviated project name, host and port
-(e.g. <code>project/dir:localhost:1234</code>). REPL buffer name consist of the session
-name and the REPL type specification post-fix
-(e.g. <code>*project/dir:localhost:1234(cljs:node)*</code>).</p>
+<p>Okay, those are technically 4 keybindings, but who&#8217;s counting!</p>
 </div>
 <div class="paragraph">
-<p>You can customize session names with <code>cider-session-name-template</code> and REPL
-names with <code>nrepl-repl-buffer-name-template</code>. See also
-<code>cider-format-connection-params</code> for available formats.</p>
+<p>Below is a listing of most keybindings for evaluation commands:</p>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Keyboard shortcut</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-last-sexp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-x C-e</kbd><br>
+<kbd>C-c C-e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and display the result in the echo area and/or in an buffer overlay (according to <code>cider-use-overlays</code>).  If invoked with a prefix argument, insert the result into the current buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-last-sexp-and-replace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v w</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and replace it with its result.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-last-sexp-to-repl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and output it result to the REPL buffer.  If invoked with a prefix argument, takes you to the REPL buffer after being invoked.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-insert-last-sexp-in-repl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-u C-c M-p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load the form preceding point in the REPL buffer and eval.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-pprint-eval-last-sexp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v C-f e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and pretty-print the result in a popup buffer. If invoked with a prefix argument, insert the result into the current buffer as a comment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-pprint-eval-defun-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v C-f d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the top level form under point and pretty-print the result in a popup buffer. If invoked with a prefix argument, insert the result into the current buffer as a comment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-defun-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-M-x</kbd><br>
+<kbd>C-c C-c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the top level form under point and display the result in the echo area.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-sexp-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v v</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form around point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-defun-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-u C-M-x</kbd><br>
+<kbd>C-u C-c C-c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Debug the top level form under point and walk through its evaluation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-defun-up-to-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v z</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the preceding top-level form up to the point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-region</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the region and display the result in the echo area.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-interrupt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-b</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interrupt any pending evaluations.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-ns-form</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v n</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Eval the ns form.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-buffer-and-switch-to-repl-buffer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-z</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) the current buffer and switch to the relevant REPL buffer. Use a prefix argument to change the namespace of the REPL buffer to match the currently visited source file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-buffer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-k</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) the current buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-file</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) a Clojure file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-all-files</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-M-l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) all Clojure files below a directory.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="working_with_documentation.html">Working with Documentation</a></span>
-  <span class="next"><a href="misc_features.html">Misc Features</a></span>
+  <span class="prev"><a href="cider_mode.html">Using cider-mode</a></span>
+  <span class="next"><a href="code_completion.html">Code Completion</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

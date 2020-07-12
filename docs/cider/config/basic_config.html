@@ -131,6 +131,9 @@
     <a class="nav-link" href="../usage/cider_mode.html">Using cider-mode</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_evaluation.html">Code Evaluation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../usage/code_completion.html">Code Completion</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -138,6 +141,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../usage/dealing_with_errors.html">Dealing with Errors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/working_with_documentation.html">Working with Documentation</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../usage/managing_connections.html">Managing Connections</a>
@@ -576,49 +582,6 @@ if they exist, navigate there rather than report that the file does not
 exist. In the example above, the <code>.m2</code> directory is mounted at <code>/root/.m2</code>
 and the source at <code>/src</code>. These translations would map these locations
 back to the user&#8217;s computer so that navigation to definition would work.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="auto-save-clojure-buffers-on-load"><a class="anchor" href="#auto-save-clojure-buffers-on-load"></a>Auto-Save Clojure Buffers on Load</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Normally, CIDER prompts you to save a modified Clojure buffer when you
-type <kbd>C-c C-k</kbd> (<code>cider-load-buffer</code>).  You can change this
-behaviour by adjusting <code>cider-save-file-on-load</code>.</p>
-</div>
-<div class="paragraph">
-<p>Don&#8217;t prompt and don&#8217;t save:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-save-file-on-load nil)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Just save without prompting:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-save-file-on-load t)</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="change-the-result-prefix-for-interactive-evaluation"><a class="anchor" href="#change-the-result-prefix-for-interactive-evaluation"></a>Change the Result Prefix for Interactive Evaluation</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Change the result prefix for interactive evaluation (not the REPL
-prefix). By default the prefix is `&#8658; `.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-eval-result-prefix ";; =&gt; ")</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>To remove the prefix altogether, just set it to the empty string (<code>""</code>).</p>
 </div>
 </div>
 </div>
