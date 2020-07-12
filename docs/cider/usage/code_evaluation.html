@@ -436,6 +436,31 @@ of your application, you need to evaluate something before functionality like co
 <code>cider-eval-last-sexp</code> (<kbd>C-c C-e</kbd> or <kbd>C-x C-e</kbd>) or <code>cider-eval-defun-at-point</code>
 (<kbd>C-c C-c</kbd> or <kbd>C-M-x</kbd>).</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">What happens if I don&#8217;t evaluate the entire buffer first?</div>
+<div class="paragraph">
+<p>You might be wondering why do you need to evaluate the entire source buffer. After all,
+won&#8217;t be it be nice if you could just start evaluating only the forms you&#8217;re interested in?</p>
+</div>
+<div class="paragraph">
+<p>Technically speaking you&#8217;re not required to evaluate the entire source buffer first, but not
+doing so introduces some subtleties and a bit of complexity. In general the only
+part that&#8217;s really essential for subsequent code evaluations is the <code>ns</code> declaration. As expressions within the buffer
+are evaluated in the context of its namespace and you have to create that namespace first.</p>
+</div>
+<div class="paragraph">
+<p>In the early days of CIDER, when a namespace didn&#8217;t exist CIDER would just throw
+an error. A lot of people were confused by this behavior and unhappy
+about it. Eventually CIDER became smarter and now it always knows whether the <code>ns</code>
+form in some source buffer has been evaluated or changed after it was originally
+evaluated.  With that knowledge in hand CIDER will auto-eval <code>ns</code> forms that
+were changed prior to evaluating code in that namespace, if you don&#8217;t evaluate
+them yourselves. That behavior is controlled via the variable
+<code>cider-auto-track-ns-form-changes</code>.</p>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Typically this type of evaluation commands would provide you with dual feedback -
 you&#8217;d see the results in both the Emacs minibuffer and in an inline overlay in
