@@ -227,9 +227,6 @@
     <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../config/misc.html">Misc</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
   </li>
 </ul>
@@ -486,6 +483,42 @@ WIP
 </div>
 </div>
 <div class="sect1">
+<h2 id="evaluating-clojure-code-in-the-minibuffer"><a class="anchor" href="#evaluating-clojure-code-in-the-minibuffer"></a>Evaluating Clojure Code in the Minibuffer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can evaluate Clojure code in the minibuffer at almost any time
+using <kbd>M-x</kbd> <code>cider-read-and-eval</code> (bound in <code>cider-mode</code> buffers to
+<kbd>C-c M-:</kbd>).  <kbd>TAB</kbd> completion will work in the minibuffer,
+just as in REPL and source buffers.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Typing <kbd>C-c C-v .</kbd> in a Clojure buffer will insert the defun
+at point into the minibuffer for evaluation. This way you can pass arguments
+to the function and evaluate it and see the result in the minibuffer.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can also enable other convenient modes in the minibuffer. For
+instance, you might want to have both <code>eldoc-mode</code> and <code>paredit-mode</code>
+available to you:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="evaluation-hooks"><a class="anchor" href="#evaluation-hooks"></a>Evaluation Hooks</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -505,6 +538,40 @@ WIP
 <div class="sect1">
 <h2 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="overlays"><a class="anchor" href="#overlays"></a>Overlays</h3>
+<div class="paragraph">
+<p>When you evaluate code in Clojure files, the result is displayed in the buffer
+itself, in an overlay right after the evaluated code.  If you want this overlay
+to be font-locked (syntax-highlighted) like Clojure code, set the following
+variable.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-overlays-use-font-lock t)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can disable overlays entirely (and display results in the echo-area at the
+bottom) with the <code>cider-use-overlays</code> variable.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-use-overlays nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, result overlays are displayed at the end of the line. You can set
+the variable <code>cider-result-overlay-position</code> to display results at the end of
+their respective forms instead.
+Note that this also affects the position of debugger overlays.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-result-overlay-position 'at-point)</code></pre>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="auto-save-clojure-buffers-on-load"><a class="anchor" href="#auto-save-clojure-buffers-on-load"></a>Auto-Save Clojure Buffers on Load</h3>
 <div class="paragraph">

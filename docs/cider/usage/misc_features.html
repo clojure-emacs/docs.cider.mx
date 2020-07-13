@@ -227,9 +227,6 @@
     <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../config/misc.html">Misc</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
   </li>
 </ul>
@@ -373,33 +370,6 @@ simultaneous Clojure and ClojureScript REPLs, interactive programming,
 code completion, stacktrace navigation, test running, and debugging
 weren&#8217;t enough for you, CIDER delivers several additional
 features.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="evaluating-clojure-code-in-the-minibuffer"><a class="anchor" href="#evaluating-clojure-code-in-the-minibuffer"></a>Evaluating Clojure Code in the Minibuffer</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You can evaluate Clojure code in the minibuffer at almost any time
-using <kbd>M-x</kbd> <code>cider-read-and-eval</code> (bound in <code>cider-mode</code> buffers to
-<kbd>C-c M-:</kbd>).  <kbd>TAB</kbd> completion will work in the minibuffer,
-just as in REPL and source buffers.</p>
-</div>
-<div class="paragraph">
-<p>Typing <kbd>C-c C-v .</kbd> in a Clojure buffer will insert the defun
-at point into the minibuffer for evaluation. This way you can pass arguments
-to the function and evaluate it and see the result in the minibuffer.</p>
-</div>
-<div class="paragraph">
-<p>You can also enable other convenient modes in the minibuffer. For
-instance, you might want to have both <code>eldoc-mode</code> and <code>paredit-mode</code>
-available to you:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)</code></pre>
-</div>
 </div>
 </div>
 </div>
