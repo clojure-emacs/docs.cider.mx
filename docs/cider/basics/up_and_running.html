@@ -431,7 +431,10 @@ In Clojure(Script) buffers the command <code>cider-jack-in</code> is bound to <k
 <div class="ulist">
 <ul>
 <li>
-<p>CIDER shells out and runs a command like <code>lein repl :headless</code>.</p>
+<p>CIDER determines the build system for your project (e.g. Leiningen) and picks the necessary command to start an nREPL server.</p>
+</li>
+<li>
+<p>CIDER shells out and runs a command like <code>lein repl :headless</code> to start an nREPL server.</p>
 </li>
 <li>
 <p>CIDER waits for the nREPL server to start.
@@ -458,6 +461,18 @@ waiting for nREPL to start. You can also find this command in Emacs&#8217;s <cod
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>In some cases one project might have multiple project markers in it - e.g. <code>project.clj</code> and <code>deps.edn</code>.
+When this happens CIDER will prompt you to select the build tool to use. You can override this behavior
+by setting the variable <code>cider-preferred-build-tool</code>. While you can set it globally in your Emacs config,
+most of the time you&#8217;d probably want to have a project-specific setting for it in your <code>.dir-locals.el</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-emacs-lisp hljs" data-lang="emacs-lisp">((clojure-mode
+  (cider-preferred-build-tool . lein)))</code></pre>
+</div>
 </div>
 <div class="sect2">
 <h3 id="auto-injecting-dependencies"><a class="anchor" href="#auto-injecting-dependencies"></a>Auto-Injecting Dependencies</h3>
@@ -554,7 +569,7 @@ disable the warning displayed when jacking-in outside a project.
 </div>
 </div>
 <div class="sect2">
-<h3 id="customizing-the-jack-in-command-behaviour"><a class="anchor" href="#customizing-the-jack-in-command-behaviour"></a>Customizing the Jack-in Command Behaviour</h3>
+<h3 id="customizing-the-jack-in-command-behavior"><a class="anchor" href="#customizing-the-jack-in-command-behavior"></a>Customizing the Jack-in Command Behavior</h3>
 <div class="paragraph">
 <p>You can use <kbd>C-u M-x</kbd> <code>cider-jack-in</code> <kbd>RET</kbd> to
 specify the exact command that <code>cider-jack-in</code> would run.
@@ -576,7 +591,7 @@ to launch a REPL for one or the other.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The examples use only <code>cider-jack-in</code>, but this behaviour is consistent
+The examples use only <code>cider-jack-in</code>, but this behavior is consistent
 for all <code>cider-jack-in-*</code> commands.
 </td>
 </tr>
