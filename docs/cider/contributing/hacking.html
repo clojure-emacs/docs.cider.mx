@@ -388,20 +388,41 @@ repo (you&#8217;ll have to manually install all the packages CIDER depends on
 in advance).</p>
 </div>
 <div class="paragraph">
-<p>Additionally you will have to generate and require the
-<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Autoload.html">autoloads</a>,
-otherwise you&#8217;ll keep getting errors about missing commands.  That&#8217;s done
-automatically when installing via <code>package.el</code> but you&#8217;ll have to do it
-manually in this case:</p>
+<p>CIDER uses <a href="https://github.com/doublep/eldev">Eldev</a> for development, so
+you should install the tool first.</p>
+</div>
+<div class="paragraph">
+<p>The easiest and "purest" way to run CIDER is to execute:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">make autoloads   # generates cider-autoloads.el</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">eldev emacs</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Then:</p>
+<p>This will start a separate Emacs process with CIDER and its
+dependencies available, but <em>without</em> your normal packages installed.
+However, you can use <code>Eldev-local</code> to add some packages with
+<code>(eldev-add-extra-dependencies 'emacs &#8230;&#8203;)</code> forms.  See Eldev
+documentation for details.</p>
 </div>
+<div class="paragraph">
+<p>Alternatively, if you want to load CIDER from source code in the Emacs
+you use for editing:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Generate autoloads file (that&#8217;s done automatically when installing
+via <code>package.el</code> but you&#8217;ll have to do it manually in this case):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">eldev build :autoloads</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add to your <code>.emacs</code>:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; load CIDER from its source code
@@ -409,8 +430,8 @@ manually in this case:</p>
 (load "cider-autoloads" t t)</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>If you want to compile <strong>and</strong> generate autoloads, just run <code>make</code>.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
@@ -453,21 +474,11 @@ all the details.</p>
 <p>If you prefer running all tests outside Emacs that&#8217;s also an option.</p>
 </div>
 <div class="paragraph">
-<p>Install <a href="https://github.com/cask/cask">cask</a> if you haven&#8217;t
-already, then:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cd /path/to/cider
-$ cask</pre>
-</div>
-</div>
-<div class="paragraph">
 <p>Run all tests with:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>$ make test</pre>
+<pre>$ eldev test</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -484,11 +495,19 @@ them in a terminal is recommended.
 </table>
 </div>
 <div class="paragraph">
-<p>You can also check for compliance with a variety of coding standards in batch mode (including docstrings and byte-compilation warnings):</p>
+<p>You can also check for compliance with a variety of coding standards in batch mode (including docstrings):</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>$ make lint</pre>
+<pre>$ eldev lint</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To check for byte-compilation warnings you can just compile the project with Eldev:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ eldev compile</pre>
 </div>
 </div>
 </div>
