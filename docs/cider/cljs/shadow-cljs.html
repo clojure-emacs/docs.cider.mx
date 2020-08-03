@@ -341,7 +341,6 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="../0.25/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
@@ -469,6 +468,23 @@ root of your project.</p>
 <div class="paragraph">
 <p>And connect to it with <code>cider-connect</code>.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If <a href="https://docs.cider.mx/cider-nrepl/">cider-nrepl</a> isn&#8217;t in your
+classpath you should make sure it&#8217;s there. You can do this by adding
+it to <code>:dependencies</code> in the <code>shadow-cljs.edn</code> configuration file
+residing in the root of your project. Alternatively you can set
+<code>cider-repl-auto-detect-type</code> to <code>nil</code>, as the auto-detection of
+REPL types doesn&#8217;t work without <code>cider-nrepl</code>.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>If you already have a running server watching a build (for instance
 you have already run <code>npx shadow-cljs watch :dev</code>), you can use the
@@ -573,7 +589,7 @@ docsearch({
   apiKey: '1f3d78fd63fcb687dcc1312aab02a2de',
   indexName: 'cider',
   inputSelector: '#search-input',
-  algoliaOptions: { 'facetFilters': ["version:0.25"] },
+  algoliaOptions: { 'facetFilters': ["version:0.26"] },
   debug: false // Set debug to true if you want to inspect the dropdown
 });
 </script>
