@@ -7,13 +7,14 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/usage/managing_connections.html">
     <link rel="prev" href="working_with_documentation.html">
     <link rel="next" href="misc_features.html">
-    <meta name="generator" content="Antora 2.3.3">
+    <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+    <script>var uiRootPath = '../../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -306,7 +307,7 @@
   </div>
   <ul class="components">
     <li class="component is-current">
-      <span class="title">CIDER</span>
+      <a class="title" href="../index.html">CIDER</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">master</a>
@@ -323,7 +324,7 @@
       </ul>
     </li>
     <li class="component">
-      <span class="title">CIDER nREPL</span>
+      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
           <a href="../../cider-nrepl/index.html">master</a>
@@ -375,16 +376,17 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Because nREPL connections map one-to-one to REPL buffers, for the purpose of this
-section we use "REPL" and "connection" interchangeably.
+Because nREPL connections map one-to-one to REPL buffers in
+CIDER, for the purpose of this section we use "REPL" and "connection"
+interchangeably.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Life&#8217;s easy when you&#8217;re working only on a single project with a single Clojure connection. If you&#8217;re lucky
+<p>Life&#8217;s easy when you&#8217;re always working only on a single project with a single Clojure connection. If you&#8217;re lucky
 enough to be one of those people then you can safely skip reading this section. Its target audience are
-people who have to work simultaneously on multiple projects or have multiple connections opened for the same project.</p>
+people who have to work simultaneously on multiple projects or have multiple connections opened for the same project (e.g. a Clojure and a ClojureScript one).</p>
 </div>
 <div class="paragraph">
 <p>It turns out that it&#8217;s really hard to map reliably operations originating in source buffers (e.g. code evaluation) to the right
@@ -465,22 +467,22 @@ ever need this).</p>
 <div class="ulist">
 <ul>
 <li>
-<p><kbd>C-c C-x j j</kbd> <code>cider-jack-in-clj</code></p>
+<p><kbd>C-c C-x j j</kbd> (<code>cider-jack-in-clj</code>)</p>
 </li>
 <li>
-<p><kbd>C-c C-x j s</kbd> <code>cider-jack-in-cljs</code></p>
+<p><kbd>C-c C-x j s</kbd> (<code>cider-jack-in-cljs</code>)</p>
 </li>
 <li>
-<p><kbd>C-c C-x j m</kbd> <code>cider-jack-in-clj&amp;cljs</code></p>
+<p><kbd>C-c C-x j m</kbd> (<code>cider-jack-in-clj&amp;cljs</code>)</p>
 </li>
 <li>
-<p><kbd>C-c C-x c j</kbd> <code>cider-connect-clj</code></p>
+<p><kbd>C-c C-x c j</kbd> (<code>cider-connect-clj</code>)</p>
 </li>
 <li>
-<p><kbd>C-c C-x c s</kbd> <code>cider-connect-cljs</code></p>
+<p><kbd>C-c C-x c s</kbd> (<code>cider-connect-cljs</code>)</p>
 </li>
 <li>
-<p><kbd>C-c C-x c m</kbd> <code>cider-connect-clj&amp;cljs</code></p>
+<p><kbd>C-c C-x c m</kbd> (<code>cider-connect-clj&amp;cljs</code>)</p>
 </li>
 </ul>
 </div>
@@ -490,26 +492,26 @@ ever need this).</p>
 <div class="ulist">
 <ul>
 <li>
-<p><kbd>C-c C-x s j</kbd> <code>cider-connect-sibling-clj</code></p>
+<p><kbd>C-c C-x s j</kbd> (<code>cider-connect-sibling-clj</code>)</p>
 </li>
 <li>
-<p><kbd>C-c C-x s s</kbd> <code>cider-connect-sibling-cljs</code></p>
+<p><kbd>C-c C-x s s</kbd> (<code>cider-connect-sibling-cljs</code>)</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Session life-cycle management commands live on the <a href="https://github.com/vspinu/sesman">Sesman</a> map (<kbd>C-c C-s</kbd>)</p>
+<p>Session life-cycle management commands live on the <a href="https://github.com/vspinu/sesman">Sesman</a> keymap (<kbd>C-c C-s</kbd>)</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><kbd>C-c C-s s</kbd> <code>sesman-start</code></p>
+<p><kbd>C-c C-s s</kbd> (<code>sesman-start</code>)</p>
 </li>
 <li>
-<p><kbd>C-c C-s r</kbd> <code>sesman-restart</code></p>
+<p><kbd>C-c C-s r</kbd> (<code>sesman-restart</code>)</p>
 </li>
 <li>
-<p><kbd>C-c C-s q</kbd> <code>sesman-quit</code></p>
+<p><kbd>C-c C-s q</kbd> (<code>sesman-quit</code>)</p>
 </li>
 </ul>
 </div>
@@ -519,15 +521,15 @@ ever need this).</p>
 <code>cider</code> or <kbd>C-c M-x</kbd>.</p>
 </div>
 <div class="paragraph">
-<p>To quit or restart individual connections use cider commands</p>
+<p>To quit or restart individual connections use CIDER commands</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><kbd>C-c C-q</kbd> <code>cider-quit</code></p>
+<p><kbd>C-c C-q</kbd> (<code>cider-quit</code>)</p>
 </li>
 <li>
-<p><kbd>C-c M-r</kbd> <code>cider-restart</code></p>
+<p><kbd>C-c M-r</kbd> (<code>cider-restart</code>)</p>
 </li>
 </ul>
 </div>
@@ -594,16 +596,16 @@ Clojure(Script) buffer.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><kbd>C-c C-s b</kbd> <code>sesman-link-with-buffer</code></p>
+<p><kbd>C-c C-s b</kbd> (<code>sesman-link-with-buffer</code>)</p>
 </li>
 <li>
-<p><kbd>C-c C-s d</kbd> <code>sesman-link-with-directory</code></p>
+<p><kbd>C-c C-s d</kbd> (<code>sesman-link-with-directory</code>)</p>
 </li>
 <li>
-<p><kbd>C-c C-s p</kbd> <code>sesman-link-with-project</code></p>
+<p><kbd>C-c C-s p</kbd> (<code>sesman-link-with-project</code>)</p>
 </li>
 <li>
-<p><kbd>C-c C-s u</kbd> <code>sesman-unlink</code></p>
+<p><kbd>C-c C-s u</kbd> (<code>sesman-unlink</code>)</p>
 </li>
 </ul>
 </div>

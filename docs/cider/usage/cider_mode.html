@@ -7,13 +7,14 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/usage/cider_mode.html">
     <link rel="prev" href="interactive_programming.html">
     <link rel="next" href="code_evaluation.html">
-    <meta name="generator" content="Antora 2.3.3">
+    <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+    <script>var uiRootPath = '../../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -306,7 +307,7 @@
   </div>
   <ul class="components">
     <li class="component is-current">
-      <span class="title">CIDER</span>
+      <a class="title" href="../index.html">CIDER</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">master</a>
@@ -323,7 +324,7 @@
       </ul>
     </li>
     <li class="component">
-      <span class="title">CIDER nREPL</span>
+      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
           <a href="../../cider-nrepl/index.html">master</a>
@@ -618,25 +619,25 @@ and <code>cider-apropos-documentation</code> (<kbd>C-c C-d f</kbd> or <kbd>C-c C
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-doc</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d d</kbd><br>
 <kbd>C-c C-d C-d</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Display doc string for the symbol at point.  If invoked with a prefix argument, or no symbol is found at point, prompt for a symbol.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display doc string for the symbol at point.  If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-javadoc</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d j</kbd><br>
 <kbd>C-c C-d C-j</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Display JavaDoc (in your default browser) for the symbol at point.  If invoked with a prefix argument, or no symbol is found at point, prompt for a symbol.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display JavaDoc (in your default browser) for the symbol at point.  If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-clojuredocs</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d c</kbd><br>
 <kbd>C-c C-d C-c</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lookup symbol in ClojureDocs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lookup symbol in ClojureDocs. If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-clojuredocs-web</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d w</kbd><br>
 <kbd>C-c C-d C-w</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Open the ClojureDocs documentation for symbol in a web browser.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open the ClojureDocs documentation for symbol in a web browser. If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-apropos</code></p></td>
@@ -664,7 +665,7 @@ and <code>cider-apropos-documentation</code> (<kbd>C-c C-d f</kbd> or <kbd>C-c C
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-toggle-trace-var</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-t v</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Toggle var tracing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Toggle var tracing. If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-toggle-trace-ns</code></p></td>
@@ -674,7 +675,7 @@ and <code>cider-apropos-documentation</code> (<kbd>C-c C-d f</kbd> or <kbd>C-c C
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-undef</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-u</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Undefine a symbol. If invoked with a prefix argument, or no symbol is found at point, prompt for a symbol.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undefine a symbol. If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-run-test</code></p></td>
@@ -721,7 +722,7 @@ and <code>cider-apropos-documentation</code> (<kbd>C-c C-d f</kbd> or <kbd>C-c C
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-find-var</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>M-.</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Jump to the definition of a symbol.  If invoked with a prefix argument, or no symbol is found at point, prompt for a symbol.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jump to the definition of a symbol.  If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-find-dwim-at-mouse</code></p></td>

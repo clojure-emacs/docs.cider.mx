@@ -7,13 +7,14 @@
     <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/usage.html">
     <link rel="prev" href="index.html">
     <link rel="next" href="internals.html">
-    <meta name="generator" content="Antora 2.3.3">
+    <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
 <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+    <script>var uiRootPath = '../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -126,7 +127,7 @@
   </div>
   <ul class="components">
     <li class="component">
-      <span class="title">CIDER</span>
+      <a class="title" href="../cider/index.html">CIDER</a>
       <ul class="versions">
         <li class="version is-latest">
           <a href="../cider/index.html">master</a>
@@ -143,7 +144,7 @@
       </ul>
     </li>
     <li class="component is-current">
-      <span class="title">CIDER nREPL</span>
+      <a class="title" href="index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="index.html">master</a>
@@ -206,7 +207,7 @@ Boot users will need to have version 2.8.2 or newer installed.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.25.3"]]</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.25.5"]]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -214,7 +215,7 @@ Boot users will need to have version 2.8.2 or newer installed.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:user {:plugins [[cider/cider-nrepl "0.25.3"]]}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:user {:plugins [[cider/cider-nrepl "0.25.5"]]}}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -224,7 +225,7 @@ under <code>:repl-options</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:dependencies [[cider/cider-nrepl "0.25.3"]]
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:dependencies [[cider/cider-nrepl "0.25.5"]]
 :repl-options {:nrepl-middleware
                  [cider.nrepl/wrap-apropos
                   cider.nrepl/wrap-classpath
@@ -259,7 +260,7 @@ functionality):</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>boot -d nrepl:0.7.0 -d cider/cider-nrepl:0.25.3 -i "(require 'cider.tasks)" cider.tasks/add-middleware -m cider.nrepl.middleware.apropos/wrap-apropos -m cider.nrepl.middleware.version/wrap-version repl --server wait</pre>
+<pre>boot -d nrepl:0.7.0 -d cider/cider-nrepl:0.25.5 -i "(require 'cider.tasks)" cider.tasks/add-middleware -m cider.nrepl.middleware.apropos/wrap-apropos -m cider.nrepl.middleware.version/wrap-version repl --server wait</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -268,7 +269,7 @@ functionality):</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(set-env! :dependencies '[[nrepl "0.7.0"]
-                          [cider/cider-nrepl "0.25.3"]])
+                          [cider/cider-nrepl "0.25.5"]])
 
 (require '[cider.tasks :refer [add-middleware]])
 
@@ -309,7 +310,7 @@ with the following "magic" incantation:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.25.3"} }}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</pre>
+<pre>clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.25.5"} }}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -320,13 +321,13 @@ with the following "magic" incantation:</p>
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{...
  :aliases
  {:cider-clj {:extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}
-                           cider/cider-nrepl {:mvn/version "0.25.3"}}
+                           cider/cider-nrepl {:mvn/version "0.25.5"}}
               :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :cider-cljs {:extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}
                             org.clojure/clojurescript {:mvn/version "1.10.339"}
-                            cider/cider-nrepl {:mvn/version "0.25.3"}
-                            cider/piggieback {:mvn/version "0.4.1"}}
+                            cider/cider-nrepl {:mvn/version "0.25.5"}
+                            cider/piggieback {:mvn/version "0.5.2"}}
                :main-opts ["-m" "nrepl.cmdline" "--middleware"
                            "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}}}</code></pre>
 </div>
@@ -351,18 +352,64 @@ server with CIDER&#8217;s own nREPL handler.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(ns my-app
-  (:require [nrepl.server :as nrepl-server]))
-
-(defn nrepl-handler []
-  (require 'cider.nrepl)
-  (ns-resolve 'cider.nrepl 'cider-nrepl-handler))
+  (:require [nrepl.server :as nrepl-server]
+            [cider.nrepl :refer (cider-nrepl-handler)]))
 
 (defn -main []
-  (nrepl-server/start-server :port 7888 :handler (nrepl-handler)))</code></pre>
+  (nrepl-server/start-server :port 7888 :handler cider-nrepl-handler))</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>(See <a href="https://github.com/clojure-emacs/cider-nrepl/issues/447">issue #447</a> for why the manual namespace resolution of <code>cider-nrepl-handler</code> is currently necessary.)</p>
+<p>There&#8217;s nothing magical about the <code>cider-nrepl-handler</code> - all it does is
+to add all middleware defined in <code>cider-nrepl</code> to nREPL&#8217;s default handler.
+That&#8217;s how CIDER&#8217;s nREPL handler is created:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(def cider-middleware
+  '[cider.nrepl/wrap-apropos
+    cider.nrepl/wrap-classpath
+    cider.nrepl/wrap-clojuredocs
+    cider.nrepl/wrap-complete
+    cider.nrepl/wrap-content-type
+    cider.nrepl/wrap-debug
+    cider.nrepl/wrap-enlighten
+    cider.nrepl/wrap-format
+    cider.nrepl/wrap-info
+    cider.nrepl/wrap-inspect
+    cider.nrepl/wrap-macroexpand
+    cider.nrepl/wrap-ns
+    cider.nrepl/wrap-out
+    cider.nrepl/wrap-slurp
+    cider.nrepl/wrap-profile
+    cider.nrepl/wrap-refresh
+    cider.nrepl/wrap-resource
+    cider.nrepl/wrap-spec
+    cider.nrepl/wrap-stacktrace
+    cider.nrepl/wrap-test
+    cider.nrepl/wrap-trace
+    cider.nrepl/wrap-tracker
+    cider.nrepl/wrap-undef
+    cider.nrepl/wrap-version
+    cider.nrepl/wrap-xref])
+
+(def cider-nrepl-handler
+  "CIDER's nREPL handler."
+  (apply nrepl-server/default-handler (map resolve-or-fail cider-middleware)))</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can build your own custom nREPL handler with the middleware you need by
+adjusting the code above.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
