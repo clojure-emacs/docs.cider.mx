@@ -313,6 +313,9 @@
           <a href="../index.html">master</a>
         </li>
         <li class="version">
+          <a href="../1.0/index.html">1.0</a>
+        </li>
+        <li class="version">
           <a href="../0.26/index.html">0.26</a>
         </li>
         <li class="version">
@@ -345,7 +348,7 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="../0.26/index.html" class="home-link"></a>
+  <a href="../1.0/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
@@ -357,6 +360,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
     <a class="version is-current" href="misc_features.html">master</a>
+    <a class="version" href="../1.0/usage/misc_features.html">1.0</a>
     <a class="version" href="../0.26/usage/misc_features.html">0.26</a>
     <a class="version" href="../0.25/usage/misc_features.html">0.25</a>
     <a class="version" href="../0.24/usage/misc_features.html">0.24</a>
@@ -365,6 +369,9 @@
   <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/usage/misc_features.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
 <article class="doc">
 <h1 class="page">Miscellaneous Features</h1>
 <div id="preamble">
@@ -463,8 +470,8 @@ introduced in CIDER 0.22.
 </div>
 <div class="paragraph">
 <p>The functionality is not perfect, but at least it&#8217;s there if you need it. As a bonus you get a quick way to navigate to
-all of the functions used by some function using <code>cider-xref-fn-deps</code> (<code>C-c C-? d</code>) and <code>cider-xref-fn-deps-select</code> (<code>C-c C-? C-d</code>).
-Those are pretty handy if you don&#8217;t want to jump to the source of some function to see what it refers to internally.</p>
+all of the functions used by some function using <code>cider-xref-fn-deps</code> (<kbd>C-c C-? d</kbd>) and <code>cider-xref-fn-deps-select</code> (<kbd>C-c C-? C-d</kbd>).
+Those are pretty handy if you don&#8217;t want to jump to the source of some function to see what functions it refers to (uses) internally.</p>
 </div>
 <div class="paragraph">
 <p>Don&#8217;t forget you also have a couple of third-party alternative:</p>
@@ -475,7 +482,7 @@ Those are pretty handy if you don&#8217;t want to jump to the source of some fun
 <p>The much more sophisticated AST-powered "find usages" provided by <code>clj-refactor.el</code></p>
 </li>
 <li>
-<p><a href="https://github.com/bbatsov/projectile">Projectile&#8217;s</a> "grep in project" (<code>projectile-grep</code>, typically bound to <code>C-c p g</code>)</p>
+<p><a href="https://github.com/bbatsov/projectile">Projectile&#8217;s</a> "grep in project" (<code>projectile-grep</code>, typically bound to <kbd>C-c p g</kbd>)</p>
 </li>
 </ul>
 </div>
@@ -853,9 +860,6 @@ meets the spec.</p>
   <span class="next"><a href="../repl/basic_usage.html">Basic Usage</a></span>
 </nav>
 </article>
-<aside class="toc sidebar" data-title="Contents" data-levels="2">
-  <div class="toc-menu"></div>
-</aside>
   </div>
 </main>
 </div>
