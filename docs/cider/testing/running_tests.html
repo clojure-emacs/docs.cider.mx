@@ -440,8 +440,20 @@ you&#8217;re expecting.</p>
 <div class="paragraph">
 <p>If you invoke either of these commands with a prefix, CIDER will
 prompt for test selector filters and only run those tests that match
-the selector inclusions/exclusions.</p>
+the selector inclusions/exclusions. If you have selectors you want
+automatically applied, you can set the variables
+<code>cider-test-default-include-selectors</code> and <code>cider-test-default-exclude-selectors</code>
+to a list of stings to use. The following is an example of setting the default exclude
+selectors so that tests tagged as "integration" or "flakey" don&#8217;t run.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-test-default-exclude-selectors '("integration" "flakey"))</code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Test Selectors</div>
 <div class="paragraph">
 <p>Test developers use selectors to define subsets of the total test
 suite that are run together for different testing tasks. For example
@@ -457,6 +469,8 @@ more information by executing:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ lein help test</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
