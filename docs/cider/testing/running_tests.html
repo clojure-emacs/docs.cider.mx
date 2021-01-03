@@ -438,18 +438,9 @@ you&#8217;re expecting.</p>
 <kbd>C-c C-t C-l</kbd>.</p>
 </div>
 <div class="paragraph">
-<p>If you invoke either of these commands with a prefix, CIDER will
-prompt for test selector filters and only run those tests that match
-the selector inclusions/exclusions. If you have selectors you want
-automatically applied, you can set the variables
-<code>cider-test-default-include-selectors</code> and <code>cider-test-default-exclude-selectors</code>
-to a list of stings to use. The following is an example of setting the default exclude
-selectors so that tests tagged as "integration" or "flakey" don&#8217;t run.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-test-default-exclude-selectors '("integration" "flakey"))</code></pre>
-</div>
+<p>If you invoke either of these commands with a prefix (e.g. <kbd>C-u
+C-c C-t l</kbd>), CIDER will prompt for test selector filters and only run
+those tests that match the selector inclusions/exclusions.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -555,6 +546,33 @@ This uses the convention of prepending 'test-' to the namespace name."
 
 (setq cider-test-infer-test-ns #'cider-custom-test-ns-fn)</code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="default-test-selectors"><a class="anchor" href="#default-test-selectors"></a>Default Test Selectors</h3>
+<div class="paragraph">
+<p>If you have selectors you want
+automatically applied, you can set the variables
+<code>cider-test-default-include-selectors</code> and <code>cider-test-default-exclude-selectors</code>
+to a list of stings to use. The following is an example of setting the default exclude
+selectors so that tests tagged as "integration" or "flakey" don&#8217;t run.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-test-default-exclude-selectors '("integration" "flakey"))</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You&#8217;ll generally want to place default selectors in <a href="../config/project_config.html" class="page">your project configuration</a>, as opposed to your global configuration.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
