@@ -548,6 +548,61 @@ WIP
 </div>
 </div>
 <div class="sect1">
+<h2 id="synchronous-vs-asynchronous-evaluation"><a class="anchor" href="#synchronous-vs-asynchronous-evaluation"></a>Synchronous vs Asynchronous Evaluation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>nREPL has an asynchronous evaluation model, where eval requests
+are enqueued and the responses are sent back to the clients when available.
+This model works great most of the time as doesn&#8217;t require clients
+to block while waiting for responses, but it also requires the clients
+to able to handle comfortably response callbacks.</p>
+</div>
+<div class="paragraph">
+<p>Unfortunately, some of Emacs&#8217;s internal APIs don&#8217;t play well with asynchronous
+evaluation (e.g. completion, eldoc, etc) and in those cases CIDER simulates
+synchronous evaluation instead. It&#8217;s important to understand several things:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CIDER&#8217;s sync eval commands should be used sparingly</p>
+</li>
+<li>
+<p>The most common use case for the sync eval API is evaluating some simple and fast to run tooling-related code</p>
+</li>
+<li>
+<p>Sync eval may result in client lock-ups, as Emacs is (mostly) single-threaded by design</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>CIDER tries to mitigate the latter by imposing a 10 second eval request timeout
+for sync eval. You can adjust this default if needed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; increase the sync request timeout to 1 minute
+(setq nrepl-sync-request-timeout 60)
+
+;; disable sync request timeout
+(setq nrepl-sync-request-timeout nil)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+CIDER internally increases the timeout to 30 seconds for the first sync eval request it does, as it might require a lot of namespaces and take more time to complete. See <code>cider&#8212;&#8203;prep-interactive-eval</code> for details.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h2>
 <div class="sectionbody">
 <div class="sect2">
