@@ -611,21 +611,48 @@ for all <code>cider-jack-in-*</code> commands.
 </div>
 <div class="paragraph">
 <p>You can further customize the command line CIDER uses for <code>cider-jack-in</code> by
-modifying the following string options:</p>
+modifying the some options. Those differ a bit between the various tools,
+so we&#8217;ll examine them tool by tool.</p>
 </div>
+<div class="sect3">
+<h4 id="leiningen-options"><a class="anchor" href="#leiningen-options"></a>Leiningen Options</h4>
 <div class="ulist">
 <ul>
 <li>
-<p><code>cider-lein-global-options</code>, <code>cider-boot-global-options</code>,
-<code>cider-clojure-cli-global-options</code>, <code>cider-gradle-global-options</code>:
-these are passed to the command directly, in first position
-(e.g., <code>-o</code> to <code>lein</code> enables offline mode).</p>
+<p><code>cider-lein-command</code> - the name of the Leiningen executable (<code>lein</code> by default)</p>
 </li>
 <li>
-<p><code>cider-lein-parameters</code>, <code>cider-boot-parameters</code>,
-<code>cider-clojure-cli-parameters</code>, <code>cider-gradle-parameters</code>: these are
-usually task names and their parameters (e.g., <code>dev</code> for launching
-boot&#8217;s dev task instead of the standard <code>repl -s wait</code>).</p>
+<p><code>cider-lein-parameters</code> - the command-line params to start a REPL (e.g. <code>repl :headless</code>)</p>
+</li>
+<li>
+<p><code>cider-lein-global-options</code> - these are passed to the command directly, in
+first position (e.g., <code>-o</code> to <code>lein</code> enables offline mode).</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Originally CIDER supported jacking in only for Leiningen, so its configuration
+options became the archetype for everything else.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clojure-cli-options"><a class="anchor" href="#clojure-cli-options"></a>Clojure CLI Options</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-clojure-cli-command</code> - the name of the <code>clojure</code> executable (<code>clojure</code> by default)</p>
+</li>
+<li>
+<p><code>cider-clojure-cli-aliases</code> - a list of aliases to be used at jack-in time</p>
 </li>
 </ul>
 </div>
@@ -635,6 +662,70 @@ boot&#8217;s dev task instead of the standard <code>repl -s wait</code>).</p>
 if you are on Windows and no <code>clojure</code> executable is found. Using
 <code>"powershell"</code> will Base64 encode the clojure launch command before
 passing it to PowerShell and avoids shell-escaping issues.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Alternatively you can use WSL (e.g. to run nREPL and Emacs there), which
+will likely result in a better overall development experience.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="boot-options"><a class="anchor" href="#boot-options"></a>Boot Options</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-boot-command</code> - the name of the Boot executable (<code>boot</code> by default)</p>
+</li>
+<li>
+<p><code>cider-boot-parameters</code> - these are usually task names and their parameters
+(e.g., <code>dev</code> for launching boot&#8217;s dev task instead of the standard <code>repl -s
+wait</code>)</p>
+</li>
+<li>
+<p><code>cider-boot-global-options</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="gradle-options"><a class="anchor" href="#gradle-options"></a>Gradle Options</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-gradle-command</code> - the name of the Gradle executable (<code>gradle</code> by default)</p>
+</li>
+<li>
+<p><code>cider-gradle-parameters</code></p>
+</li>
+<li>
+<p><code>cider-gradle-global-options</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="shadow-cljs"><a class="anchor" href="#shadow-cljs"></a>shadow-cljs</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-shadow-cljs-command</code> - the command to run <code>shadow-cljs</code> (<code>npx shadow-cljs</code> by default). By default we favor the project-specific shadow-cljs over the system-wide.</p>
+</li>
+<li>
+<p><code>cider-shadow-cljs-parameters</code> - the task to start a REPL server (<code>server</code> by default)</p>
+</li>
+<li>
+<p><code>cider-shadow-cljs-global-options</code></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>

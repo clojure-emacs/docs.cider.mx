@@ -663,7 +663,7 @@ translation mappings easily by setting the following (typically in <code>.dir-lo
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">((nil
-  (cider-path-translations . (("/root" . "/Users/foo")
+  (cider-path-translations . (("/root/.m2" . "/Users/foo/.m2")
                               ("/src/" . "/Users/foo/projects")))))</code></pre>
 </div>
 </div>
@@ -674,6 +674,23 @@ if they exist, navigate there rather than report that the file does not
 exist. In the example above, the <code>.m2</code> directory is mounted at <code>/root/.m2</code>
 and the source at <code>/src</code>. These translations would map these locations
 back to the user&#8217;s computer so that navigation to definition would work.</p>
+</div>
+<div class="paragraph">
+<p>Using the <code>eval</code> pseudo-variable you can make the translation dynamic, enabling
+the possibility of sharing the <code>.dir-locals.el</code> across a team of developers with
+different configurations.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">((nil . ((eval . (customize-set-variable 'cider-path-translations
+                                         (list
+                                           (cons "/src" (clojure-project-dir))
+                                           (cons "/root/.m2" (concat (getenv "HOME") "/.m2"))))))))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the path <code>/src</code> will be translated to the correct path of your
+Clojure project on the host machine. And <code>/root/.m2</code> to the host&#8217;s <code>~/.m2</code> folder.</p>
 </div>
 </div>
 </div>

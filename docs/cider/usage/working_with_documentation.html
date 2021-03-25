@@ -401,6 +401,20 @@ by the symbol (special form, var, Java method, etc).</p>
 <p>CIDER provides a quick access to the online Javadoc documentation
 via the command <code>cider-javadoc</code>.</p>
 </div>
+<div class="paragraph">
+<p>By default this will work only for Java code that&#8217;s part of Clojure
+or the JDK. You can add additional remote JavaDoc URLs manually like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(javadoc/add-remote-javadoc "com.amazonaws." "http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/")
+(javadoc/add-remote-javadoc "org.apache.kafka." "https://kafka.apache.org/090/javadoc/")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Down the road we might simplify the process by adding the ability to
+specify such mappings via CIDER&#8217;s configuration.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
