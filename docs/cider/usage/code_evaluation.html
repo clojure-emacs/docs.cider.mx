@@ -475,6 +475,12 @@ them yourselves. That behavior is controlled via the variable
 you&#8217;d see the results in both the Emacs minibuffer and in an inline overlay in
 the source buffer.</p>
 </div>
+<div class="paragraph">
+<p>In case the result of the evaluation is big (e.g. a map with dozens of keys) it might be best
+to display it in a dedicated buffer. You can do this with
+<code>cider-pprint-eval-last-sexp</code> (<kbd>C-c C-p</kbd>). As a bonus -
+the result will be pretty-printed in the result buffer.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -505,7 +511,7 @@ categories:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>commands that pretty-print the result (e.g. <code>cider-pprint-eval-last-sexp</code>)</p>
+<p>commands that are a variation of some basic commands (e.g. <code>cider-eval-list-at-point</code> and <code>cider-eval-sexp-at-point</code>)</p>
 </li>
 <li>
 <p>commands that insert the result in the current buffer (e.g. <code>cider-eval-last-sexp-and-replace</code>)</p>
@@ -514,7 +520,7 @@ categories:</p>
 <p>commands that evaluate an expression in a different context (e.g. with user-supplied bindings)</p>
 </li>
 <li>
-<p>commands that are a variation of some basic commands (e.g. <code>cider-eval-list-at-point</code> and <code>cider-eval-sexp-at-point</code>)</p>
+<p>commands that evaluate some particular part of a buffer (e.g. <code>cider-eval-ns-form</code>)</p>
 </li>
 </ul>
 </div>
@@ -712,6 +718,37 @@ prefix). By default the prefix is `&#8658; `.</p>
 </div>
 <div class="paragraph">
 <p>To remove the prefix altogether, just set it to the empty string (<code>""</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="change-the-output-destination"><a class="anchor" href="#change-the-output-destination"></a>Change the Output Destination</h3>
+<div class="paragraph">
+<p>By default CIDER will display the output produced by some evaluation in the REPL buffer, but you can also funnel the output to a dedicated buffer. You can configure this behavior via <code>cider-interactive-eval-output-destination</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-interactive-eval-output-destination 'output-buffer)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Additionally, there&#8217;s the variable <code>cider-redirect-server-output-to-repl</code> that captures output that would normally end up in the <code><strong>nrepl-server</strong></code> buffer (provided it has been started via <code>cider-jack-in</code>) and redirects it to the REPL buffer. You can disable this redirection like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-redirect-server-output-to-repl nil)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The redirection functionality is implemented in <code>cider-nrepl</code> as nREPL middleware. If you&#8217;re using CIDER without <code>cider-nrepl</code> no output redirection is going to take place.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
