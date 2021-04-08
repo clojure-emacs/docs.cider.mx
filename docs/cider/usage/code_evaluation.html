@@ -481,6 +481,24 @@ to display it in a dedicated buffer. You can do this with
 <code>cider-pprint-eval-last-sexp</code> (<kbd>C-c C-p</kbd>). As a bonus -
 the result will be pretty-printed in the result buffer.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Why aren&#8217;t results always pretty-printed?</div>
+<div class="paragraph">
+<p>Many people might be wondering why doesn&#8217;t CIDER pretty-print all of the results
+all of the time. After all - pretty-printed results are always easier to read, right?</p>
+</div>
+<div class="paragraph">
+<p>The reason for not doing this is pretty simple - multi-line results don&#8217;t look
+very good in the minibuffer and overlays.  That&#8217;s why there&#8217;s little point in
+pretty-printing results there.</p>
+</div>
+<div class="paragraph">
+<p>As most of the time you&#8217;ll know in advance what kind of result to expect, we feel it&#8217;s
+best to leave it to you to decide which evaluation command to use depending on the situation.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
