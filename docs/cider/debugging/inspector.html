@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/debugging/inspector.html">
     <link rel="prev" href="enlighten.html">
     <link rel="next" href="macroexpansion.html">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 2.0.1">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
@@ -458,6 +458,14 @@ session, see <a href="debugger.html" class="page">here</a> for more details.
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set a new page size in paginated view</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set a new maximum size above which nested collections are truncated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>a</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set a new maximum length above which nested atoms (non-collections) are truncated</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>d</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Defines a var in the REPL namespace with current inspector value</p></td>
 </tr>
@@ -477,6 +485,16 @@ behavior using the variable <code>cider-inspector-skip-uninteresting</code>.</p>
 <p>The inspector buffer is automatically selected by default. You
 can disable the auto selection with the variable
 <code>cider-inspector-auto-select-buffer</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can set the amount of data shown by default with the variables
+<code>cider-inspector-page-size</code>, <code>cider-inspector-max-coll-size</code>, and
+<code>cider-inspector-max-atom-length</code>. The values can be adjusted for the current
+inspector buffer using the <code>s</code>, <code>c</code>, and <code>a</code> keybindings.</p>
+</div>
+<div class="paragraph">
+<p>If you enable <code>cider-inspector-fill-frame</code>, the inspector window fills its
+frame.</p>
 </div>
 </div>
 </div>
