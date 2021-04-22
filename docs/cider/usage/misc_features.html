@@ -313,6 +313,9 @@
           <a href="../index.html">master</a>
         </li>
         <li class="version">
+          <a href="../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
           <a href="../1.0/index.html">1.0</a>
         </li>
         <li class="version">
@@ -333,6 +336,9 @@
           <a href="../../cider-nrepl/index.html">master</a>
         </li>
         <li class="version">
+          <a href="../../cider-nrepl/0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
           <a href="../../cider-nrepl/0.25/index.html">0.25</a>
         </li>
         <li class="version">
@@ -348,7 +354,7 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="../1.0/index.html" class="home-link"></a>
+  <a href="../1.1/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
@@ -360,6 +366,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
     <a class="version is-current" href="misc_features.html">master</a>
+    <a class="version" href="../1.1/usage/misc_features.html">1.1</a>
     <a class="version" href="../1.0/usage/misc_features.html">1.0</a>
     <a class="version" href="../0.26/usage/misc_features.html">0.26</a>
     <a class="version" href="../0.25/usage/misc_features.html">0.25</a>
@@ -852,6 +859,98 @@ meets the spec.</p>
 <div class="content">
 <img src="../_images/spec_browser_gen_example.png" alt="Spec Browser Example">
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="formatting-code-with-cljfmt"><a class="anchor" href="#formatting-code-with-cljfmt"></a>Formatting Code with cljfmt</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While CIDER has it&#8217;s own code formatting (identation) engine, you can also
+use it together with <code>cljfmt</code> - that&#8217;s useful if you&#8217;re working on a team
+that uses different editors and IDEs.</p>
+</div>
+<div class="paragraph">
+<p>CIDER exposes several commands to interacted with <code>cljfmt</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-format-defun</code></p>
+</li>
+<li>
+<p><code>cider-format-region</code></p>
+</li>
+<li>
+<p><code>cider-format-buffer</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Generally it&#8217;s a good idea to add some hook like this one to make sure
+on each save operation your buffers are properly formatted:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'before-save-hook 'cider-format-buffer t t)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that you want to apply <code>cljfmt</code> <strong>prior</strong> to saving the buffer in question.</p>
+</div>
+<div class="paragraph">
+<p>You can supply additional configuration to <code>cljfmt</code> via the configuration variable
+<code>cider-format-code-options</code>. Here&#8217;s an example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; Let's assume you want to pass the following config
+;;
+;;   {:indents {org.me/foo [[:inner 0]]}
+;;    :alias-map {\"me\" \"org.me\"}}
+;;
+;; You'll need to encode it as an Emacs Lisp plist:
+
+(setq cider-format-code-options
+      '(("indents" (("org.me/foo" (("inner" 0)))))
+        ("alias-map" (("me" "org.me")))))</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+CIDER doesn&#8217;t shell out to <code>cljfmt</code> - it interacts with it via nREPL
+(there&#8217;s <code>format</code> middleware in <code>cider-nrepl</code>), which is faster that
+shelling out.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="formatting-edn"><a class="anchor" href="#formatting-edn"></a>Formatting EDN</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Similarly to the <code>cljfmt</code> integration, CIDER also provides a convenient interface
+to format EDN using <code>clojure.tools.reader.edn</code>. The following commands are provided:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-format-edn-defun</code></p>
+</li>
+<li>
+<p><code>cider-format-edn-region</code></p>
+</li>
+<li>
+<p><code>cider-format-edn-buffer</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>

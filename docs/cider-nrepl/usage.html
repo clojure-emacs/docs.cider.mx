@@ -133,6 +133,9 @@
           <a href="../cider/index.html">master</a>
         </li>
         <li class="version">
+          <a href="../cider/1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
           <a href="../cider/1.0/index.html">1.0</a>
         </li>
         <li class="version">
@@ -153,6 +156,9 @@
           <a href="index.html">master</a>
         </li>
         <li class="version">
+          <a href="0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
           <a href="0.25/index.html">0.25</a>
         </li>
         <li class="version">
@@ -168,7 +174,7 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="../cider/1.0/index.html" class="home-link"></a>
+  <a href="../cider/1.1/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">CIDER nREPL</a></li>
@@ -179,6 +185,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
     <a class="version is-current" href="usage.html">master</a>
+    <a class="version" href="0.26/usage.html">0.26</a>
     <a class="version" href="0.25/usage.html">0.25</a>
     <a class="version" href="0.24/usage.html">0.24</a>
   </div>
@@ -213,7 +220,7 @@ Boot users will need to have version 2.8.2 or newer installed.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.25.11"]]</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.26.0"]]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -221,7 +228,7 @@ Boot users will need to have version 2.8.2 or newer installed.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:user {:plugins [[cider/cider-nrepl "0.25.11"]]}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:user {:plugins [[cider/cider-nrepl "0.26.0"]]}}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -231,7 +238,7 @@ under <code>:repl-options</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:dependencies [[cider/cider-nrepl "0.25.11"]]
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:dependencies [[cider/cider-nrepl "0.26.0"]]
 :repl-options {:nrepl-middleware
                  [cider.nrepl/wrap-apropos
                   cider.nrepl/wrap-classpath
@@ -266,7 +273,7 @@ functionality):</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>boot -d nrepl:0.7.0 -d cider/cider-nrepl:0.25.11 -i "(require 'cider.tasks)" cider.tasks/add-middleware -m cider.nrepl.middleware.apropos/wrap-apropos -m cider.nrepl.middleware.version/wrap-version repl --server wait</pre>
+<pre>boot -d nrepl:0.7.0 -d cider/cider-nrepl:0.26.0 -i "(require 'cider.tasks)" cider.tasks/add-middleware -m cider.nrepl.middleware.apropos/wrap-apropos -m cider.nrepl.middleware.version/wrap-version repl --server wait</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -275,7 +282,7 @@ functionality):</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(set-env! :dependencies '[[nrepl "0.7.0"]
-                          [cider/cider-nrepl "0.25.11"]])
+                          [cider/cider-nrepl "0.26.0"]])
 
 (require '[cider.tasks :refer [add-middleware]])
 
@@ -316,7 +323,7 @@ with the following "magic" incantation:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.25.11"} }}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</pre>
+<pre>clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.26.0"} }}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -327,12 +334,12 @@ with the following "magic" incantation:</p>
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{...
  :aliases
  {:cider-clj {:extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}
-                           cider/cider-nrepl {:mvn/version "0.25.11"}}
+                           cider/cider-nrepl {:mvn/version "0.26.0"}}
               :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :cider-cljs {:extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}
                             org.clojure/clojurescript {:mvn/version "1.10.339"}
-                            cider/cider-nrepl {:mvn/version "0.25.11"}
+                            cider/cider-nrepl {:mvn/version "0.26.0"}
                             cider/piggieback {:mvn/version "0.5.2"}}
                :main-opts ["-m" "nrepl.cmdline" "--middleware"
                            "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}}}</code></pre>

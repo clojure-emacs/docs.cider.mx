@@ -133,6 +133,9 @@
           <a href="../../cider/index.html">master</a>
         </li>
         <li class="version">
+          <a href="../../cider/1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
           <a href="../../cider/1.0/index.html">1.0</a>
         </li>
         <li class="version">
@@ -153,6 +156,9 @@
           <a href="../index.html">master</a>
         </li>
         <li class="version">
+          <a href="../0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
           <a href="../0.25/index.html">0.25</a>
         </li>
         <li class="version">
@@ -168,7 +174,7 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="../../cider/1.0/index.html" class="home-link"></a>
+  <a href="../../cider/1.1/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER nREPL</a></li>
@@ -180,6 +186,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">master</button>
   <div class="version-menu">
     <a class="version is-current" href="ops.html">master</a>
+    <a class="version" href="../0.26/nrepl-api/ops.html">0.26</a>
     <a class="version" href="../0.25/nrepl-api/ops.html">0.25</a>
     <a class="version" href="../0.24/nrepl-api/ops.html">0.24</a>
   </div>
@@ -195,7 +202,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="small">generated from a verbose 'describe' response (cider-nrepl v0.25.3)</span></p>
+<p><span class="small">generated from a verbose 'describe' response (cider-nrepl v0.26.0)</span></p>
 </div>
 </div>
 </div>
@@ -348,6 +355,10 @@
 </li>
 </ul>
 </div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
@@ -548,6 +559,9 @@
 <ul>
 <li>
 <p><code>:input</code> The user&#8217;s reply to the input request.</p>
+</li>
+<li>
+<p><code>:key</code> The corresponding input request key.</p>
 </li>
 </ul>
 </div>
@@ -1273,6 +1287,80 @@
 </div>
 </div>
 <div class="sect2">
+<h3 id="inspect-set-max-atom-length"><a class="anchor" href="#inspect-set-max-atom-length"></a><code>inspect-set-max-atom-length</code></h3>
+<div class="paragraph">
+<p>Set the max length of nested atoms to specified value.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:max-atom-length</code> New max length.</p>
+</li>
+<li>
+<p><code>:session</code> The current session</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> "done"</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inspect-set-max-coll-size"><a class="anchor" href="#inspect-set-max-coll-size"></a><code>inspect-set-max-coll-size</code></h3>
+<div class="paragraph">
+<p>Set the number of nested collection members to display before truncating.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:max-coll-size</code> New collection size.</p>
+</li>
+<li>
+<p><code>:session</code> The current session</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> "done"</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
 <h3 id="inspect-set-page-size"><a class="anchor" href="#inspect-set-page-size"></a><code>inspect-set-page-size</code></h3>
 <div class="paragraph">
 <p>Sets the page size in paginated view to specified value.</p>
@@ -1954,16 +2042,7 @@
 </dd>
 <dt class="hdlist1">Optional parameters</dt>
 <dd>
-<div class="ulist">
-<ul>
-<li>
-<p><code>:context</code> Completion context for compliment.</p>
-</li>
-<li>
-<p><code>:prefix</code> Prefix to filter out resources.</p>
-</li>
-</ul>
-</div>
+<p></p>
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
