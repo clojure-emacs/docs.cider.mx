@@ -373,7 +373,7 @@
     <a class="version" href="../../0.24/contributing/hacking.html">0.24</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/blob/v1.1.0-antora/doc/modules/ROOT/pages/contributing/hacking.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/blob/v1.1.1/doc/modules/ROOT/pages/contributing/hacking.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -605,6 +605,47 @@ Success!</code></pre>
 <p>This may take a while to download the CircleCI build agent and the build containers
 the first time you run the tests locally.</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ms-windows-compatibility"><a class="anchor" href="#ms-windows-compatibility"></a>MS-Windows compatibility</h3>
+<div class="paragraph">
+<p>In general, CIDER code should work as well on Windows as it does on
+Unix.</p>
+</div>
+<div class="paragraph">
+<p>There are a few points to be aware of when contributing code or
+writing tests.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Absolute paths. It is a common practice to use dummy absolute paths,
+such as <code>/tmp/a-dir</code> or <code>/docker/src, in tests,</code> as test inputs. These
+are not valid absolute paths on Windows though, since they are missing
+the initial driver letter (e.g.<code>c:/tmp/a-dir</code>), but we can wrap them
+around with <code>expand-file-name</code> to make them so e.g. in tests</p>
+</li>
+</ol>
+</div>
+<hr>
+<div class="paragraph">
+<p>(let a-dir (expand-file-name "/tmp/a-dir"
+      (docker-src (expand-file-name "/docker/src")))
+  ;; &#8230;&#8203;
+  )
+---</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Command-line arguments. When calling external programs, it might be
+necessary to quote some long command line arguments, though quoting
+rules are different on Windows (shells) that they are on Unix.  Use
+<code>shell-quote-argument</code> to achieve the desired compatibility across the
+different architectures.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>

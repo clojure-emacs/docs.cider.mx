@@ -208,13 +208,16 @@ with the assumption that this would make it easier to develop CIDER and would op
 to build complex features like an interactive debugger. Fortunately, the assumption turned out to be correct.
 Today <code>cider-nrepl</code> provides pretty much everything that a Clojure development environment might need (and more).</p>
 </div>
-<div class="paragraph">
-<p>Eventually <code>cider-nrepl</code> served as the inspiration for more similar
-middlewares - e.g. <code>refactor-nrepl</code>, <code>iced-nrepl</code> and <code>sayid</code>.  We quickly
-realized that there was nothing CIDER specific in those middlewares and we&#8217;ve
-started to encourage more tool authors to leverage them. Today <code>cider-nrepl</code> is
+<div class="literalblock">
+<div class="content">
+<pre> We quickly
+realized that there was nothing CIDER specific in those middleware and we've
+started to encourage more tool authors to leverage them. Today `cider-nrepl` is
 developed and released independently from CIDER and is used by most of the
-nREPL-based editors and IDEs out there, which is a great example of team work.</p>
+nREPL-based editors and IDEs out there, which is a great example of team work.
+Eventually `cider-nrepl` served as the inspiration for more similar
+middleware libraries - e.g. `refactor-nrepl`, `iced-nrepl` and `sayid`.</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>More recently we&#8217;ve been working to extract the core functionality out of <code>cider-nrepl</code>
