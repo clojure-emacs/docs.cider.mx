@@ -433,7 +433,8 @@ introduced in Clojure 1.8) down the road.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://github.com/sanel/monroe">monroe</a> is basically a fork of an old CIDER
-version before the time we started relying on nREPL middleware.</p>
+version before the time we started relying on nREPL middleware.  Monroe opted
+for a simpler UX, that&#8217;s very REPL-centric, and uses only built-in nREPL ops (unlike CIDER, which relies on cider-nrepl heavily).</p>
 </div>
 </div>
 </div>
@@ -442,7 +443,7 @@ version before the time we started relying on nREPL middleware.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>There&#8217;s pretty much no relationship, other than the fact they have the same
-author. <a href="https://github.com/clojure-emacs/inf-clojure">inf-clojure</a> provides a
+author (Bozhidar). <a href="https://github.com/clojure-emacs/inf-clojure">inf-clojure</a> provides a
 REPL based on the <code>comint</code> Emacs package - you&#8217;re basically running an external
 REPL process inside of Emacs (there&#8217;s no network connectivity involved).  The
 advantage of this is that you have no external dependencies what-so-ever - you
