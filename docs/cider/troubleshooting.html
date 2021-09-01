@@ -509,7 +509,7 @@ between CIDER and nREPL. CIDER has a simple message log that looks like this:</p
 </div>
 </div>
 <div class="paragraph">
-<p>That&#8217;s CIDER&#8217;s way of representing the request (marked with <code>-&#8594;</code>) and response maps (marked with <code>&#8592;-</code>).</p>
+<p>That&#8217;s CIDER&#8217;s way of representing the request (marked with <code>--&gt;</code>) and response maps (marked with <code>&lt;--</code>).</p>
 </div>
 <div class="paragraph">
 <p>nREPL message logging is not enabled by default. Set <code>nrepl-log-messages</code> to <code>t</code>
@@ -808,6 +808,40 @@ snapshots or most recent stable releases)</p>
 counting from 0 while Clojure starts from 1. Accordingly, the <code>cider-nrepl</code>
 middleware uses 1-based indexing and all conversions to 0-based indexing should
 be handled client-side. See <a href="https://github.com/clojure-emacs/cider/issues/2852" class="bare">https://github.com/clojure-emacs/cider/issues/2852</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="empty-java-stacktraces-resulting-in-nullpointerexception"><a class="anchor" href="#empty-java-stacktraces-resulting-in-nullpointerexception"></a>Empty Java stacktraces resulting in <code>NullPointerException</code></h3>
+<div class="paragraph">
+<p>Occasionally the JVM might remove some stack frames, which will break
+CIDER&#8217;s stacktrace display functionality, resulting in error message like these:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>error in process filter: cider-stacktrace-render-frame: Format specifier doesn’t match argument type
+error in process filter: Format specifier doesn’t match argument type</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That&#8217;s caused by an JVM optimization (<code>OmitStackTraceInFastThrow</code>, enabled by
+default), which optimizes "built-in" exceptions that are thrown frequently enough
+to be cached and have no stacktrace.</p>
+</div>
+<div class="paragraph">
+<p>You can turn off the optimization by adding the JVM flag <code>-XX:-OmitStackTraceInFastThrow</code> to whatever
+command you&#8217;re using to start nREPL.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can read more about this problem <a href="https://github.com/clojure-emacs/cider/issues/3022">here</a>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

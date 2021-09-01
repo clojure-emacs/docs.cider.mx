@@ -954,6 +954,19 @@ to format EDN using <code>clojure.tools.reader.edn</code>. The following command
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="xref-integration"><a class="anchor" href="#xref-integration"></a><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Xref.html">Xref</a> integration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Beginning with version 1.2.0, cider support Emacs built-in xref, which means <code>M-.</code> (xref-find-definitions) will just work as expected. You can disable it with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-user-xref nil)</code></pre>
+</div>
+</div>
+</div>
+</div>
 <nav class="pagination">
   <span class="prev"><a href="managing_connections.html">Managing Connections</a></span>
   <span class="next"><a href="../repl/basic_usage.html">Basic Usage</a></span>

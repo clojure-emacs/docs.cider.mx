@@ -604,6 +604,17 @@ passed or failed:</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="running-a-callback-on-errors"><a class="anchor" href="#running-a-callback-on-errors"></a>Running a callback on errors</h3>
+<div class="paragraph">
+<p>Sometimes, for fine-grained integrations or debugging, you might want
+to run an arbitrary callback whenever the tests fail due to an exception.</p>
+</div>
+<div class="paragraph">
+<p>For this, you can safely redefine <code>cider.nrepl.middleware.test/<strong>test-error-handler</strong></code>
+using vanilla Clojure; please refer to its docstring for more details.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
