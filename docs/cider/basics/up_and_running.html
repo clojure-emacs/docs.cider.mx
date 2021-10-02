@@ -537,10 +537,40 @@ you can easily add more libraries there. Some CIDER extensions would use
 this mechanism to auto-inject their own dependencies.</p>
 </div>
 <div class="paragraph">
-<p>CIDER would also inject the most recent version of nREPL that it supports. This is a simple
-trick to override the version of nREPL bundled with your build tool, so you can gain
+<p>Here&#8217;s how you can modify the injected dependencies for <code>cider-jack-in-clj</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; auto-inject version 1.0 of the library foo/bar
+(cider-add-to-alist 'cider-jack-in-dependencies
+                    "foo/bar" "1.0")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>CIDER will also inject the most recent version of nREPL that it supports. This is a simple
+trick to override the version of nREPL bundled with your build tool (e.g. Leiningen), so you can gain
 access to the newest nREPL features. Generally that&#8217;s one aspect of CIDER&#8217;s inner workings
 that end-users will rarely have to think about.</p>
+</div>
+<div class="paragraph">
+<p>You can override the injected versions of <code>cider-nrepl</code> and nREPL by customizing
+<code>cider-injected-middleware-version</code> and <code>cider-injected-nrepl-version</code>.
+Generally you should avoid doing this, but it may be useful if you want to try
+a newer version or you encounter some regression that forces you to temporarily use
+an older version.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You&#8217;ll have to restart Emacs for such changes to take effect, if you&#8217;ve already loaded CIDER. Alternatively you can update
+manually the underlying dependencies list (e.g. <code>cider-jack-in-dependencies</code>).
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>CIDER can also inject a Clojure dependency into your project, which is useful,
