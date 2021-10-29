@@ -381,6 +381,8 @@
 </aside>
 <article class="doc">
 <h1 class="page">Macroexpansion</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>Typing <kbd>C-c C-m</kbd> after some form in a source buffer or the
 REPL will show you the macro expansion of the form in a new
@@ -419,6 +421,37 @@ expansion buffer (which is internally using
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The option <code>cider-macroexpansion-display-namespaces</code> controls whether to display
+namespaces in the macroexpansion buffer. It can be set to one of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>qualified</code> - Vars are fully-qualified in the expansion.</p>
+</li>
+<li>
+<p><code>none</code>- Vars are displayed without namespace qualification.</p>
+</li>
+<li>
+<p><code>tidy</code>(default) - Vars that are :refer-ed or defined in the current namespace
+are displayed with their simple name, non-referred vars from other namespaces
+are referred using the alias for that namespace (if defined), other vars are
+displayed fully qualified.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The option <code>cider-macroexpansion-print-metadata</code> controls whether to print the var metadata
+in the macroexpansion buffer. It&#8217;s set to <code>nil</code> by default.</p>
+</div>
+</div>
+</div>
 <nav class="pagination">
   <span class="prev"><a href="inspector.html">Inspector</a></span>
   <span class="next"><a href="profiling.html">Profiling</a></span>
