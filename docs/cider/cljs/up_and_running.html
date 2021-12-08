@@ -496,6 +496,16 @@ Node.js.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>CIDER will automatically try to check if the required dependencies (e.g. Clojure libraries and/or additional tools like Node.js) to start a certain
+ClojureScript REPL are present. If you happen to run into a faulty requirements
+check you can disable them like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-check-cljs-repl-requirements nil)</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">

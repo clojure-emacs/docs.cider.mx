@@ -612,6 +612,14 @@ tests are re-run every time you evaluate a file.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>You can use <code>cider-before-eval-hook</code> to trigger some action before eval
+request is sent to nrepl server.</p>
+</div>
+<div class="paragraph">
+<p>You can use <code>cider-after-eval-done-hook</code> to trigger some action after the
+eval response was received from nrepl server with status "done".</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -672,6 +680,43 @@ CIDER internally increases the timeout to 30 seconds for the first sync eval req
 <div class="sect1">
 <h2 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="display-spinner-during-evaluation"><a class="anchor" href="#display-spinner-during-evaluation"></a>Display Spinner During Evaluation</h3>
+<div class="paragraph">
+<p>Some evaluation operations take a while to complete, so CIDER will display a
+visual indicator (a spinner) in the modeline to indicate this. The
+evaluation-in-progress spinner can be controlled by several variables:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-eval-spinner-type</code> (default value <code>'progress-bar) -
+controls the appearance of the spinner. See `spinner-types</code>
+for all possible options.</p>
+</li>
+<li>
+<p><code>cider-eval-spinner-delay</code> controls the time (in seconds) after which to
+show the spinner. The default value is 1 second.</p>
+</li>
+<li>
+<p><code>cider-show-eval-spinner</code> controls whether to show the spinner at all.
+Set this variable to <code>nil</code> to disable it.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+CIDER uses internally the excellent package <a href="https://github.com/Malabarba/spinner.el">spinner.el</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
 <div class="sect2">
 <h3 id="overlays"><a class="anchor" href="#overlays"></a>Overlays</h3>
 <div class="paragraph">

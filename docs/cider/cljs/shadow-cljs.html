@@ -512,6 +512,59 @@ you have already run <code>npx shadow-cljs watch :dev</code>), you can use the
 <code>shadow-select</code> CLJS REPL and specify <code>:dev</code> when prompted.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="using-shadow-cljs-with-deps-edn-and-custom-repl-initialization"><a class="anchor" href="#using-shadow-cljs-with-deps-edn-and-custom-repl-initialization"></a>Using shadow-cljs with deps.edn and custom repl initialization</h3>
+<div class="paragraph">
+<p>In case you want to manage your dependencies via <a href="https://clojure.org/guides/deps_and_cli">deps.edn</a>, you can use a
+custom cljs-repl init form. This supposes you have shadow-cljs in your <code>deps.edn</code> dependencies.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj">{:paths ["src"]
+ :deps {...
+        thheller/shadow-cljs       {:mvn/version "2.15.6"}
+        ...
+        }
+ :aliases {:dev {:extra-paths ["dev"]}}}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create a <code>:dev</code> alias with an extra source path of "dev" and add the following namespace</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj">(ns user
+  (:require [shadow.cljs.devtools.api :as shadow]
+            [shadow.cljs.devtools.server :as server]))
+
+(defn cljs-repl
+  "Connects to a given build-id. Defaults to `:app`."
+  ([]
+   (cljs-repl :app))
+  ([build-id]
+   (server/start!)
+   (shadow/watch build-id)
+   (shadow/nrepl-select build-id)))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Supposing your build-id is <code>:app</code>, add the following to your <code>.dir-locals.el</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">((nil . ((cider-clojure-cli-global-options . "-A:dev")
+         (cider-preferred-build-tool       . clojure-cli)
+         (cider-default-cljs-repl          . custom)
+         (cider-custom-cljs-repl-init-form . "(do (user/cljs-repl))")
+         (eval . (progn
+                   (make-variable-buffer-local 'cider-jack-in-nrepl-middlewares)
+                   (add-to-list 'cider-jack-in-nrepl-middlewares "shadow.cljs.devtools.server.nrepl/middleware"))))))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>cider-jack-in-cljs</code> should then work out of the box.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">

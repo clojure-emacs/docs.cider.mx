@@ -896,6 +896,32 @@ will handle this use-case transparently for you.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="connecting-via-unix-domain-file-socket"><a class="anchor" href="#connecting-via-unix-domain-file-socket"></a>Connecting via unix domain file socket</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When locally running nREPL servers, there is the option to listen on a
+socket file instead of opening a network port. This can have
+advantages in some use cases, e.g. when working with virtual networks
+(containers) where sharing a file socket can be vastly simpler than
+managing bridge networks and firewall setups.</p>
+</div>
+<div class="paragraph">
+<p>After having started an nREPL server on a file socket, e.g. with the
+<code>clj</code> command (see <a href="https://nrepl.org/nrepl/usage/server.html" class="bare">https://nrepl.org/nrepl/usage/server.html</a> for other
+examples),</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -R:nREPL -m nrepl.cmdline --socket nrepl.sock</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>you can then connect CIDER by using the <code>local-unix-domain-socket</code>
+special hostname with <code>cider-connect</code>: <kbd>M-x</kbd> <code>cider-connect</code> <kbd>RET</kbd> <code>local-unix-domain-socket</code> <kbd>RET</kbd> <code>nrepl.sock</code> <kbd>RET</kbd></p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="whats-next"><a class="anchor" href="#whats-next"></a>What&#8217;s Next?</h2>
 <div class="sectionbody">
 <div class="paragraph">

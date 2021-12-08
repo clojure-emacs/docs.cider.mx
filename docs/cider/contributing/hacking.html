@@ -625,19 +625,15 @@ such as <code>/tmp/a-dir</code> or <code>/docker/src, in tests,</code> as test i
 are not valid absolute paths on Windows though, since they are missing
 the initial driver letter (e.g.<code>c:/tmp/a-dir</code>), but we can wrap them
 around with <code>expand-file-name</code> to make them so e.g. in tests</p>
-</li>
-</ol>
-</div>
-<hr>
-<div class="paragraph">
-<p>(let a-dir (expand-file-name "/tmp/a-dir"
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-emacs-lisp hljs" data-lang="emacs-lisp">(let ((a-dir (expand-file-name "/tmp/a-dir"))
       (docker-src (expand-file-name "/docker/src")))
-  ;; &#8230;&#8203;
-  )
----</p>
+  ;; ...
+  )</code></pre>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</div>
+</li>
 <li>
 <p>Command-line arguments. When calling external programs, it might be
 necessary to quote some long command line arguments, though quoting

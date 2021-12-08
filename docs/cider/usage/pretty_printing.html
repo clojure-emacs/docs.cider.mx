@@ -466,9 +466,10 @@ Clojure var whose function takes three arguments: the object to print, the
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Due to a <a href="https://clojure.atlassian.net/browse/CLJ-1445">bug</a> in <code>clojure.pprint</code>
-it doesn&#8217;t work properly with <code>*print-meta*</code>. If you need to print the metadata you&#8217;ll
-have to change the print function or disable pretty-printing.
+Before Clojure 1.10.2, a
+<a href="https://clojure.atlassian.net/browse/CLJ-1445">bug</a> in <code>clojure.pprint</code> caused it
+to not work properly with <code>*print-meta*</code>. If you need to print the metadata
+you&#8217;ll have to change the print function or disable pretty-printing.
 </td>
 </tr>
 </table>
