@@ -330,10 +330,10 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../cider-nrepl/index.html">CIDER nREPL</a>
+      <a class="title" href="../cider-nrepl/0.27/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../cider-nrepl/index.html">master</a>
+          <a href="../cider-nrepl/0.27/index.html">0.27</a>
         </li>
         <li class="version">
           <a href="../cider-nrepl/0.26/index.html">0.26</a>
@@ -859,6 +859,18 @@ Leiningen disables <code>OmitStackTraceInFastThrow</code> by default.
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="errors-related-to-enrich-classpath"><a class="anchor" href="#errors-related-to-enrich-classpath"></a>Errors Related to enrich-classpath</h3>
+<div class="paragraph">
+<p>If you get any errors related to <code>enrich-classpath</code> when doing <code>cider-jack-in</code>, you can disable
+the <code>enrich-classpath</code> integration like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-enrich-classpath nil)</code></pre>
+</div>
 </div>
 </div>
 </div>

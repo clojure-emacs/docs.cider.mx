@@ -330,10 +330,10 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
+      <a class="title" href="../../cider-nrepl/0.27/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/index.html">master</a>
+          <a href="../../cider-nrepl/0.27/index.html">0.27</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.26/index.html">0.26</a>
@@ -454,12 +454,29 @@ release to ship with nREPL 0.6.
 </div>
 </div>
 <div class="paragraph">
+<p><a href="https://github.com/clojure-emacs/enrich-classpath">enrich-classpath</a> is a library (and Leiningen plugin) that, as its main feature, automatically downloads all available <code>.jars</code> with Java sources and javadocs for a given project, so that various tools (e.g. CIDER) can access it. Simply put - it allows you to navigate to Java sources and
+javadocs in your Clojure projects.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>enrich-classpath</code> has a bit of a startup cost associated with it, the first time Java sources and javadocs are fetched. It can be turned
+off by setting <code>cider-enrich-classpath</code> to <code>nil</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>A minimal <code>profiles.clj</code> for CIDER would be:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.27.2"]
-                  [mx.cider/enrich-classpath "1.4.1"]]}}</code></pre>
+                  [mx.cider/enrich-classpath "1.5.1"]]}}</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
