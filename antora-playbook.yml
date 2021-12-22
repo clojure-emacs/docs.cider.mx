@@ -1,14 +1,14 @@
 site:
   title: CIDER Docs
   url: https://docs.cider.mx
-  start_page: 1.1@cider::index.adoc
+  start_page: 1.2@cider::index.adoc
   keys:
     google_analytics: 'UA-140176314-1'
 content:
   sources:
   - url: https://github.com/clojure-emacs/cider.git
     branches: master
-    tags: ['v0.24.0', 'v0.25.0', 'v0.26.0', 'v1.0.0', 'v1.1.1']
+    tags: ['v0.24.0', 'v0.25.0', 'v0.26.0', 'v1.0.0', 'v1.1.1', 'v1.2.0']
     start_path: doc
   - url: https://github.com/clojure-emacs/cider-nrepl.git
     branches: master
