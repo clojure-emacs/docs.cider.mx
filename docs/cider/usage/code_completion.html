@@ -576,6 +576,32 @@ to re-read all classes it can find on the classpath.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="implementation-details"><a class="anchor" href="#implementation-details"></a>Implementation Details</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You don&#8217;t really need to know any of this if you&#8217;re using only <code>cider-jack-in</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The bulk of the code completion logic resides in <code>cider-nrepl</code> <a href="https://github.com/clojure-emacs/cider-nrepl/blob/master/src/cider/nrepl/middleware/complete.clj">completion middleware</a>. Internally it delegates to <code>compliment</code> for the Clojure completion and <code>clj-suitable</code> for the ClojureScript completion.</p>
+</div>
+<div class="paragraph">
+<p>Starting with nREPL 0.8, there&#8217;s also a built-in <code>completions</code> nREPL op that CIDER will fallback to, in the absence of <code>cider-nrepl</code>. Its API is similar to that of the <code>complete</code> op in <code>cider-nrepl</code> and it can be configured to use different completion functions. The built-in op currently supports only Clojure. See the <a href="https://nrepl.org/nrepl/usage/misc.html#code-completion">nREPL docs</a> for more details.</p>
+</div>
+<div class="paragraph">
+<p>Basically, you&#8217;ll get great code completion in the presence of <code>cider-nrepl</code> and basic completion otherwise.</p>
+</div>
+</div>
+</div>
 <nav class="pagination">
   <span class="prev"><a href="code_evaluation.html">Code Evaluation</a></span>
   <span class="next"><a href="pretty_printing.html">Pretty Printing</a></span>
@@ -590,13 +616,14 @@ to re-read all classes it can find on the classpath.</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 <script type="text/javascript">
-docsearch({
-  apiKey: '1f3d78fd63fcb687dcc1312aab02a2de',
-  indexName: 'cider',
-  inputSelector: '#search-input',
-  algoliaOptions: { 'facetFilters': ["version:1.1"] },
-  debug: false // Set debug to true if you want to inspect the dropdown
-});
+ docsearch({
+   appId: '1AZEMR3ZT0',
+   apiKey: 'd2cfc21fce00ac9d3f787c0d8e064d42',
+   indexName: 'cider',
+   inputSelector: '#search-input',
+   algoliaOptions: { 'facetFilters': ["version:1.1"] },
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
 </script>
 <script src="../../_/js/site.js"></script>
 <script async src="../../_/js/vendor/highlight.js"></script>
