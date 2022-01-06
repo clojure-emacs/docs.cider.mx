@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/0.27/nrepl-api/ops.html">
     <link rel="prev" href="supplied_middleware.html">
     <link rel="next" href="../hacking.html">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="stylesheet" href="../../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
@@ -522,9 +522,12 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="content-type-middleware"><a class="anchor" href="#content-type-middleware"></a><code>content-type-middleware</code></h3>
+<h3 id="content-type"><a class="anchor" href="#content-type"></a><code>content-type</code></h3>
 <div class="paragraph">
-<p>Enhances the <code>eval</code> op by adding <code>content-type</code> and friends to some responses. Not an op in itself.</p>
+<p>Enhances the <code>eval</code> op by adding <code>content-type</code> and <code>body</code> to certain <code>eval</code> responses. Not an op in itself.</p>
+</div>
+<div class="paragraph">
+<p>Depending on the type of the return value of the evaluation this middleware may kick in and include a representation of the result in the response, together with a MIME/Media type to indicate how it should be handled by the client. Comes with implementations for <code>URI</code>, <code>URL</code>, <code>File</code>, and <code>java.awt.Image</code>. More type handlers can be provided by the user by extending the <code>cider.nrepl.middleware.content-type/content-type-response</code> multimethod. This dispatches using <code>clojure.core/type</code>, so <code>:type</code> metadata on plain Clojure values can be used to provide custom handling.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -544,7 +547,19 @@
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:body</code> The rich response document, if applicable.</p>
+</li>
+<li>
+<p><code>:content-transfer-encoding</code> The encoding of the response body (Optional, currently only one possible value: <code>"base64"</code>).</p>
+</li>
+<li>
+<p><code>:content-type</code> The Media type (MIME type) of the reponse, structured as a pair, <code>[type {:as attrs}]</code>.</p>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
@@ -2157,7 +2172,19 @@
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:body</code> The slurped content body.</p>
+</li>
+<li>
+<p><code>:content-transfer-encoding</code> The encoding (if any) for the content.</p>
+</li>
+<li>
+<p><code>:content-type</code> A MIME type for the response, if one can be detected.</p>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
