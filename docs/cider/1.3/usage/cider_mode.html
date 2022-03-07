@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Using cider-mode :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/usage/cider_mode.html">
+    <link rel="prev" href="interactive_programming.html">
+    <link rel="next" href="code_evaluation.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://cider.mx">CIDER</a>
+        <span class="separator">//</span>
+        <a href="https://docs.cider.mx">Docs</a>
+      </div>
+      <div class="navbar-item">
+        <div id="docsearch"></div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider">CIDER</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider-nrepl">CIDER nREPL</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/orchard">Orchard</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Community</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/cider/about/support.html">Support</a>
+            <a class="navbar-item" href="/cider/contributing.html">Contributing</a>
+            <a class="navbar-item" href="https://opencollective.com/cider">Open Collective</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="1.3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">CIDER</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/installation.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/middleware_setup.html">nREPL Middleware Setup</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ClojureScript Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Alternative Platforms</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/babashka.html">Babashka</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using CIDER</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="interactive_programming.html">Interactive Programming</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="cider_mode.html">Using cider-mode</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="code_evaluation.html">Code Evaluation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="code_completion.html">Code Completion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="pretty_printing.html">Pretty Printing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dealing_with_errors.html">Dealing with Errors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="working_with_documentation.html">Working with Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managing_connections.html">Managing Connections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="misc_features.html">Misc Features</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using the REPL</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/basic_usage.html">Basic Usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/keybindings.html">Keybindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/history.html">REPL History</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/running_tests.html">Running Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/test_reports.html">Test Reports</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/supported_libraries.html">Supported Libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Debugging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/profiling.html">Profiling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Configuration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/syntax_highlighting.html">Syntax Highlighting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/indentation.html">Indentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../caveats.html">Caveats</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../troubleshooting.html">Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_packages.html">Additional Packages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../contributing.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/docs.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/hacking.html">Hacking on CIDER</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/funding.html">Funding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">About</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/history.html">History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/team.html">Team</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/release_policy.html">Release Policy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/compatibility.html">Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/logo.html">Logo</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/license.html">License</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CIDER</span>
+    <span class="version">1.3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">CIDER</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">default</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../cider-nrepl/latest/index.html">CIDER nREPL</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../cider-nrepl/latest/index.html">0.28</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.24/index.html">0.24</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">CIDER</a></li>
+    <li>Using CIDER</li>
+    <li><a href="cider_mode.html">Using cider-mode</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.3</button>
+  <div class="version-menu">
+    <a class="version" href="../../usage/cider_mode.html">default</a>
+    <a class="version is-current" href="cider_mode.html">1.3</a>
+    <a class="version" href="../../1.2/usage/cider_mode.html">1.2</a>
+    <a class="version" href="../../1.1/usage/cider_mode.html">1.1</a>
+    <a class="version" href="../../1.0/usage/cider_mode.html">1.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/blob/v1.3.0/doc/modules/ROOT/pages/usage/cider_mode.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Using cider-mode</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>cider-mode</code> is a pretty standard Emacs minor mode, which exists mostly to provide a
+common keymap for all of CIDER&#8217;s REPL-powered commands that are meant to be used
+from Clojure(Script) source buffers.</p>
+</div>
+<div class="paragraph">
+<p>There you&#8217;ll find commands for evaluation, code and documentation lookup, debugging and
+other related functionality. This mode is the very heart of CIDER and it&#8217;s important to master
+it, so you can be productive.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enabling-cider-mode"><a class="anchor" href="#enabling-cider-mode"></a>Enabling cider-mode</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>cider-mode</code> is normally enabled automatically when you start CIDER, but you can also enable it explicitly for Clojure(Script) buffers like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'clojure-mode-hook #'cider-mode)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There&#8217;s no need to enable it explicitly for modes derived from <code>clojure-mode</code> like <code>clojurescript-mode</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="disabling-cider-mode"><a class="anchor" href="#disabling-cider-mode"></a>Disabling cider-mode</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>cider-mode</code> is normally disabled automatically when you quit CIDER, but you can also disable it in any buffer explicitly by typing <code>M-x cider-mode</code> (provided it&#8217;s already enabled in that buffer).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="basic-workflow"><a class="anchor" href="#basic-workflow"></a>Basic Workflow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Typically you&#8217;d begin your interaction with any source buffer by evaluating it with <kbd>C-c C-k</kbd>.
+Afterwards you&#8217;d normally evaluate just individual forms with <kbd>C-c C-e</kbd> (evaluate preceding form) or <kbd>C-c C-c</kbd> (evaluate current top-level form).</p>
+</div>
+<div class="paragraph">
+<p>From time to time some evaluation would take forever and you&#8217;d interrupt it with <kbd>C-c C-b</kbd>.</p>
+</div>
+<div class="paragraph">
+<p>Jumping between source files and the REPL is as easy as pressing <kbd>C-c C-z</kbd>. If you invoke the command with a <kbd>C-u</kbd>
+prefix, while in a source buffer, it will also change the namespace of the REPL buffer to match that of the source buffer.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s also highly likely that you&#8217;d look up some definition with <kbd>M-.</kbd> or some documentation with <kbd>C-c C-d C-d</kbd>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Definition and documentation lookup commands work with both Java and Clojure.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re struggling to remember the name of some var you need, <code>cider-apropos</code> (<kbd>C-c C-d a</kbd> or <kbd>C-c C-d C-a</kbd>)
+and <code>cider-apropos-documentation</code> (<kbd>C-c C-d f</kbd> or <kbd>C-c C-d C-f</kbd>) will help you find vars matching some string.</p>
+</div>
+<div class="paragraph">
+<p><code>cider-mode</code> also provides you with code completion that works out-of-the-box and requires no extra setup and <code>eldoc</code> integration.</p>
+</div>
+<div class="paragraph">
+<p>Those few essential commands can get you really far in your day to day work. Keep on reading for a lot more information!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="key-reference"><a class="anchor" href="#key-reference"></a>Key Reference</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Here&#8217;s a list of the key bindings of <code>cider-mode</code>:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Keyboard shortcut</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-last-sexp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-x C-e</kbd><br>
+<kbd>C-c C-e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and display the result in the echo area and/or in an buffer overlay (according to <code>cider-use-overlays</code>).  If invoked with a prefix argument, insert the result into the current buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-last-sexp-and-replace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v w</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and replace it with its result.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-last-sexp-to-repl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and output it result to the REPL buffer.  If invoked with a prefix argument, takes you to the REPL buffer after being invoked.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-insert-last-sexp-in-repl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load the form preceding point in the REPL buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-insert-last-sexp-in-repl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-u C-c M-p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load the form preceding point in the REPL buffer and eval.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-pprint-eval-last-sexp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v C-f e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and pretty-print the result in a popup buffer. If invoked with a prefix argument, insert the result into the current buffer as a comment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-pprint-eval-defun-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v C-f d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the top level form under point and pretty-print the result in a popup buffer. If invoked with a prefix argument, insert the result into the current buffer as a comment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-defun-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-M-x</kbd><br>
+<kbd>C-c C-c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the top level form under point and display the result in the echo area.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-list-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v l</kbd><br>
+<kbd>C-c C-v C-l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the list around point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-sexp-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v v</kbd><br>
+<kbd>C-c C-v C-v</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form around point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-defun-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-u C-M-x</kbd><br>
+<kbd>C-u C-c C-c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Debug the top level form under point and walk through its evaluation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-defun-up-to-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v z</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the preceding top-level form up to the point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-region</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the region and display the result in the echo area.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-interrupt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-b</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interrupt any pending evaluations.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-macroexpand-1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-m</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invoke <code>macroexpand-1</code> on the form at point and display the result in a macroexpansion buffer.  If invoked with a prefix argument, <code>macroexpand</code> is used instead of <code>macroexpand-1</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-macroexpand-all</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-m</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invoke <code>clojure.walk/macroexpand-all</code> on the form at point and display the result in a macroexpansion buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-ns-form</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v n</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Eval the ns form.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-repl-set-ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-n (M-)n</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch the namespace of the REPL buffer to the namespace of the current buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-switch-to-repl-buffer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-z</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch to the relevant REPL buffer. Use a prefix argument to change the namespace of the REPL buffer to match the currently visited source file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-switch-to-repl-buffer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-u C-u C-c C-z</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch to the REPL buffer based on a user prompt for a directory.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-buffer-and-switch-to-repl-buffer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-z</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) the current buffer and switch to the relevant REPL buffer. Use a prefix argument to change the namespace of the REPL buffer to match the currently visited source file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-describe-connection</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display default REPL connection details, including project directory name, buffer namespace, host and port.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-find-and-clear-repl-output</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-o</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clear the last output in the REPL buffer. With a prefix argument it will clear the entire REPL buffer, leaving only a prompt. Useful if you&#8217;re running the REPL buffer in a side by side buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-buffer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-k</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) the current buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-file</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) a Clojure file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-all-files</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-M-l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) all Clojure files below a directory.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-ns-refresh</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-n (M-)r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reload all modified files on the classpath. If invoked with a prefix argument, reload all files on the classpath. If invoked with a double prefix argument, clear the state of the namespace tracker before reloading.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-doc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d d</kbd><br>
+<kbd>C-c C-d C-d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display doc string for the symbol at point.  If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-javadoc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d j</kbd><br>
+<kbd>C-c C-d C-j</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display JavaDoc (in your default browser) for the symbol at point.  If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-clojuredocs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d c</kbd><br>
+<kbd>C-c C-d C-c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lookup symbol in ClojureDocs. If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-clojuredocs-web</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d w</kbd><br>
+<kbd>C-c C-d C-w</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open the ClojureDocs documentation for symbol in a web browser. If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-apropos</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d a</kbd><br>
+<kbd>C-c C-d C-a</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apropos search for functions/vars.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-apropos-documentation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d f</kbd><br>
+<kbd>C-c C-d C-f</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apropos search for documentation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-apropos-documentation-select</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-d e</kbd><br>
+<kbd>C-c C-d C-e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apropos search for documentation &amp; select.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspect</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-i</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inspect expression. Will act on expression at point if present.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-toggle-trace-var</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-t v</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Toggle var tracing. If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-toggle-trace-ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-t n</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Toggle namespace tracing.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-undef</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-u</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undefine a symbol. If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-run-test</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-t t</kbd><br>
+<kbd>C-c C-t C-t</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run test at point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-rerun-test</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-t a</kbd><br>
+<kbd>C-c C-t C-a</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Re-run the last test you ran.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-run-ns-tests</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-t n</kbd><br>
+<kbd>C-c C-t C-n</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run tests for current namespace.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-run-loaded-tests</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-t l</kbd><br>
+<kbd>C-c C-t C-l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run tests for all loaded namespaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-run-project-tests</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-t p</kbd><br>
+<kbd>C-c C-t C-p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run tests for all project namespaces. This loads the additional namespaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-rerun-failed-tests</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-t r</kbd><br>
+<kbd>C-c C-t C-r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Re-run test failures/errors.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-show-report</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-t b</kbd><br>
+<kbd>C-c C-t C-b</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show the test report buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-find-var</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>M-.</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jump to the definition of a symbol.  If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-find-dwim-at-mouse</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>mouse-5</kbd> or <kbd>mouse-9</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jump to the definition of a symbol using mouse.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xref-pop-marker-stack</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>mouse-4</kbd> or <kbd>mouse-8</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jump back to where <code>cider-find-dwim-at-mouse</code> was invoked.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-find-resource</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-.</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jump to the resource referenced by the string at point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-find-ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-.</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jump to some namespace on the classpath.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-xref-fn-refs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-? r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display function usages across loaded namespaces in a dedicated buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-xref-fn-refs-select</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-? C-r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display function usages across loaded namespaces in a minibuffer selector.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-xref-fn-deps</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-? d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display function deps (other functions used by it) in a dedicated buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-xref-fn-deps-select</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-? C-d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display function deps (other functions used by it) in a minibuffer selector.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-pop-back</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>M-,</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return to your pre-jump location.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>complete-symbol</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>M-TAB</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Complete the symbol at point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-quit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-q</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quit the current nREPL connection.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>There&#8217;s no need to memorize this list. If you&#8217;re in a Clojure buffer with <code>cider-mode</code>
+active you&#8217;ll have a CIDER menu available. The menu lists all the most important
+commands and their keybindings. You can also invoke <kbd>C-h f RET cider-mode</kbd> to
+get a list of the keybindings for <code>cider-mode</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/menu_example.png" alt="CIDER interactions menu">
+</div>
+</div>
+<div class="paragraph">
+<p>An even better solution would be to install <a href="https://github.com/justbur/emacs-which-key">which-key</a>, which will
+automatically show you a list of available keybindings as you start typing some
+keys. This will simplify your interactions with CIDER quite a lot,
+especially in
+the beginning. Here&#8217;s what you&#8217;d see if you typed <kbd>C-c C-d</kbd> in a
+Clojure buffer:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/cider-which-key.png" alt="CIDER which-key">
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="interactive_programming.html">Interactive Programming</a></span>
+  <span class="next"><a href="code_evaluation.html">Code Evaluation</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2012-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+<script type="text/javascript">
+ docsearch({
+   appId: '1AZEMR3ZT0',
+   apiKey: 'd2cfc21fce00ac9d3f787c0d8e064d42',
+   indexName: 'cider',
+   container: '#docsearch',
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
+</script>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
