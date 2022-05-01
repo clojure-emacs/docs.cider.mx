@@ -573,7 +573,7 @@ and <code>cider-apropos-documentation</code> (<kbd>C-c C-d f</kbd> or <kbd>C-c C
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-ns-form</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v n</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Eval the ns form.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Eval the ns form. If invoked with a prefix argument, undefine all vars and aliases in the ns first.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-repl-set-ns</code></p></td>
@@ -608,17 +608,17 @@ and <code>cider-apropos-documentation</code> (<kbd>C-c C-d f</kbd> or <kbd>C-c C
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-buffer</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-k</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) the current buffer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) the current buffer. If invoked with a prefix argument, undefine all vars and aliases in the ns before loading.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-file</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-l</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) a Clojure file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) a Clojure file. If invoked with a prefix argument, undefine all vars and aliases in the ns before loading.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-all-files</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-M-l</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) all Clojure files below a directory.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) all Clojure files below a directory. If invoked with a prefix argument, undefine all vars and aliases in each file before loading.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-ns-refresh</code></p></td>
@@ -686,6 +686,11 @@ and <code>cider-apropos-documentation</code> (<kbd>C-c C-d f</kbd> or <kbd>C-c C
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-undef</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-u</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Undefine a symbol. If invoked with a prefix argument it inverts the value of <code>cider-prompt-for-symbol</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-undef-all</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-M-u</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undefine all symbols and aliases in the namespace.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-run-test</code></p></td>

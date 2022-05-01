@@ -596,6 +596,36 @@ completion you can&#8217;t go wrong with the modern and versatile
 </div>
 </div>
 <div class="sect1">
+<h2 id="message-displayed-on-connect"><a class="anchor" href="#message-displayed-on-connect"></a>Message Displayed on Connect</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default CIDER will display an inspirational message when a new connection is
+established. This behavior is configurable via <code>cider-connection-message-fn</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; make the message more educational
+(setq cider-connection-message-fn #'cider-random-tip)
+;; disable this extra message altogether
+(setq cider-connection-message-fn nil)</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This is probably one of the most important CIDER features. Disable
+those amazing messages at your own risk!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="log-nrepl-communications"><a class="anchor" href="#log-nrepl-communications"></a>Log nREPL Communications</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -752,6 +782,42 @@ wrapping instead of line truncating.</p>
 <td class="content">
 This variable should be set <strong>before</strong> loading CIDER (which means before
 <code>require</code>-ing it or autoloading it).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nrepl-connection-hooks"><a class="anchor" href="#nrepl-connection-hooks"></a>nREPL Connection Hooks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CIDER provides the hooks <code>cider-connected-hook</code> and <code>cider-disconnected-hook</code>
+that get triggered when an nREPL connection is established or closed respectively.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s how CIDER uses the first hook internally to display its famous inspirational
+messages on connect:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(defun cider--maybe-inspire-on-connect ()
+  "Display an inspiration connection message."
+  (when cider-connection-message-fn
+    (message "Connected! %s" (funcall cider-connection-message-fn))))
+
+(add-hook 'cider-connected-hook #'cider--maybe-inspire-on-connect)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There are also lower-level <code>nrepl-connected-hook</code> and <code>nrepl-disconnected-hook</code> that CIDER uses internally. Most of the time end-users would be better off using
+the CIDER-level hooks instead.
 </td>
 </tr>
 </table>

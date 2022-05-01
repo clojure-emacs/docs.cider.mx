@@ -836,6 +836,46 @@ The redirection functionality is implemented in <code>cider-nrepl</code> as nREP
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="storing-eval-results"><a class="anchor" href="#storing-eval-results"></a>Storing eval results</h3>
+<div class="paragraph">
+<p>By default CIDER stores the return value of the most recent evaluation command
+in the text register <code>e</code>. You can access these contents via <code>insert-register</code>
+(<kbd>C-x r i</kbd>).</p>
+</div>
+<div class="paragraph">
+<p>This is often useful for closer inspection or textual manipulation of a
+transiently displayed eval result, without having to re-evaluate the form with a
+specialized command like <code>cider-insert-last-sexp-in-repl</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can customize which register is used with the variable <code>cider-eval-register</code>, or set
+it to <code>nil</code> to disable the feature.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-eval-register nil)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The built-in <a href="../debugging/inspector.html" class="xref page">inspector</a> can be used to view
+and navigate through complex nested results.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can also use the command <code>cider-kill-last-result</code>(<kbd>C-c C-v k</kbd>) after any
+eval command to store its result in the kill ring. This works even when the
+<code>cider-eval-register</code> feature is disabled.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -999,6 +1039,11 @@ and good keybindings are too precious to be wasted like this.
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-all-files</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-M-l</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) all Clojure files below a directory.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-kill-last-result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v k</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Save the last evaluated result into the kill ring.</p></td>
 </tr>
 </tbody>
 </table>
