@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/usage/managing_connections.html">
     <link rel="prev" href="working_with_documentation.html">
     <link rel="next" href="misc_features.html">
-    <meta name="generator" content="Antora 3.0.0">
+    <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -538,10 +538,22 @@ can add more REPLs to the existing session. We&#8217;ll cover those in the next 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Unless there are both Clojure and ClojureScript REPLs in the same session smart-dispatch commands (e.g. evaluate the code
-in the right Clojure/ClojureScript REPL, toggle between Clojure and ClojureScript REPL) won&#8217;t work. A very common problem
-newcomers experience is to create a Clojure REPL and a ClojureScript REPL in separate sessions and wonder why those are not
-interacting properly with one another.
+<div class="paragraph">
+<p>Unless there are both Clojure and ClojureScript REPLs in the same
+session smart-dispatch commands (e.g. evaluate the code in the right
+Clojure/ClojureScript REPL, toggle between Clojure and ClojureScript REPL) won&#8217;t
+work. A very common problem newcomers experience is to create a Clojure REPL and
+a ClojureScript REPL in separate sessions and wonder why those are not
+interacting properly with one another.</p>
+</div>
+<div class="paragraph">
+<p>In the case of using separate config files for the clj and cljs dependencies
+(e.g. clj dependencies in <code>deps.edn</code> and cljs dependencies in <code>shadow-cljs.edn</code>)
+it is currently impossible to group those two repls in the same session.
+However, this can be worked around with <code>cider-merge-sessions</code>. Setting it to
+<code>'host</code> will combine all sessions associated with the same host within a
+project. Setting it to <code>'project</code> will combine all sessions in the same project.</p>
+</div>
 </td>
 </tr>
 </table>

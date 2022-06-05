@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/basics/installation.html">
     <link rel="prev" href="../index.html">
     <link rel="next" href="up_and_running.html">
-    <meta name="generator" content="Antora 3.0.0">
+    <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -427,10 +427,23 @@ CIDER does not support ClojureCLR.
 <h2 id="installation-via-package-el"><a class="anchor" href="#installation-via-package-el"></a>Installation via package.el</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>CIDER is available on the two major <code>package.el</code> community
+<p>CIDER is available on all major <code>package.el</code> community
 maintained repos -
+<a href="https://elpa.nongnu.org">NonGNU ELPA</a>,
 <a href="http://stable.melpa.org">MELPA Stable</a>
 and <a href="http://melpa.org">MELPA</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+NonGNU ELPA is one of Emacs&#8217;s standard repositories and is enabled by default on Emacs 28+. You&#8217;ll have to setup MELPA and MELPA Stable yourselves if you want to use them.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>You can install CIDER with the following command:</p>
@@ -463,15 +476,6 @@ time to time. Nevertheless, installing from MELPA is a reasonable way
 to obtain CIDER. The <code>master</code> branch is normally quite stable
 and serious regressions there are usually fixed quickly.</p>
 </div>
-<div class="paragraph">
-<p>If you have concerns about living on the leading edge of CIDER
-deveopment, you can always pin CIDER to use MELPA Stable like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)</code></pre>
-</div>
-</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -486,6 +490,19 @@ for details on the subject.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>If you have concerns about living on the leading edge of CIDER
+development, you can always pin CIDER to use NonGNU ELPA or MELPA Stable like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; pin to NonGNU ELPA
+(add-to-list 'package-pinned-packages '(cider . "nongnu") t)
+
+;; pin to MELPA Stable
+(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)</code></pre>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -508,7 +525,7 @@ enabled by default in Emacs and you should not disable it!
 <div class="sectionbody">
 <div class="paragraph">
 <p><code>use-package</code> can be used to install CIDER via the <code>package.el</code>'s repositories
-<a href="http://stable.melpa.org">MELPA Stable</a> and <a href="http://melpa.org">MELPA</a>.</p>
+<a href="https://elpa.nongnu.org">NonGNU ELPA</a>, <a href="http://stable.melpa.org">MELPA Stable</a> and <a href="http://melpa.org">MELPA</a>.</p>
 </div>
 <div class="paragraph">
 <p>If you wanted to install the version of CIDER which is what is to be found in
