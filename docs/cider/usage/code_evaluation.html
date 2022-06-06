@@ -880,6 +880,53 @@ eval command to store its result in the kill ring. This works even when the
 <code>cider-eval-register</code> feature is disabled.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="evaluating-code-inside-comments"><a class="anchor" href="#evaluating-code-inside-comments"></a>Evaluating code inside comments</h3>
+<div class="paragraph">
+<p>By default, when using the defun-level eval commands inside a top-level <code>comment</code> form the return value is always <code>nil</code>. Calling <code>cider-eval-defun-up-to-point</code> with point at <code>&lt;point&gt;</code> also returns <code>nil</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(comment
+  (let [b "str"]
+    (-&gt; b
+        keyword&lt;point&gt; ;;=&gt; nil
+        name))
+  *e)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That&#8217;s not a bug, that&#8217;s simply how the <code>comment</code> form works (it simply returns
+<code>nil</code> when evaluated).  However, it is often desirable to treat the form the
+point is in as if was not inside a comment. To help with this <code>clojure-mode</code>
+supplies the variable <code>clojure-toplevel-inside-comment-form</code>. If this variable
+is set to <code>t</code> then <code>defun</code>-level commands will ignore the <code>comment</code>
+wrapper. Let&#8217;s revisit the previous example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(comment
+  (let [b "str"]
+    (-&gt; b
+        keyword&lt;point&gt; ;;=&gt; :str
+        name))
+  *e)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With <code>cider-eval-defun-at-point</code> we get:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(comment
+  (let [b "str"]
+    (-&gt; b
+        keyword&lt;point&gt;
+        name)) ;;=&gt; "str"
+  *e)</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
