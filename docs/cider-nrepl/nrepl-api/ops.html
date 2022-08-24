@@ -7,10 +7,10 @@
     <link rel="canonical" href="https://docs.cider.mx/cider-nrepl/nrepl-api/ops.html">
     <link rel="prev" href="supplied_middleware.html">
     <link rel="next" href="../hacking.html">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
@@ -26,7 +26,7 @@
         <a href="https://docs.cider.mx">Docs</a>
       </div>
       <div class="navbar-item">
-        <input id="search-input" type="text" placeholder="Search docs">
+        <div id="docsearch"></div>
       </div>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -58,7 +58,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="cider-nrepl" data-version="master">
+<div class="nav-container" data-component="cider-nrepl" data-version="">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -123,14 +123,26 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">CIDER nREPL</span>
-    <span class="version">master</span>
+    <span class="version">default</span>
   </div>
   <ul class="components">
     <li class="component">
       <a class="title" href="../../cider/index.html">CIDER</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider/index.html">master</a>
+          <a href="../../cider/index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="../../cider/1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
+          <a href="../../cider/1.4/index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../../cider/1.3/index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../../cider/1.2/index.html">1.2</a>
         </li>
         <li class="version">
           <a href="../../cider/1.1/index.html">1.1</a>
@@ -138,22 +150,13 @@
         <li class="version">
           <a href="../../cider/1.0/index.html">1.0</a>
         </li>
-        <li class="version">
-          <a href="../../cider/0.26/index.html">0.26</a>
-        </li>
-        <li class="version">
-          <a href="../../cider/0.25/index.html">0.25</a>
-        </li>
-        <li class="version">
-          <a href="../../cider/0.24/index.html">0.24</a>
-        </li>
       </ul>
     </li>
     <li class="component is-current">
       <a class="title" href="../index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">master</a>
+          <a href="../index.html">default</a>
         </li>
         <li class="version">
           <a href="../0.26/index.html">0.26</a>
@@ -174,7 +177,7 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="../../cider/1.1/index.html" class="home-link"></a>
+  <a href="../../cider/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER nREPL</a></li>
@@ -183,9 +186,9 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">master</button>
+  <button class="version-menu-toggle" title="Show other versions of page">default</button>
   <div class="version-menu">
-    <a class="version is-current" href="ops.html">master</a>
+    <a class="version is-current" href="ops.html">default</a>
     <a class="version" href="../0.26/nrepl-api/ops.html">0.26</a>
     <a class="version" href="../0.25/nrepl-api/ops.html">0.25</a>
     <a class="version" href="../0.24/nrepl-api/ops.html">0.24</a>
@@ -202,7 +205,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="small">generated from a verbose 'describe' response (cider-nrepl v0.27.3)</span></p>
+<p><span class="small">generated from a verbose 'describe' response (cider-nrepl v0.28.5)</span></p>
 </div>
 </div>
 </div>
@@ -519,9 +522,12 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="content-type-middleware"><a class="anchor" href="#content-type-middleware"></a><code>content-type-middleware</code></h3>
+<h3 id="content-type"><a class="anchor" href="#content-type"></a><code>content-type</code></h3>
 <div class="paragraph">
-<p>Enhances the <code>eval</code> op by adding <code>content-type</code> and friends to some responses. Not an op in itself.</p>
+<p>Enhances the <code>eval</code> op by adding <code>content-type</code> and <code>body</code> to certain <code>eval</code> responses. Not an op in itself.</p>
+</div>
+<div class="paragraph">
+<p>Depending on the type of the return value of the evaluation this middleware may kick in and include a representation of the result in the response, together with a MIME/Media type to indicate how it should be handled by the client. Comes with implementations for <code>URI</code>, <code>URL</code>, <code>File</code>, and <code>java.awt.Image</code>. More type handlers can be provided by the user by extending the <code>cider.nrepl.middleware.content-type/content-type-response</code> multimethod. This dispatches using <code>clojure.core/type</code>, so <code>:type</code> metadata on plain Clojure values can be used to provide custom handling.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -541,7 +547,19 @@
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:body</code> The rich response document, if applicable.</p>
+</li>
+<li>
+<p><code>:content-transfer-encoding</code> The encoding of the response body (Optional, currently only one possible value: <code>"base64"</code>).</p>
+</li>
+<li>
+<p><code>:content-type</code> The Media type (MIME type) of the reponse, structured as a pair, <code>[type {:as attrs}]</code>.</p>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
@@ -2154,7 +2172,19 @@
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:body</code> The slurped content body.</p>
+</li>
+<li>
+<p><code>:content-transfer-encoding</code> The encoding (if any) for the content.</p>
+</li>
+<li>
+<p><code>:content-type</code> A MIME type for the response, if one can be detected.</p>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
@@ -2758,18 +2788,18 @@
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2021 <a href="https://metaredux.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
 <script type="text/javascript">
-docsearch({
-  apiKey: '1f3d78fd63fcb687dcc1312aab02a2de',
-  indexName: 'cider',
-  inputSelector: '#search-input',
-  algoliaOptions: { 'facetFilters': ["version:1.1"] },
-  debug: false // Set debug to true if you want to inspect the dropdown
-});
+ docsearch({
+   appId: '1AZEMR3ZT0',
+   apiKey: 'd2cfc21fce00ac9d3f787c0d8e064d42',
+   indexName: 'cider',
+   container: '#docsearch',
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
 </script>
 <script src="../../_/js/site.js"></script>
 <script async src="../../_/js/vendor/highlight.js"></script>

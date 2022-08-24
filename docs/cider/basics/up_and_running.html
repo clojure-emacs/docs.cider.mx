@@ -313,6 +313,9 @@
           <a href="../index.html">default</a>
         </li>
         <li class="version">
+          <a href="../1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
           <a href="../1.4/index.html">1.4</a>
         </li>
         <li class="version">
@@ -330,10 +333,10 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../cider-nrepl/latest/index.html">CIDER nREPL</a>
+      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/latest/index.html">0.28</a>
+          <a href="../../cider-nrepl/index.html">default</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.26/index.html">0.26</a>
@@ -366,6 +369,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">default</button>
   <div class="version-menu">
     <a class="version is-current" href="up_and_running.html">default</a>
+    <a class="version" href="../1.5/basics/up_and_running.html">1.5</a>
     <a class="version" href="../1.4/basics/up_and_running.html">1.4</a>
     <a class="version" href="../1.3/basics/up_and_running.html">1.3</a>
     <a class="version" href="../1.2/basics/up_and_running.html">1.2</a>
@@ -546,6 +550,18 @@ this mechanism to auto-inject their own dependencies.</p>
                     "foo/bar" "1.0")</code></pre>
 </div>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Always use the fully qualified <code>group/artifact</code> (e.g. <code>re-frame/re-frame</code>) in these dependencies, since only Leiningen supports the bare <code>re-frame</code> syntax.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>CIDER will also inject the most recent version of nREPL that it supports. This is a simple
 trick to override the version of nREPL bundled with your build tool (e.g. Leiningen), so you can gain
@@ -564,20 +580,6 @@ an older version.</p>
 for example, if your project defaults to an older version of Clojure than that
 supported by the CIDER middleware. Set <code>cider-jack-in-auto-inject-clojure</code>
 appropriately to enable this.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-CIDER does not currently support
-dependency auto-injection for Gradle projects. Unfortunately there&#8217;s no
-way to pass extra dependencies to Gradle via its command-line interface.
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -724,13 +726,13 @@ wait</code>)</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>cider-gradle-command</code> - the name of the Gradle executable (<code>gradle</code> by default)</p>
+<p><code>cider-gradle-command</code> - the name of the Gradle executable (<code>./gradlew</code> by default)</p>
 </li>
 <li>
-<p><code>cider-gradle-parameters</code></p>
+<p><code>cider-gradle-parameters</code> - the Gradle arguments to invoke the repl task (<code>clojureRepl</code> by default)</p>
 </li>
 <li>
-<p><code>cider-gradle-global-options</code></p>
+<p><code>cider-gradle-global-options</code> - these are usually global options to gradle, such as <code>--no-daemon</code> or <code>--configuration-cache</code> (empty by default)</p>
 </li>
 </ul>
 </div>

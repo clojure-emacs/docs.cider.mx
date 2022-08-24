@@ -313,6 +313,9 @@
           <a href="../index.html">default</a>
         </li>
         <li class="version">
+          <a href="../1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
           <a href="../1.4/index.html">1.4</a>
         </li>
         <li class="version">
@@ -330,10 +333,10 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../cider-nrepl/latest/index.html">CIDER nREPL</a>
+      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/latest/index.html">0.28</a>
+          <a href="../../cider-nrepl/index.html">default</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.26/index.html">0.26</a>
@@ -366,6 +369,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">default</button>
   <div class="version-menu">
     <a class="version is-current" href="basic_config.html">default</a>
+    <a class="version" href="../1.5/config/basic_config.html">1.5</a>
     <a class="version" href="../1.4/config/basic_config.html">1.4</a>
     <a class="version" href="../1.3/config/basic_config.html">1.3</a>
     <a class="version" href="../1.2/config/basic_config.html">1.2</a>
@@ -613,6 +617,18 @@ established. This behavior is configurable via <code>cider-connection-message-fn
 ;; disable this extra message altogether
 (setq cider-connection-message-fn nil)</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>The default message are stored in the variable <code>cider-words-of-inspiration</code> that
+you can tweak easily yourselves:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-to-list 'cider-words-of-inspiration "Moar inspiration!")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Of course, it goes without saying that you can do the same with <code>cider-tips</code>.</p>
 </div>
 <div class="admonitionblock important">
 <table>

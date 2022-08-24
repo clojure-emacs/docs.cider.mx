@@ -313,6 +313,9 @@
           <a href="../index.html">default</a>
         </li>
         <li class="version">
+          <a href="../1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
           <a href="../1.4/index.html">1.4</a>
         </li>
         <li class="version">
@@ -330,10 +333,10 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../cider-nrepl/latest/index.html">CIDER nREPL</a>
+      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/latest/index.html">0.28</a>
+          <a href="../../cider-nrepl/index.html">default</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.26/index.html">0.26</a>
@@ -366,6 +369,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">default</button>
   <div class="version-menu">
     <a class="version is-current" href="code_completion.html">default</a>
+    <a class="version" href="../1.5/usage/code_completion.html">1.5</a>
     <a class="version" href="../1.4/usage/code_completion.html">1.4</a>
     <a class="version" href="../1.3/usage/code_completion.html">1.3</a>
     <a class="version" href="../1.2/usage/code_completion.html">1.2</a>
@@ -558,6 +562,20 @@ Completion annotations can be disabled by setting
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-the-completion-style"><a class="anchor" href="#changing-the-completion-style"></a>Changing the completion style</h3>
+<div class="paragraph">
+<p>Sometimes the user may want to use a different completion style just for the CIDER
+complete at point function. That can be achieved by setting
+<code>completion-category-defaults</code>, overriting the completion style of the CIDER
+complete at point function. The following snippet accomplishes that:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-to-list 'completion-category-defaults '(cider (styles basic)))</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
