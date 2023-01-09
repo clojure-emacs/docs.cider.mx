@@ -133,6 +133,9 @@
           <a href="../../cider/index.html">default</a>
         </li>
         <li class="version">
+          <a href="../../cider/1.6/index.html">1.6</a>
+        </li>
+        <li class="version">
           <a href="../../cider/1.5/index.html">1.5</a>
         </li>
         <li class="version">
@@ -205,13 +208,145 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="small">generated from a verbose 'describe' response (cider-nrepl v0.28.5)</span></p>
+<p><span class="small">generated from a verbose 'describe' response (cider-nrepl v0.0.0)</span></p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="operations"><a class="anchor" href="#operations"></a>Operations</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="analyze-last-stacktrace"><a class="anchor" href="#analyze-last-stacktrace"></a><code>analyze-last-stacktrace</code></h3>
+<div class="paragraph">
+<p>Return messages describing each cause and stack frame of the most recent exception.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:nrepl.middleware.print/buffer-size</code> The size of the buffer to use when streaming results. Defaults to 1024.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/keys</code> A seq of the keys in the response whose values should be printed.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/options</code> A map of options to pass to the printing function. Defaults to <code>nil</code>.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/print</code> A fully-qualified symbol naming a var whose function to use for printing. Must point to a function with signature [value writer options].</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/quota</code> A hard limit on the number of bytes printed for each value.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/stream?</code> If logical true, the result of printing each value will be streamed to the client over one or more messages.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> "done", or "no-error" if <code>*e</code> is nil</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="analyze-stacktrace"><a class="anchor" href="#analyze-stacktrace"></a><code>analyze-stacktrace</code></h3>
+<div class="paragraph">
+<p>Parse and analyze the <code>:stacktrace</code>
+parameter and return messages describing each cause and stack frame. The
+stacktrace must be a string formatted in one of the following formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:aviso</code> Stacktraces printed with the
+<a href="https://ioavisopretty.readthedocs.io/en/latest/exceptions.html">write-exception</a>
+function of the <a href="https://github.com/AvisoNovate/pretty">Aviso</a> library.</p>
+</li>
+<li>
+<p><code>:clojure.tagged-literal</code> Stacktraces printed as a tagged literal, like a
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html">java.lang.Throwable</a>
+printed with the
+<a href="https://clojure.github.io/clojure/branch-master/clojure.core-api.html#clojure.core/pr">pr</a>
+function.</p>
+</li>
+<li>
+<p><code>:clojure.stacktrace</code> Stacktraces printed with the
+<a href="https://clojure.github.io/clojure/branch-master/clojure.stacktrace-api.html#clojure.stacktrace/print-cause-trace">print-cause-trace</a>
+function of the
+<a href="https://clojure.github.io/clojure/branch-master/clojure.stacktrace-api.html">clojure.stacktrace</a>
+namespace.</p>
+</li>
+<li>
+<p><code>:clojure.repl</code> Stacktraces printed with the
+<a href="https://clojure.github.io/clojure/branch-master/clojure.repl-api.html#clojure.repl/pst">pst</a>
+function of the
+<a href="https://clojure.github.io/clojure/branch-master/clojure.repl-api.html">clojure.repl</a>
+namespace.</p>
+</li>
+<li>
+<p><code>:java</code> Stacktraces printed with the
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html#printStackTrace--">printStackTrace</a>
+method of
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html">java.lang.Throwable</a>.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+</dl>
+</div>
+</li>
+<li>
+<p><code>:stacktrace</code> The stacktrace to be parsed and analyzed as a string.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Optional parameters</dt>
+</dl>
+</div>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/buffer-size</code> The size of the buffer to use when streaming results. Defaults to 1024.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/keys</code> A seq of the keys in the response whose values should be printed.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/options</code> A map of options to pass to the printing function. Defaults to <code>nil</code>.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/print</code> A fully-qualified symbol naming a var whose function to use for printing. Must point to a function with signature [value writer options].</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/quota</code> A hard limit on the number of bytes printed for each value.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/stream?</code> If logical true, the result of printing each value will be streamed to the client over one or more messages.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Returns</dt>
+</dl>
+</div>
+</li>
+<li>
+<p><code>:status</code> "done", or "no-error" if <code>stracktrace</code> is not recognized</p>
+</li>
+</ul>
+</div>
+</div>
 <div class="sect2">
 <h3 id="apropos"><a class="anchor" href="#apropos"></a><code>apropos</code></h3>
 <div class="paragraph">
@@ -2303,7 +2438,9 @@
 <div class="sect2">
 <h3 id="stacktrace"><a class="anchor" href="#stacktrace"></a><code>stacktrace</code></h3>
 <div class="paragraph">
-<p>Return messages describing each cause and stack frame of the most recent exception.</p>
+<p>Return messages describing each cause and
+stack frame of the most recent exception. This op is deprecated, please use the
+<code>analyze-last-stacktrace</code> op instead.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -2801,7 +2938,7 @@
    debug: false // Set debug to true if you want to inspect the dropdown
  });
 </script>
-<script src="../../_/js/site.js"></script>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
 <script async src="../../_/js/vendor/highlight.js"></script>
   </body>
 </html>

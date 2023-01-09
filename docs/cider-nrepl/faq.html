@@ -133,6 +133,9 @@
           <a href="../cider/index.html">default</a>
         </li>
         <li class="version">
+          <a href="../cider/1.6/index.html">1.6</a>
+        </li>
+        <li class="version">
           <a href="../cider/1.5/index.html">1.5</a>
         </li>
         <li class="version">
@@ -227,7 +230,21 @@ for ClojureScript.</p>
 <h2 id="does-cider-nrepl-support-clojureclr"><a class="anchor" href="#does-cider-nrepl-support-clojureclr"></a>Does <code>cider-nrepl</code> support ClojureCLR?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>No, it does not.</p>
+<p>No, it does not. There are two reasons for this:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The lack of a compatible nREPL implementation for .NET</p>
+</li>
+<li>
+<p>The usage of Java APIs in the current implementation of <code>cider-nrepl</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Both problems are solvable, but they will require significant amount of work and knowledge
+of .NET that the current <code>cider-nrepl</code> team does not have.</p>
 </div>
 </div>
 </div>
@@ -262,7 +279,7 @@ refactoring functionality for Clojure editors.</p>
    debug: false // Set debug to true if you want to inspect the dropdown
  });
 </script>
-<script src="../_/js/site.js"></script>
+<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
 <script async src="../_/js/vendor/highlight.js"></script>
   </body>
 </html>

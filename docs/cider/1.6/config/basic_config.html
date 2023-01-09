@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Basic Configuration :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/config/basic_config.html">
+    <link rel="prev" href="../debugging/tracing.html">
+    <link rel="next" href="syntax_highlighting.html">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://cider.mx">CIDER</a>
+        <span class="separator">//</span>
+        <a href="https://docs.cider.mx">Docs</a>
+      </div>
+      <div class="navbar-item">
+        <div id="docsearch"></div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider">CIDER</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider-nrepl">CIDER nREPL</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/orchard">Orchard</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Community</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/cider/about/support.html">Support</a>
+            <a class="navbar-item" href="/cider/contributing.html">Contributing</a>
+            <a class="navbar-item" href="https://opencollective.com/cider">Open Collective</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="1.6">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">CIDER</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/installation.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/middleware_setup.html">nREPL Middleware Setup</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ClojureScript Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Alternative Platforms</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/babashka.html">Babashka</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/nbb.html">Nbb</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/other_platforms.html">Other Platforms</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using CIDER</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/interactive_programming.html">Interactive Programming</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/cider_mode.html">Using cider-mode</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_evaluation.html">Code Evaluation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_completion.html">Code Completion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/pretty_printing.html">Pretty Printing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/dealing_with_errors.html">Dealing with Errors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/working_with_documentation.html">Working with Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/managing_connections.html">Managing Connections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/misc_features.html">Misc Features</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using the REPL</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/basic_usage.html">Basic Usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/keybindings.html">Keybindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/history.html">REPL History</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/running_tests.html">Running Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/test_reports.html">Test Reports</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/supported_libraries.html">Supported Libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Debugging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/profiling.html">Profiling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Configuration</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="syntax_highlighting.html">Syntax Highlighting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="indentation.html">Indentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="eldoc.html">Eldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="project_config.html">Project-specific Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../caveats.html">Caveats</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../troubleshooting.html">Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_packages.html">Additional Packages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../contributing.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/docs.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/hacking.html">Hacking on CIDER</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/funding.html">Funding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">About</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/history.html">History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/team.html">Team</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/release_policy.html">Release Policy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/compatibility.html">Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/logo.html">Logo</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/license.html">License</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CIDER</span>
+    <span class="version">1.6</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">CIDER</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">default</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
+          <a href="../../1.4/index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../../1.3/index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../cider-nrepl/index.html">CIDER nREPL</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../cider-nrepl/index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.24/index.html">0.24</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">CIDER</a></li>
+    <li>Configuration</li>
+    <li><a href="basic_config.html">Basic Configuration</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.6</button>
+  <div class="version-menu">
+    <a class="version" href="../../config/basic_config.html">default</a>
+    <a class="version is-current" href="basic_config.html">1.6</a>
+    <a class="version" href="../../1.5/config/basic_config.html">1.5</a>
+    <a class="version" href="../../1.4/config/basic_config.html">1.4</a>
+    <a class="version" href="../../1.3/config/basic_config.html">1.3</a>
+    <a class="version" href="../../1.2/config/basic_config.html">1.2</a>
+    <a class="version" href="../../1.1/config/basic_config.html">1.1</a>
+    <a class="version" href="../../1.0/config/basic_config.html">1.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/blob/v1.6.0/doc/modules/ROOT/pages/config/basic_config.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Basic Configuration</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Like Emacs itself, almost every part of CIDER is configurable. The
+CIDER developers have tried to implement some reasonable defaults that
+should work for a large portion of the Clojure community, but we know
+that there is nothing approaching a "one size fits all" development
+environment and we&#8217;ve tried to create points of customization that can
+account for many different peoples' preferences. In this way, you
+should be able to make CIDER as comfortable as possible for <strong>you</strong>.</p>
+</div>
+<div class="paragraph">
+<p>This section doesn&#8217;t describe every possible customization that CIDER
+offers, but here are some of the most popular.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can see every single customizable configuration option with the command
+<kbd>M-x customize-group RET cider</kbd>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="disable-automatic-cider-mode-in-clojure-mode-buffers"><a class="anchor" href="#disable-automatic-cider-mode-in-clojure-mode-buffers"></a>Disable Automatic cider-mode in clojure-mode Buffers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, CIDER enables <code>cider-mode</code> in all <code>clojure-mode</code> buffers
+after it establishes the first CIDER connection. It will also add a
+<code>clojure-mode</code> hook to enable <code>cider-mode</code> on newly-created <code>clojure-mode</code>
+buffers. You can override this behavior, however:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-auto-mode nil)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prompt-for-symbol-confirmation"><a class="anchor" href="#prompt-for-symbol-confirmation"></a>Prompt for Symbol Confirmation</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The default here was changed in CIDER 1.0.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>By default, CIDER won&#8217;t prompt you for a symbol when it executes
+interactive commands that require a symbol (e.g. <code>cider-doc</code>). Such
+commands operate on the symbol at point and prompt you to provide
+a symbol if they can&#8217;t obtain one automatically.</p>
+</div>
+<div class="paragraph">
+<p>If you set
+<code>cider-prompt-for-symbol</code> to <code>t</code>, this behavior will be inverted and
+CIDER will always prompt you to confirm the symbol on which a command
+will operate. This behavior is useful, as it allows you to edit the
+inferred symbol, before some operation is carried out with it (and you get to
+see what was inferred by <code>cider-symbol-at-point</code>).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-prompt-for-symbol t)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Many interactive commands that operate on the symbol at point,
+accept a prefix argument that flips the behavior configured via
+<code>cider-prompt-for-symbol</code> for the current command invocation.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="control-what-window-to-use-when-jumping-to-a-definition"><a class="anchor" href="#control-what-window-to-use-when-jumping-to-a-definition"></a>Control what window to use when jumping to a definition</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default <kbd>M-.</kbd> and other commands that jump to a definition have the following behavior:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the definition buffer is visible simply switch to it.</p>
+</li>
+<li>
+<p>Otherwise, use the current window to show the definition.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Other behavior is possible, and is controlled with
+<code>cider-jump-to-pop-to-buffer-actions</code>; the value of this is passed as the
+<code>action</code> argument to <code>pop-to-buffer</code>.</p>
+</div>
+<div class="paragraph">
+<p>The default value is <code>((display-buffer-reuse-window display-buffer-same-window))</code>.</p>
+</div>
+<div class="paragraph">
+<p>Some people might prefer to always display the definition in the current
+window. Here&#8217;s how you can achieve this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-jump-to-pop-to-buffer-actions
+      '((display-buffer-same-window)))</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Keep in mind this might cause problems with some special buffers (e.g. test report buffers),
+as when you try to navigate to a definition this will clobber the special buffer.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For other possibilities, see the documentation for <code>display-buffer</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="example-1"><a class="anchor" href="#example-1"></a>Example 1</h3>
+<div class="paragraph">
+<p>You jump to <code>map</code> in <code>core.clj</code> when <code>core.clj</code> <strong><em>is not</em></strong> being displayed in another
+window in the current frame.</p>
+</div>
+<div class="paragraph">
+<p>With both the default behavior and the alternative behavior defined above, the
+definition of <code>map</code> will be shown in the current window.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="example-2"><a class="anchor" href="#example-2"></a>Example 2</h3>
+<div class="paragraph">
+<p>You jump to <code>map</code> in <code>core.clj</code> when <code>core.clj</code> <strong><em>is</em></strong> being displayed in another window
+in the current frame.</p>
+</div>
+<div class="paragraph">
+<p>With the default behavior, the definition of <code>map</code> will be shown in the current
+window; you will now have two windows showing <code>core.clj</code>, and the existing
+<code>core.clj</code> window will be unchanged.</p>
+</div>
+<div class="paragraph">
+<p>With the alternative behavior defined above, the definition of <code>map</code> will be
+shown in the existing <code>core.clj</code> window; all windows will show the same buffer as
+before the jump, and the current window will now be the one showing <code>core.clj</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="minibuffer-completion"><a class="anchor" href="#minibuffer-completion"></a>Minibuffer completion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Out-of-the box, CIDER uses the standard <code>completing-read</code> Emacs mechanism. While
+it&#8217;s not fancy it certainly gets the job done (just press <kbd>TAB</kbd>). There
+are, however, ways to improve upon the standard completion if you wish to.</p>
+</div>
+<div class="sect2">
+<h3 id="icomplete"><a class="anchor" href="#icomplete"></a>icomplete</h3>
+<div class="paragraph">
+<p><code>icomplete</code> is bundled with Emacs and enhances the default minibuffer completion:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(require 'icomplete)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can learn more about <code>icomplete</code>
+<a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Icomplete.html">here</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ido"><a class="anchor" href="#ido"></a>ido</h3>
+<div class="paragraph">
+<p><code>ido</code> is also bundled with Emacs and offers more features than <code>icomplete</code>.
+If you are using <code>ido</code>, be sure to use both <code>ido-everywhere</code>
+and <a href="https://github.com/DarwinAwardWinner/ido-completing-read-plus"><code>ido-completing-read+</code></a>.
+You might also want to install <a href="https://github.com/lewang/flx"><code>ido-flex</code></a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ivy-recommended"><a class="anchor" href="#ivy-recommended"></a>ivy (recommended)</h3>
+<div class="paragraph">
+<p>If you&#8217;re fine with installing a third-party package for enhanced minibuffer
+completion you can&#8217;t go wrong with the modern and versatile
+<a href="http://oremacs.com/2015/04/16/ivy-mode/">ivy</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="message-displayed-on-connect"><a class="anchor" href="#message-displayed-on-connect"></a>Message Displayed on Connect</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default CIDER will display an inspirational message when a new connection is
+established. This behavior is configurable via <code>cider-connection-message-fn</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; make the message more educational
+(setq cider-connection-message-fn #'cider-random-tip)
+;; disable this extra message altogether
+(setq cider-connection-message-fn nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The default message are stored in the variable <code>cider-words-of-inspiration</code> that
+you can tweak easily yourselves:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-to-list 'cider-words-of-inspiration "Moar inspiration!")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Of course, it goes without saying that you can do the same with <code>cider-tips</code>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This is probably one of the most important CIDER features. Disable
+those amazing messages at your own risk!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="log-nrepl-communications"><a class="anchor" href="#log-nrepl-communications"></a>Log nREPL Communications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to see all communications between CIDER and the nREPL
+server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq nrepl-log-messages t)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>CIDER will then create buffers named <code>*nrepl-messages conn-name*</code> for
+each connection.</p>
+</div>
+<div class="paragraph">
+<p>The communication log is tremendously valuable for
+debugging CIDER-to-nREPL problems and we recommend you enable it when
+you are facing such issues.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="hide-special-nrepl-buffers"><a class="anchor" href="#hide-special-nrepl-buffers"></a>Hide Special nREPL Buffers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you&#8217;re finding that <code>*nrepl-connection*</code> and <code>*nrepl-server*</code>
+buffers are cluttering up your development environment, you can
+suppress them from appearing in some buffer switching commands like
+<code>switch-to-buffer</code>(<kbd>C-x b</kbd>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq nrepl-hide-special-buffers t)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you need to make the hidden buffers appear When using
+<code>switch-to-buffer</code>, type <kbd>SPC</kbd> after issuing the command. The
+hidden buffers will always be visible in <code>list-buffers</code> (<kbd>C-x C-b</kbd>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prefer-local-resources-over-remote-resources"><a class="anchor" href="#prefer-local-resources-over-remote-resources"></a>Prefer Local Resources Over Remote Resources</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To prefer local resources to remote resources (tramp) when both are available:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-prefer-local-resources t)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="translate-file-paths"><a class="anchor" href="#translate-file-paths"></a>Translate File Paths</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you wish to translate file paths from your running instance you may use the
+<code>cider-path-translations</code> defcustom to do so. For instance, suppose your app is
+running in a docker container with your source directories mounted there. The
+navigation paths you&#8217;d get from nREPL will be relative to the source in the
+docker container rather than the correct path on your host machine. You can add
+translation mappings easily by setting the following (typically in <code>.dir-locals.el</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">((nil
+  (cider-path-translations . (("/root/.m2" . "/Users/foo/.m2")
+                              ("/src/" . "/Users/foo/projects")))))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each entry will be interpreted as a directory entry so trailing slash
+is optional. Navigation to definition will attempt to translate these locations, and
+if they exist, navigate there rather than report that the file does not
+exist. In the example above, the <code>.m2</code> directory is mounted at <code>/root/.m2</code>
+and the source at <code>/src</code>. These translations would map these locations
+back to the user&#8217;s computer so that navigation to definition would work.</p>
+</div>
+<div class="paragraph">
+<p>Using the <code>eval</code> pseudo-variable you can make the translation dynamic, enabling
+the possibility of sharing the <code>.dir-locals.el</code> across a team of developers with
+different configurations.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">((nil . ((eval . (customize-set-variable 'cider-path-translations
+                                         (list
+                                           (cons "/src" (clojure-project-dir))
+                                           (cons "/root/.m2" (concat (getenv "HOME") "/.m2"))))))))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the path <code>/src</code> will be translated to the correct path of your
+Clojure project on the host machine. And <code>/root/.m2</code> to the host&#8217;s <code>~/.m2</code> folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="filter-out-namespaces-in-certain-namespace-related-commands"><a class="anchor" href="#filter-out-namespaces-in-certain-namespace-related-commands"></a>Filter out namespaces in certain namespace-related commands</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can hide all nREPL middleware details from <code>cider-browse-ns*</code> and <code>cider-apropos*</code>
+commands by customizing the variable <code>cider-filter-regexps</code>. The value of this
+variable should be a list of regexps matching the pattern of namespaces you want
+to filter out.</p>
+</div>
+<div class="paragraph">
+<p>Its default value is <code>'("^cider.nrepl" "^refactor-nrepl" "^nrepl")</code>,
+the most commonly used middleware collections/packages.</p>
+</div>
+<div class="paragraph">
+<p>An important thing to note is that this list of regexps is passed on to the middleware
+without any pre-processing. So, the regexps have to be in Clojure format (with twice the number of backslashes)
+and not Emacs Lisp. For example, to achieve the above effect, you could also set <code>cider-filter-regexps</code> to <code>'(".*nrepl")</code>.</p>
+</div>
+<div class="paragraph">
+<p>To customize <code>cider-filter-regexps</code>, you could use the Emacs customize UI,
+with <kbd>M-x</kbd> <code>customize-variable</code> <kbd>RET</kbd> <code>cider-filter-regexps</code>.</p>
+</div>
+<div class="paragraph">
+<p>An alternative is to set the variable along with the other CIDER configuration.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-filter-regexps '(".*nrepl"))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truncate-long-lines-in-special-buffers"><a class="anchor" href="#truncate-long-lines-in-special-buffers"></a>Truncate long lines in special buffers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default contents of CIDER&#8217;s special buffers such as <code>*cider-test-report*</code>
+or <code>*cider-doc*</code> are line truncated. You can set
+<code>cider-special-mode-truncate-lines</code> to <code>nil</code> to make those buffers use word
+wrapping instead of line truncating.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-special-mode-truncate-lines nil)</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This variable should be set <strong>before</strong> loading CIDER (which means before
+<code>require</code>-ing it or autoloading it).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nrepl-connection-hooks"><a class="anchor" href="#nrepl-connection-hooks"></a>nREPL Connection Hooks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CIDER provides the hooks <code>cider-connected-hook</code> and <code>cider-disconnected-hook</code>
+that get triggered when an nREPL connection is established or closed respectively.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s how CIDER uses the first hook internally to display its famous inspirational
+messages on connect:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(defun cider--maybe-inspire-on-connect ()
+  "Display an inspiration connection message."
+  (when cider-connection-message-fn
+    (message "Connected! %s" (funcall cider-connection-message-fn))))
+
+(add-hook 'cider-connected-hook #'cider--maybe-inspire-on-connect)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There are also lower-level <code>nrepl-connected-hook</code> and <code>nrepl-disconnected-hook</code> that CIDER uses internally. Most of the time end-users would be better off using
+the CIDER-level hooks instead.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../debugging/tracing.html">Tracing</a></span>
+  <span class="next"><a href="syntax_highlighting.html">Syntax Highlighting</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2012-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+<script type="text/javascript">
+ docsearch({
+   appId: '1AZEMR3ZT0',
+   apiKey: 'd2cfc21fce00ac9d3f787c0d8e064d42',
+   indexName: 'cider',
+   container: '#docsearch',
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
+</script>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
