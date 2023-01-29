@@ -557,7 +557,14 @@ this mechanism to auto-inject their own dependencies.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; auto-inject version 1.0 of the library foo/bar
 (cider-add-to-alist 'cider-jack-in-dependencies
-                    "foo/bar" "1.0")</code></pre>
+                    "foo/bar" "1.0")
+;; if you want to have full control over the coordinate description set it as an alist
+;; auto-inject {:git/sha "6ae2b6f71773de7549d7f22759e8b09fec27f0d9" for library org.clojure/tools.deps
+;;              :git/url "https://github.com/clojure/tools.deps/"}
+(cider-add-to-alist 'cider-jack-in-dependencies
+                    "org.clojure/tools.deps"
+                    '(("git/sha" . "6ae2b6f71773de7549d7f22759e8b09fec27f0d9")
+                      ("git/url" . "https://github.com/clojure/tools.deps/")))</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -915,10 +922,13 @@ interface might change in future CIDER releases.
 </div>
 <div class="paragraph">
 <p>When locally running nREPL servers, there is the option to listen on a
-socket file instead of opening a network port. This can have
-advantages in some use cases, e.g. when working with virtual networks
-(containers) where sharing a file socket can be vastly simpler than
-managing bridge networks and firewall setups.</p>
+socket file instead of opening a network port.  As long as access to
+the parent directory of the socket is sufficiently protected, this is
+much more secure than the network port, since any local user can
+access the port-provided REPL.  It can also be be helpful in other
+cases, e.g. when working with virtual networks (containers) where
+sharing a file socket can be vastly simpler than managing bridge
+networks and firewall setups.</p>
 </div>
 <div class="paragraph">
 <p>After having started an nREPL server on a file socket, e.g. with the
@@ -933,6 +943,13 @@ examples),</p>
 <div class="paragraph">
 <p>you can then connect CIDER by using the <code>local-unix-domain-socket</code>
 special hostname with <code>cider-connect</code>: <kbd>M-x</kbd> <code>cider-connect</code> <kbd>RET</kbd> <code>local-unix-domain-socket</code> <kbd>RET</kbd> <code>nrepl.sock</code> <kbd>RET</kbd>.</p>
+</div>
+<div class="paragraph">
+<p>At the moment only with <code>leiningen</code>, commands like <code>cider-jack-in</code>
+will detect and use the unix domain socket if one is requested via the
+<code>:socket</code> argument.  This can be arranged by specifying a prefix
+argument to <code>cider-jack-in</code>, e.g. <kbd>C-u</kbd> <kbd>M-x</kbd> <code>cider-jack-in</code>,
+or by adjusting <code>cider-lein-parameters</code>.</p>
 </div>
 </div>
 </div>
