@@ -396,36 +396,49 @@
 <article class="doc">
 <h1 class="page">Other Platforms</h1>
 <div class="sect1">
-<h2 id="the-problem"><a class="anchor" href="#the-problem"></a>The Problem</h2>
+<h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>CIDER was created in the early days of Clojure where there weren&#8217;t any
-of the alternative implementations that exist today. This lead to a design
-that relied on knowledge of certain specifics of Clojure and
-the Clojure nREPL server.</p>
+<p>Here "other platforms" essentially means any (Clojure) platforms that hasn&#8217;t
+been mentioned specifically earlier in a dedicated section of the documentation.</p>
 </div>
 <div class="paragraph">
-<p>Later, with the introduction of ClojureScript we made another set
-of assumptions, related to the way hosted ClojureScript works. (e.g. that
-you start with an ordinary Clojure REPL that gets "upgraded" to a
-ClojureScript REPL by the invocation of a special form)</p>
-</div>
-<div class="paragraph">
-<p>Lately we&#8217;ve been working to address this and
-make CIDER more runtime-agnostic.</p>
+<p>As noted earlier in the documentation, down the road CIDER might support non-Clojure
+platforms as well. As things stand today, however, that&#8217;s not particularly high on our
+list of priorities.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="the-solution"><a class="anchor" href="#the-solution"></a>The Solution</h2>
+<h2 id="usage"><a class="anchor" href="#usage"></a>Usage</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>As of CIDER 1.6, the default CIDER connection command <code>cider-connect-clj</code> is
 capable of connecting to any nREPL server that implements the core nREPL
-protocol interface.</p>
+protocol interface. So, all you need to do is the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Start an nREPL server (the project&#8217;s README  usually has a section
+on starting a nREPL server).</p>
+</li>
+<li>
+<p><kbd>M-x <code>cider-connect-clj</code> &lt;RET&gt;</kbd></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>As such, all of these work:</p>
+<p>And that&#8217;s it! You&#8217;ll get every feature that&#8217;s implemented by the nREPL server
+you&#8217;re using.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-platform"><a class="anchor" href="#supported-platform"></a>Supported Platform</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Here&#8217;s an incomplete list of Clojure platforms that you can use as described above.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -440,41 +453,6 @@ protocol interface.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>First start an nREPL server (the project&#8217;s Readme usually has a section
-on starting a nREPL server).</p>
-</div>
-<div class="paragraph">
-<p>You can use</p>
-</div>
-<div class="paragraph">
-<p><kbd>M-x <code>cider-connect-clj</code> &lt;RET&gt;</kbd></p>
-</div>
-<div class="paragraph">
-<p>to connect to any Clojure(Script) nREPL server.</p>
-</div>
-<div class="paragraph">
-<p>Features:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Eval, load file etc.</p>
-</li>
-<li>
-<p>Code completion.</p>
-</li>
-<li>
-<p>Errors as overlays. (The default CIDER error buffer is not implemented currently).</p>
-</li>
-<li>
-<p>Other nREPL features the server provides; This might be rather minimal.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Basically you&#8217;ll get every feature that&#8217;s implemented by the nREPL server you&#8217;re using.</p>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -486,6 +464,24 @@ For <code>nbb</code> you can alternatively connect via <code>cider-connect-cljs<
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="limitations-caveats"><a class="anchor" href="#limitations-caveats"></a>Limitations &amp; Caveats</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Everything will be treated as a Clojure connection, regardless of the underlying platform.</p>
+</li>
+<li>
+<p>Errors will be displayed only as overlays. (The default CIDER error buffer is not implemented currently).</p>
+</li>
+<li>
+<p>The amount of functionality you&#8217;ll get will be dependant on how well the nREPL server you&#8217;re using implements the core nREPL protocol.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
