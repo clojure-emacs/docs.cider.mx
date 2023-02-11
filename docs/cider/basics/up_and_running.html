@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/basics/up_and_running.html">
     <link rel="prev" href="installation.html">
     <link rel="next" href="middleware_setup.html">
-    <meta name="generator" content="Antora 3.0.1">
+    <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -621,6 +621,94 @@ disable the warning displayed when jacking-in outside a project.
 </td>
 </tr>
 </table>
+</div>
+<div class="sect3">
+<h4 id="universal-jack-in"><a class="anchor" href="#universal-jack-in"></a>Universal jack-in</h4>
+<div class="paragraph">
+<p><code>cider-jack-in-universal</code> <kbd>C-c C-x j u</kbd> is another way to quickly
+jack in without a project choosing from a list of pre-configured
+Clojure build tools. When this command is called from outside of a
+project, the user is given the option to select to jack in with one of
+the pre-configured tools, as well as to confirm the root directory to
+use as a base. If the command is called from within a project
+directory, it behaves exactly the same as <code>cider-jack-in</code> does.</p>
+</div>
+<div class="paragraph">
+<p>It utilizes Emacs&#8217;s
+<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Prefix-Command-Arguments.html">numeric
+prefix arguments</a> to quickly jack in with a specific build tool. Numeric prefix
+arguments can be set with the <code>Meta</code> key followed by a number.</p>
+</div>
+<div class="paragraph">
+<p>The following Clojure build tools are supported so far</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><kbd>M-1 C-c C-x j u</kbd> jack-in using clojure-cli.</p>
+</li>
+<li>
+<p><kbd>M-2 C-c C-x j u</kbd> jack-in using leiningen.</p>
+</li>
+<li>
+<p><kbd>M-3 C-c C-x j u</kbd> jack-in using babashka.</p>
+</li>
+<li>
+<p><kbd>M-4 C-c C-x j u</kbd> jack-in using nbb.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is an example of how to bind <kbd>F12</kbd> for quickly bringing up a
+babashka REPL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(global-set-key (kbd "&lt;f12&gt;") (lambda ()
+                                (interactive)
+                                (cider-jack-in-universal 3)))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The list of available build tools to consider is configured in
+<code>cider-jack-in-universal-options</code>. Each element of the list consists
+of the tool name and its setup options. Taking <code>nbb</code> as an example
+from the list:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(nbb         (:prefix-arg 4 :cmd (:jack-in-type cljs :project-type nbb :cljs-repl-type nbb :edit-project-dir t)))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>with</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>:prefix-arg</code> assigns the <code>nbb</code> tool name a numerical argument prefix of 4.</p>
+</li>
+<li>
+<p><code>:cmd</code> how to invoke the command.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>:jack-in-type</code> use a <code>cljs</code> repl.</p>
+</li>
+<li>
+<p><code>:project-type</code> use <code>nbb</code> (see <code>jack-in-command</code>) to bring up the nREPL server.</p>
+</li>
+<li>
+<p><code>:cljs-repl-type</code> client uses the <code>nbb</code> cljs repl type (see <code>cider-cljs-repl-types</code>) to initialize server.</p>
+</li>
+<li>
+<p><code>:edit-project-dir</code> ask the user to confirm root directory to use as base.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect2">

@@ -3,10 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Using Other ClojureScript REPLs :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/cljs/other_repls.html">
-    <link rel="prev" href="shadow-cljs.html">
-    <link rel="next" href="../platforms/overview.html">
+    <title>ClojureCLR :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/platforms/clojureclr.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -90,22 +88,22 @@
     <span class="nav-text">ClojureScript Setup</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="overview.html">Overview</a>
+    <a class="nav-link" href="../cljs/overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="up_and_running.html">Up and Running</a>
+    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="configuration.html">Configuration</a>
+    <a class="nav-link" href="../cljs/configuration.html">Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="figwheel.html">Using Figwheel</a>
+    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="shadow-cljs.html">Using shadow-cljs</a>
+    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="other_repls.html">Using Other REPLs</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
   </li>
 </ul>
   </li>
@@ -114,16 +112,16 @@
     <span class="nav-text">Alternative Platforms</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../platforms/overview.html">Overview</a>
+    <a class="nav-link" href="overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../platforms/babashka.html">Babashka</a>
+    <a class="nav-link" href="babashka.html">Babashka</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../platforms/nbb.html">Nbb</a>
+    <a class="nav-link" href="nbb.html">Nbb</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../platforms/other_platforms.html">Other Platforms</a>
+    <a class="nav-link" href="other_platforms.html">Other Platforms</a>
   </li>
 </ul>
   </li>
@@ -370,236 +368,100 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
-    <li>ClojureScript Setup</li>
-    <li><a href="other_repls.html">Using Other REPLs</a></li>
+    <li><a href="clojureclr.html">ClojureCLR</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">default</button>
   <div class="version-menu">
-    <a class="version is-current" href="other_repls.html">default</a>
-    <a class="version" href="../1.6/cljs/other_repls.html">1.6</a>
-    <a class="version" href="../1.5/cljs/other_repls.html">1.5</a>
-    <a class="version" href="../1.4/cljs/other_repls.html">1.4</a>
-    <a class="version" href="../1.3/cljs/other_repls.html">1.3</a>
-    <a class="version" href="../1.2/cljs/other_repls.html">1.2</a>
-    <a class="version" href="../1.1/cljs/other_repls.html">1.1</a>
-    <a class="version" href="../1.0/cljs/other_repls.html">1.0</a>
+    <a class="version is-current" href="clojureclr.html">default</a>
+    <a class="version is-missing" href="../1.6/index.html">1.6</a>
+    <a class="version is-missing" href="../1.5/index.html">1.5</a>
+    <a class="version is-missing" href="../1.4/index.html">1.4</a>
+    <a class="version is-missing" href="../1.3/index.html">1.3</a>
+    <a class="version is-missing" href="../1.2/index.html">1.2</a>
+    <a class="version is-missing" href="../1.1/index.html">1.1</a>
+    <a class="version is-missing" href="../1.0/index.html">1.0</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/cljs/other_repls.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/platforms/clojureclr.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Using Other ClojureScript REPLs</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>While these days most people are using <code>figwheel</code> and <code>shadow-cljs</code>,
-CIDER supports other ClojureScript REPLs as well.
-This section of the user manual is dedicated to them.</p>
-</div>
-</div>
-</div>
+<h1 class="page">ClojureCLR</h1>
 <div class="sect1">
-<h2 id="node-js-repl"><a class="anchor" href="#node-js-repl"></a>Node.js REPL</h2>
-<div class="sectionbody">
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-Make sure <code>node.js</code> is installed and that the <code>node</code> binary
-is on Emacs&#8217;s <code>exec-path</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>ClojureScript&#8217;s Node.js REPL is really simple to setup, as it doesn&#8217;t
-require you to fiddle with your project&#8217;s dependencies. All you need to do is:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Open some file in your project.</p>
-</li>
-<li>
-<p>Type <kbd>M-x</kbd> <code>cider-jack-in-cljs</code> <kbd>RET</kbd>.</p>
-</li>
-<li>
-<p>Choose the <code>node</code> option when prompted about the ClojureScript REPL type you want
-to use.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="weasel"><a class="anchor" href="#weasel"></a>Weasel</h2>
+<h2 id="current-status"><a class="anchor" href="#current-status"></a>Current Status</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Using <a href="https://github.com/nrepl/weasel">Weasel</a>, you can have a browser-connected REPL.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Add <code>[weasel "0.7.1"]</code> to your project&#8217;s <code>:dependencies</code>.</p>
-</li>
-<li>
-<p>Type <kbd>M-x</kbd> <code>cider-jack-in-cljs</code> <kbd>RET</kbd> and choose
-the <code>Weasel</code> option when prompted about the ClojureScript REPL type you want
-to use.</p>
-</li>
-<li>
-<p>Add this to your ClojureScript code:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(ns my.cljs.core
-  (:require [weasel.repl :as repl]))
-(repl/connect "ws://localhost:9001")</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Once connected you can start evaluating code in the REPL and you&#8217;ll see the results in your
-browser.</p>
-<div class="literalblock">
-<div class="content">
-<pre>cljs.user&gt; (js/alert "Hello world!")</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Provided that a Piggieback-enabled ClojureScript environment is active in your
-REPL session, code loading and evaluation will work seamlessly regardless of the
-presence of the <code>cider-nrepl</code> middleware. If the middleware is present then most
-other features of CIDER will also be enabled (including code completion,
-documentation lookup, the namespace browser, and macroexpansion).</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-For more information on Weasel you should consult its <a href="https://github.com/nrepl/weasel/blob/master/README.md">documentation</a>.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="boot-clojurescript-repl"><a class="anchor" href="#boot-clojurescript-repl"></a>Boot ClojureScript REPL</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><code>boot-cljs</code> is another browser-connected ClojureScript REPL, that&#8217;s targeting the Boot build tool.
-Internally, it&#8217;s powered by Weasel. Let&#8217;s go over the steps required to use it.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Add this to your dependencies in <code>build.boot</code>:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">[adzerk/boot-cljs        "X.Y.Z"  :scope "test"]
-[adzerk/boot-cljs-repl   "X.Y.Z"  :scope "test"]
-[pandeiro/boot-http      "X.Y.Z"  :scope "test"]
-[weasel                  "0.7.1"  :scope "test"]
-[cider/piggieback "0.5.1"  :scope "test"] ; not needed for cider-jack-in-cljs</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>and this at the end of <code>build.boot</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(require
- '[adzerk.boot-cljs :refer [cljs]]
- '[adzerk.boot-cljs-repl :refer [cljs-repl]]
- '[pandeiro.boot-http :refer [serve]])
-
-(deftask dev []
-  (comp (serve)
-        (watch)
-        (cljs-repl) ; order is important!!
-        (cljs)))</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Type <kbd>M-x</kbd> <code>customize-variable</code> <kbd>RET</kbd> <code>cider-boot-parameters</code>
-and insert <code>dev</code>.</p>
-</li>
-<li>
-<p>Open a file in your project and type <kbd>M-x</kbd> <code>cider-jack-in-cljs</code>.</p>
-</li>
-<li>
-<p>Connect to the running server with your browser. The address is printed on the terminal, but it&#8217;s probably <code>http://localhost:3000</code>.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>For more information visit <a href="https://github.com/adzerk-oss/boot-cljs-repl">boot-cljs-repl</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="nbb-node-js-babashka"><a class="anchor" href="#nbb-node-js-babashka"></a>nbb (node.js babashka)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>CIDER has built-in support for <code>nbb</code>. You can either jack in to an nbb project with <code>M-x clojure-jack-in-cljs</code>.</p>
-</div>
-<div class="paragraph">
-<p>or start its bundled nREPL server:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ nbb nrepl-server</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>and connect to it afterwards using <code>M-x cider-connect-cljs</code>.</p>
-</div>
-<div class="paragraph">
-<p>See the <a href="../platforms/nbb.html" class="xref page">dedicated page</a> for more details.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="other-self-hosted-repls"><a class="anchor" href="#other-self-hosted-repls"></a>Other Self-hosted REPLs</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>For all other self-hosted REPLs you can follow the instructions <a href="../platforms/other_platforms.html" class="xref page">here</a>. This will work fine with any well-behaved nREPL implementation, like those of:</p>
+<p>ClojureCLR on CIDER is not great due to the lack of a fully-functional nREPL
+server for ClojureCLR. There are currently two options:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/babashka/nbb">nbb</a></p>
+<p><a href="https://github.com/clojure/clr.tools.nrepl">clr.tools.nrepl</a>: A direct (but incomplete) port of the reference Clojure nREPL server.</p>
 </li>
 <li>
-<p><a href="https://github.com/babashka/scittle">scittle</a></p>
-</li>
-<li>
-<p><a href="https://github.com/BetterThanTomorrow/joyride">joyride</a></p>
+<p><a href="https://github.com/arcadia-unity/Arcadia/blob/master/Editor/NRepl.cs">Arcadia&#8217;s nREPL</a>: A basic, but working nREPL implementation in C#.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>If you need to use CIDER with ClojureCLR today Arcadia&#8217;s nREPL is your only usable option. That being said - <code>clr.tools.nrepl</code> is a much
+more sophisticated project and ideally we should get it over to the finish line.</p>
 </div>
 </div>
-<nav class="pagination">
-  <span class="prev"><a href="shadow-cljs.html">Using shadow-cljs</a></span>
-  <span class="next"><a href="../platforms/overview.html">Overview</a></span>
-</nav>
+</div>
+<div class="sect1">
+<h2 id="usage"><a class="anchor" href="#usage"></a>Usage</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Contributions welcome!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As <code>cider-jack-in</code> doesn&#8217;t support ClojureCLR projects out-of-the-box currently, you&#8217;ll need to start an nREPL server externally and
+connect to it with <code>cider-connect</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="plans"><a class="anchor" href="#plans"></a>Plans</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In an ideal world we&#8217;ll achieve the following objectives:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>out-of-the-box ClojureCLR support with <code>cider-jack-in</code></p>
+</li>
+<li>
+<p>feature parity between Clojure&#8217;s nREPL implementation and <code>clr.tools.nrepl</code> (the project can use some help)</p>
+</li>
+<li>
+<p>adapting <code>cider-nrepl</code> for ClojureCLR (some of its codebase is JVM-specific)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given that Bozhidar&#8217;s knowledge of CLR and time are limited, it&#8217;d be great if we manage to find some volunteers to help with the
+work that&#8217;s needed in this direction. In particular it&#8217;d be amazing to complete <code>clr.tools.nrepl</code>, as the project needs relatively
+little work to be fully usable.</p>
+</div>
+</div>
+</div>
 </article>
   </div>
 </main>
