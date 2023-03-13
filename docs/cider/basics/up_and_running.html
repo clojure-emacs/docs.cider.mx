@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/basics/up_and_running.html">
     <link rel="prev" href="installation.html">
     <link rel="next" href="middleware_setup.html">
-    <meta name="generator" content="Antora 3.1.2">
+    <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -856,6 +856,46 @@ wait</code>)</p>
 <p><code>cider-shadow-cljs-global-options</code></p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="override-the-jack-in-command"><a class="anchor" href="#override-the-jack-in-command"></a>Override the Jack-In Command</h3>
+<div class="paragraph">
+<p>Which Jack-In Command is used is based on the project type. You can override the Jack-In Command either project-wide or as an argument in Lisp.
+This allows for fine-grained control over how cider starts the nrepl-server.</p>
+</div>
+<div class="paragraph">
+<p>The precedence order for determining the Jack-In Command is:
+1) :jack-in-cmd if provided as a parameter,
+2) <code>cider-jack-in-command</code> if set as a directory local variable, and
+3) inferred from the project type (the default).</p>
+</div>
+<div class="sect3">
+<h4 id="setting-a-project-wide-command"><a class="anchor" href="#setting-a-project-wide-command"></a>Setting a project-wide command</h4>
+<div class="paragraph">
+<p>You can set a local variable <code>cider-jack-in-command</code> to override the jack-in command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-emacs-lisp hljs" data-lang="emacs-lisp">((nil
+  (cider-jack-in-cmd . "nbb nrepl-server")))</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="passing-the-command-programmatically-as-a-parameter"><a class="anchor" href="#passing-the-command-programmatically-as-a-parameter"></a>Passing the Command Programmatically as a Parameter</h4>
+<div class="paragraph">
+<p>You can provide an override Jack-In command as an argument to <code>cider-jack-in</code>.
+Here is an example Nbb Jack-In command, providing a custom <code>:jack-in-cmd</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-emacs-lisp hljs" data-lang="emacs-lisp">(defun cider-jack-in-nbb-2 ()
+  "Start a Cider nREPL server with the 'nbb nrepl-server' command."
+  (interactive)
+  (cider-jack-in-clj '(:jack-in-cmd "nbb nrepl-server")))</code></pre>
+</div>
 </div>
 </div>
 </div>

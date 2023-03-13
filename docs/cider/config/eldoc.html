@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/config/eldoc.html">
     <link rel="prev" href="indentation.html">
     <link rel="next" href="project_config.html">
-    <meta name="generator" content="Antora 3.1.2">
+    <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -492,6 +492,17 @@ is non-nil:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-eldoc-display-context-dependent-info t)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="disable-ciders-eldoc-function"><a class="anchor" href="#disable-ciders-eldoc-function"></a>Disable CIDER&#8217;s ElDoc Function</h3>
+<div class="paragraph">
+<p>If you&#8217;re using CIDER alongside <code>clojure-lsp</code> you might prefer to use <code>clojure-lsp</code> for ElDoc. This means you&#8217;ll have to remove CIDER&#8217;s ElDoc function from the list of registered ElDoc functions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(remove-hook 'eldoc-documentation-functions #'cider-eldoc)</code></pre>
 </div>
 </div>
 </div>

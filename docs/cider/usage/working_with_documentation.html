@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/usage/working_with_documentation.html">
     <link rel="prev" href="dealing_with_errors.html">
     <link rel="next" href="managing_connections.html">
-    <meta name="generator" content="Antora 3.1.2">
+    <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -515,6 +515,37 @@ example, if you want to want to use Latex-style references
 <div class="content">
 <img src="../_images/cider_see_also.gif" alt="CIDER See Also">
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="displaying-documentation-as-tooltips"><a class="anchor" href="#displaying-documentation-as-tooltips"></a>Displaying Documentation as Tooltips</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default CIDER will show the documentation for the symbol under the mouse in a
+tooltip (using an overlay) or your echo area. That&#8217;s controlled by the
+configuration setting <code>cider-use-tooltips</code>. You can disable this behavior by
+setting the variable to <code>nil</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(setq cider-use-tooltips nil)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The tooltips will also be disabled if <code>tooltip-mode</code> is disabled or <code>help-at-pt-display-when-idle</code> is set to <code>t</code>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Check out the documentation of <code>help-at-pt-display-when-idle</code> to understand better how the <code>help-echo</code> Emacs functionality works.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
