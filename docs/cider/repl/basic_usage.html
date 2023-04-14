@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/repl/basic_usage.html">
     <link rel="prev" href="../usage/misc_features.html">
     <link rel="next" href="keybindings.html">
-    <meta name="generator" content="Antora 3.0.1">
+    <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -518,6 +518,30 @@ some of the operations needed to properly dispose of a REPL buffer.
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="loading-repl-utility-functions"><a class="anchor" href="#loading-repl-utility-functions"></a>Loading REPL Utility Functions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Normally Clojure REPLs load the following code in the first REPL that you start:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(clojure.core/apply clojure.core/require clojure.main/repl-requires)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>CIDER does this as well, but goes one step further and actually allows you
+to control what code to evaluate when a REPL is being initialized via
+the variable <code>cider-repl-init-code</code>.</p>
+</div>
+<div class="paragraph">
+<p>This initialization code is auto-loaded only in the first REPL namespace
+(normally <code>user</code>), but you can easily invoke it in any namespace using the REPL
+shortcut <code>require-repl-utils</code>. The functionality is also accessible via
+CIDER&#8217;s menu ("REPL &#8594; Require REPL utils").</p>
 </div>
 </div>
 </div>

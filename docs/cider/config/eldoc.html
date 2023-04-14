@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/config/eldoc.html">
     <link rel="prev" href="indentation.html">
     <link rel="next" href="project_config.html">
-    <meta name="generator" content="Antora 3.0.1">
+    <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -504,6 +504,23 @@ is non-nil:</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(remove-hook 'eldoc-documentation-functions #'cider-eldoc)</code></pre>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you&#8217;re dealing with a lot of packages providing some ElDoc integration
+it&#8217;s a good idea to learn about
+<a href="https://www.masteringemacs.org/article/seamlessly-merge-multiple-documentation-sources-eldoc">merging
+multiple documentation sources with ElDoc</a>. In brief - Emacs 28 added support
+for multiple documentation backends. Now you can read error messages from your
+linter or compiler <strong>and</strong> see code documentation at the same time. Cool stuff!
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.cider.mx/cider/basics/up_and_running.html">
     <link rel="prev" href="installation.html">
     <link rel="next" href="middleware_setup.html">
-    <meta name="generator" content="Antora 3.0.1">
+    <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -753,26 +753,9 @@ so we&#8217;ll examine them tool by tool.</p>
 <p><code>cider-lein-command</code> - the name of the Leiningen executable (<code>lein</code> by default)</p>
 </li>
 <li>
-<p><code>cider-lein-parameters</code> - the command-line params to start a REPL (e.g. <code>repl :headless</code>)</p>
-</li>
-<li>
-<p><code>cider-lein-global-options</code> - these are passed to the command directly, in
-first position (e.g., <code>-o</code> to <code>lein</code> enables offline mode).</p>
+<p><code>cider-lein-parameters</code> - the command-line params to start a REPL (e.g. <code>repl :headless</code> or -o to enable offline mode)</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Originally CIDER supported jacking in only for Leiningen, so its configuration
-options became the archetype for everything else.
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect3">
@@ -781,6 +764,9 @@ options became the archetype for everything else.
 <ul>
 <li>
 <p><code>cider-clojure-cli-command</code> - the name of the <code>clojure</code> executable (<code>clojure</code> by default)</p>
+</li>
+<li>
+<p><code>cider-clojure-cli-parameters</code> - the command-line parameters to start a REPL</p>
 </li>
 <li>
 <p><code>cider-clojure-cli-aliases</code> - a list of aliases to be used at jack-in time</p>
@@ -820,9 +806,6 @@ will likely result in a better overall development experience.
 (e.g., <code>dev</code> for launching boot&#8217;s dev task instead of the standard <code>repl -s
 wait</code>)</p>
 </li>
-<li>
-<p><code>cider-boot-global-options</code></p>
-</li>
 </ul>
 </div>
 </div>
@@ -834,10 +817,7 @@ wait</code>)</p>
 <p><code>cider-gradle-command</code> - the name of the Gradle executable (<code>./gradlew</code> by default)</p>
 </li>
 <li>
-<p><code>cider-gradle-parameters</code> - the Gradle arguments to invoke the repl task (<code>clojureRepl</code> by default)</p>
-</li>
-<li>
-<p><code>cider-gradle-global-options</code> - these are usually global options to gradle, such as <code>--no-daemon</code> or <code>--configuration-cache</code> (empty by default)</p>
+<p><code>cider-gradle-parameters</code> - the Gradle arguments to invoke the repl task (e.g. <code>--no-daemon</code> or <code>--configuration-cache</code>) (<code>clojureRepl</code> by default)</p>
 </li>
 </ul>
 </div>
@@ -851,9 +831,6 @@ wait</code>)</p>
 </li>
 <li>
 <p><code>cider-shadow-cljs-parameters</code> - the task to start a REPL server (<code>server</code> by default)</p>
-</li>
-<li>
-<p><code>cider-shadow-cljs-global-options</code></p>
 </li>
 </ul>
 </div>
