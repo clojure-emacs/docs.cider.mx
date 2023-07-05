@@ -207,6 +207,9 @@
     <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/logging.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -342,10 +345,10 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
+      <a class="title" href="../../cider-nrepl/latest/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/index.html">default</a>
+          <a href="../../cider-nrepl/latest/index.html">0.31</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.26/index.html">0.26</a>
@@ -387,8 +390,8 @@
     <a class="version" href="../1.0/cljs/overview.html">1.0</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/cljs/overview.adoc">Edit this Page</a></div>
-  </div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/cljs/overview.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -429,7 +432,7 @@ and how to setup the most popular ClojureScript REPLs.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>nREPL doesn&#8217;t natively support ClojureScript evaluation, that why an additional
-middleware is needed. CIDER relies on the popular Piggieback middleware for its
+middleware is needed. For most REPLs (with the notable exceptions of <code>shadow-cljs</code>, <code>nbb</code>), CIDER relies on the popular Piggieback middleware for its
 ClojureScript support.</p>
 </div>
 <div class="paragraph">
@@ -454,10 +457,22 @@ as now we have the extra REPL "upgrade" step.</p>
 REPLs in a single nREPL connection! This opens up all sorts of interesting possibilities
 that we&#8217;ll discuss later on.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+`shadow-cljs&#8217;s REPL is implemented in a very similar fashion, but its mechanism is provided by its own nREPL middleware - not Piggieback.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="differences-with-the-standard-clojurescript-repl"><a class="anchor" href="#differences-with-the-standard-clojurescript-repl"></a>Differences with the Standard ClojureScript REPL</h2>
+<h2 id="piggieback-differences-with-the-standard-clojurescript-repl"><a class="anchor" href="#piggieback-differences-with-the-standard-clojurescript-repl"></a>Piggieback differences with the Standard ClojureScript REPL</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>While the Piggieback-powered ClojureScript REPLs behave more or less

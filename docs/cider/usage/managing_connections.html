@@ -207,6 +207,9 @@
     <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/logging.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -342,10 +345,10 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
+      <a class="title" href="../../cider-nrepl/latest/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/index.html">default</a>
+          <a href="../../cider-nrepl/latest/index.html">0.31</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.26/index.html">0.26</a>
@@ -387,8 +390,8 @@
     <a class="version" href="../1.0/usage/managing_connections.html">1.0</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/usage/managing_connections.adoc">Edit this Page</a></div>
-  </div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/usage/managing_connections.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -751,6 +754,26 @@ name and the REPL type specification post-fix
 <p>You can customize session names with <code>cider-session-name-template</code> and REPL
 names with <code>nrepl-repl-buffer-name-template</code>. See also
 <code>cider-format-connection-params</code> for available formats.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reusing-dead-repls"><a class="anchor" href="#reusing-dead-repls"></a>Reusing dead REPLs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Under normal circumstances, CIDER automatically kills the REPL buffers and cleans up after itself when ending a session.
+However, when a session is terminated unexpectedly, e.g. when it crashes or is disconnected from an external server process, the REPL buffer is left without an active connection and outputs a log:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">*** Closed on &lt; date/time &gt; ***</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Upon starting a new connection, CIDER can detect these "dead REPLs" and offer to reuse the buffer for the new connection.
+By default, it prompts for confirmation whenever a dead REPL buffer is available for reuse, but you can customize this behaviour via the variable <code>cider-reuse-dead-repls</code>.
+Setting it to <code>auto</code> reuses a dead REPL buffer automatically, and only displays a prompt when there are multiple options to choose from.
+To suppress the prompt entirely, set it to <code>nil</code> to always start a new REPL buffer, or <code>any</code> to reuse the most relevant dead REPL.</p>
 </div>
 </div>
 </div>

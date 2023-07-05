@@ -207,6 +207,9 @@
     <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/logging.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -342,10 +345,10 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
+      <a class="title" href="../../cider-nrepl/latest/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/index.html">default</a>
+          <a href="../../cider-nrepl/latest/index.html">0.31</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.26/index.html">0.26</a>
@@ -387,8 +390,8 @@
     <a class="version" href="../1.0/cljs/shadow-cljs.html">1.0</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/cljs/shadow-cljs.adoc">Edit this Page</a></div>
-  </div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/cljs/shadow-cljs.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -497,11 +500,24 @@ root of your project.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ npx shadow-cljs server</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ shadow-cljs watch app</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>And connect to it with <code>cider-connect</code>.</p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;For that to work, <code>shadow-cljs.edn</code> contents like the following are assumed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj"> :dependencies [[cider/cider-nrepl "0.31.0"] ;; mandatory (unless it's inherited from deps.edn or otherwise present in the classpath of shadow-cljs's JVM process)
+                [refactor-nrepl/refactor-nrepl "3.6.0"]] ;; refactor-nrepl is optional
+
+ :nrepl {:middleware [cider.nrepl/cider-middleware ;; it's advisable to explicitly add this middleware. It's automatically added by shadow-cljs (if available in the classpath), unless `:nrepl {:cider false}`
+                      refactor-nrepl.middleware/wrap-refactor] ;; refactor-nrepl is optional
+         :port 50655} ;; optional - if not specified, a random free port will be used</code></pre>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -511,9 +527,9 @@ root of your project.</p>
 </td>
 <td class="content">
 If <a href="https://docs.cider.mx/cider-nrepl/">cider-nrepl</a> isn&#8217;t in your
-classpath you should make sure it&#8217;s there. You can do this by adding
-it to <code>:dependencies</code> in the <code>shadow-cljs.edn</code> configuration file
-residing in the root of your project. Alternatively you can set
+classpath you should make sure it&#8217;s there. You can do this by correctly filling
+the <code>shadow-cljs.edn</code> configuration file
+residing in the root of your project, as described above. Alternatively you can set
 <code>cider-repl-auto-detect-type</code> to <code>nil</code>, as the auto-detection of
 REPL types doesn&#8217;t work without <code>cider-nrepl</code>.
 </td>
@@ -637,16 +653,6 @@ via the following configuration variables:</p>
 </li>
 <li>
 <p><a href="https://shadow-cljs.github.io/docs/UsersGuide.html#cider">Integration with CIDER</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="tutorials"><a class="anchor" href="#tutorials"></a>Tutorials</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://cestlaz.github.io/post/using-emacs-63-clojurescript/">Using shadow-cljs with CIDER</a></p>
 </li>
 </ul>
 </div>
