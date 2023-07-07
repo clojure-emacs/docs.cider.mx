@@ -457,7 +457,22 @@ logging related actions.
 <li>
 <p>Show log event exceptions in the CIDER <a href="../usage/dealing_with_errors.html">Stacktrace Mode</a></p>
 </li>
+<li>
+<p>Integration with <a href="https://github.com/doublep/logview">logview</a></p>
+</li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dependencies"><a class="anchor" href="#dependencies"></a>Dependencies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/doublep/logview">Logview</a> is an optional dependency
+of CIDER Log Mode. We recommend using it, since it is responsible for
+coloring the log events and it provides other useful features, such as
+syntax highlighting, filtering and more. It is used automatically when
+available and its use can be customized via <code>cider-log-use-logview</code>.</p>
 </div>
 </div>
 </div>
@@ -465,7 +480,7 @@ logging related actions.
 <h2 id="usage"><a class="anchor" href="#usage"></a>Usage</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To use CIDER Log Mode, type <kbd>C-c l l</kbd> or <kbd>M-x cider-log</kbd> in
+<p>To use CIDER Log Mode, type <kbd>C-c M-l l</kbd> or <kbd>M-x cider-log</kbd> in
 any buffer that has a CIDER <a href="https://github.com/vspinu/sesman">Sesman</a>
 session attached to it. The first time you run the command, it will
 prompt you to select a log framework to use, and then attach a log
@@ -516,27 +531,27 @@ the selected framework.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l l</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the CIDER log menu.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-framework</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l f</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l f</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the menu to manage a logging framework.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-appender</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l a</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l a</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the menu to manage appenders of a logging framework.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-consumer</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l c</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the menu to manage consumers listening to log events.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-event</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l e</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the menu to manage log events.</p></td>
 </tr>
 </tbody>
@@ -591,22 +606,22 @@ Log4j2 reconfiguration mechanism.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-set-framework</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l f s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l f s</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Select the log framework to use.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-set-buffer</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l f b</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l f b</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Select the log buffer to user. Default: <code>*cider-log*</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-browse-javadocs</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l f j</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l f j</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Browse the Javadocs of the log framework.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-browse-website</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l f w</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l f w</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Browse the website of the log framework.</p></td>
 </tr>
 </tbody>
@@ -648,27 +663,27 @@ to only capture events that match a set of filters.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-appender</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l a</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l a</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the transient menu to manage log appenders.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-add-appender</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l a a</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l a a</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add a log appender to a logger.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-clear-appender</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l a c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l a c</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clear all captured events of a log appender.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-kill-appender</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l a k</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l a k</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kill a log appender by removing it from the logger.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-update-appender</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l a u</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l a u</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Update the filters, size or threshold of a log appender.</p></td>
 </tr>
 </tbody>
@@ -710,25 +725,25 @@ certain events.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-consumer</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l c</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the transient menu to manage log consumers.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-add-consumer</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>ca</kbd> / <kbd>a</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l c a</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l c a</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add a log consumer to a log appender streaming event to the client.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-kill-consumer</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>ck</kbd> / <kbd>k</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l c k</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l c k</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kill a log consumer and stop streaming events to the client.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-update-consumer</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>cu</kbd> / <kbd>u</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l c u</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l c u</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Update the filters of a log consumer to change which events are streamed to the client.</p></td>
 </tr>
 </tbody>
@@ -770,32 +785,32 @@ when the <code>*cider-log*</code> buffer gets killed.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-event</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l e</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the transient menu to manage log events.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-clear-event-buffer</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l e c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l e c</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clear all events from the log event buffer.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-show-stacktrace</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l e e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l e e</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the stacktrace of the log event at point in the CIDER Stacktrace Mode.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-inspect-event</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l e i</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l e i</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the log event in the CIDER Inspector.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-print-event</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l e p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l e p</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pretty print the log event in the <code>*cider-log-event*</code> buffer.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-event-search</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c l e s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l e s</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Search log events and show them in the <code>*cider-log*</code> buffer.</p></td>
 </tr>
 </tbody>
