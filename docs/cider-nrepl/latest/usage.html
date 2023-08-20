@@ -14,7 +14,6 @@
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
-    <script>var uiRootPath = '../../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -229,7 +228,7 @@ Boot users will need to have version 2.8.2 or newer installed.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.31.0"]]</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.35.1"]]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -237,7 +236,7 @@ Boot users will need to have version 2.8.2 or newer installed.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:user {:plugins [[cider/cider-nrepl "0.31.0"]]}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:user {:plugins [[cider/cider-nrepl "0.35.1"]]}}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -247,7 +246,7 @@ under <code>:repl-options</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:dependencies [[cider/cider-nrepl "0.31.0"]]
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:dependencies [[cider/cider-nrepl "0.35.1"]]
 :repl-options {:nrepl-middleware
                  [cider.nrepl/wrap-apropos
                   cider.nrepl/wrap-classpath
@@ -283,7 +282,7 @@ functionality):</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>boot -d nrepl:1.0.0 -d cider/cider-nrepl:0.31.0 -i "(require 'cider.tasks)" cider.tasks/add-middleware -m cider.nrepl.middleware.apropos/wrap-apropos -m cider.nrepl.middleware.version/wrap-version repl --server wait</pre>
+<pre>boot -d nrepl:1.0.0 -d cider/cider-nrepl:0.35.1 -i "(require 'cider.tasks)" cider.tasks/add-middleware -m cider.nrepl.middleware.apropos/wrap-apropos -m cider.nrepl.middleware.version/wrap-version repl --server wait</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -292,7 +291,7 @@ functionality):</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(set-env! :dependencies '[[nrepl "1.0.0"]
-                          [cider/cider-nrepl "0.31.0"]])
+                          [cider/cider-nrepl "0.35.1"]])
 
 (require '[cider.tasks :refer [add-middleware]])
 
@@ -333,7 +332,7 @@ with the following "magic" incantation:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.31.0"} }}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</pre>
+<pre>clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.35.1"} }}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -344,12 +343,12 @@ with the following "magic" incantation:</p>
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{...
  :aliases
  {:cider-clj {:extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}
-                           cider/cider-nrepl {:mvn/version "0.31.0"}}
+                           cider/cider-nrepl {:mvn/version "0.35.1"}}
               :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :cider-cljs {:extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}
                             org.clojure/clojurescript {:mvn/version "1.10.339"}
-                            cider/cider-nrepl {:mvn/version "0.31.0"}
+                            cider/cider-nrepl {:mvn/version "0.35.1"}
                             cider/piggieback {:mvn/version "0.5.2"}}
                :main-opts ["-m" "nrepl.cmdline" "--middleware"
                            "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}}}</code></pre>

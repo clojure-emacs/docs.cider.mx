@@ -14,7 +14,6 @@
 <link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
-    <script>var uiRootPath = '../../../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -919,7 +918,7 @@ method of
 <div class="ulist">
 <ul>
 <li>
-<p><code>:fn-deps</code> A list of function deps.</p>
+<p><code>:fn-deps</code> A list of function deps, with a <code>:name :doc :file :file-url :line :column</code> structure.</p>
 </li>
 <li>
 <p><code>:status</code> done</p>
@@ -959,7 +958,7 @@ method of
 <div class="ulist">
 <ul>
 <li>
-<p><code>:fn-refs</code> A list of function references.</p>
+<p><code>:fn-refs</code> A list of function references, with a <code>:name :doc :file :file-url :line :column</code> structure.</p>
 </li>
 <li>
 <p><code>:status</code> done</p>
@@ -2216,7 +2215,7 @@ method of
 <div class="sect2">
 <h3 id="retest"><a class="anchor" href="#retest"></a><code>retest</code></h3>
 <div class="paragraph">
-<p>Return exception cause and stack frame info for an erring test via the <code>stacktrace</code> middleware. The error to be retrieved is referenced by namespace, var name, and assertion index within the var.</p>
+<p>[DEPRECATED - <code>use test-var-query</code> instead] Run all tests in the project. If <code>load?</code> is truthy, all project namespaces are loaded; otherwise, only tests in presently loaded namespaces are run. Results are cached for exception retrieval and to enable re-running of failed/erring tests.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -2251,7 +2250,28 @@ method of
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:elapsed-time</code> a report of the elapsed time spent running all the given namespaces. The structure is <code>:elapsed-time {:ms &lt;integer&gt; :humanized &lt;string&gt;}</code>.</p>
+</li>
+<li>
+<p><code>:fail-fast</code> If equals to the string "true", the tests will be considered complete after the first test has failed or errored.</p>
+</li>
+<li>
+<p><code>:ns-elapsed-time</code> a report of the elapsed time spent running each namespace. The structure is <code>:ns-elapsed-time {&lt;ns as keyword&gt; {:ms &lt;integer&gt; :humanized &lt;string&gt;}}</code>.</p>
+</li>
+<li>
+<p><code>:results</code> Misc information about the test result. The structure is <code>:results {&lt;ns as keyword&gt; {&lt;test var as keyword&gt; [{,,, :elapsed-time {:ms &lt;integer&gt; :humanized &lt;string&gt;}}]}}</code></p>
+</li>
+<li>
+<p><code>:status</code> Either done or indication of an error</p>
+</li>
+<li>
+<p><code>:var-elapsed-time</code> a report of the elapsed time spent running each var. The structure is <code>:var-elapsed-time {&lt;ns as keyword&gt; {&lt;var as keyword&gt; {:ms &lt;integer&gt; :humanized &lt;string&gt;}}}</code>.</p>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
@@ -2492,7 +2512,7 @@ stack frame of the most recent exception. This op is deprecated, please use the
 <div class="sect2">
 <h3 id="test"><a class="anchor" href="#test"></a><code>test</code></h3>
 <div class="paragraph">
-<p>[DEPRECATED] Run tests in the specified namespace and return results. This accepts a set of <code>tests</code> to be run; if nil, runs all tests. Results are cached for exception retrieval and to enable re-running of failed/erring tests.</p>
+<p>[DEPRECATED - <code>use test-var-query</code> instead] Run tests in the specified namespace and return results. This accepts a set of <code>tests</code> to be run; if nil, runs all tests. Results are cached for exception retrieval and to enable re-running of failed/erring tests.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -2527,7 +2547,28 @@ stack frame of the most recent exception. This op is deprecated, please use the
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:elapsed-time</code> a report of the elapsed time spent running all the given namespaces. The structure is <code>:elapsed-time {:ms &lt;integer&gt; :humanized &lt;string&gt;}</code>.</p>
+</li>
+<li>
+<p><code>:fail-fast</code> If equals to the string "true", the tests will be considered complete after the first test has failed or errored.</p>
+</li>
+<li>
+<p><code>:ns-elapsed-time</code> a report of the elapsed time spent running each namespace. The structure is <code>:ns-elapsed-time {&lt;ns as keyword&gt; {:ms &lt;integer&gt; :humanized &lt;string&gt;}}</code>.</p>
+</li>
+<li>
+<p><code>:results</code> Misc information about the test result. The structure is <code>:results {&lt;ns as keyword&gt; {&lt;test var as keyword&gt; [{,,, :elapsed-time {:ms &lt;integer&gt; :humanized &lt;string&gt;}}]}}</code></p>
+</li>
+<li>
+<p><code>:status</code> Either done or indication of an error</p>
+</li>
+<li>
+<p><code>:var-elapsed-time</code> a report of the elapsed time spent running each var. The structure is <code>:var-elapsed-time {&lt;ns as keyword&gt; {&lt;var as keyword&gt; {:ms &lt;integer&gt; :humanized &lt;string&gt;}}}</code>.</p>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
@@ -2535,7 +2576,7 @@ stack frame of the most recent exception. This op is deprecated, please use the
 <div class="sect2">
 <h3 id="test-all"><a class="anchor" href="#test-all"></a><code>test-all</code></h3>
 <div class="paragraph">
-<p>[DEPRECATED] Run all tests in the project. If <code>load?</code> is truthy, all project namespaces are loaded; otherwise, only tests in presently loaded namespaces are run. Results are cached for exception retrieval and to enable re-running of failed/erring tests.</p>
+<p>Return exception cause and stack frame info for an erring test via the <code>stacktrace</code> middleware. The error to be retrieved is referenced by namespace, var name, and assertion index within the var.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -2570,7 +2611,28 @@ stack frame of the most recent exception. This op is deprecated, please use the
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:elapsed-time</code> a report of the elapsed time spent running all the given namespaces. The structure is <code>:elapsed-time {:ms &lt;integer&gt; :humanized &lt;string&gt;}</code>.</p>
+</li>
+<li>
+<p><code>:fail-fast</code> If equals to the string "true", the tests will be considered complete after the first test has failed or errored.</p>
+</li>
+<li>
+<p><code>:ns-elapsed-time</code> a report of the elapsed time spent running each namespace. The structure is <code>:ns-elapsed-time {&lt;ns as keyword&gt; {:ms &lt;integer&gt; :humanized &lt;string&gt;}}</code>.</p>
+</li>
+<li>
+<p><code>:results</code> Misc information about the test result. The structure is <code>:results {&lt;ns as keyword&gt; {&lt;test var as keyword&gt; [{,,, :elapsed-time {:ms &lt;integer&gt; :humanized &lt;string&gt;}}]}}</code></p>
+</li>
+<li>
+<p><code>:status</code> Either done or indication of an error</p>
+</li>
+<li>
+<p><code>:var-elapsed-time</code> a report of the elapsed time spent running each var. The structure is <code>:var-elapsed-time {&lt;ns as keyword&gt; {&lt;var as keyword&gt; {:ms &lt;integer&gt; :humanized &lt;string&gt;}}}</code>.</p>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
@@ -2665,10 +2727,22 @@ stack frame of the most recent exception. This op is deprecated, please use the
 <div class="ulist">
 <ul>
 <li>
-<p><code>:results</code> A map of test run data.</p>
+<p><code>:elapsed-time</code> a report of the elapsed time spent running all the given namespaces. The structure is <code>:elapsed-time {:ms &lt;integer&gt; :humanized &lt;string&gt;}</code>.</p>
+</li>
+<li>
+<p><code>:fail-fast</code> If equals to the string "true", the tests will be considered complete after the first test has failed or errored.</p>
+</li>
+<li>
+<p><code>:ns-elapsed-time</code> a report of the elapsed time spent running each namespace. The structure is <code>:ns-elapsed-time {&lt;ns as keyword&gt; {:ms &lt;integer&gt; :humanized &lt;string&gt;}}</code>.</p>
+</li>
+<li>
+<p><code>:results</code> Misc information about the test result. The structure is <code>:results {&lt;ns as keyword&gt; {&lt;test var as keyword&gt; [{,,, :elapsed-time {:ms &lt;integer&gt; :humanized &lt;string&gt;}}]}}</code></p>
 </li>
 <li>
 <p><code>:status</code> Either done or indication of an error</p>
+</li>
+<li>
+<p><code>:var-elapsed-time</code> a report of the elapsed time spent running each var. The structure is <code>:var-elapsed-time {&lt;ns as keyword&gt; {&lt;var as keyword&gt; {:ms &lt;integer&gt; :humanized &lt;string&gt;}}}</code>.</p>
 </li>
 </ul>
 </div>
@@ -2828,25 +2902,6 @@ stack frame of the most recent exception. This op is deprecated, please use the
 </div>
 </div>
 <div class="sect2">
-<h3 id="track-state-middleware"><a class="anchor" href="#track-state-middleware"></a><code>track-state-middleware</code></h3>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Required parameters</dt>
-<dd>
-<p></p>
-</dd>
-<dt class="hdlist1">Optional parameters</dt>
-<dd>
-<p></p>
-</dd>
-<dt class="hdlist1">Returns</dt>
-<dd>
-<p></p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
 <h3 id="undef"><a class="anchor" href="#undef"></a><code>undef</code></h3>
 <div class="paragraph">
 <p>Undefine a symbol</p>
@@ -2910,6 +2965,728 @@ stack frame of the most recent exception. This op is deprecated, please use the
 <ul>
 <li>
 <p><code>:status</code> done</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderget-state"><a class="anchor" href="#ciderget-state"></a><code>cider/get-state</code></h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<p></p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-add-appender"><a class="anchor" href="#ciderlog-add-appender"></a><code>cider/log-add-appender</code></h3>
+<div class="paragraph">
+<p>Add an appender to a log framework.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:filters</code> A map from filter name to filter condition.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+<li>
+<p><code>:size</code> The number of events the appender keeps in memory.</p>
+</li>
+<li>
+<p><code>:threshold</code> The threshold in percent used to cleanup events.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:logger</code> The name of the logger to attach to.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-add-appender</code> The appender that was added.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-add-consumer"><a class="anchor" href="#ciderlog-add-consumer"></a><code>cider/log-add-consumer</code></h3>
+<div class="paragraph">
+<p>Add a consumer to an appender of a log framework.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:filters</code> A map from filter name to filter condition.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-add-consumer</code> The consumer that was added.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-analyze-stacktrace"><a class="anchor" href="#ciderlog-analyze-stacktrace"></a><code>cider/log-analyze-stacktrace</code></h3>
+<div class="paragraph">
+<p>Analyze the stacktrace of a log event.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:event</code> The id of the event to inspect.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-clear-appender"><a class="anchor" href="#ciderlog-clear-appender"></a><code>cider/log-clear-appender</code></h3>
+<div class="paragraph">
+<p>Clear all events of a log appender.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-clear-appender</code> The appender that was cleared.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-exceptions"><a class="anchor" href="#ciderlog-exceptions"></a><code>cider/log-exceptions</code></h3>
+<div class="paragraph">
+<p>Return the exceptions and their frequencies for the given framework and appender.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-exceptions</code> A map from exception name to event frequency.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-format-event"><a class="anchor" href="#ciderlog-format-event"></a><code>cider/log-format-event</code></h3>
+<div class="paragraph">
+<p>Format a log event.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the log appender.</p>
+</li>
+<li>
+<p><code>:event</code> The id of the log event.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:nrepl.middleware.print/buffer-size</code> The size of the buffer to use when streaming results. Defaults to 1024.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/keys</code> A seq of the keys in the response whose values should be printed.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/options</code> A map of options to pass to the printing function. Defaults to <code>nil</code>.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/print</code> A fully-qualified symbol naming a var whose function to use for printing. Must point to a function with signature [value writer options].</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/quota</code> A hard limit on the number of bytes printed for each value.</p>
+</li>
+<li>
+<p><code>:nrepl.middleware.print/stream?</code> If logical true, the result of printing each value will be streamed to the client over one or more messages.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-format-event</code> The formatted log event.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-frameworks"><a class="anchor" href="#ciderlog-frameworks"></a><code>cider/log-frameworks</code></h3>
+<div class="paragraph">
+<p>Return the available log frameworks.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-frameworks</code> A list of log frameworks.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-inspect-event"><a class="anchor" href="#ciderlog-inspect-event"></a><code>cider/log-inspect-event</code></h3>
+<div class="paragraph">
+<p>Inspect a log event.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:event</code> The id of the event to inspect.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:value</code> The inspection result.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-levels"><a class="anchor" href="#ciderlog-levels"></a><code>cider/log-levels</code></h3>
+<div class="paragraph">
+<p>Return the log levels and their frequencies for the given framework and appender.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-levels</code> A map from log level to event frequency.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-loggers"><a class="anchor" href="#ciderlog-loggers"></a><code>cider/log-loggers</code></h3>
+<div class="paragraph">
+<p>Return the loggers and their frequencies for the given framework and appender.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-loggers</code> A map from logger name to event frequency.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-remove-appender"><a class="anchor" href="#ciderlog-remove-appender"></a><code>cider/log-remove-appender</code></h3>
+<div class="paragraph">
+<p>Remove an appender from a log framework.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-remove-appender</code> The removed appender.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-remove-consumer"><a class="anchor" href="#ciderlog-remove-consumer"></a><code>cider/log-remove-consumer</code></h3>
+<div class="paragraph">
+<p>Remove a consumer from the appender of a log framework.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:consumer</code> The name of the consumer.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-add-consumer</code> The removed consumer.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-search"><a class="anchor" href="#ciderlog-search"></a><code>cider/log-search</code></h3>
+<div class="paragraph">
+<p>Search the log events of an appender.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:filters</code> A map from filter name to filter condition.</p>
+</li>
+<li>
+<p><code>:limit</code> Number of log events to return.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-search</code> The list of log events matching the search.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-threads"><a class="anchor" href="#ciderlog-threads"></a><code>cider/log-threads</code></h3>
+<div class="paragraph">
+<p>Return the threads and their frequencies for the given framework and appender.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-threads</code> A map from thread name to event frequency.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-update-appender"><a class="anchor" href="#ciderlog-update-appender"></a><code>cider/log-update-appender</code></h3>
+<div class="paragraph">
+<p>Update the appender of a log framework.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:filters</code> A map from filter name to filter condition.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+<li>
+<p><code>:size</code> The number of events the appender keeps in memory.</p>
+</li>
+<li>
+<p><code>:threshold</code> The threshold in percent used to cleanup events.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-update-appender</code> The updated appender.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ciderlog-update-consumer"><a class="anchor" href="#ciderlog-update-consumer"></a><code>cider/log-update-consumer</code></h3>
+<div class="paragraph">
+<p>Update the consumer of a log appender.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:appender</code> The name of the appender.</p>
+</li>
+<li>
+<p><code>:consumer</code> The name of the consumer.</p>
+</li>
+<li>
+<p><code>:filters</code> A map from filter name to filter condition.</p>
+</li>
+<li>
+<p><code>:framework</code> The id of the log framework.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:cider/log-update-consumer</code> The consumer that was updated.</p>
 </li>
 </ul>
 </div>

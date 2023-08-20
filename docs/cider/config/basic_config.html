@@ -14,7 +14,6 @@
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
-    <script>var uiRootPath = '../../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -723,9 +722,10 @@ hidden buffers will always be visible in <code>list-buffers</code> (<kbd>C-x C-b
 <h2 id="translate-file-paths"><a class="anchor" href="#translate-file-paths"></a>Translate File Paths</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you wish to translate file paths from your running instance you may use the
-<code>cider-path-translations</code> defcustom to do so. For instance, suppose your app is
-running in a docker container with your source directories mounted there. The
+<p>If you are running Clojure within a Docker image, or doing something similar (i.e. you&#8217;re <code>cider-connect`ing to a process,
+and there&#8217;s a directory mapping for your source paths), you typically need to set `cider-path-translations</code>
+for jump-to-definition to properly work. For instance, suppose your app is
+running in a docker container with your source directories mounted there as volumes. The
 navigation paths you&#8217;d get from nREPL will be relative to the source in the
 docker container rather than the correct path on your host machine. You can add
 translation mappings easily by setting the following (typically in <code>.dir-locals.el</code>):</p>
@@ -761,6 +761,16 @@ different configurations.</p>
 <div class="paragraph">
 <p>In this example, the path <code>/src</code> will be translated to the correct path of your
 Clojure project on the host machine. And <code>/root/.m2</code> to the host&#8217;s <code>~/.m2</code> folder.</p>
+</div>
+<div class="paragraph">
+<p>You need to run <code>lein deps</code> (or <code>clojure -P</code>, etc) in the host machine in order for
+navigation to fully work, at least once, and then, preferably, every time your Maven dependencies change.
+This allows the <code>.m2</code> part of <code>cider-path-translations</code> to be actually useful.</p>
+</div>
+<div class="paragraph">
+<p>If you can&#8217;t or won&#8217;t do that, you can use TRAMP capabilities (which CIDER supports) instead of
+setting up <code>cider-path-translations</code>. For that, you&#8217;d typically need to set up a SSH daemon
+within your Docker image.</p>
 </div>
 </div>
 </div>

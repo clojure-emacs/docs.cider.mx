@@ -14,7 +14,6 @@
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
-    <script>var uiRootPath = '../../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -471,7 +470,7 @@ release to ship with nREPL 0.6.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "x.y.z"]
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.35.1"]
           [mx.cider/enrich-classpath "x.y.z"]]</code></pre>
 </div>
 </div>
@@ -497,7 +496,7 @@ off by setting <code>cider-enrich-classpath</code> to <code>nil</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.28.5"]
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.35.1"]
                   [mx.cider/enrich-classpath "1.9.0"]]}}</code></pre>
 </div>
 </div>
@@ -540,7 +539,7 @@ all of their projects using a <code>~/.boot/profile.boot</code> file like so:</p
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(require 'boot.repl)
 
 (swap! boot.repl/*default-dependencies*
-       concat '[[cider/cider-nrepl "0.25.2"]])
+       concat '[[cider/cider-nrepl "0.35.1"]])
 
 (swap! boot.repl/*default-middleware*
        conj 'cider.nrepl/cider-middleware)</code></pre>
@@ -560,11 +559,11 @@ run <code>cider-connect</code> or <code>cider-connect-cljs</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">  :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.22.4"}}
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">  :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.35.1"}}
               :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :cider-cljs {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.339"}
-                            cider/cider-nrepl {:mvn/version "0.22.4"}
+                            cider/cider-nrepl {:mvn/version "0.35.1"}
                             cider/piggieback {:mvn/version "0.5.3"}}
                :main-opts ["-m" "nrepl.cmdline" "--middleware"
                            "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}</code></pre>

@@ -14,7 +14,6 @@
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
-    <script>var uiRootPath = '../../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -533,7 +532,7 @@ this looks for <code>tools.deps</code>:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>$ clojure -Sdeps '{:deps {nrepl {:mvn/version "0.6.0"} cider/cider-nrepl {:mvn/version "0.22.4"}}}' -m nrepl.cmdline --middleware '["cider.nrepl/cider-middleware"]'</pre>
+<pre>$ clojure -Sdeps '{:deps {nrepl {:mvn/version "0.6.0"} cider/cider-nrepl {:mvn/version "0.35.1"}}}' -m nrepl.cmdline --middleware '["cider.nrepl/cider-middleware"]'</pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -914,7 +913,7 @@ project&#8217;s directory in a terminal session and type:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.25.2"}}}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.35.1"}}}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</code></pre>
 </div>
 </div>
 <div class="paragraph">

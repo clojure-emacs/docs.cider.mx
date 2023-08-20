@@ -14,7 +14,6 @@
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
-    <script>var uiRootPath = '../../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -480,6 +479,29 @@ visit this buffer if you decide that you need to.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-auto-select-error-buffer nil)</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>By default, when you jump to the source of a given stack frame,
+an Emacs window other than that of <code>*cider-error*</code> will be chosen.
+If you wish to reuse `*cider-error*&#8217;s window instead, please configure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-stacktrace-navigate-to-other-window nil)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you have customized this setting, when you have navigated to a given source file,
+you can navigate back to <code>*cider-error*</code> with <kbd>C-x &lt;left&gt;</kbd> (<code>previous-buffer</code>) or <kbd>M-,</kbd> (<code>xref-pop-marker-stack</code>).
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

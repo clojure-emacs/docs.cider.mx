@@ -14,7 +14,6 @@
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
-    <script>var uiRootPath = '../../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -515,8 +514,8 @@ root of your project.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj"> :dependencies [[cider/cider-nrepl "0.31.0"] ;; mandatory (unless it's inherited from deps.edn or otherwise present in the classpath of shadow-cljs's JVM process)
-                [refactor-nrepl/refactor-nrepl "3.6.0"]] ;; refactor-nrepl is optional
+<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj"> :dependencies [[cider/cider-nrepl "0.35.1"] ;; mandatory (unless it's inherited from deps.edn or otherwise present in the classpath of shadow-cljs's JVM process)
+                [refactor-nrepl/refactor-nrepl "3.9.0"]] ;; refactor-nrepl is optional
 
  :nrepl {:middleware [cider.nrepl/cider-middleware ;; it's advisable to explicitly add this middleware. It's automatically added by shadow-cljs (if available in the classpath), unless `:nrepl {:cider false}`
                       refactor-nrepl.middleware/wrap-refactor] ;; refactor-nrepl is optional

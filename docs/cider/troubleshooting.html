@@ -14,7 +14,6 @@
 <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
-    <script>var uiRootPath = '../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -956,6 +955,41 @@ behaviour in the repl when <code>paredit-mode</code> is enabled, e.g. it appears
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(define-key paredit-mode-map (kbd "RET") nil)</code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="interactions-fail-with-no-linked-cider-sessions"><a class="anchor" href="#interactions-fail-with-no-linked-cider-sessions"></a>Interactions fail with <code>No linked CIDER sessions</code></h3>
+<div class="paragraph">
+<p>If any interactive feature is being shortcircuited for you with the message <code>No linked CIDER sessions</code>,
+that&#8217;s due to one of the following reasons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You&#8217;re evaluating code in a buffer from a project that hasn&#8217;t started a repl</p>
+</li>
+<li>
+<p>You can fix this by switching instead to a project that has.</p>
+</li>
+<li>
+<p>You can also, simply, start a repl in the current project.</p>
+</li>
+<li>
+<p>There&#8217;s a bug in the CIDER/Sesman integration</p>
+</li>
+<li>
+<p>Session linking generally works by determining whether the current buffer is related to the classpath of some REPL.</p>
+</li>
+<li>
+<p>You can obtain debug info echoed to the <code><strong>messages</strong></code> buffer by running <code>M-x cider-debug-sesman-friendly-session-p</code> on the problematic buffer.</p>
+</li>
+<li>
+<p>By reading it, you might be able to determine why CIDER failed to see the relationship between <code>(buffer-filename)</code> and the classpath.</p>
+</li>
+<li>
+<p>Feel free to created a detailed GitHub issue including this information.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>

@@ -14,7 +14,6 @@
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
-    <script>var uiRootPath = '../../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -562,6 +561,17 @@ going to be evaluated twice, once in each of the REPLs.  In fact, you
 can create multiple clj and cljs sibling connections (<kbd>C-c C-x C-s C-s/j</kbd>) within a CIDER session and evaluation will be directed
 into all REPLs simultaneously. See <a href="../usage/managing_connections.html" class="xref page">Managing
 Connections</a> for more details.</p>
+</div>
+<div class="paragraph">
+<p>If you would prefer to evaluate <code>cljc</code> files in only one of the matching REPLs, you can customize the variable <code>cider-clojurec-eval-destination</code> to either <code>clj</code> or <code>cljs</code>.  For example, to evaluate <code>cljc</code> files in the ClojureScript REPL only, add the following to your Emacs configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-clojurec-eval-destination 'cljs)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note: This variable can also be set on a per-buffer basis using <code>setq-local</code>, or project-wide in <code>dir-locals.el</code>.</p>
 </div>
 </div>
 </div>
