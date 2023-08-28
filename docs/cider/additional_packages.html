@@ -462,6 +462,12 @@ of maintenance may vary significantly.
 </table>
 </div>
 <div class="sect2">
+<h3 id="cider-storm"><a class="anchor" href="#cider-storm"></a>cider-storm</h3>
+<div class="paragraph">
+<p><a href="https://github.com/jpmonettas/cider-storm">Cider Storm</a> is an Emacs Cider front-end for the <a href="https://github.com/jpmonettas/flow-storm-debugger">FlowStorm</a> debugger with support for Clojure and ClojureScript.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="clj-decompiler"><a class="anchor" href="#clj-decompiler"></a>clj-decompiler</h3>
 <div class="paragraph">
 <p><a href="https://github.com/bsless/clj-decompiler.el">clj-decompiler</a> allows you to quickly decompile Clojure code to Java bytecode. It&#8217;s based on <a href="https://github.com/clojure-goes-fast/clj-java-decompiler">clj-java-decompiler</a>.</p>
@@ -604,6 +610,34 @@ behaviour in the repl when <code>paredit-mode</code> is enabled, e.g. it appears
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(define-key paredit-mode-map (kbd "RET") nil)</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="paren-face"><a class="anchor" href="#paren-face"></a>paren-face</h3>
+<div class="paragraph">
+<p><a href="https://github.com/tarsius/paren-face">paren-face</a> defines a face named <code>parenthesis</code> used just for parentheses. The originally intended purpose of this face is to make parentheses less visible in Lisp code by dimming them.</p>
+</div>
+<div class="paragraph">
+<p>In the author&#8217;s words:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>We lispers probably don’t need to be constantly made aware of the existence of the parentheses. Dimming them might be even more useful for people new to lisp who have not yet learned to subconsciously blend out the parentheses.</p>
+</div>
+</blockquote>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+the following customization expands paren-face to dim even more delimiters from the Clojure language: <code>(setq paren-face-regexp "\\([( ]\\.-\\|[( ]\\.+\\|[][(){}#/]\\)")</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">

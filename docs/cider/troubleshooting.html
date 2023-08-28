@@ -897,7 +897,7 @@ the <code>enrich-classpath</code> integration like this:</p>
 <h3 id="navigation-to-jdk-sources-doesnt-work"><a class="anchor" href="#navigation-to-jdk-sources-doesnt-work"></a>Navigation to JDK sources doesn&#8217;t work</h3>
 <div class="paragraph">
 <p>Firstly, make sure that you are using enrich-classpath. <code>cider-enrich-classpath</code> should be truthy.
-If you are launching your own repl process, it should have the enrich-classpath Leiningen plugin or <code>clojure</code> wrapper.</p>
+If you are launching your own repl process, it should run through enrich-classpath&#8217;s <code>lein</code> wrapper, or <code>clojure</code> wrapper.</p>
 </div>
 <div class="paragraph">
 <p>If you are on Linux and still can&#8217;t navigate to the source of built-in methods like <code>.toUpperCase</code> you

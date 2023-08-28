@@ -1664,7 +1664,16 @@ method of
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:ns-aliases</code> The map of [ns-alias] to [ns-name] in a namespace.</p>
+</li>
+<li>
+<p><code>:status</code> done</p>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
@@ -1760,7 +1769,16 @@ method of
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:loaded-ns</code> The list of ns that were loaded.</p>
+</li>
+<li>
+<p><code>:status</code> done</p>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
@@ -1788,7 +1806,19 @@ method of
 </dd>
 <dt class="hdlist1">Returns</dt>
 <dd>
-<p></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:path</code> The path to the file containing ns. Please favor <code>:url</code> in ClojureScript, but fall back to <code>:path</code>.</p>
+</li>
+<li>
+<p><code>:status</code> done</p>
+</li>
+<li>
+<p><code>:url</code> The Java URL indicating the file containing ns. Please favor this attribute over <code>:path</code> when possible. If this value is nil, you can fall back to <code>:path</code>.</p>
+</li>
+</ul>
+</div>
 </dd>
 </dl>
 </div>
