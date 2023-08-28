@@ -967,27 +967,39 @@ that&#8217;s due to one of the following reasons:</p>
 <ul>
 <li>
 <p>You&#8217;re evaluating code in a buffer from a project that hasn&#8217;t started a repl</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>You can fix this by switching instead to a project that has.</p>
 </li>
 <li>
 <p>You can also, simply, start a repl in the current project.</p>
 </li>
+</ul>
+</div>
+</li>
 <li>
 <p>There&#8217;s a bug in the CIDER/Sesman integration</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>Session linking generally works by determining whether the current buffer is related to the classpath of some REPL.</p>
 </li>
 <li>
 <p>You can obtain debug info echoed to the <code><strong>messages</strong></code> buffer by running <code>M-x cider-debug-sesman-friendly-session-p</code> on the problematic buffer.</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>By reading it, you might be able to determine why CIDER failed to see the relationship between <code>(buffer-filename)</code> and the classpath.</p>
 </li>
 <li>
 <p>Feel free to created a detailed GitHub issue including this information.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>

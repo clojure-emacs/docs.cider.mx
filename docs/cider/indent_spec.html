@@ -645,16 +645,25 @@ so you wouldn&#8217;t have to specify it.</p>
 <ul>
 <li>
 <p>If your macro is analog to a clojure.core one, name it identically</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>e.g. name your macro <code>defprotocol</code>, not <code>my-defprotocol</code></p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>(this is intentful usage of Clojure&#8217;s namespace system)</p>
 </li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>If your macro is analog to a clojure.core one, mirror all its arglists</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>The exact names that you choose for your args do not matter</p>
 </li>
@@ -664,9 +673,13 @@ so you wouldn&#8217;t have to specify it.</p>
 <li>
 <p>It doesn&#8217;t matter if you express a given arg as a name, or as a destructured map/vector.</p>
 </li>
+</ul>
+</div>
+</li>
 <li>
 <p>Name 'body' args like using clojure.core customs</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>good: <code>[opts body]</code></p>
 </li>
@@ -681,6 +694,9 @@ so you wouldn&#8217;t have to specify it.</p>
 </li>
 <li>
 <p>Other commonly accepted names include <code>forms</code>, <code>clauses</code>, etc.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
