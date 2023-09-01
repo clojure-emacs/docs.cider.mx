@@ -451,7 +451,7 @@ buffers. You can override this behavior, however:</p>
 <h2 id="use-enrich-classpath"><a class="anchor" href="#use-enrich-classpath"></a>Use <code>enrich-classpath</code></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>enrich-classpath</code> is a program/plugin/wrapper that allows CIDER to access to the sources and javadocs of a given project&#8217;s Java files: your own files, those from your dependencies, and those from the JDK.</p>
+<p><a href="https://github.com/clojure-emacs/enrich-classpath"><code>enrich-classpath</code></a> is a program/plugin/wrapper that allows CIDER to access to the sources and javadocs of a given project&#8217;s Java files: your own files, those from your dependencies, and those from the JDK.</p>
 </div>
 <div class="paragraph">
 <p>With that, CIDER can show better completions, navigation, documentation, and stacktrace integration.</p>
@@ -487,11 +487,18 @@ buffers. You can override this behavior, however:</p>
 </li>
 <li>
 <p>You are using <code>cider-jack-in</code> / <code>cider-jack-in-clj</code> (and not <code>cider-connect</code>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>cider-connect</code>, please follow enrich-classpath&#8217;s <a href="https://github.com/clojure-emacs/enrich-classpath/tree/v1.16.0#emacs-cider-connect">own instructions</a>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;those conditions will be progressively relaxed.</p>
+<p>&#8230;&#8203;these conditions will be progressively relaxed.</p>
 </div>
 <div class="paragraph">
 <p>It&#8217;s worth noting that <code>cider-jack-in</code> will fall back to the original command if enrich-classpath failed, for whatever reason.</p>
