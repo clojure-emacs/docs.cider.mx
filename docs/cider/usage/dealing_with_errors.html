@@ -799,13 +799,6 @@ function.</p>
 the supported formats.</p>
 </li>
 <li>
-<p>The buffers in which <code>cider-stacktrace-analyze-at-point</code> or
-<code>cider-stacktrace-analyze-in-region</code> are called in, must have a
-Cider session associated with them. Tip: Use
-<code>sesman-link-with-project</code> and friends in case the buffer containing
-the exception is not linked to a Cider session.</p>
-</li>
-<li>
 <p>Stacktraces are analyzed with the classpath of the Cider session the
 buffer is associated with. If the stacktrace contains references to
 classes not on this classpath, some information might be missing
