@@ -539,7 +539,8 @@ the namespace inference logic as for <kbd>C-u C-c C-t C-n</kbd></p>
 </div>
 <div class="paragraph">
 <p>Finally, you can execute the specific test at the point using
-<kbd>C-c C-t t</kbd> or <kbd>C-c C-t C-t</kbd>.</p>
+<kbd>C-c C-t t</kbd> or <kbd>C-c C-t C-t</kbd>. It will also work for implementation functions,
+by searching for a matching test namespace with a matching deftest name.</p>
 </div>
 </div>
 </div>
@@ -624,15 +625,6 @@ You&#8217;ll generally want to place default selectors in <a href="../config/pro
 </td>
 </tr>
 </table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="macros-used-to-define-tests"><a class="anchor" href="#macros-used-to-define-tests"></a>Macros Used to Define Tests</h3>
-<div class="paragraph">
-<p>If your individual tests are not defined by <code>deftest</code> or <code>defspec</code>, CIDER will
-not recognize them when searching for a test at point in <code>cider-test-run-test</code>.
-You can customize the variable <code>cider-test-defining-forms</code> to add additional
-forms for CIDER to recognize as individual test definitions.</p>
 </div>
 </div>
 <div class="sect2">

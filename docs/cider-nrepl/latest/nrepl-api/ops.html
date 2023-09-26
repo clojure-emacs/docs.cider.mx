@@ -824,25 +824,46 @@ method of
 <dl>
 <dt class="hdlist1">Required parameters</dt>
 <dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
 <div class="ulist">
 <ul>
 <li>
-<p><code>:ns</code> The current namespace</p>
+<p><code>:class</code> A Java class. If <code>:ns</code> is passed, it will be used for fully-qualifiying the class, if necessary.</p>
 </li>
 <li>
-<p><code>:sym</code> The symbol to lookup</p>
+<p><code>:context</code> A Compliment completion context, just like the ones already passed for the "complete" op,
+with the difference that the symbol at point should be entirely replaced by "<em>_prefix_</em>".</p>
 </li>
 </ul>
 </div>
 </dd>
-<dt class="hdlist1">Optional parameters</dt>
-<dd>
-<p></p>
-</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>For Java interop queries, it helps inferring the precise type of the object the <code>:sym</code> or <code>:member</code> refers to,
+making the results more accurate (and less numerous).
+* <code>:member</code> A Java class member.
+* <code>:ns</code> The current namespace
+* <code>:sym</code> The symbol to lookup</p>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1">Returns</dt>
 <dd>
 <div class="ulist">
 <ul>
+<li>
+<p><code>:doc-block-tags-fragments</code> May be absent. Represent the 'param', 'returns' and 'throws' sections a Java doc comment. It&#8217;s a vector of fragments, where fragment is a map with <code>:type</code> ('text' or 'html') and <code>:content</code> plain text or html markup, respectively</p>
+</li>
+<li>
+<p><code>:doc-first-sentence-fragments</code> May be absent. Represents the first sentence of a Java doc comment. It&#8217;s a vector of fragments, where fragment is a map with <code>:type</code> ('text' or 'html') and <code>:content</code> plain text or html markup, respectively</p>
+</li>
+<li>
+<p><code>:doc-fragments</code> May be absent. Represents the body of a Java doc comment, including the first sentence and excluding any block tags. It&#8217;s a vector of fragments, where fragment is a map with <code>:type</code> ('text' or 'html') and <code>:content</code> plain text or html markup, respectively</p>
+</li>
 <li>
 <p><code>:status</code> done</p>
 </li>
@@ -1104,25 +1125,46 @@ method of
 <dl>
 <dt class="hdlist1">Required parameters</dt>
 <dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
 <div class="ulist">
 <ul>
 <li>
-<p><code>:ns</code> The current namespace</p>
+<p><code>:class</code> A Java class. If <code>:ns</code> is passed, it will be used for fully-qualifiying the class, if necessary.</p>
 </li>
 <li>
-<p><code>:sym</code> The symbol to lookup</p>
+<p><code>:context</code> A Compliment completion context, just like the ones already passed for the "complete" op,
+with the difference that the symbol at point should be entirely replaced by "<em>_prefix_</em>".</p>
 </li>
 </ul>
 </div>
 </dd>
-<dt class="hdlist1">Optional parameters</dt>
-<dd>
-<p></p>
-</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>For Java interop queries, it helps inferring the precise type of the object the <code>:sym</code> or <code>:member</code> refers to,
+making the results more accurate (and less numerous).
+* <code>:member</code> A Java class member.
+* <code>:ns</code> The current namespace
+* <code>:sym</code> The symbol to lookup</p>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1">Returns</dt>
 <dd>
 <div class="ulist">
 <ul>
+<li>
+<p><code>:doc-block-tags-fragments</code> May be absent. Represent the 'param', 'returns' and 'throws' sections a Java doc comment. It&#8217;s a vector of fragments, where fragment is a map with <code>:type</code> ('text' or 'html') and <code>:content</code> plain text or html markup, respectively</p>
+</li>
+<li>
+<p><code>:doc-first-sentence-fragments</code> May be absent. Represents the first sentence of a Java doc comment. It&#8217;s a vector of fragments, where fragment is a map with <code>:type</code> ('text' or 'html') and <code>:content</code> plain text or html markup, respectively</p>
+</li>
+<li>
+<p><code>:doc-fragments</code> May be absent. Represents the body of a Java doc comment, including the first sentence and excluding any block tags. It&#8217;s a vector of fragments, where fragment is a map with <code>:type</code> ('text' or 'html') and <code>:content</code> plain text or html markup, respectively</p>
+</li>
 <li>
 <p><code>:status</code> done</p>
 </li>
