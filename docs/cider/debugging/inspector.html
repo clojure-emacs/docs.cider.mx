@@ -498,7 +498,11 @@ session, see <a href="debugger.html" class="xref page">here</a> for more details
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>d</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Defines a var in the REPL namespace with current inspector value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines a var in the REPL namespace with current inspector value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If you tend to always choose the same name,</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">you way want to set the <code>cider-inspector-preferred-var-names</code> customization option.</p></td>
 </tr>
 </tbody>
 </table>
@@ -526,6 +530,13 @@ inspector buffer using the <code>s</code>, <code>c</code>, and <code>a</code> ke
 <div class="paragraph">
 <p>If you enable <code>cider-inspector-fill-frame</code>, the inspector window fills its
 frame.</p>
+</div>
+<div class="paragraph">
+<p>Starting from CIDER 1.8.0, when you define a var using <kbd>d</kbd>,
+a var name can be suggested (default none). You can customize this value
+via the <code>cider-inspector-preferred-var-names</code> configuration option.
+Even after setting it, you are free to choose new names on the fly,
+as you type. Most recent names will take priority in subsequent usages.</p>
 </div>
 </div>
 </div>
