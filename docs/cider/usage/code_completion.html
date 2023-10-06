@@ -481,9 +481,55 @@ is already properly indented.</p>
 <div class="paragraph">
 <p>While the standard Emacs tooling works just fine, we suggest that
 CIDER users consider using
-<a href="http://company-mode.github.io/"><code>company-mode</code></a> instead. Company
-can be used for auto-completion in both source code and REPL buffers.
-To install <code>company-mode</code>:</p>
+<a href="http://company-mode.github.io/"><code>company-mode</code></a> or <a href="https://github.com/minad/corfu"><code>corfu-mode</code></a> instead. These
+can be used for auto-completion in both source code and REPL buffers, with the following advantages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A nicer UI.</p>
+</li>
+<li>
+<p>Integration with Clojure docstrings and Java doc comments.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h3>
+<div class="paragraph">
+<p>Both company-mode and corfu-mode are affected by the following CIDER configuration options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-docstring-max-lines</code> (default <code>20</code>) controls how many lines, at most, of this docstring
+will be included (in a popup or the echo area, depending on your setup) while offering completions.
+It&#8217;s worth noting, for Java documentation, CIDER doesn&#8217;t simply trim lines,
+but it looks at the structure and tries to find the largest combination of these that fits into <code>cider-docstring-max-lines</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The entire comment body, followed by its "block tags" (Returns/Throws/Params information)</p>
+</li>
+<li>
+<p>The first sentence of the comment, followed by the block tags</p>
+</li>
+<li>
+<p>The block tags</p>
+</li>
+<li>
+<p>The first sentence of the comment.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="company-mode-installation"><a class="anchor" href="#company-mode-installation"></a>company-mode installation</h3>
+<div class="paragraph">
+<p>To install <code>company-mode</code>:</p>
 </div>
 <div class="paragraph">
 <p><kbd>M-x</kbd> <code>package-install</code> <kbd>RET</kbd> <code>company</code> <kbd>RET</kbd></p>
@@ -525,6 +571,25 @@ you can add this to your config:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(global-set-key (kbd "TAB") #'company-indent-or-complete-common)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Company&#8217;s documentation mechanism and CIDER&#8217;s documentation facilities are integrated.</p>
+</div>
+<div class="paragraph">
+<p>While a completion is being offered to you, you can hit (<kbd>F1</kbd>)
+(the default <code>company-show-doc-buffer</code> key binding) for displaying documentation
+and arglists under a temporary <code><strong>cider-doc</strong></code> buffer.</p>
+</div>
+<div class="paragraph">
+<p>In order for Company to always show docstrings and other metadata under a temporary <code><strong>cider-doc</strong></code> buffer,
+without needing to hit an extra key, please customize:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; (You may want to do this as a setq-local within a clojure-mode-hook instead)
+(custom-set-variables '(company-auto-update-doc t))</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
