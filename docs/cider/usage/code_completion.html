@@ -648,6 +648,30 @@ Completion annotations can be disabled by setting
 </div>
 </div>
 <div class="sect2">
+<h3 id="notes-on-class-disambiguation"><a class="anchor" href="#notes-on-class-disambiguation"></a>Notes on class disambiguation</h3>
+<div class="paragraph">
+<p>Sometimes, the completion user experience may be interrupted by a <code>completing-read</code>
+that asks for the <code>Member in class</code>. This is used for better Java completions and documentation.</p>
+</div>
+<div class="paragraph">
+<p>However, if you are not interested in the current candidate, disambiguating it is of no use,
+and the prompt can be a nuisance.</p>
+</div>
+<div class="paragraph">
+<p>If you are using Company for completions and IDO for <code>completing-read</code>, you can cause the <code>&lt;up&gt;</code> and <code>&lt;down&gt;</code>
+keys to cancel the prompt by customizing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(advice-add 'cider-class-choice-completing-read
+            :around
+            (lambda (f a b)
+              (cider--with-temporary-ido-keys "&lt;up&gt;" "&lt;down&gt;"
+                (funcall f a b))))</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="changing-the-completion-style"><a class="anchor" href="#changing-the-completion-style"></a>Changing the completion style</h3>
 <div class="paragraph">
 <p>Sometimes the user may want to use a different completion style just for the CIDER
