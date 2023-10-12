@@ -532,7 +532,7 @@ this looks for <code>tools.deps</code>:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>$ clojure -Sdeps '{:deps {nrepl {:mvn/version "0.6.0"} cider/cider-nrepl {:mvn/version "0.39.0"}}}' -m nrepl.cmdline --middleware '["cider.nrepl/cider-middleware"]'</pre>
+<pre>$ clojure -Sdeps '{:deps {nrepl {:mvn/version "0.6.0"} cider/cider-nrepl {:mvn/version "0.39.1"}}}' -m nrepl.cmdline --middleware '["cider.nrepl/cider-middleware"]'</pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -741,7 +741,7 @@ to launch a REPL for one or the other.</p>
 </td>
 <td class="content">
 The examples use only <code>cider-jack-in</code>, but this behavior is consistent
-for all <code>cider-jack-in-*</code> commands.
+for all <code>cider-jack-in-\*</code> commands.
 </td>
 </tr>
 </table>
@@ -913,7 +913,7 @@ project&#8217;s directory in a terminal session and type:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.39.0"}}}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.39.1"}}}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -959,7 +959,7 @@ reads for the host and port prompts when you invoke
 <div class="sectionbody">
 <div class="paragraph">
 <p>While most of the time you&#8217;d be connecting to a locally running nREPL
-server, that was started manually or via <code>cider-jack-in-*</code>, there&#8217;s
+server, that was started manually or via <code>cider-jack-in-\*</code>, there&#8217;s
 also the option to connect to remote nREPL hosts. For the sake of security
 CIDER has the ability to tunnel a connection over SSH in such cases.
 This behavior is controlled by
@@ -986,7 +986,7 @@ tunneling when connecting to servers running outside of your network.
 </div>
 <div class="paragraph">
 <p>There&#8217;s a another case in which CIDER may optionally leverage the <code>ssh</code> command - when
-trying to figure out potential target hosts and ports when you&#8217;re doing <code>cider-connect-*</code>.
+trying to figure out potential target hosts and ports when you&#8217;re doing <code>cider-connect-\*</code>.
 If  <code>cider-infer-remote-nrepl-ports</code> is true, CIDER will use ssh to try to infer
 nREPL ports on remote hosts (for a direct connection). That option is also set to <code>nil</code>
 by default.</p>
@@ -1007,10 +1007,127 @@ cause problems with complex or nonstandard ssh configs.
 </table>
 </div>
 <div class="paragraph">
-<p>You can safely run <code>cider-jack-in-<strong></code> while working with remote files over TRAMP. CIDER
-will reuse existing SSH connection&#8217;s parameters (like port and username) for establishing SSH tunnel.
-The same will happen if you try to <code>cider-connect-</strong></code> to a host that matches the one you&#8217;re currently
+<p>You can run <code>cider-jack-in-*</code> while working with remote files over TRAMP. CIDER
+will reuse existing SSH connection&#8217;s parameters (like port and username) for establishing a SSH tunnel.
+The same will happen if you try to <code>cider-connect-\*</code> to a host that matches the one you&#8217;re currently
 connected to.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For Docker containers, running <code>cider-jack-in-\*</code> over TRAMP may technically work but it may give mixed results.
+Please check out the following section for the recommended approaches.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="working-with-containers-docker-or-others"><a class="anchor" href="#working-with-containers-docker-or-others"></a>Working with Containers (Docker or others)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By 'containers' we mean Docker containers, or similar technologies, for running the JVM that will host our nREPL server.
+The files which we edit may / may not be edited using TRAMP. They could as well be mounted inside the container, so they appear as local.</p>
+</div>
+<div class="paragraph">
+<p>Because CIDER can&#8217;t always detect if it&#8217;s dealing with remote files, it&#8217;s advisable to not rely on <code>cider-jack-in</code>
+and its remote support described above, but to
+start the nREPL server via command line from inside the container, and <code>cider-connect</code> to it.</p>
+</div>
+<div class="paragraph">
+<p>This requires to first get a shell inside the running container and then start a nREPL server manually,
+or configure the container to start an nREPL automatically when the container starts.</p>
+</div>
+<div class="paragraph">
+<p>In order to connect Emacs to nREPL, we need to make sure that the port of nREPL is reachable to our local Emacs,
+so that we can <code>cider-connect</code> to it.
+There are several solutions for this depending on the concrete scenario.</p>
+</div>
+<div class="sect2">
+<h3 id="working-with-containers-running-on-localhost"><a class="anchor" href="#working-with-containers-running-on-localhost"></a>Working with Containers running on localhost</h3>
+<div class="paragraph">
+<p>The nREPL port should be set to a fixed value as we need to give this during the <code>docker start</code> command in order to forward the port from
+container to host. This requires as well that nREPL server listens to "0.0.0.0" and not only to "localhost".</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="working-with-containers-running-on-remote-hosts"><a class="anchor" href="#working-with-containers-running-on-remote-hosts"></a>Working with Containers running on remote hosts</h3>
+<div class="paragraph">
+<p>In case we have the container running on a remote machine, we need to do the same setup as above and additionally use <code>ssh</code>
+to forward the already-forwarded port again to our local machine.</p>
+</div>
+<div class="paragraph">
+<p>This can be done using a command such as "ssh -L 12345:localhost:12345 remote-server",
+assuming that 12345 was the nREPL port exposed by the container.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="working-with-devcontainers-locally-or-remotely"><a class="anchor" href="#working-with-devcontainers-locally-or-remotely"></a>Working with devcontainers locally or remotely</h3>
+<div class="paragraph">
+<p><a href="https://containers.dev">Development Containers</a> is a standard to describe container-based development environments. It includes a CLI.
+It uses Docker/Podman behind the scenes. So the principles of making sure that the nREPL port becomes available stay the same,
+but there are slightly different ways to configure this (given by the devcontainer standard).</p>
+</div>
+<div class="paragraph">
+<p>There are several CLI tools to manage devcontainers, as there are several container technologies. The following example uses
+<a href="https://github.com/devcontainers/cli">the devcontainers cli</a>, but there are others (devpod, gitpod&#8230;&#8203;).</p>
+</div>
+<div class="sect3">
+<h4 id="example-working-with-containers-using-devcontainer-on-a-remote-server"><a class="anchor" href="#example-working-with-containers-using-devcontainer-on-a-remote-server"></a>Example: Working with containers (using <code>devcontainer</code>) on a remote server</h4>
+<div class="paragraph">
+<p>In this scenario and assuming a folder <code>/home/me/my-clj-code</code> containing the relevant <code>devcontainer</code> related config files
+(devcontainer.json) we can first start remotely a devcontainer via:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh"># executed on MY_REMOTE_SERVER
+devcontainer up --workspace-folder /home/me/my-clj-code</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then we can start a nREPL server inside the container on the remote host as shown below (executed from from your local machine).
+The command tunnels as well the remote port 12345 to local machine on port 12345:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">ssh -t -L 12345:localhost:12345 MY_REMOTE_SERVER \
+    devcontainer exec  --workspace-folder /home/me/my-clj-code \
+    "clojure -Sdeps '{:deps {nrepl/nrepl {:mvn/version \"0.8.3\"} cider/cider-nrepl {:mvn/version \"0.25.5\"}}}' -m nrepl.cmdline -p 12345 -b 0.0.0.0 --middleware '[\"cider.nrepl/cider-middleware\"]' "</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For this to work, we need as well to configure <code>devcontainer.json</code> with a snippet that exposes port <code>12345</code> from the container to the (remote) host:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"appPort": [
+  // will make container port 12345 available as 12345 on remote host
+  // (which will be further tunneled to 12345 on local machine)
+  "12345:12345"
+	],</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This results then in having port 12345 available locally and we can <code>cider-connect</code> to it, using <code>localhost:12345</code>.
+Editing of the files can then happen via TRAMP. As the files are "on the remote machine"
+and also mounted inside the container on the remote machine, we have two possible TRAMP file syntaxes to edit them - either of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/ssh:MY_REMOTE_SERVER:/home/me/my-clj-code/&#8230;&#8203;</code></p>
+</li>
+<li>
+<p><code>/ssh:MY_REMOTE_SERVER|docker:DOCKER_CONTAINER_ID:/workspaces/my-clj-code/&#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>

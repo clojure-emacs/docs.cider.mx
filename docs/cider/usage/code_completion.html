@@ -482,18 +482,19 @@ is already properly indented.</p>
 <p>CIDER defines (via the <code>completion-styles-alist</code> Elisp variable) a completion category named <code>cider</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>cider</code> completion category currently only supports <code>basic</code> and <code>flex</code> completion styles (and not <code>partial-completion</code>, <code>orderless</code>, etc).</p>
+<p>The <code>cider</code> completion category currently only supports <code>basic</code> completion styles (and not <code>partial-completion</code>, <code>orderless</code>, etc),
+and <code>flex</code>, optionally (read more below).</p>
 </div>
 <div class="paragraph">
 <p>CIDER declares so in this fashion:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-to-list 'completion-category-overrides '(cider (styles basic flex)))</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-to-list 'completion-category-overrides '(cider (styles basic)))</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Note that <code>flex</code> will only work if you also enabled <a href="#fuzzy-candidate-matching">fuzzy candidate matching</a>.</p>
+<p>You can also enable the <code>flex</code> completion style by activating <a href="#fuzzy-candidate-matching">fuzzy candidate matching</a>.</p>
 </div>
 </div>
 </div>
@@ -617,19 +618,21 @@ without needing to hit an extra key, please customize:</p>
 <div class="sect2">
 <h3 id="fuzzy-candidate-matching"><a class="anchor" href="#fuzzy-candidate-matching"></a>Fuzzy candidate matching</h3>
 <div class="paragraph">
-<p>By default <code>company-mode</code> will provide completion candidates with the
+<p>By default, CIDER will provide completion candidates with the
 assumption that whatever you&#8217;ve typed so far is a prefix of what
 you&#8217;re really trying to type. For example, if you type <code>map-</code> then
 you&#8217;ll only get completion candidates that have <code>map-</code> as the
 beginning of their names.  Sometimes, you don&#8217;t know the exact prefix
 for the item you want to type. In this case, you can get
-CIDER-specific "fuzzy completion" by adding:</p>
+CIDER-specific "fuzzy completion" by setting up in your Emacs init file:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
-(add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(cider-enable-flex-completion)</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>This adds the <code>flex</code> completion style, as introduced in Emacs 27.</p>
 </div>
 <div class="paragraph">
 <p>Now, <code>company-mode</code> will accept certain fuzziness when matching
@@ -638,6 +641,18 @@ candidates against the prefix. For example, typing <code>mi</code> will show you
 will complete to <code>clojure.java.io</code>. Different completion examples are
 shown
 <a href="https://github.com/alexander-yakushev/compliment/wiki/Examples">here</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>cider-company-enable-fuzzy-completion</code> (now deprecated) should be used for Emacs &lt; 27.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
