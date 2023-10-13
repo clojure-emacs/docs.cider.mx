@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Additional Packages :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/latest/additional_packages.html">
+    <link rel="prev" href="faq.html">
+    <link rel="next" href="additional_resources.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
+<link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://cider.mx">CIDER</a>
+        <span class="separator">//</span>
+        <a href="https://docs.cider.mx">Docs</a>
+      </div>
+      <div class="navbar-item">
+        <div id="docsearch"></div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider">CIDER</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider-nrepl">CIDER nREPL</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/orchard">Orchard</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Community</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/cider/about/support.html">Support</a>
+            <a class="navbar-item" href="/cider/contributing.html">Contributing</a>
+            <a class="navbar-item" href="https://opencollective.com/cider">Open Collective</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="1.8">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">CIDER</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="basics/installation.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="basics/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="basics/middleware_setup.html">nREPL Middleware Setup</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ClojureScript Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cljs/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cljs/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cljs/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cljs/figwheel.html">Using Figwheel</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cljs/shadow-cljs.html">Using shadow-cljs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cljs/other_repls.html">Using Other REPLs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Alternative Platforms</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="platforms/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="platforms/babashka.html">Babashka</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="platforms/nbb.html">Nbb</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="platforms/other_platforms.html">Other Platforms</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using CIDER</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage/interactive_programming.html">Interactive Programming</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage/cider_mode.html">Using cider-mode</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage/code_evaluation.html">Code Evaluation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage/code_completion.html">Code Completion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage/pretty_printing.html">Pretty Printing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage/dealing_with_errors.html">Dealing with Errors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage/working_with_documentation.html">Working with Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage/managing_connections.html">Managing Connections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage/misc_features.html">Misc Features</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using the REPL</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repl/basic_usage.html">Basic Usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repl/keybindings.html">Keybindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repl/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repl/history.html">REPL History</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="testing/running_tests.html">Running Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="testing/test_reports.html">Test Reports</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="testing/supported_libraries.html">Supported Libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Debugging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debugging/enlighten.html">Enlighten</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debugging/inspector.html">Inspector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debugging/logging.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debugging/macroexpansion.html">Macroexpansion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debugging/profiling.html">Profiling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debugging/tracing.html">Tracing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Configuration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="config/basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="config/syntax_highlighting.html">Syntax Highlighting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="config/indentation.html">Indentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="config/eldoc.html">Eldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="config/project_config.html">Project-specific Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="indent_spec.html">Indentation Specification</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="caveats.html">Caveats</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting.html">Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="faq.html">FAQ</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="additional_packages.html">Additional Packages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="additional_resources.html">Additional Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="contributing.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="contributing/docs.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="contributing/hacking.html">Hacking on CIDER</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="contributing/funding.html">Funding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">About</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="about/history.html">History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="about/team.html">Team</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="about/support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="about/changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="about/release_policy.html">Release Policy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="about/compatibility.html">Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="about/logo.html">Logo</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="about/license.html">License</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CIDER</span>
+    <span class="version">1.8</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="index.html">CIDER</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">1.8</a>
+        </li>
+        <li class="version">
+          <a href="../1.7/index.html">1.7</a>
+        </li>
+        <li class="version">
+          <a href="../1.6/index.html">1.6</a>
+        </li>
+        <li class="version">
+          <a href="../1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
+          <a href="../1.4/index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../1.3/index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../cider-nrepl/latest/index.html">CIDER nREPL</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../cider-nrepl/latest/index.html">0.31</a>
+        </li>
+        <li class="version">
+          <a href="../../cider-nrepl/0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
+          <a href="../../cider-nrepl/0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
+          <a href="../../cider-nrepl/0.24/index.html">0.24</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">CIDER</a></li>
+    <li><a href="additional_packages.html">Additional Packages</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.8</button>
+  <div class="version-menu">
+    <a class="version is-current" href="additional_packages.html">1.8</a>
+    <a class="version" href="../1.7/additional_packages.html">1.7</a>
+    <a class="version" href="../1.6/additional_packages.html">1.6</a>
+    <a class="version" href="../1.5/additional_packages.html">1.5</a>
+    <a class="version" href="../1.4/additional_packages.html">1.4</a>
+    <a class="version" href="../1.3/additional_packages.html">1.3</a>
+    <a class="version" href="../1.2/additional_packages.html">1.2</a>
+    <a class="version" href="../1.1/additional_packages.html">1.1</a>
+    <a class="version" href="../1.0/additional_packages.html">1.0</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/additional_packages.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Additional Packages</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are many additional Emacs packages that can enhance your Clojure programming
+experience. The majority of the minor modes listed here should be enabled for both
+<code>cider-repl-mode</code> and <code>clojure-mode</code> for optimal effects.</p>
+</div>
+<div class="paragraph">
+<p>The packages listed here belong to three categories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CIDER extensions</p>
+</li>
+<li>
+<p>Generic Emacs packages useful for Clojure programming</p>
+</li>
+<li>
+<p>CIDER alternatives</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cider-extensions"><a class="anchor" href="#cider-extensions"></a>CIDER Extensions</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Make sure that the version of any extension you&#8217;ve installed is compatible with
+your CIDER version.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>CIDER extensions typically are Emacs packages that built on top of CIDER&#8217;s Emacs Lisp API.
+Some of them ship with extra nREPL middleware as well (e.g. <code>clj-refactor</code>). Typically
+packages that rely on middleware would hook into CIDER&#8217;s middleware injection
+functionality and inject their own functionality automatically as well.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Keep in mind that currently there are no "official" CIDER extensions and the packages
+on the list are not maintained by CIDER&#8217;s Core Team. Their quality and level
+of maintenance may vary significantly.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="cider-storm"><a class="anchor" href="#cider-storm"></a>cider-storm</h3>
+<div class="paragraph">
+<p><a href="https://github.com/jpmonettas/cider-storm">Cider Storm</a> is an Emacs Cider front-end for the <a href="https://github.com/jpmonettas/flow-storm-debugger">FlowStorm</a> debugger with support for Clojure and ClojureScript.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clj-decompiler"><a class="anchor" href="#clj-decompiler"></a>clj-decompiler</h3>
+<div class="paragraph">
+<p><a href="https://github.com/bsless/clj-decompiler.el">clj-decompiler</a> allows you to quickly decompile Clojure code to Java bytecode. It&#8217;s based on <a href="https://github.com/clojure-goes-fast/clj-java-decompiler">clj-java-decompiler</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clj-refactor"><a class="anchor" href="#clj-refactor"></a>clj-refactor</h3>
+<div class="paragraph">
+<p><a href="https://github.com/clojure-emacs/clj-refactor.el">clj-refactor</a> builds on top
+of <code>clojure-mode</code> and CIDER and adds a ton of extra functionality (e.g. the
+ability to thread/unthread expression, find and replace usages, introduce let
+bindings, extract function and so on).</p>
+</div>
+<div class="paragraph">
+<p>A full list of features is available
+<a href="https://github.com/clojure-emacs/clj-refactor.el/wiki">here</a>.</p>
+</div>
+<div class="paragraph">
+<p>We hope to incorporate some of its features into <code>clojure-mode</code> and CIDER themselves
+down the road.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="emidje"><a class="anchor" href="#emidje"></a>emidje</h3>
+<div class="paragraph">
+<p><a href="https://github.com/nubank/emidje">Emidje</a> is a test runner, report
+viewer and formatting tool for
+<a href="https://github.com/marick/Midje">Midje</a> within Emacs.</p>
+</div>
+<div class="paragraph">
+<p>Emidje extends CIDER to provide support for Midje tests in a similar
+fashion as <code>cider-test.el</code> does for <code>clojure.test</code> tests. In fact, most of
+Emidje&#8217;s functionalities were strongly inspired by <code>cider-test.el</code>
+features.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="kaocha-runner"><a class="anchor" href="#kaocha-runner"></a>kaocha-runner</h3>
+<div class="paragraph">
+<p><a href="https://github.com/magnars/kaocha-runner.el">kaocha-runner</a> provides
+<a href="https://github.com/lambdaisland/kaocha">Kaocha</a> integration for Emacs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="helm-cider"><a class="anchor" href="#helm-cider"></a>helm-cider</h3>
+<div class="paragraph">
+<p><a href="https://github.com/clojure-emacs/helm-cider">helm-cider</a> provides a Helm
+interface for certain CIDER commands (e.g. <code>cider-apropos</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cider-hydra"><a class="anchor" href="#cider-hydra"></a>cider-hydra</h3>
+<div class="paragraph">
+<p><a href="https://github.com/clojure-emacs/cider-hydra">cider-hydra</a> provides a nice way
+to navigate groups of related CIDER commands.</p>
+</div>
+<div class="paragraph">
+<p>You can think of it as a fancier <a href="https://github.com/justbur/emacs-which-key">which-key</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="flycheck-clj-kondo"><a class="anchor" href="#flycheck-clj-kondo"></a>flycheck-clj-kondo</h3>
+<div class="paragraph">
+<p><a href="https://github.com/borkdude/flycheck-clj-kondo/">flycheck-clj-kondo</a> is a
+Flycheck checker for Clojure that provides instant linting of clojure code as you type, via
+<a href="https://github.com/borkdude/clj-kondo">clj-kondo</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/borkdude/clj-kondo">clj-kondo</a> is a great way of preventing
+yourself from writing buggy code.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="squiggly-clojure"><a class="anchor" href="#squiggly-clojure"></a>squiggly-clojure</h3>
+<div class="paragraph">
+<p><a href="https://github.com/clojure-emacs/squiggly-clojure">squiggly-clojure</a> is a
+Flycheck checker for Clojure, using tools like
+<a href="https://github.com/jonase/eastwood">eastwood</a>,
+<a href="http://typedclojure.org/">core.typed</a> and
+<a href="https://github.com/jonase/kibit">kibit</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sayid"><a class="anchor" href="#sayid"></a>sayid</h3>
+<div class="paragraph">
+<p><a href="http://clojure-emacs.github.io/sayid/">sayid</a> is a powerful alternative of CIDER&#8217;s
+built-in basic tracing functionality.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="generic-emacs-extensions"><a class="anchor" href="#generic-emacs-extensions"></a>Generic Emacs Extensions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Most packages in the following list are standard Emacs minor modes that work
+with most major modes, but are especially handy for Lisp-like languages like
+Clojure.</p>
+</div>
+<div class="sect2">
+<h3 id="subword-mode"><a class="anchor" href="#subword-mode"></a>subword-mode</h3>
+<div class="paragraph">
+<p>Enabling <code>CamelCase</code> support for editing commands(like
+<code>forward-word</code>, <code>backward-word</code>, etc) in the REPL is quite useful since
+we often have to deal with Java class and method names. The built-in
+Emacs minor mode <code>subword-mode</code> provides such functionality:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'cider-repl-mode-hook #'subword-mode)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="paredit"><a class="anchor" href="#paredit"></a>Paredit</h3>
+<div class="paragraph">
+<p>The use of <a href="http://mumble.net/~campbell/emacs/paredit.html">paredit</a>
+when editing Clojure (or any other Lisp) code is highly
+recommended.  You&#8217;re probably using it already in your <code>clojure-mode</code>
+buffers (if you&#8217;re not you probably should). You might also want to
+enable <code>paredit</code> in the REPL buffer as well:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'cider-repl-mode-hook #'paredit-mode)</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="unsetting-paredit-binding-of-ret-key"><a class="anchor" href="#unsetting-paredit-binding-of-ret-key"></a>Unsetting Paredit binding of RET key</h4>
+<div class="paragraph">
+<p>In recent versions of Paredit (25+), <code>RET</code> is bound to <code>paredit-RET</code>. This can cause unexpected
+behaviour in the repl when <code>paredit-mode</code> is enabled, e.g. it appears to hang after hitting
+<code>RET</code> instead of evaluating the last form.</p>
+</div>
+<div class="paragraph">
+<p>You can disable this Paredit behaviour by adding the following to your <code>init.el</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(define-key paredit-mode-map (kbd "RET") nil)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="paren-face"><a class="anchor" href="#paren-face"></a>paren-face</h3>
+<div class="paragraph">
+<p><a href="https://github.com/tarsius/paren-face">paren-face</a> defines a face named <code>parenthesis</code> used just for parentheses. The originally intended purpose of this face is to make parentheses less visible in Lisp code by dimming them.</p>
+</div>
+<div class="paragraph">
+<p>In the author&#8217;s words:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>We lispers probably don’t need to be constantly made aware of the existence of the parentheses. Dimming them might be even more useful for people new to lisp who have not yet learned to subconsciously blend out the parentheses.</p>
+</div>
+</blockquote>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+the following customization expands paren-face to dim even more delimiters from the Clojure language: <code>(setq paren-face-regexp "\\([( ]\\.-\\|[( ]\\.+\\|[][(){}#/]\\)")</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="smartparens"><a class="anchor" href="#smartparens"></a>Smartparens</h3>
+<div class="paragraph">
+<p><a href="https://github.com/Fuco1/smartparens">smartparens</a> is an excellent alternative
+  to paredit. Many Clojure hackers have adopted it recently and you might want
+  to give it a try as well. To enable <code>smartparens</code> in the REPL buffer use the
+  following code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="rainbow-delimiters"><a class="anchor" href="#rainbow-delimiters"></a>rainbow-delimiters</h3>
+<div class="paragraph">
+<p><a href="https://github.com/Fanael/rainbow-delimiters">RainbowDelimiters</a> is a minor
+mode which highlights parentheses, brackets, and braces according to their
+depth. Each successive level is highlighted in a different color. This makes it
+easy to spot matching delimiters, orient yourself in the code, and tell which
+statements are at a given depth. Assuming you&#8217;ve already installed
+RainbowDelimiters you can enable it in the REPL like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="eval-sexp-fu"><a class="anchor" href="#eval-sexp-fu"></a>eval-sexp-fu</h3>
+<div class="paragraph">
+<p><a href="https://github.com/hchbaw/eval-sexp-fu.el">eval-sexp-fu</a> provides some visual
+feedback when evaluating expressions. <a href="https://github.com/clojure-emacs/cider-eval-sexp-fu">cider-eval-sexp-fu</a> provides
+CIDER integration for <code>eval-sexp-fu</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(require 'cider-eval-sexp-fu)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="alternatives"><a class="anchor" href="#alternatives"></a>Alternatives</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+It&#8217;s generally a bad idea to mix Clojure programming environments, as all of those
+tend to modify <code>clojure-mode</code> 's keymap while active. Run only one environment at a time unless
+you really know what you&#8217;re doing.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This section enumerates other Emacs packages that provide a Clojure programming environment
+for Emacs.</p>
+</div>
+<div class="sect2">
+<h3 id="inf-clojure"><a class="anchor" href="#inf-clojure"></a>Inf-clojure</h3>
+<div class="paragraph">
+<p>This package provides basic interaction with a Clojure subprocess (REPL). It&#8217;s
+based on ideas from the popular inferior-lisp package.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/clojure-emacs/inf-clojure">inf-clojure</a> has two components -
+a nice Clojure REPL with auto-completion and a minor mode
+(<code>inf-clojure-minor-mode</code>), which extends clojure-mode with commands to evaluate
+forms directly in the REPL.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s basically a simple alternative of CIDER, which provides a subset of CIDER&#8217;s
+functionality.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="faq.html">FAQ</a></span>
+  <span class="next"><a href="additional_resources.html">Additional Resources</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2012-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+<script type="text/javascript">
+ docsearch({
+   appId: '1AZEMR3ZT0',
+   apiKey: 'd2cfc21fce00ac9d3f787c0d8e064d42',
+   indexName: 'cider',
+   container: '#docsearch',
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
+</script>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
