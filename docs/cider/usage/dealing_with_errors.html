@@ -445,6 +445,18 @@ temporary overlay or in the echo area:</p>
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-show-error-buffer nil)</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+you will only see the overlay if <code>cider-use-overlays</code> is non-nil.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Starting from CIDER 1.8.0, only runtime exceptions (and not compilation errors)
 will cause a stacktrace buffer to be shown. This better follows Clojure 1.10&#8217;s

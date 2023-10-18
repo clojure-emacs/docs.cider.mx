@@ -755,12 +755,37 @@ variable.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can disable overlays entirely (and display results in the echo-area at the
-bottom) with the <code>cider-use-overlays</code> variable.</p>
+<p>If you don&#8217;t like seeing overlays so often,
+you can restrict overlays to only be shown for errors
+(and display non-error results in the echo area at the bottom)
+by customizing the <code>cider-use-overlays</code> variable:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-use-overlays 'errors-only)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can disable overlays entirely (and display results in the echo area at the
+bottom) with the <code>cider-use-overlays</code> variable:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-use-overlays nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Overlays that indicate errors are by default trimmed of file/line/phase information.</p>
+</div>
+<div class="paragraph">
+<p>(Example: the entire <code>Syntax error compiling at (src/ns.clj:227:3).</code> preamble)</p>
+</div>
+<div class="paragraph">
+<p>You can prevent any trimming by customizing instead:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-inline-error-message-function #'identity)</code></pre>
 </div>
 </div>
 <div class="paragraph">
