@@ -755,7 +755,18 @@ variable.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>If you don&#8217;t like seeing overlays so often,
+<p>Overlays will be shown for errors,
+as long as they are not already displayed by <code>cider-stacktrace-mode</code>.
+In order to always favor error overlays over the <code>*cider-error\*</code> buffer,
+please customize:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-show-error-buffer nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you only want to see overlays for errors (and not for successful evaluations),
 you can restrict overlays to only be shown for errors
 (and display non-error results in the echo area at the bottom)
 by customizing the <code>cider-use-overlays</code> variable:</p>
@@ -869,7 +880,7 @@ prefix). By default the prefix is `&#8658; `.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Additionally, there&#8217;s the variable <code>cider-redirect-server-output-to-repl</code> that captures output that would normally end up in the <code><strong>nrepl-server</strong></code> buffer (provided it has been started via <code>cider-jack-in</code>) and redirects it to the REPL buffer. You can disable this redirection like this:</p>
+<p>Additionally, there&#8217;s the variable <code>cider-redirect-server-output-to-repl</code> that captures output that would normally end up in the <code>*nrepl-server\*</code> buffer (provided it has been started via <code>cider-jack-in</code>) and redirects it to the REPL buffer. You can disable this redirection like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
