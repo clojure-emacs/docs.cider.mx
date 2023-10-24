@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Up and Running :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/basics/up_and_running.html">
+    <link rel="prev" href="installation.html">
+    <link rel="next" href="middleware_setup.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://cider.mx">CIDER</a>
+        <span class="separator">//</span>
+        <a href="https://docs.cider.mx">Docs</a>
+      </div>
+      <div class="navbar-item">
+        <div id="docsearch"></div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider">CIDER</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider-nrepl">CIDER nREPL</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/orchard">Orchard</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Community</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/cider/about/support.html">Support</a>
+            <a class="navbar-item" href="/cider/contributing.html">Contributing</a>
+            <a class="navbar-item" href="https://opencollective.com/cider">Open Collective</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="1.9">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">CIDER</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="installation.html">Installation</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="middleware_setup.html">nREPL Middleware Setup</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ClojureScript Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Alternative Platforms</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/babashka.html">Babashka</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/nbb.html">Nbb</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/other_platforms.html">Other Platforms</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using CIDER</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/interactive_programming.html">Interactive Programming</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/cider_mode.html">Using cider-mode</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_evaluation.html">Code Evaluation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_completion.html">Code Completion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/pretty_printing.html">Pretty Printing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/dealing_with_errors.html">Dealing with Errors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/working_with_documentation.html">Working with Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/managing_connections.html">Managing Connections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/misc_features.html">Misc Features</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using the REPL</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/basic_usage.html">Basic Usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/keybindings.html">Keybindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/history.html">REPL History</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/running_tests.html">Running Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/test_reports.html">Test Reports</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/supported_libraries.html">Supported Libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Debugging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/logging.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/profiling.html">Profiling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Configuration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/syntax_highlighting.html">Syntax Highlighting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/indentation.html">Indentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../caveats.html">Caveats</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../troubleshooting.html">Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_packages.html">Additional Packages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../contributing.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/docs.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/hacking.html">Hacking on CIDER</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/funding.html">Funding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">About</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/history.html">History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/team.html">Team</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/release_policy.html">Release Policy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/compatibility.html">Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/logo.html">Logo</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/license.html">License</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CIDER</span>
+    <span class="version">1.9</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">CIDER</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">default</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.9</a>
+        </li>
+        <li class="version">
+          <a href="../../1.8/index.html">1.8</a>
+        </li>
+        <li class="version">
+          <a href="../../1.7/index.html">1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../1.6/index.html">1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
+          <a href="../../1.4/index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../../1.3/index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../cider-nrepl/latest/index.html">CIDER nREPL</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../cider-nrepl/latest/index.html">0.31</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.24/index.html">0.24</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">CIDER</a></li>
+    <li>Getting Started</li>
+    <li><a href="up_and_running.html">Up and Running</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.9</button>
+  <div class="version-menu">
+    <a class="version" href="../../basics/up_and_running.html">default</a>
+    <a class="version is-current" href="up_and_running.html">1.9</a>
+    <a class="version" href="../../1.8/basics/up_and_running.html">1.8</a>
+    <a class="version" href="../../1.7/basics/up_and_running.html">1.7</a>
+    <a class="version" href="../../1.6/basics/up_and_running.html">1.6</a>
+    <a class="version" href="../../1.5/basics/up_and_running.html">1.5</a>
+    <a class="version" href="../../1.4/basics/up_and_running.html">1.4</a>
+    <a class="version" href="../../1.3/basics/up_and_running.html">1.3</a>
+    <a class="version" href="../../1.2/basics/up_and_running.html">1.2</a>
+    <a class="version" href="../../1.1/basics/up_and_running.html">1.1</a>
+    <a class="version" href="../../1.0/basics/up_and_running.html">1.0</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/blob/v1.9.0/doc/modules/ROOT/pages/basics/up_and_running.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Up and Running</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use CIDER, you&#8217;ll need to connect it to a running nREPL server that
+is associated with your program. Most Clojure developers use standard
+build tooling such as Leiningen, Boot, or Gradle, and CIDER can
+automatically work with those tools to get you up and running
+quickly. But those tools are not required; CIDER can connect to an
+nREPL server that is already started and is managed separately.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+CIDER will automatically work with Leiningen 2.9.0+ or Boot
+2.8.3+. Older versions are not supported.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>There are two ways to connect CIDER to an nREPL server:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>CIDER can launch an nREPL server for your project from Emacs.</p>
+</li>
+<li>
+<p>You can connect CIDER to an already-running nREPL server, managed separately.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following sections describe each of these methods.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="launch-an-nrepl-server-from-emacs"><a class="anchor" href="#launch-an-nrepl-server-from-emacs"></a>Launch an nREPL Server From Emacs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you have a Clojure project in your file system and want CIDER to
+launch an nREPL session for it, simply visit a file that belongs to
+the project, and type <kbd>M-x</kbd> <code>cider-jack-in</code>
+<kbd>RET</kbd>.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
+CIDER will start an nREPL server and automatically connect to it.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In Clojure(Script) buffers the command <code>cider-jack-in</code> is bound to <kbd>C-c C-x (C-)j (C-)j</kbd>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The process of jacking-in is pretty simple:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CIDER determines the build system for your project (e.g. Leiningen) and picks the necessary command to start an nREPL server.</p>
+</li>
+<li>
+<p>CIDER shells out and runs a command like <code>lein repl :headless</code> to start an nREPL server.</p>
+</li>
+<li>
+<p>CIDER waits for the nREPL server to start.
+CIDER figures out this by parsing the output from the command and waiting for a line like
+<code>nREPL server started on port 53005 on host localhost - nrepl://localhost:53005</code> to appear there.</p>
+</li>
+<li>
+<p>CIDER extracts the port of the nREPL from the preceding message.</p>
+</li>
+<li>
+<p>It connects to the running nREPL server.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can see the exact command that <code>cider-jack-in</code> invoked in your minibuffer, while
+waiting for nREPL to start. You can also find this command in Emacs&#8217;s <code>*Messages*</code> buffer.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In some cases one project might have multiple project markers in it - e.g. <code>project.clj</code> and <code>deps.edn</code>.
+When this happens CIDER will prompt you to select the build tool to use. You can override this behavior
+by setting the variable <code>cider-preferred-build-tool</code>. While you can set it globally in your Emacs config,
+most of the time you&#8217;d probably want to have a project-specific setting for it in your <code>.dir-locals.el</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-emacs-lisp hljs" data-lang="emacs-lisp">((clojure-mode
+  (cider-preferred-build-tool . lein)))</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="auto-injecting-dependencies"><a class="anchor" href="#auto-injecting-dependencies"></a>Auto-Injecting Dependencies</h3>
+<div class="paragraph">
+<p>While CIDER&#8217;s core functionality requires nothing more than an nREPL server,
+there are many advanced features that depend on the presence of additional
+nREPL middleware. In the early versions of CIDER (up to CIDER 0.11) users had
+to add those dependencies themselves, which was a painful and error-prone process.
+Fortunately today that&#8217;s handled auto-magically when you&#8217;re using <code>cider-jack-in</code>.</p>
+</div>
+<div class="paragraph">
+<p>If your project uses <code>lein</code>, <code>boot</code> or <code>tools.deps</code> (<code>deps.edn</code>), CIDER will
+automatically inject all the necessary nREPL dependencies (e.g. <code>cider-nrepl</code> or
+<code>piggieback</code>) when it starts the server.  The injection process is extremely
+simple - CIDER simply passes the extra dependencies and nREPL configuration to
+your build tool in the command it runs to start the nREPL server. Here&#8217;s how
+this looks for <code>tools.deps</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ clojure -Sdeps '{:deps {nrepl {:mvn/version "0.6.0"} cider/cider-nrepl {:mvn/version "0.41.0"}}}' -m nrepl.cmdline --middleware '["cider.nrepl/cider-middleware"]'</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you don&#8217;t want <code>cider-jack-in</code> to inject dependencies automatically, set
+<code>cider-inject-dependencies-at-jack-in</code> to <code>nil</code>. Note that you&#8217;ll have to setup
+the dependencies yourself (see <a href="middleware_setup.html" class="xref page">nREPL Middleware Setup</a>),
+just as in CIDER 0.10 and older.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Normally <code>cider-jack-in</code> would inject only <code>cider-nrepl</code> and <code>cider-jack-in-cljs</code> would
+add <code>piggieback</code> as well. The injection mechanism is configurable and
+you can easily add more libraries there. Some CIDER extensions would use
+this mechanism to auto-inject their own dependencies.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s how you can modify the injected dependencies for <code>cider-jack-in-clj</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; auto-inject version 1.0 of the library foo/bar
+(cider-add-to-alist 'cider-jack-in-dependencies
+                    "foo/bar" "1.0")
+;; if you want to have full control over the coordinate description set it as an alist
+;; auto-inject {:git/sha "6ae2b6f71773de7549d7f22759e8b09fec27f0d9" for library org.clojure/tools.deps
+;;              :git/url "https://github.com/clojure/tools.deps/"}
+(cider-add-to-alist 'cider-jack-in-dependencies
+                    "org.clojure/tools.deps"
+                    '(("git/sha" . "6ae2b6f71773de7549d7f22759e8b09fec27f0d9")
+                      ("git/url" . "https://github.com/clojure/tools.deps/")))</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Always use the fully qualified <code>group/artifact</code> (e.g. <code>re-frame/re-frame</code>) in these dependencies, since only Leiningen supports the bare <code>re-frame</code> syntax.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>CIDER will also inject the most recent version of nREPL that it supports. This is a simple
+trick to override the version of nREPL bundled with your build tool (e.g. Leiningen), so you can gain
+access to the newest nREPL features. Generally that&#8217;s one aspect of CIDER&#8217;s inner workings
+that end-users will rarely have to think about.</p>
+</div>
+<div class="paragraph">
+<p>You can override the injected versions of <code>cider-nrepl</code> and nREPL by customizing
+<code>cider-injected-middleware-version</code> and <code>cider-injected-nrepl-version</code>.
+Generally you should avoid doing this, but it may be useful if you want to try
+a newer version or you encounter some regression that forces you to temporarily use
+an older version.</p>
+</div>
+<div class="paragraph">
+<p>CIDER can also inject a Clojure dependency into your project, which is useful,
+for example, if your project defaults to an older version of Clojure than that
+supported by the CIDER middleware. Set <code>cider-jack-in-auto-inject-clojure</code>
+appropriately to enable this.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jacking-in-without-a-project"><a class="anchor" href="#jacking-in-without-a-project"></a>Jacking-in without a Project</h3>
+<div class="paragraph">
+<p>If you try to run <code>cider-jack-in</code> outside a project
+directory, CIDER will warn you and ask you to confirm whether you
+really want to do this; more often than not, this is an accident.  If
+you decide to proceed, CIDER will invoke the command configured in
+<code>cider-jack-in-default</code>. Prior to CIDER 0.17, this defaulted to <code>lein</code>
+but was subsequently switched to <code>clj</code>, Clojure&#8217;s basic startup command.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can set <code>cider-allow-jack-in-without-project</code> to <code>t</code> if you&#8217;d like to
+disable the warning displayed when jacking-in outside a project.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="universal-jack-in"><a class="anchor" href="#universal-jack-in"></a>Universal jack-in</h4>
+<div class="paragraph">
+<p><code>cider-jack-in-universal</code> <kbd>C-c C-x j u</kbd> is another way to quickly
+jack in without a project choosing from a list of pre-configured
+Clojure build tools. When this command is called from outside of a
+project, the user is given the option to select to jack in with one of
+the pre-configured tools, as well as to confirm the root directory to
+use as a base. If the command is called from within a project
+directory, it behaves exactly the same as <code>cider-jack-in</code> does.</p>
+</div>
+<div class="paragraph">
+<p>It utilizes Emacs&#8217;s
+<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Prefix-Command-Arguments.html">numeric
+prefix arguments</a> to quickly jack in with a specific build tool. Numeric prefix
+arguments can be set with the <code>Meta</code> key followed by a number.</p>
+</div>
+<div class="paragraph">
+<p>The following Clojure build tools are supported so far</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><kbd>M-1 C-c C-x j u</kbd> jack-in using clojure-cli.</p>
+</li>
+<li>
+<p><kbd>M-2 C-c C-x j u</kbd> jack-in using leiningen.</p>
+</li>
+<li>
+<p><kbd>M-3 C-c C-x j u</kbd> jack-in using babashka.</p>
+</li>
+<li>
+<p><kbd>M-4 C-c C-x j u</kbd> jack-in using nbb.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is an example of how to bind <kbd>F12</kbd> for quickly bringing up a
+babashka REPL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(global-set-key (kbd "&lt;f12&gt;") (lambda ()
+                                (interactive)
+                                (cider-jack-in-universal 3)))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The list of available build tools to consider is configured in
+<code>cider-jack-in-universal-options</code>. Each element of the list consists
+of the tool name and its setup options. Taking <code>nbb</code> as an example
+from the list:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(nbb         (:prefix-arg 4 :cmd (:jack-in-type cljs :project-type nbb :cljs-repl-type nbb :edit-project-dir t)))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>with</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>:prefix-arg</code> assigns the <code>nbb</code> tool name a numerical argument prefix of 4.</p>
+</li>
+<li>
+<p><code>:cmd</code> how to invoke the command.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>:jack-in-type</code> use a <code>cljs</code> repl.</p>
+</li>
+<li>
+<p><code>:project-type</code> use <code>nbb</code> (see <code>jack-in-command</code>) to bring up the nREPL server.</p>
+</li>
+<li>
+<p><code>:cljs-repl-type</code> client uses the <code>nbb</code> cljs repl type (see <code>cider-cljs-repl-types</code>) to initialize server.</p>
+</li>
+<li>
+<p><code>:edit-project-dir</code> ask the user to confirm root directory to use as base.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="customizing-the-jack-in-command-behavior"><a class="anchor" href="#customizing-the-jack-in-command-behavior"></a>Customizing the Jack-in Command Behavior</h3>
+<div class="paragraph">
+<p>You can use <kbd>C-u M-x</kbd> <code>cider-jack-in</code> <kbd>RET</kbd> to
+specify the exact command that <code>cider-jack-in</code> would run.
+This option is very useful is you want to specify a something like a <code>lein</code>
+or <code>deps.edn</code> profile.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively you can <kbd>C-u C-u M-x</kbd> <code>cider-jack-in</code> <kbd>RET</kbd>, which is a
+variation of the previous command. This command will first prompt you for the
+project you want to launch <code>cider-jack-in</code> in, which is pretty handy if you&#8217;re
+in some other directory currently. This option is also useful if your project
+contains some combination of project.clj, build.boot and deps.edn and you want
+to launch a REPL for one or the other.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The examples use only <code>cider-jack-in</code>, but this behavior is consistent
+for all <code>cider-jack-in-\*</code> commands.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can further customize the command line CIDER uses for <code>cider-jack-in</code> by
+modifying the some options. Those differ a bit between the various tools,
+so we&#8217;ll examine them tool by tool.</p>
+</div>
+<div class="sect3">
+<h4 id="leiningen-options"><a class="anchor" href="#leiningen-options"></a>Leiningen Options</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-lein-command</code> - the name of the Leiningen executable (<code>lein</code> by default)</p>
+</li>
+<li>
+<p><code>cider-lein-parameters</code> - the command-line params to start a REPL (e.g. <code>repl :headless</code> or -o to enable offline mode)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clojure-cli-options"><a class="anchor" href="#clojure-cli-options"></a>Clojure CLI Options</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-clojure-cli-command</code> - the name of the <code>clojure</code> executable (<code>clojure</code> by default)</p>
+</li>
+<li>
+<p><code>cider-clojure-cli-parameters</code> - the command-line parameters to start a REPL</p>
+</li>
+<li>
+<p><code>cider-clojure-cli-aliases</code> - a list of aliases to be used at jack-in time</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To use <code>cider-jack-in</code> with <code>tools.deps</code> on Windows set the
+<code>cider-clojure-cli-command</code> to <code>"powershell"</code>. This happens by default
+if you are on Windows and no <code>clojure</code> executable is found. Using
+<code>"powershell"</code> will Base64 encode the clojure launch command before
+passing it to PowerShell and avoids shell-escaping issues.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Alternatively you can use WSL (e.g. to run nREPL and Emacs there), which
+will likely result in a better overall development experience.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="boot-options"><a class="anchor" href="#boot-options"></a>Boot Options</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-boot-command</code> - the name of the Boot executable (<code>boot</code> by default)</p>
+</li>
+<li>
+<p><code>cider-boot-parameters</code> - these are usually task names and their parameters
+(e.g., <code>dev</code> for launching boot&#8217;s dev task instead of the standard <code>repl -s
+wait</code>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="gradle-options"><a class="anchor" href="#gradle-options"></a>Gradle Options</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-gradle-command</code> - the name of the Gradle executable (<code>./gradlew</code> by default)</p>
+</li>
+<li>
+<p><code>cider-gradle-parameters</code> - the Gradle arguments to invoke the repl task (e.g. <code>--no-daemon</code> or <code>--configuration-cache</code>) (<code>clojureRepl</code> by default)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="shadow-cljs"><a class="anchor" href="#shadow-cljs"></a>shadow-cljs</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-shadow-cljs-command</code> - the command to run <code>shadow-cljs</code> (<code>npx shadow-cljs</code> by default). By default we favor the project-specific shadow-cljs over the system-wide.</p>
+</li>
+<li>
+<p><code>cider-shadow-cljs-parameters</code> - the task to start a REPL server (<code>server</code> by default)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="override-the-jack-in-command"><a class="anchor" href="#override-the-jack-in-command"></a>Override the Jack-In Command</h3>
+<div class="paragraph">
+<p>Which Jack-In Command is used is based on the project type. You can override the Jack-In Command either project-wide or as an argument in Lisp.
+This allows for fine-grained control over how cider starts the nrepl-server.</p>
+</div>
+<div class="paragraph">
+<p>The precedence order for determining the Jack-In Command is:
+1) :jack-in-cmd if provided as a parameter,
+2) <code>cider-jack-in-command</code> if set as a directory local variable, and
+3) inferred from the project type (the default).</p>
+</div>
+<div class="sect3">
+<h4 id="setting-a-project-wide-command"><a class="anchor" href="#setting-a-project-wide-command"></a>Setting a project-wide command</h4>
+<div class="paragraph">
+<p>You can set a local variable <code>cider-jack-in-command</code> to override the jack-in command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-emacs-lisp hljs" data-lang="emacs-lisp">((nil
+  (cider-jack-in-cmd . "nbb nrepl-server")))</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="passing-the-command-programmatically-as-a-parameter"><a class="anchor" href="#passing-the-command-programmatically-as-a-parameter"></a>Passing the Command Programmatically as a Parameter</h4>
+<div class="paragraph">
+<p>You can provide an override Jack-In command as an argument to <code>cider-jack-in</code>.
+Here is an example Nbb Jack-In command, providing a custom <code>:jack-in-cmd</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-emacs-lisp hljs" data-lang="emacs-lisp">(defun cider-jack-in-nbb-2 ()
+  "Start a Cider nREPL server with the 'nbb nrepl-server' command."
+  (interactive)
+  (cider-jack-in-clj '(:jack-in-cmd "nbb nrepl-server")))</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="connect-to-a-running-nrepl-server"><a class="anchor" href="#connect-to-a-running-nrepl-server"></a>Connect to a Running nREPL Server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you have an nREPL server already running, CIDER can connect to
+it. For instance, if you have a Leiningen-based project, go to your
+project&#8217;s directory in a terminal session and type:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ lein repl :headless</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will start the project&#8217;s nREPL server.</p>
+</div>
+<div class="paragraph">
+<p>If your project uses <code>boot</code>, do this instead:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ boot repl -s wait (or whatever task launches a repl)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is also possible for plain <code>clj</code>, although the command is somewhat longer:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.41.0"}}}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can start nREPL either manually or using the facilities
+provided by your project&#8217;s build tool (Gradle, Maven, etc).</p>
+</div>
+<div class="paragraph">
+<p>After you get your nREPL server running, go back to Emacs and connect
+to it: <kbd>M-x</kbd> <code>cider-connect</code> <kbd>RET</kbd>. CIDER will
+prompt you for the host and port information, which should have been
+printed when the previous commands started the nREPL server in your
+project.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In Clojure(Script) buffers the command <code>cider-connect</code> is bound to <kbd>C-c C-x c s</kbd>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you frequently connect to the same hosts and ports, you can tell
+CIDER about them and it will use the information to do completing
+reads for the host and port prompts when you invoke
+<code>cider-connect</code>. You can identify each host with an optional label.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-known-endpoints
+  '(("host-a" "10.10.10.1" "7888")
+    ("host-b" "7888")))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="working-with-remote-hosts"><a class="anchor" href="#working-with-remote-hosts"></a>Working with Remote Hosts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While most of the time you&#8217;d be connecting to a locally running nREPL
+server, that was started manually or via <code>cider-jack-in-\*</code>, there&#8217;s
+also the option to connect to remote nREPL hosts. For the sake of security
+CIDER has the ability to tunnel a connection over SSH in such cases.
+This behavior is controlled by
+<code>nrepl-use-ssh-fallback-for-remote-hosts</code>: when true, CIDER will attempt to
+connect via ssh to remote hosts when unable to connect directly. It&#8217;s
+<code>nil</code> by default.</p>
+</div>
+<div class="paragraph">
+<p>There&#8217;s also <code>nrepl-force-ssh-for-remote-hosts</code> which will force the use
+of ssh for remote connection unconditionally.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+As nREPL connections are insecure by default you&#8217;re encouraged to use only SSH
+tunneling when connecting to servers running outside of your network.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>There&#8217;s a another case in which CIDER may optionally leverage the <code>ssh</code> command - when
+trying to figure out potential target hosts and ports when you&#8217;re doing <code>cider-connect-\*</code>.
+If  <code>cider-infer-remote-nrepl-ports</code> is true, CIDER will use ssh to try to infer
+nREPL ports on remote hosts (for a direct connection). That option is also set to <code>nil</code>
+by default.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Enabling either of these causes CIDER to use
+<a href="https://www.gnu.org/software/tramp/">TRAMP</a> for some SSH operations, which parses
+config files such as <code>~/.ssh/config</code> and <code>~/.ssh/known_hosts</code>. This is known to
+cause problems with complex or nonstandard ssh configs.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can run <code>cider-jack-in-*</code> while working with remote files over TRAMP. CIDER
+will reuse existing SSH connection&#8217;s parameters (like port and username) for establishing a SSH tunnel.
+The same will happen if you try to <code>cider-connect-\*</code> to a host that matches the one you&#8217;re currently
+connected to.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For Docker containers, running <code>cider-jack-in-\*</code> over TRAMP may technically work but it may give mixed results.
+Please check out the following section for the recommended approaches.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="working-with-containers-docker-or-others"><a class="anchor" href="#working-with-containers-docker-or-others"></a>Working with Containers (Docker or others)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By 'containers' we mean Docker containers, or similar technologies, for running the JVM that will host our nREPL server.
+The files which we edit may / may not be edited using TRAMP. They could as well be mounted inside the container, so they appear as local.</p>
+</div>
+<div class="paragraph">
+<p>Because CIDER can&#8217;t always detect if it&#8217;s dealing with remote files, it&#8217;s advisable to not rely on <code>cider-jack-in</code>
+and its remote support described above, but to
+start the nREPL server via command line from inside the container, and <code>cider-connect</code> to it.</p>
+</div>
+<div class="paragraph">
+<p>This requires to first get a shell inside the running container and then start a nREPL server manually,
+or configure the container to start an nREPL automatically when the container starts.</p>
+</div>
+<div class="paragraph">
+<p>In order to connect Emacs to nREPL, we need to make sure that the port of nREPL is reachable to our local Emacs,
+so that we can <code>cider-connect</code> to it.
+There are several solutions for this depending on the concrete scenario.</p>
+</div>
+<div class="sect2">
+<h3 id="working-with-containers-running-on-localhost"><a class="anchor" href="#working-with-containers-running-on-localhost"></a>Working with Containers running on localhost</h3>
+<div class="paragraph">
+<p>The nREPL port should be set to a fixed value as we need to give this during the <code>docker start</code> command in order to forward the port from
+container to host. This requires as well that nREPL server listens to "0.0.0.0" and not only to "localhost".</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="working-with-containers-running-on-remote-hosts"><a class="anchor" href="#working-with-containers-running-on-remote-hosts"></a>Working with Containers running on remote hosts</h3>
+<div class="paragraph">
+<p>In case we have the container running on a remote machine, we need to do the same setup as above and additionally use <code>ssh</code>
+to forward the already-forwarded port again to our local machine.</p>
+</div>
+<div class="paragraph">
+<p>This can be done using a command such as "ssh -L 12345:localhost:12345 remote-server",
+assuming that 12345 was the nREPL port exposed by the container.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="working-with-devcontainers-locally-or-remotely"><a class="anchor" href="#working-with-devcontainers-locally-or-remotely"></a>Working with devcontainers locally or remotely</h3>
+<div class="paragraph">
+<p><a href="https://containers.dev">Development Containers</a> is a standard to describe container-based development environments. It includes a CLI.
+It uses Docker/Podman behind the scenes. So the principles of making sure that the nREPL port becomes available stay the same,
+but there are slightly different ways to configure this (given by the devcontainer standard).</p>
+</div>
+<div class="paragraph">
+<p>There are several CLI tools to manage devcontainers, as there are several container technologies. The following example uses
+<a href="https://github.com/devcontainers/cli">the devcontainers cli</a>, but there are others (devpod, gitpod&#8230;&#8203;).</p>
+</div>
+<div class="sect3">
+<h4 id="example-working-with-containers-using-devcontainer-on-a-remote-server"><a class="anchor" href="#example-working-with-containers-using-devcontainer-on-a-remote-server"></a>Example: Working with containers (using <code>devcontainer</code>) on a remote server</h4>
+<div class="paragraph">
+<p>In this scenario and assuming a folder <code>/home/me/my-clj-code</code> containing the relevant <code>devcontainer</code> related config files
+(devcontainer.json) we can first start remotely a devcontainer via:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh"># executed on MY_REMOTE_SERVER
+devcontainer up --workspace-folder /home/me/my-clj-code</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then we can start a nREPL server inside the container on the remote host as shown below (executed from from your local machine).
+The command tunnels as well the remote port 12345 to local machine on port 12345:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">ssh -t -L 12345:localhost:12345 MY_REMOTE_SERVER \
+    devcontainer exec  --workspace-folder /home/me/my-clj-code \
+    "clojure -Sdeps '{:deps {nrepl/nrepl {:mvn/version \"0.8.3\"} cider/cider-nrepl {:mvn/version \"0.25.5\"}}}' -m nrepl.cmdline -p 12345 -b 0.0.0.0 --middleware '[\"cider.nrepl/cider-middleware\"]' "</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For this to work, we need as well to configure <code>devcontainer.json</code> with a snippet that exposes port <code>12345</code> from the container to the (remote) host:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"appPort": [
+  // will make container port 12345 available as 12345 on remote host
+  // (which will be further tunneled to 12345 on local machine)
+  "12345:12345"
+	],</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This results then in having port 12345 available locally and we can <code>cider-connect</code> to it, using <code>localhost:12345</code>.
+Editing of the files can then happen via TRAMP. As the files are "on the remote machine"
+and also mounted inside the container on the remote machine, we have two possible TRAMP file syntaxes to edit them - either of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/ssh:MY_REMOTE_SERVER:/home/me/my-clj-code/&#8230;&#8203;</code></p>
+</li>
+<li>
+<p><code>/ssh:MY_REMOTE_SERVER|docker:DOCKER_CONTAINER_ID:/workspaces/my-clj-code/&#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="connecting-via-unix-domain-file-socket"><a class="anchor" href="#connecting-via-unix-domain-file-socket"></a>Connecting via unix domain file socket</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Unix socket support was introduced in nREPL 0.9. Currently
+CIDER&#8217;s support for Unix sockets is considered experimental and its
+interface might change in future CIDER releases.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When locally running nREPL servers, there is the option to listen on a
+socket file instead of opening a network port.  As long as access to
+the parent directory of the socket is sufficiently protected, this is
+much more secure than the network port, since any local user can
+access the port-provided REPL.  It can also be be helpful in other
+cases, e.g. when working with virtual networks (containers) where
+sharing a file socket can be vastly simpler than managing bridge
+networks and firewall setups.</p>
+</div>
+<div class="paragraph">
+<p>After having started an nREPL server on a file socket, e.g. with the
+<code>clj</code> command (see <a href="https://nrepl.org/nrepl/usage/server.html" class="bare">https://nrepl.org/nrepl/usage/server.html</a> for other
+examples),</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -R:nREPL -m nrepl.cmdline --socket nrepl.sock</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>you can then connect CIDER by using the <code>local-unix-domain-socket</code>
+special hostname with <code>cider-connect</code>: <kbd>M-x</kbd> <code>cider-connect</code> <kbd>RET</kbd> <code>local-unix-domain-socket</code> <kbd>RET</kbd> <code>nrepl.sock</code> <kbd>RET</kbd>.</p>
+</div>
+<div class="paragraph">
+<p>At the moment only with <code>leiningen</code>, commands like <code>cider-jack-in</code>
+will detect and use the unix domain socket if one is requested via the
+<code>:socket</code> argument.  This can be arranged by specifying a prefix
+argument to <code>cider-jack-in</code>, e.g. <kbd>C-u</kbd> <kbd>M-x</kbd> <code>cider-jack-in</code>,
+or by adjusting <code>cider-lein-parameters</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="whats-next"><a class="anchor" href="#whats-next"></a>What&#8217;s Next?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>So, what to do next now that CIDER&#8217;s ready for action? Here are a few ideas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Get familiar with <a href="../usage/interactive_programming.html" class="xref page">interactive programming</a> and <a href="../usage/cider_mode.html" class="xref page">cider-mode</a></p>
+</li>
+<li>
+<p><a href="../config/basic_config.html" class="xref page">Configure</a> CIDER to your liking</p>
+</li>
+<li>
+<p>Explore the <a href="../additional_packages.html" class="xref page">additional packages</a> that can make you more productive</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. Yeah, that&#8217;s a "Neuromancer" reference.
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="installation.html">Installation</a></span>
+  <span class="next"><a href="middleware_setup.html">nREPL Middleware Setup</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2012-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+<script type="text/javascript">
+ docsearch({
+   appId: '1AZEMR3ZT0',
+   apiKey: 'd2cfc21fce00ac9d3f787c0d8e064d42',
+   indexName: 'cider',
+   container: '#docsearch',
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
+</script>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

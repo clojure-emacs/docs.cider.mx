@@ -132,6 +132,9 @@
           <a href="../../../cider/index.html">default</a>
         </li>
         <li class="version">
+          <a href="../../../cider/1.9/index.html">1.9</a>
+        </li>
+        <li class="version">
           <a href="../../../cider/1.8/index.html">1.8</a>
         </li>
         <li class="version">
@@ -1348,6 +1351,41 @@ making the results more accurate (and less numerous).
 </div>
 </div>
 <div class="sect2">
+<h3 id="inspect-next-sibling"><a class="anchor" href="#inspect-next-sibling"></a><code>inspect-next-sibling</code></h3>
+<div class="paragraph">
+<p>Increment the index of the last 'nth in the path by 1,
+if applicable, and re-render the updated value.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:session</code> The current session</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> "done"</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
 <h3 id="inspect-pop"><a class="anchor" href="#inspect-pop"></a><code>inspect-pop</code></h3>
 <div class="paragraph">
 <p>Moves one level up in the inspector stack.</p>
@@ -1385,6 +1423,41 @@ making the results more accurate (and less numerous).
 <h3 id="inspect-prev-page"><a class="anchor" href="#inspect-prev-page"></a><code>inspect-prev-page</code></h3>
 <div class="paragraph">
 <p>Jumps to the previous page in paginated collection view.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:session</code> The current session</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> "done"</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inspect-previous-sibling"><a class="anchor" href="#inspect-previous-sibling"></a><code>inspect-previous-sibling</code></h3>
+<div class="paragraph">
+<p>Decrement the index of the last 'nth in the path by 1,
+if applicable, and re-render the updated value.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -1574,6 +1647,40 @@ making the results more accurate (and less numerous).
 <li>
 <p><code>:page-size</code> New page size.</p>
 </li>
+<li>
+<p><code>:session</code> The current session</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> "done"</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inspect-tap-current-value"><a class="anchor" href="#inspect-tap-current-value"></a><code>inspect-tap-current-value</code></h3>
+<div class="paragraph">
+<p>Send the currently inspected value to the Clojure tap&gt;.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
 <li>
 <p><code>:session</code> The current session</p>
 </li>

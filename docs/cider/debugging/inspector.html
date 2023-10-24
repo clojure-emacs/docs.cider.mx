@@ -321,6 +321,9 @@
           <a href="../index.html">default</a>
         </li>
         <li class="version">
+          <a href="../1.9/index.html">1.9</a>
+        </li>
+        <li class="version">
           <a href="../1.8/index.html">1.8</a>
         </li>
         <li class="version">
@@ -386,6 +389,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">default</button>
   <div class="version-menu">
     <a class="version is-current" href="inspector.html">default</a>
+    <a class="version" href="../1.9/debugging/inspector.html">1.9</a>
     <a class="version" href="../1.8/debugging/inspector.html">1.8</a>
     <a class="version" href="../1.7/debugging/inspector.html">1.7</a>
     <a class="version" href="../1.6/debugging/inspector.html">1.6</a>
@@ -444,65 +448,107 @@ session, see <a href="debugger.html" class="xref page">here</a> for more details
 </tr>
 </table>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The current value of the debugger can be as sent as well to Clojure&#8217;s
+<code>tap&gt;</code> facility. This can be used to integrate CIDER with various external
+tools which render tapped values in a web browser, for example.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>You&#8217;ll have access to additional keybindings in the inspector buffer
 (which is internally using <code>cider-inspector-mode</code>):</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Keyboard shortcut</th>
+<th class="tableblock halign-left valign-top">Command</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>Tab</kbd> and <kbd>Shift-Tab</kbd> / kdb:[n] and <kbd>p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>Tab</kbd> and <kbd>Shift-Tab</kbd> / <kbd>n</kbd> and <kbd>p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-next-inspectable-object</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Navigate inspectable sub-objects</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f</kbd> and <kbd>b</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>forward-char</code>, <code>backward-char</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Navigate across characters on a line</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>Return</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-operate-on-point</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inspect sub-objects</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-pop</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pop to the parent object</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>g</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-refresh</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Refresh the inspector (e.g. if viewing an atom/ref/agent)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>SPC</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-next-page</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Jump to next page in paginated view</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>M-SPC</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-prev-page</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Jump to previous page in paginated view</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-set-page-size</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set a new page size in paginated view</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-set-max-coll-size</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set a new maximum size above which nested collections are truncated</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>a</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-set-max-atom-length</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set a new maximum length above which nested atoms (non-collections) are truncated</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-def-current-val</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Defines a var in the REPL namespace with current inspector value. If you tend to always choose the same name(s), you may want to set the <code>cider-inspector-preferred-var-names</code> customization option.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>9</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-previous-sibling</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Navigates to the previous sibling, within a sequential collection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>0</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-next-sibling</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Navigates to the next sibling, within a sequential collection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>t</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-tap-current-val</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performs <code>tap&gt;</code> using the inspector&#8217;s current value as it argument.</p></td>
 </tr>
 </tbody>
 </table>
