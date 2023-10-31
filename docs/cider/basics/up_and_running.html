@@ -889,6 +889,21 @@ Here is an example Nbb Jack-In command, providing a custom <code>:jack-in-cmd</c
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="starting-nrepl-server-without-trying-to-connect-to-it"><a class="anchor" href="#starting-nrepl-server-without-trying-to-connect-to-it"></a>Starting nREPL server without trying to connect to it</h4>
+<div class="paragraph">
+<p>In some situations, it might be useful to only start a nREPL server process, without
+connecting to it. This can support complex setups
+for which CIDER cannot reliably detect to which server/port to connect, and
+would therefore fail.
+This assumes that the user will execute a <code>cider-connect</code> command manually afterwards,
+specifying host/port.</p>
+</div>
+<div class="paragraph">
+<p>For this scenario, the <code>cider-start-nrepl-server</code> (<kbd>C-c C-x (C-)j (C-)n</kbd>)  command is provided, which
+takes the same parameters as <code>cider-jack-in</code>.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
