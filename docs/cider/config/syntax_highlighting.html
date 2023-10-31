@@ -353,10 +353,10 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../cider-nrepl/latest/index.html">CIDER nREPL</a>
+      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/latest/index.html">0.31</a>
+          <a href="../../cider-nrepl/index.html">default</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.26/index.html">0.26</a>
@@ -409,14 +409,42 @@
 </aside>
 <article class="doc">
 <h1 class="page">Syntax highlighting</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>clojure-mode</code> provides basic syntax highlighting for Clojure(Script) code, but
+CIDER builds upon this in several ways. The biggest limitation of <code>clojure-mode</code>
+is that the syntax highlighting there is based on the usage of regular expressions
+to figure out what&#8217;s the syntactic category of the various identifiers (e.g. constants,
+macros, types, etc). CIDER, however, has access to all the data about identifiers from
+code that has already been loaded into nREPL, so it can provide a richer and more accurate
+syntax highlighting. We call this functionality "dynamic syntax highlighting" (as opposed to
+the somewhat static syntax highlighting you&#8217;d get from <code>clojure-mode</code>).</p>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="dynamic-syntax-highlighting"><a class="anchor" href="#dynamic-syntax-highlighting"></a>Dynamic syntax highlighting</h2>
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Emacs term for "syntax highlighting" is "font-locking". That&#8217;s why
+all configuration variables that have something to do with syntax highlighting have
+"font-locking" in their names.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>CIDER can syntax highlight symbols that are known to be defined. By default,
-this is done on symbols from the <code>clojure.core</code> namespace, as well as macros
-from any namespace. If you&#8217;d like CIDER to also colorize usages of functions
-and variables from any namespace, do:</p>
+this is done from symbols from the <code>clojure.core</code> and <code>cljs.core</code> namespaces, as
+well as macros from any namespace. If you&#8217;d like CIDER to also colorize usages
+of functions and variables from any namespace, do:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -438,6 +466,9 @@ and variables from any namespace, do:</p>
 <div class="content">
 <img src="../_images/dynamic_font_lock_on.png" alt="Dynamic Font-lock On">
 </div>
+</div>
+<div class="paragraph">
+<p>You can refer to the <code>cider-font-lock-dynamically</code> Elisp documentation for further details.</p>
 </div>
 </div>
 </div>

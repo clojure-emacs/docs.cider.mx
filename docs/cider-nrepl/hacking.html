@@ -14,7 +14,6 @@
 <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
-    <script>var uiRootPath = '../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -133,6 +132,15 @@
           <a href="../cider/index.html">default</a>
         </li>
         <li class="version">
+          <a href="../cider/1.9/index.html">1.9</a>
+        </li>
+        <li class="version">
+          <a href="../cider/1.8/index.html">1.8</a>
+        </li>
+        <li class="version">
+          <a href="../cider/1.7/index.html">1.7</a>
+        </li>
+        <li class="version">
           <a href="../cider/1.6/index.html">1.6</a>
         </li>
         <li class="version">
@@ -196,8 +204,8 @@
     <a class="version" href="0.24/hacking.html">0.24</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider-nrepl/edit/master/doc/modules/ROOT/pages/hacking.adoc">Edit this Page</a></div>
-  </div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider-nrepl/edit/master/doc/modules/ROOT/pages/hacking.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -207,7 +215,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Hacking on cider-nrepl requires nothing bit a bit of knowledge of Clojure and nREPL.
+<p>Hacking on cider-nrepl requires nothing but a bit of knowledge of Clojure and nREPL.
 In this section we&#8217;ll take a look at some practical tips to make you more productive
 while working on the project.</p>
 </div>
@@ -217,7 +225,7 @@ while working on the project.</p>
 <h2 id="makefile"><a class="anchor" href="#makefile"></a>Makefile</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>cider-nrepl has some pretty complicated Lein profiles, as it has to deal with multiple version of
+<p>cider-nrepl has some pretty complicated Lein profiles, as it has to deal with multiple versions of
 Clojure and ClojureScript, plus dependency inlining with Mr. Anderson. That&#8217;s why we&#8217;ve
 added a good old <code>Makefile</code> to save you the trouble of having to think about the profiles
 and just focus on the tasks at hand.</p>

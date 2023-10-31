@@ -353,10 +353,10 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../cider-nrepl/latest/index.html">CIDER nREPL</a>
+      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../cider-nrepl/latest/index.html">0.31</a>
+          <a href="../../cider-nrepl/index.html">default</a>
         </li>
         <li class="version">
           <a href="../../cider-nrepl/0.26/index.html">0.26</a>
@@ -478,7 +478,7 @@ release to ship with nREPL 0.6.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.41.0"]]</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.42.1"]]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -486,7 +486,7 @@ release to ship with nREPL 0.6.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.41.0"]]}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.42.1"]]}}</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -528,7 +528,7 @@ all of their projects using a <code>~/.boot/profile.boot</code> file like so:</p
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(require 'boot.repl)
 
 (swap! boot.repl/*default-dependencies*
-       concat '[[cider/cider-nrepl "0.41.0"]])
+       concat '[[cider/cider-nrepl "0.42.1"]])
 
 (swap! boot.repl/*default-middleware*
        conj 'cider.nrepl/cider-middleware)</code></pre>
@@ -548,11 +548,11 @@ run <code>cider-connect</code> or <code>cider-connect-cljs</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">  :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.41.0"}}
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">  :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.42.1"}}
               :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :cider-cljs {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.339"}
-                            cider/cider-nrepl {:mvn/version "0.41.0"}
+                            cider/cider-nrepl {:mvn/version "0.42.1"}
                             cider/piggieback {:mvn/version "0.5.3"}}
                :main-opts ["-m" "nrepl.cmdline" "--middleware"
                            "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}</code></pre>

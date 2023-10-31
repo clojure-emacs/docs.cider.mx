@@ -14,7 +14,6 @@
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
-    <script>var uiRootPath = '../../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -133,6 +132,15 @@
           <a href="../../cider/index.html">default</a>
         </li>
         <li class="version">
+          <a href="../../cider/1.9/index.html">1.9</a>
+        </li>
+        <li class="version">
+          <a href="../../cider/1.8/index.html">1.8</a>
+        </li>
+        <li class="version">
+          <a href="../../cider/1.7/index.html">1.7</a>
+        </li>
+        <li class="version">
           <a href="../../cider/1.6/index.html">1.6</a>
         </li>
         <li class="version">
@@ -197,8 +205,8 @@
     <a class="version" href="../0.24/nrepl-api/supplied_middleware.html">0.24</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider-nrepl/edit/master/doc/modules/ROOT/pages/nrepl-api/supplied_middleware.adoc">Edit this Page</a></div>
-  </div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider-nrepl/edit/master/doc/modules/ROOT/pages/nrepl-api/supplied_middleware.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -285,6 +293,13 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>inspect-(start/refresh/pop/push/reset/get-path)</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inspect a Clojure expression.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-log</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.30.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider/log-add-appender</code>, <code>cider/log-add-consumer</code>, <code>cider/log-analyze-stacktrace</code>, <code>cider/log-clear-appender</code>, <code>cider/log-exceptions</code>, <code>cider/log-format-event</code>, <code>cider/log-frameworks</code>, <code>cider/log-inspect-event</code>, <code>cider/log-levels</code>, <code>cider/log-loggers</code>, <code>cider/log-remove-appender</code>, <code>cider/log-remove-consumer</code>, <code>cider/log-search</code>, <code>cider/log-update-appender</code>, <code>cider/log-update-consumer</code>, <code>cider/log-threads</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Capture, debug, inspect and view log events emitted by Java logging frameworks.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrap-macroexpand</code></p></td>
