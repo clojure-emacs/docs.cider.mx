@@ -841,22 +841,22 @@ method of
 </li>
 <li>
 <p><code>:context</code> A Compliment completion context, just like the ones already passed for the "complete" op,
-with the difference that the symbol at point should be entirely replaced by "<em>_prefix_</em>".</p>
+with the difference that the symbol at point should be entirely replaced by "<em>_prefix_</em>".
+For Java interop queries, it helps inferring the precise type of the object the <code>:sym</code> or <code>:member</code> refers to,
+making the results more accurate (and less numerous).</p>
+</li>
+<li>
+<p><code>:member</code> A Java class member.</p>
+</li>
+<li>
+<p><code>:ns</code> The current namespace</p>
+</li>
+<li>
+<p><code>:sym</code> The symbol to lookup</p>
 </li>
 </ul>
 </div>
 </dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>For Java interop queries, it helps inferring the precise type of the object the <code>:sym</code> or <code>:member</code> refers to,
-making the results more accurate (and less numerous).
-* <code>:member</code> A Java class member.
-* <code>:ns</code> The current namespace
-* <code>:sym</code> The symbol to lookup</p>
-</div>
-<div class="dlist">
-<dl>
 <dt class="hdlist1">Returns</dt>
 <dd>
 <div class="ulist">
@@ -1142,22 +1142,22 @@ making the results more accurate (and less numerous).
 </li>
 <li>
 <p><code>:context</code> A Compliment completion context, just like the ones already passed for the "complete" op,
-with the difference that the symbol at point should be entirely replaced by "<em>_prefix_</em>".</p>
+with the difference that the symbol at point should be entirely replaced by "<em>_prefix_</em>".
+For Java interop queries, it helps inferring the precise type of the object the <code>:sym</code> or <code>:member</code> refers to,
+making the results more accurate (and less numerous).</p>
+</li>
+<li>
+<p><code>:member</code> A Java class member.</p>
+</li>
+<li>
+<p><code>:ns</code> The current namespace</p>
+</li>
+<li>
+<p><code>:sym</code> The symbol to lookup</p>
 </li>
 </ul>
 </div>
 </dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>For Java interop queries, it helps inferring the precise type of the object the <code>:sym</code> or <code>:member</code> refers to,
-making the results more accurate (and less numerous).
-* <code>:member</code> A Java class member.
-* <code>:ns</code> The current namespace
-* <code>:sym</code> The symbol to lookup</p>
-</div>
-<div class="dlist">
-<dl>
 <dt class="hdlist1">Returns</dt>
 <dd>
 <div class="ulist">
@@ -1309,6 +1309,44 @@ making the results more accurate (and less numerous).
 <ul>
 <li>
 <p><code>:status</code> "done"</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inspect-last-exception"><a class="anchor" href="#inspect-last-exception"></a><code>inspect-last-exception</code></h3>
+<div class="paragraph">
+<p>Returns an Inspector response for the last exception that has been processed through <code>analyze-last-stacktrace</code> for the current nrepl session.
+Assumes that <code>analyze-last-stacktrace</code> has been called first, returning "no-error" otherwise.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:index</code> 0 for inspecting the top-level exception, 1 for its ex-cause, 2 for its ex-cause&#8217;s ex-cause, and so on.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:status</code> "done", or "no-error" if <code>analyze-last-stacktrace</code> wasn&#8217;t called beforehand (or the <code>index</code> was out of bounds).</p>
+</li>
+<li>
+<p><code>:value</code> A value, as produced by the Inspector middleware.</p>
 </li>
 </ul>
 </div>
