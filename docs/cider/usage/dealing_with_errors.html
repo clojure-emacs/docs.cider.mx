@@ -841,6 +841,42 @@ select the stacktrace manually.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="inspector-integration"><a class="anchor" href="#inspector-integration"></a>Inspector integration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Within <code><strong>cider-error</strong></code>, when clicking directly a top-level exception (any of them in the cause chain),
+that specific exception will be inspected with the CIDER <a href="../debugging/inspector.html" class="xref page">Inspector</a>.</p>
+</div>
+<div class="paragraph">
+<p>This allows you to better understand intrincate <code>ex-data</code>.</p>
+</div>
+<div class="paragraph">
+<p>This clicking is defined and customizable in <code>cider-stacktrace-exception-map</code>, which has the following defaults:</p>
+</div>
+<div class="sect2">
+<h3 id="keybindings-2"><a class="anchor" href="#keybindings-2"></a>Keybindings</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Action</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>click</kbd> or <kbd>i</kbd> or <kbd>p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open the given exception in the Inspector.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 <nav class="pagination">
   <span class="prev"><a href="pretty_printing.html">Pretty Printing</a></span>
   <span class="next"><a href="working_with_documentation.html">Working with Documentation</a></span>
