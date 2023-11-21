@@ -62,6 +62,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all"></button>
     <h3 class="title"><a href="../index.html">CIDER</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
@@ -543,7 +544,7 @@ this looks for <code>tools.deps</code>:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>$ clojure -Sdeps '{:deps {nrepl {:mvn/version "0.6.0"} cider/cider-nrepl {:mvn/version "0.43.1"}}}' -m nrepl.cmdline --middleware '["cider.nrepl/cider-middleware"]'</pre>
+<pre>$ clojure -Sdeps '{:deps {nrepl {:mvn/version "0.6.0"} cider/cider-nrepl {:mvn/version "0.43.3"}}}' -m nrepl.cmdline --middleware '["cider.nrepl/cider-middleware"]'</pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -939,7 +940,7 @@ project&#8217;s directory in a terminal session and type:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.43.1"}}}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.43.3"}}}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</code></pre>
 </div>
 </div>
 <div class="paragraph">

@@ -62,6 +62,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all"></button>
     <h3 class="title"><a href="../index.html">CIDER</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
@@ -435,62 +436,78 @@ You can also <a href="running_tests.html#display-test-report-on-success" class="
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Keyboard shortcut</th>
+<th class="tableblock halign-left valign-top">Command name</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>g</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-run-test</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Run test at point.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>n</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-run-ns-tests</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Run tests for current namespace.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-run-ns-tests-with-filters</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Run tests for current namespace with selector filter.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-run-loaded-tests</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Run tests for all loaded namespaces.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-run-project-tests</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Run tests for all project namespaces. This loads the additional namespaces.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-rerun-failed-tests</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Re-run test failures/errors.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>M-p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-previous-result</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Move point to previous test.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>M-n</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-next-result</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Move point to next test.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>t</kbd> or <kbd>M-.</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>t</kbd> or <kbd>M-.</kbd> or kbd:click</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-jump</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Jump to test definition.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-ediff</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Display diff of actual vs expected.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-test-stacktrace</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Display test error cause and stacktrace info.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Most key bindings are defined in <code>cider-test-report-mode-map</code>, while the <code>click</code> behavior is defined in <code>cider-test-var-keymap</code>.</p>
+</div>
 <nav class="pagination">
   <span class="prev"><a href="running_tests.html">Running Tests</a></span>
   <span class="next"><a href="supported_libraries.html">Supported Libraries</a></span>
