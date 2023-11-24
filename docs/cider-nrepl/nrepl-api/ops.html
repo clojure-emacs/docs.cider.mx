@@ -62,7 +62,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all"></button>
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
     <h3 class="title"><a href="../index.html">CIDER nREPL</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
@@ -1880,6 +1880,55 @@ if applicable, and re-render the updated value.</p>
 <dd>
 <div class="ulist">
 <ul>
+<li>
+<p><code>:session</code> The current session</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:doc-block-tags-fragments</code> May be absent. Represent the 'param', 'returns' and 'throws' sections a Java doc comment. It&#8217;s a vector of fragments, where fragment is a map with <code>:type</code> ('text' or 'html') and <code>:content</code> plain text or html markup, respectively</p>
+</li>
+<li>
+<p><code>:doc-first-sentence-fragments</code> May be absent. Represents the first sentence of a Java doc comment. It&#8217;s a vector of fragments, where fragment is a map with <code>:type</code> ('text' or 'html') and <code>:content</code> plain text or html markup, respectively</p>
+</li>
+<li>
+<p><code>:doc-fragments</code> May be absent. Represents the body of a Java doc comment, including the first sentence and excluding any block tags. It&#8217;s a vector of fragments, where fragment is a map with <code>:type</code> ('text' or 'html') and <code>:content</code> plain text or html markup, respectively</p>
+</li>
+<li>
+<p><code>:status</code> "done"</p>
+</li>
+<li>
+<p><code>:value</code> The inspector result. Contains a specially-formatted string that can be <code>read</code> and then rendered client-side.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inspect-tap-indexed"><a class="anchor" href="#inspect-tap-indexed"></a><code>inspect-tap-indexed</code></h3>
+<div class="paragraph">
+<p>Send the currently inspected sub-value at <code>idx</code> to the Clojure tap&gt;.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:idx</code> Index of the internal value to be tapped</p>
+</li>
 <li>
 <p><code>:session</code> The current session</p>
 </li>

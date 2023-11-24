@@ -62,7 +62,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all"></button>
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
     <h3 class="title"><a href="../index.html">CIDER</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
@@ -563,6 +563,11 @@ tools which render tapped values in a web browser, for example.
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>t</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-tap-current-val</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Performs <code>tap&gt;</code> using the inspector&#8217;s current value as it argument.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>1</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-tap-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performs <code>tap&gt;</code> using the inspector&#8217;s current sub-value (the one at POINT) as it argument.</p></td>
 </tr>
 </tbody>
 </table>
