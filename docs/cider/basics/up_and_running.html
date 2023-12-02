@@ -312,7 +312,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">CIDER</span>
-    <span class="version">default</span>
+    <span class="version"></span>
   </div>
   <ul class="components">
     <li class="component is-current">
@@ -792,11 +792,28 @@ so we&#8217;ll examine them tool by tool.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>To use <code>cider-jack-in</code> with <code>tools.deps</code> on Windows set the
-<code>cider-clojure-cli-command</code> to <code>"powershell"</code>. This happens by default
-if you are on Windows and no <code>clojure</code> executable is found. Using
-<code>"powershell"</code> will Base64 encode the clojure launch command before
-passing it to PowerShell and avoids shell-escaping issues.</p>
+<p>On MS-Windows, CIDER will employ <code>PowerShell</code> to execute Clojure if no
+<code>clojure</code> executable is found in the PATH (e.g. like the one supplied
+by <a href="https://github.com/borkdude/deps.clj">deps.clj</a>). The default
+executable used is <code>powershell</code> which is available on all Windows
+platforms. Using <code>PowerShell</code> will Base64 encode the clojure launch
+command before passing it to PowerShell and avoids shell-escaping
+issues.</p>
+</div>
+<div class="paragraph">
+<p>The functionality of <code>cider-clojure-cli-command</code> has been verified
+with the following alternatives</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pwsh</code>: This option proves beneficial when the user has installed the <a href="https://github.com/clojure/tools.deps.alpha/wiki/clj-on-Windows">ClojureTools</a> module on pwsh in a directory not accessible by the system&#8217;s PowerShell installation.</p>
+</li>
+<li>
+<p><code>deps.exe</code>: This executable is part of the tools provided by
+<a href="https://github.com/borkdude/deps.clj">deps.clj</a> as an alternative name for <code>clojure.exe</code>.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
