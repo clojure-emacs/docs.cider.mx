@@ -418,7 +418,7 @@
 <div class="paragraph">
 <p>CIDER Log Mode allows you to capture, debug, inspect and view log
 events emitted by Java logging frameworks. The captured log events can
-be searched, streamed to the client, pretty printed and are integrated
+be searched, streamed to the client, pretty-printed, and are integrated
 with the CIDER <a href="inspector.html">Inspector</a> and
 <a href="../usage/dealing_with_errors.html">Stacktrace Mode</a>. Here is a
 screenshot of CIDER Log Mode in action.</p>
@@ -454,22 +454,22 @@ logging related actions.
 <div class="ulist">
 <ul>
 <li>
-<p>Browse Javadocs and website of log framework.</p>
+<p>Browse Javadocs and website of the given log framework.</p>
 </li>
 <li>
 <p>Search log events and show them in buffers.</p>
 </li>
 <li>
-<p><a href="../usage/pretty_printing.html">Pretty Print</a> log events.</p>
+<p><a href="../usage/pretty_printing.html">Pretty-print</a> log events.</p>
 </li>
 <li>
-<p>Show log events in the CIDER <a href="inspector.html">Inspector</a></p>
+<p>Show log events in the CIDER <a href="inspector.html">Inspector</a>.</p>
 </li>
 <li>
-<p>Show log event exceptions in the CIDER <a href="../usage/dealing_with_errors.html">Stacktrace Mode</a></p>
+<p>Show log event exceptions in the CIDER <a href="../usage/dealing_with_errors.html">Stacktrace Mode</a>.</p>
 </li>
 <li>
-<p>Integration with <a href="https://github.com/doublep/logview">logview</a></p>
+<p>Integration with <a href="https://github.com/doublep/logview">logview</a>.</p>
 </li>
 </ul>
 </div>
@@ -483,30 +483,141 @@ logging related actions.
 of CIDER Log Mode. We recommend using it, since it is responsible for
 coloring the log events and it provides other useful features, such as
 syntax highlighting, filtering and more. It is used automatically when
-available and its use can be customized via <code>cider-log-use-logview</code>.</p>
+available, and its use can be customized via <code>cider-log-use-logview</code>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="usage"><a class="anchor" href="#usage"></a>Usage</h2>
+<h2 id="transient-mode"><a class="anchor" href="#transient-mode"></a><code>transient-mode</code></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To use CIDER Log Mode, type <kbd>C-c M-l l</kbd> or <kbd>M-x cider-log</kbd> in
-any buffer that has a CIDER <a href="https://github.com/vspinu/sesman">Sesman</a>
-session attached to it. The first time you run the command, it will
-prompt you to select a log framework to use, and then attach a log
-appender to the root logger of the selected framework. After the log
-appender has been attached, the <code>cider-log</code> command will show a
-<a href="https://www.gnu.org/software/emacs/manual/html_mono/transient.html">Transient</a>
-menu, from which you can take further actions, like managing the log
-framework, appenders, consumers and events.</p>
+<p>It&#8217;s worth pointing out that most features and workflows of Cider Log Mode are based on <a href="https://github.com/magit/transient">transient-mode</a>.</p>
 </div>
 <div class="paragraph">
-<p>To view log events and stream them to your client, type <kbd>es</kbd>
-(Search log events) followed by <kbd>s</kbd>. This will open the
-<code>*cider-log*</code> buffer showing any log events captured thus far. It will
-also add a log consumer to this buffer, which receives newly-arriving
-log events.</p>
+<p>A transient menu is the following widget:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/cider-log-transient-mode.png" alt="CIDER Log transient menu">
+</div>
+</div>
+<div class="paragraph">
+<p>Its usage is mostly self-describing, since each command has its keybinding attached to the description.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="getting-started"><a class="anchor" href="#getting-started"></a>Getting started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use CIDER Log Mode, there two main ways to get started:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>M-x cider-log-event</code>, which uses transient-mode and will not immediately show the logs (you should use transient-mode to show the <code>*cider-log*</code> buffer)</p>
+</li>
+<li>
+<p><code>M-x cider-log-show</code> is a newer function that intends to be an "all-in-one" command, intended for a streamlined experience, which can be useful to get started, or for casual usage.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It doesn&#8217;t use transient-mode - it aims to do everything in one step</p>
+</li>
+<li>
+<p>It immediately shows the <code>*cider-log*</code> buffer</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Any of these commands will only succeed in
+a buffer that has a CIDER repl (<a href="https://github.com/vspinu/sesman">Sesman</a>
+session) attached to it.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="via-cider-log-show"><a class="anchor" href="#via-cider-log-show"></a>Via <code>cider-log-show</code></h3>
+<div class="paragraph">
+<p>By using <code>M-x cider-log-show</code>, all setup and rendering will be performed for you in a single step that doesn&#8217;t pop up a <code>transient-mode</code> menu:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A framework will be set up, automatically</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You may be prompted for a framework</p>
+</li>
+<li>
+<p>You can prevent the prompt by customizing <code>cider-log-framework-name</code> (best done in <code>dir-locals.el</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A log appender and a log consumer will be setup, automatically</p>
+</li>
+<li>
+<p>The <code>*cider-log*</code> buffer will be rendered.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All these steps are idempotent, so it&#8217;s safe to run <code>M-x cider-log-show</code> more than once.</p>
+</div>
+<div class="paragraph">
+<p>You can refine the setup afterwards (e.g. configuring filtering) by running <code>M-x cider-log</code>, <code>M-x cider-log-consumer</code>, etc.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="via-cider-log-event"><a class="anchor" href="#via-cider-log-event"></a>Via <code>cider-log-event</code></h3>
+<div class="paragraph">
+<p>The intended workflow for this function is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Run <code>M-x cider-log-event</code></p>
+</li>
+<li>
+<p>A framework will be set up, automatically</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You may be prompted for a framework</p>
+</li>
+<li>
+<p>You can prevent the prompt by customizing <code>cider-log-framework-name</code> (best done in <code>dir-locals.el</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A log appender and a log consumer will be setup, automatically</p>
+</li>
+<li>
+<p>The <code>*cider-log*</code> buffer will <em>not</em> be rendered</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For it to be rendered, press <code>s</code> (<code>Search log events</code>) within the transient-mode menu.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -524,6 +635,42 @@ the selected framework.
 </tr>
 </table>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="advanced-usage"><a class="anchor" href="#advanced-usage"></a>Advanced usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>cider-log</code> is a function that can serve both to set up logging from scratch,
+or for tweaking an existing setup (e.g. add filtering to a consumer).</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s considered a lower-level approach.</p>
+</div>
+<div class="sect2">
+<h3 id="setup-via-cider-log"><a class="anchor" href="#setup-via-cider-log"></a>Setup via <code>cider-log</code></h3>
+<div class="paragraph">
+<p>Type <kbd>C-c M-l l</kbd> or <kbd>M-x cider-log</kbd>. The first time you run the command, it will
+prompt you to select a log framework to use, and then attach a log
+appender to the root logger of the selected framework. After the log
+appender has been attached, the <code>cider-log</code> command will show a
+<a href="https://www.gnu.org/software/emacs/manual/html_mono/transient.html">Transient</a>
+menu, from which you can take further actions, like managing the log
+framework, appenders, consumers and events.</p>
+</div>
+<div class="paragraph">
+<p>You should add a log appender and a log consumer at this point - else no log entries will be possibly shown
+(which is why <code>cider-log</code> is considered a lower-level workflow).</p>
+</div>
+<div class="paragraph">
+<p>After that, to view log events and stream them to your client, type <kbd>es</kbd>
+(Search log events) followed by <kbd>s</kbd>. This will open the
+<code>*cider-log*</code> buffer showing any log events captured thus far. It will
+also add a log consumer to this buffer, which receives newly-arriving
+log events.</p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="keybindings"><a class="anchor" href="#keybindings"></a>Keybindings</h3>
 <table class="tableblock frame-all grid-all stretch">
@@ -532,18 +679,26 @@ the selected framework.
 <col style="width: 33.3333%;">
 <col style="width: 33.3334%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Keyboard shortcut</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keyboard shortcut</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-event</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show the menu to manage log events via a transient-mode menu. This is one of the two main entrypoints to get started.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-show</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Immediately shows the logs, without a transient-mode menu. This is one of the two main entrypoints to get started.</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l l</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Show the CIDER log menu.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show the CIDER log menu. Please note that this is considered advanced usage.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-framework</code></p></td>
@@ -560,11 +715,6 @@ the selected framework.
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l c</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the menu to manage consumers listening to log events.</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-event</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l e</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Show the menu to manage log events.</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -575,7 +725,7 @@ the selected framework.
 <div class="sectionbody">
 <div class="paragraph">
 <p>CIDER Log Mode supports log frameworks that allow reconfiguration at
-run time. More specifically the framework should support attaching log
+runtime. More specifically the framework should support attaching log
 appenders to loggers, in order to capture events.</p>
 </div>
 <div class="paragraph">
@@ -598,6 +748,26 @@ well, but there are some
 <a href="https://stackoverflow.com/a/17842174/12711900">difficulties</a> with
 configuration changes made at runtime, which are wiped out by the
 Log4j2 reconfiguration mechanism.</p>
+</div>
+<div class="paragraph">
+<p>Timbre support is WIP as well.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If your logging framework of choice is not currently supported by CIDER Log Mode,
+you can opt to use Clojure&#8217;s official <code>tools.logging</code> façade in your project, such that you can locally,
+unobstrusively tell it to use a supported framework (like Logback) instead of your project&#8217;s default one.
+Note that its choice of logging backend implementation can be controlled with the
+<code>-Dclojure.tools.logging.factory</code> Java system property, which can be cleanly customized locally via Lein profiles,
+or Clojure CLI aliases.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
 <h3 id="keybindings-2"><a class="anchor" href="#keybindings-2"></a>Keybindings</h3>
