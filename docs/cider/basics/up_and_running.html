@@ -525,6 +525,22 @@ most of the time you&#8217;d probably want to have a project-specific setting fo
   (cider-preferred-build-tool . lein)))</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>cider-jack-in</code> is mainly designed for local development (with files on a
+local machine and the nREPL process running on the same machine). It does support
+various common remote/container scenarios, as documented later in this section. Due
+to the large variation of remote scenarios it cannot support all of them, so in
+some cases a manual nREPL start and usage of <code>cider-connect</code> might be a better option.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect2">
 <h3 id="auto-injecting-dependencies"><a class="anchor" href="#auto-injecting-dependencies"></a>Auto-Injecting Dependencies</h3>
 <div class="paragraph">
@@ -544,7 +560,7 @@ this looks for <code>tools.deps</code>:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>$ clojure -Sdeps '{:deps {nrepl {:mvn/version "0.6.0"} cider/cider-nrepl {:mvn/version "0.44.0"}}}' -m nrepl.cmdline --middleware '["cider.nrepl/cider-middleware"]'</pre>
+<pre>$ clojure -Sdeps '{:deps {nrepl {:mvn/version "0.6.0"} cider/cider-nrepl {:mvn/version "0.45.0"}}}' -m nrepl.cmdline --middleware '["cider.nrepl/cider-middleware"]'</pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -957,7 +973,7 @@ project&#8217;s directory in a terminal session and type:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.44.0"}}}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.45.0"}}}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</code></pre>
 </div>
 </div>
 <div class="paragraph">
