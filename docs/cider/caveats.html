@@ -316,7 +316,7 @@
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="index.html">CIDER</a>
+      <div class="title"><a href="index.html">CIDER</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="index.html">default</a>
@@ -354,7 +354,7 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../cider-nrepl/index.html">CIDER nREPL</a>
+      <div class="title"><a href="../cider-nrepl/index.html">CIDER nREPL</a></div>
       <ul class="versions">
         <li class="version is-latest">
           <a href="../cider-nrepl/index.html">default</a>
@@ -555,6 +555,37 @@ one that&#8217;s bundled with Leiningen.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="clojure-ts-mode-integration"><a class="anchor" href="#clojure-ts-mode-integration"></a>clojure-ts-mode integration</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>clojure-ts-mode</code> support was introduced in CIDER 1.14.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>CIDER has basic support for working with
+<a href="https://github.com/clojure-emacs/clojure-ts-mode">clojure-ts-mode</a> buffers, but it still depends on
+<a href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a> for certain functionality, like
+extracting information about Clojure code out of the buffer. We hope to make <code>clojure-ts-mode</code> capable
+of providing CIDER with all the functionality it needs to interact with Clojure buffers, but that
+will take some time.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, some features like
+<a href="config/indentation.html#dynamic-indentation" class="xref page"><code>cider-dynamic-indentation</code></a>
+and <a href="config/syntax_highlighting.html#dynamic-syntax-highlighting" class="xref page"><code>cider-font-lock-dynamically</code></a>
+are not supported by <code>clojure-ts-mode</code>.</p>
+</div>
+</div>
+</div>
 <nav class="pagination">
   <span class="prev"><a href="indent_spec.html">Indentation Specification</a></span>
   <span class="next"><a href="troubleshooting.html">Troubleshooting</a></span>
@@ -564,7 +595,7 @@ one that&#8217;s bundled with Leiningen.</p>
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

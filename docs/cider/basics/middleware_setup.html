@@ -316,7 +316,7 @@
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="../index.html">CIDER</a>
+      <div class="title"><a href="../index.html">CIDER</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">default</a>
@@ -354,7 +354,7 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
+      <div class="title"><a href="../../cider-nrepl/index.html">CIDER nREPL</a></div>
       <ul class="versions">
         <li class="version is-latest">
           <a href="../../cider-nrepl/index.html">default</a>
@@ -482,7 +482,7 @@ release to ship with nREPL 0.6.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.45.0"]]</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.47.0"]]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -490,7 +490,7 @@ release to ship with nREPL 0.6.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.45.0"]]}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.47.0"]]}}</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -532,7 +532,7 @@ all of their projects using a <code>~/.boot/profile.boot</code> file like so:</p
 <pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(require 'boot.repl)
 
 (swap! boot.repl/*default-dependencies*
-       concat '[[cider/cider-nrepl "0.45.0"]])
+       concat '[[cider/cider-nrepl "0.47.0"]])
 
 (swap! boot.repl/*default-middleware*
        conj 'cider.nrepl/cider-middleware)</code></pre>
@@ -552,11 +552,11 @@ run <code>cider-connect</code> or <code>cider-connect-cljs</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">  :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.45.0"}}
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">  :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.47.0"}}
               :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :cider-cljs {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.339"}
-                            cider/cider-nrepl {:mvn/version "0.45.0"}
+                            cider/cider-nrepl {:mvn/version "0.47.0"}
                             cider/piggieback {:mvn/version "0.5.3"}}
                :main-opts ["-m" "nrepl.cmdline" "--middleware"
                            "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}</code></pre>
@@ -596,7 +596,7 @@ Make sure you&#8217;re using <a href="https://github.com/clojurephant/clojurepha
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
   devImplementation 'nrepl:nrepl:0.9.0'
-  devImplementation 'cider:cider-nrepl:0.45.0'
+  devImplementation 'cider:cider-nrepl:0.47.0'
 }
 
 tasks.named('clojureRepl') {
@@ -679,7 +679,7 @@ cider-nrepl for your version of CIDER by looking at
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

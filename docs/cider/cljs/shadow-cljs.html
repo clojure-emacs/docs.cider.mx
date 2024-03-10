@@ -316,7 +316,7 @@
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="../index.html">CIDER</a>
+      <div class="title"><a href="../index.html">CIDER</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">default</a>
@@ -354,7 +354,7 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../cider-nrepl/index.html">CIDER nREPL</a>
+      <div class="title"><a href="../../cider-nrepl/index.html">CIDER nREPL</a></div>
       <ul class="versions">
         <li class="version is-latest">
           <a href="../../cider-nrepl/index.html">default</a>
@@ -526,7 +526,7 @@ root of your project.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj"> :dependencies [[cider/cider-nrepl "0.45.0"] ;; mandatory (unless it's inherited from deps.edn or otherwise present in the classpath of shadow-cljs's JVM process)
+<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj"> :dependencies [[cider/cider-nrepl "0.47.0"] ;; mandatory (unless it's inherited from deps.edn or otherwise present in the classpath of shadow-cljs's JVM process)
                 [refactor-nrepl/refactor-nrepl "3.9.0"]] ;; refactor-nrepl is optional
 
  :nrepl {:middleware [cider.nrepl/cider-middleware ;; it's advisable to explicitly add this middleware. It's automatically added by shadow-cljs (if available in the classpath), unless `:nrepl {:cider false}`
@@ -683,7 +683,7 @@ via the following configuration variables:</p>
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

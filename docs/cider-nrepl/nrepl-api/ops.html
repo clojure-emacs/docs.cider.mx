@@ -127,7 +127,7 @@
   </div>
   <ul class="components">
     <li class="component">
-      <a class="title" href="../../cider/index.html">CIDER</a>
+      <div class="title"><a href="../../cider/index.html">CIDER</a></div>
       <ul class="versions">
         <li class="version is-latest">
           <a href="../../cider/index.html">default</a>
@@ -165,7 +165,7 @@
       </ul>
     </li>
     <li class="component is-current">
-      <a class="title" href="../index.html">CIDER nREPL</a>
+      <div class="title"><a href="../index.html">CIDER nREPL</a></div>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">default</a>
@@ -859,6 +859,11 @@ making the results more accurate (and less numerous).</p>
 <li>
 <p><code>:sym</code> The symbol to lookup</p>
 </li>
+<li>
+<p><code>:var-meta-allowlist</code> The metadata keys from vars to be returned. Currently only affects <code>:clj</code>.
+Defaults to the value of <code>orchard.meta/var-meta-allowlist</code>.
+If specified, the value will be concatenated to that of <code>orchard.meta/var-meta-allowlist</code>.</p>
+</li>
 </ul>
 </div>
 </dd>
@@ -1159,6 +1164,11 @@ making the results more accurate (and less numerous).</p>
 </li>
 <li>
 <p><code>:sym</code> The symbol to lookup</p>
+</li>
+<li>
+<p><code>:var-meta-allowlist</code> The metadata keys from vars to be returned. Currently only affects <code>:clj</code>.
+Defaults to the value of <code>orchard.meta/var-meta-allowlist</code>.
+If specified, the value will be concatenated to that of <code>orchard.meta/var-meta-allowlist</code>.</p>
 </li>
 </ul>
 </div>
@@ -4136,6 +4146,117 @@ stack frame of the most recent exception. This op is deprecated, please use the
 </dl>
 </div>
 </div>
+<div class="sect2">
+<h3 id="cider-clj-reloadreload"><a class="anchor" href="#cider-clj-reloadreload"></a><code>cider.clj-reload/reload</code></h3>
+<div class="paragraph">
+<p>Reloads all changed files in dependency order,
+using the io.github.tonsky/clj-reload library. It is bundled with cider-nrepl.
+If that dependency is already in present your project and clj-reload.core/init has been invoked beforehand,
+those configured directories will be honored.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:after</code> The namespace-qualified name of a zero-arity function to call after reloading.</p>
+</li>
+<li>
+<p><code>:before</code> The namespace-qualified name of a zero-arity function to call before reloading.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:error</code> A sequence of all causes of the thrown exception when <code>status</code> is <code>:error</code>.</p>
+</li>
+<li>
+<p><code>:progress</code> Description of current namespace being unloaded/loaded.</p>
+</li>
+<li>
+<p><code>:status</code> <code>:ok</code> if reloading was successful; otherwise <code>:error</code>.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cider-clj-reloadreload-all"><a class="anchor" href="#cider-clj-reloadreload-all"></a><code>cider.clj-reload/reload-all</code></h3>
+<div class="paragraph">
+<p>Reloads all files in dependency order.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:after</code> The namespace-qualified name of a zero-arity function to call after reloading.</p>
+</li>
+<li>
+<p><code>:before</code> The namespace-qualified name of a zero-arity function to call before reloading.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>:error</code> A sequence of all causes of the thrown exception when <code>status</code> is <code>:error</code>.</p>
+</li>
+<li>
+<p><code>:reloading</code> Description of current namespace being unloaded/loaded.</p>
+</li>
+<li>
+<p><code>:status</code> <code>:ok</code> if reloading was successful; otherwise <code>:error</code>.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cider-clj-reloadreload-clear"><a class="anchor" href="#cider-clj-reloadreload-clear"></a><code>cider.clj-reload/reload-clear</code></h3>
+<div class="paragraph">
+<p>Clears the state of clj-reload. This can help recover from a failed load or a circular dependency error.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Required parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Optional parameters</dt>
+<dd>
+<p></p>
+</dd>
+<dt class="hdlist1">Returns</dt>
+<dd>
+<p></p>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 </div>
 <nav class="pagination">
@@ -4147,7 +4268,7 @@ stack frame of the most recent exception. This op is deprecated, please use the
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
