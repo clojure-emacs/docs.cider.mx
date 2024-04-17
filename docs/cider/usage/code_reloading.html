@@ -430,6 +430,20 @@ and there are no temporary definitions hanging around.</p>
 <div class="sect1">
 <h2 id="reloaded-workflow"><a class="anchor" href="#reloaded-workflow"></a>"Reloaded" Workflow</h2>
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The workflow described below was made popular by
+this <a href="https://www.cognitect.com/blog/2013/06/04/clojure-workflow-reloaded">blog article</a>,
+which served as the primary inspiration for CIDER&#8217;s take on it.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Typing <kbd>C-c M-n r</kbd> or <kbd>C-c M-n M-r</kbd> will invoke
 <code>cider-ns-refresh</code> and reload all modified Clojure files on the
@@ -538,8 +552,8 @@ way <code>tools.namespace</code> does.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sometimes, <code>cider-ns-refresh</code> may not work for you. If you&#8217;re looking
-for a bit more forceful reloading the <code>cider-ns-reload</code>
-and <code>cider-ns-reload-all</code> commands can be used instead. These commands
+for a bit more forceful reloading the <code>cider-ns-reload</code> (<kbd>C-c M-n l</kbd>)
+and <code>cider-ns-reload-all</code> (<kbd>C-c M-n M-l</kbd>) commands can be used instead. These commands
 invoke Clojure&#8217;s <code>(require ... :reload)</code> and <code>(require
 ... :reload-all)</code> commands at the REPL.</p>
 </div>
@@ -579,6 +593,16 @@ Theses commands don&#8217;t depend on <code>cider-nrepl</code>, so they are alwa
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-n r</kbd><br>
 <kbd>C-c M-n M-r</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Reload all modified Clojure files on the classpath. Adding a prefix argument, <kbd>C-u C-c M-n r</kbd>, will reload all the namespaces on the classpath unconditionally, regardless of their modification status. Adding a double prefix argument, <kbd>C-u C-u M-n r</kbd>, will first clear the state of the namespace tracker before reloading.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-ns-reload</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-n l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reload using <code>(require :reload)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-ns-reload-all</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-n M-l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reload using <code>(require :reload-all)</code></p></td>
 </tr>
 </tbody>
 </table>
