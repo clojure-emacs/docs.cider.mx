@@ -144,6 +144,9 @@
     <a class="nav-link" href="code_completion.html">Code Completion</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="code_reloading.html">Code Reloading</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="pretty_printing.html">Pretty Printing</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -524,120 +527,6 @@ Those are pretty handy if you don&#8217;t want to jump to the source of some fun
 <p><a href="https://github.com/bbatsov/projectile">Projectile&#8217;s</a> "grep in project" (<code>projectile-grep</code>, typically bound to <kbd>C-c p g</kbd>)</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="reloading-code"><a class="anchor" href="#reloading-code"></a>Reloading Code</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>While Clojure&#8217;s and CIDER&#8217;s interactive programming style means you&#8217;ll
-restart your application far less often than with other languages and
-development environments, sometimes you&#8217;ll want to clean everything up
-and reload one or more namespaces to ensure that they are up to date
-and there are no temporary definitions hanging around.</p>
-</div>
-<div class="paragraph">
-<p>Typing <kbd>C-c M-n r</kbd> or <kbd>C-c M-n M-r</kbd> will invoke
-<code>cider-ns-refresh</code> and reload all modified Clojure files on the
-classpath.</p>
-</div>
-<div class="paragraph">
-<p>Adding a prefix argument, <kbd>C-u C-c M-n r</kbd>, will reload all
-the namespaces on the classpath unconditionally, regardless of their
-modification status.</p>
-</div>
-<div class="paragraph">
-<p>Adding a double prefix argument, <kbd>C-u C-u M-n r</kbd>, will first
-clear the state of the namespace tracker before reloading. This is
-useful for recovering from some classes of error that normal reloads
-would otherwise not recover from. A good example is circular
-dependencies. The trade-off is that stale code from any deleted files
-may not be completely unloaded.</p>
-</div>
-<div class="paragraph">
-<p><code>cider-ns-refresh</code> wraps
-<a href="https://github.com/clojure/tools.namespace">clojure.tools.namespace</a>, and as
-such the same
-<a href="https://github.com/clojure/tools.namespace#reloading-code-motivation">benefits</a>
-and
-<a href="https://github.com/clojure/tools.namespace#reloading-code-preparing-your-application">caveats</a>
-regarding writing reloadable code also apply.</p>
-</div>
-<div class="paragraph">
-<p>The above three operations are analogous to
-<a href="http://clojure.github.io/tools.namespace/#clojure.tools.namespace.repl/refresh"><code>clojure.tools.namespace.repl/refresh</code></a>,
-<a href="http://clojure.github.io/tools.namespace/#clojure.tools.namespace.repl/refresh-all"><code>clojure.tools.namespace.repl/refresh-all</code></a>
-and
-<a href="http://clojure.github.io/tools.namespace/#clojure.tools.namespace.repl/clear"><code>clojure.tools.namespace.repl/clear</code></a>
-(followed by a normal refresh), respectively.</p>
-</div>
-<div class="paragraph">
-<p>You can define Clojure functions to be called before reloading, and after a
-successful reload, when using <code>cider-ns-refresh</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-ns-refresh-before-fn "user/stop-system!"
-      cider-ns-refresh-after-fn "user/start-system!")</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>These must be set to the namespace-qualified names of vars bound to
-functions of no arguments. The functions must be synchronous
-(blocking), and are expected to be side-effecting - they will always
-be executed serially, without retries.</p>
-</div>
-<div class="paragraph">
-<p>By default, messages regarding the status of the in-progress reload
-will be displayed in the echo area after you call
-<code>cider-ns-refresh</code>. The same information will also be recorded in the
-<code>*cider-ns-refresh-log*</code> buffer, along with anything printed to
-<code>*out*</code> or <code>*err*</code> by <code>cider-ns-refresh-before-fn</code> and
-<code>cider-ns-refresh-start-fn</code>.</p>
-</div>
-<div class="paragraph">
-<p>You can make the <code>*cider-ns-refresh-log*</code> buffer display automatically
-after you call <code>cider-ns-refresh</code> by setting the
-<code>cider-ns-refresh-show-log-buffer</code> variable to a non-nil value. This
-will also prevent any related messages from also being displayed in
-the echo area.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-ns-refresh-show-log-buffer t)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>By default, CIDER will prompt for whether to save all modified <code>clojure-mode</code>
-buffers visiting files on the classpath. You can customize this behavior with
-<code>cider-ns-save-files-on-refresh</code> and <code>cider-ns-save-files-on-refresh-modes</code>.</p>
-</div>
-<div class="paragraph">
-<p>Sometimes, <code>cider-ns-refresh</code> may not work for you. If you&#8217;re looking
-for a bit more forceful reloading the <code>cider-ns-reload</code>
-and <code>cider-ns-reload-all</code> commands can be used instead. These commands
-invoke Clojure&#8217;s <code>(require ... :reload)</code> and <code>(require
-... :reload-all)</code> commands at the REPL.</p>
-</div>
-<div class="paragraph">
-<p>You can also use <a href="https://github.com/tonsky/clj-reload">clj-reload</a> instead.
-It provides support for
-<a href="https://github.com/tonsky/clj-reload/blob/469da68/README.md#usage-keeping-vars-between-reloads">keeping vars between reloads</a>
-among some
-<a href="https://github.com/tonsky/clj-reload/blob/469da68/README.md#comparison-toolsnamespace">other differences</a>
-from <code>tools.namespace</code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-ns-code-reload-tool 'clj-reload)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>With <code>clj-reload</code> you should set the source dirs as described in
-<a href="https://github.com/tonsky/clj-reload/blob/469da68/README.md##usage">the usage docs</a>
-. If you don&#8217;t set them manually, it will default to the current project&#8217;s resource dirs in the same
-way <code>tools.namespace</code> does.</p>
 </div>
 </div>
 </div>

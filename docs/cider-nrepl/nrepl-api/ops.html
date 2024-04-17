@@ -752,7 +752,7 @@ method of
 <div class="sect2">
 <h3 id="debug-instrumented-defs"><a class="anchor" href="#debug-instrumented-defs"></a><code>debug-instrumented-defs</code></h3>
 <div class="paragraph">
-<p>Return an alist of definitions currently thought to be instrumented on each namespace. Due to Clojure&#8217;s versatility, this could include false postives, but there will not be false negatives. Instrumentations inside protocols are not listed.</p>
+<p>Return an alist of definitions currently thought to be instrumented on each namespace. Due to Clojure&#8217;s versatility, this could include false positives, but there will not be false negatives. Instrumentations inside protocols are not listed.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -842,7 +842,7 @@ method of
 <div class="ulist">
 <ul>
 <li>
-<p><code>:class</code> A Java class. If <code>:ns</code> is passed, it will be used for fully-qualifiying the class, if necessary.</p>
+<p><code>:class</code> A Java class. If <code>:ns</code> is passed, it will be used for fully-qualifying the class, if necessary.</p>
 </li>
 <li>
 <p><code>:context</code> A Compliment completion context, just like the ones already passed for the "complete" op,
@@ -1148,7 +1148,7 @@ If specified, the value will be concatenated to that of <code>orchard.meta/var-m
 <div class="ulist">
 <ul>
 <li>
-<p><code>:class</code> A Java class. If <code>:ns</code> is passed, it will be used for fully-qualifiying the class, if necessary.</p>
+<p><code>:class</code> A Java class. If <code>:ns</code> is passed, it will be used for fully-qualifying the class, if necessary.</p>
 </li>
 <li>
 <p><code>:context</code> A Compliment completion context, just like the ones already passed for the "complete" op,
@@ -1977,7 +1977,7 @@ if applicable, and re-render the updated value.</p>
 <div class="sect2">
 <h3 id="is-var-profiled"><a class="anchor" href="#is-var-profiled"></a><code>is-var-profiled</code></h3>
 <div class="paragraph">
-<p>Reports wheth symbol is currently profiled.</p>
+<p>Reports whether symbol is currently profiled.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -2740,7 +2740,7 @@ if applicable, and re-render the updated value.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>:max-samples</code> Maxiumum samples to collect for any single var.</p>
+<p><code>:max-samples</code> Maximum samples to collect for any single var.</p>
 </li>
 </ul>
 </div>

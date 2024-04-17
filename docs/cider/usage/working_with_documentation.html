@@ -144,6 +144,9 @@
     <a class="nav-link" href="code_completion.html">Code Completion</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="code_reloading.html">Code Reloading</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="pretty_printing.html">Pretty Printing</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -431,17 +434,22 @@ press <kbd>C-c C-d C-d</kbd> then. This open a documentation buffer
 containing all the relevant information about the thing referenced
 by the symbol (special form, var, Java method, etc).</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can also use the keybinding <kbd>C-c C-d d</kbd>. Most CIDER keymaps
+provide two versions of the same keybinding (with or without the final <code>Control</code>),
+as some people prefer to keep holding <code>Control</code> and some don&#8217;t.
+</td>
+</tr>
+</table>
 </div>
-</div>
-<div class="sect1">
-<h2 id="javadoc"><a class="anchor" href="#javadoc"></a>JavaDoc</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>CIDER provides a quick access to the online Javadoc documentation
-via the command <code>cider-javadoc</code>.</p>
-</div>
-<div class="paragraph">
-<p>This requires <code>enrich-classpath</code> to be enabled.</p>
+<p>Normally the command operates on the symbol at point.  If invoked with a prefix argument, or no symbol is found at point, it will prompt for a symbol.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -450,12 +458,47 @@ via the command <code>cider-javadoc</code>.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-if using <code>enrich-classpath</code>, Java doc comments are available and rendered in the same way that Clojure docstrings are.
+If using <code>enrich-classpath</code>, Java doc comments are available and rendered in the same way that Clojure docstrings are.
 They&#8217;re often much more handy than opening Javadoc in a browser. Starting from CIDER 1.8.0,
 the HTML-like language that they use is nicely rendered into syntax-colored strings, well-aligned tables, etc
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="javadoc"><a class="anchor" href="#javadoc"></a>JavaDoc</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CIDER provides a quick access to the online Javadoc documentation
+via the command <code>cider-javadoc</code> (<kbd>C-c C-d j</kbd> or <kbd>C-c C-d C-j</kbd>), using your default browser.</p>
+</div>
+<div class="paragraph">
+<p>Normally the command operates on the symbol at point.  If invoked with a prefix argument, or no symbol is found at point, it will prompt for a symbol.</p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t want CIDER to use an external browser to display the JavaDoc you can use the built-in
+EWW browser instead like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq browse-url-browser-function 'eww-browse-url)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="searching-in-docstrings"><a class="anchor" href="#searching-in-docstrings"></a>Searching in Docstrings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CIDER provides a handy alternative of <code>clojure.repl/find-doc</code> - <code>cider-apropos-documentation</code> (<kbd>C-c C-d f</kbd> or
+<kbd>C-c C-d C-f</kbd>). This allows you to search in the docstrings of all loaded vars with the results presented
+in Emacs&#8217;s <code>apropos</code> interface.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively you can use <code>cider-apropos-documentation-select</code> (<kbd>C-c C-d e</kbd> or <kbd>C-c C-d C-e</kbd>), which presents you the matching
+results as a list in the minibuffer, so you can quickly select what you need (especially if you&#8217;re using some package like <code>ido</code> or <code>vertico</code>).</p>
 </div>
 </div>
 </div>
