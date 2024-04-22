@@ -525,8 +525,20 @@ buffers visiting files on the classpath. You can customize this behavior with
 </div>
 <div class="sect2">
 <h3 id="using-clj-reload"><a class="anchor" href="#using-clj-reload"></a>Using clj-reload</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Support for <code>clj-reload</code> was introduced in CIDER 1.14.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>You can also use <a href="https://github.com/tonsky/clj-reload">clj-reload</a> instead.
+<p>You can also use <code>cider-ns-refresh</code> with <a href="https://github.com/tonsky/clj-reload">clj-reload</a> instead of <code>clojure.tools.namespace</code>.
 It provides support for
 <a href="https://github.com/tonsky/clj-reload/blob/469da68/README.md#usage-keeping-vars-between-reloads">keeping vars between reloads</a>
 among some
@@ -543,6 +555,19 @@ from <code>tools.namespace</code>.</p>
 <a href="https://github.com/tonsky/clj-reload/blob/469da68/README.md##usage">the usage docs</a>
 . If you don&#8217;t set them manually, it will default to the current project&#8217;s resource dirs in the same
 way <code>tools.namespace</code> does.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Down the road we may rename <code>cider-ns-refresh</code> to something more tool-agnostic (e.g. <code>cider-ns-smart-reload</code>) to reflect
+that it supports different code reload tools now.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -564,7 +589,7 @@ invoke Clojure&#8217;s <code>(require ... :reload)</code> and <code>(require
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Theses commands don&#8217;t depend on <code>cider-nrepl</code>, so they are always available.
+These commands don&#8217;t depend on <code>cider-nrepl</code>, so they are always available.
 </td>
 </tr>
 </table>

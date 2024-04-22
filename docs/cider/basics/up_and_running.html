@@ -806,7 +806,10 @@ so we&#8217;ll examine them tool by tool.</p>
 <p><code>cider-clojure-cli-parameters</code> - the command-line parameters to start a REPL</p>
 </li>
 <li>
-<p><code>cider-clojure-cli-aliases</code> - a list of aliases to be used at jack-in time</p>
+<p><code>cider-clojure-cli-aliases</code> - a list of project-specific aliases to be used at jack-in time (it&#8217;s meant to be set via <code>.dir-locals.el</code>)</p>
+</li>
+<li>
+<p><code>cider-clojure-cli-global-aliases</code> - a list of global aliases that are appended to project-specific <code>cider-clojure-cli-aliases</code></p>
 </li>
 </ul>
 </div>
