@@ -3,10 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>nREPL Middleware Setup :: CIDER Docs</title>
-    <link rel="canonical" href="https://docs.cider.mx/cider/basics/middleware_setup.html">
-    <link rel="prev" href="up_and_running.html">
-    <link rel="next" href="../cljs/overview.html">
+    <title>Basilisp Integration with CIDER :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/platforms/basilisp.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -75,13 +73,13 @@
     <span class="nav-text">Getting Started</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="installation.html">Installation</a>
+    <a class="nav-link" href="../basics/installation.html">Installation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="up_and_running.html">Up and Running</a>
+    <a class="nav-link" href="../basics/up_and_running.html">Up and Running</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="middleware_setup.html">nREPL Middleware Setup</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/middleware_setup.html">nREPL Middleware Setup</a>
   </li>
 </ul>
   </li>
@@ -114,16 +112,16 @@
     <span class="nav-text">Alternative Platforms</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../platforms/overview.html">Overview</a>
+    <a class="nav-link" href="overview.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../platforms/babashka.html">Babashka</a>
+    <a class="nav-link" href="babashka.html">Babashka</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../platforms/nbb.html">Nbb</a>
+    <a class="nav-link" href="nbb.html">Nbb</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../platforms/other_platforms.html">Other Platforms</a>
+    <a class="nav-link" href="other_platforms.html">Other Platforms</a>
   </li>
 </ul>
   </li>
@@ -388,295 +386,219 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
-    <li>Getting Started</li>
-    <li><a href="middleware_setup.html">nREPL Middleware Setup</a></li>
+    <li><a href="basilisp.html">Basilisp Integration with CIDER</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">default</button>
   <div class="version-menu">
-    <a class="version is-current" href="middleware_setup.html">default</a>
-    <a class="version" href="../1.9/basics/middleware_setup.html">1.9</a>
-    <a class="version" href="../1.8/basics/middleware_setup.html">1.8</a>
-    <a class="version" href="../1.7/basics/middleware_setup.html">1.7</a>
-    <a class="version" href="../1.6/basics/middleware_setup.html">1.6</a>
-    <a class="version" href="../1.5/basics/middleware_setup.html">1.5</a>
-    <a class="version" href="../1.4/basics/middleware_setup.html">1.4</a>
-    <a class="version" href="../1.3/basics/middleware_setup.html">1.3</a>
-    <a class="version" href="../1.2/basics/middleware_setup.html">1.2</a>
-    <a class="version" href="../1.1/basics/middleware_setup.html">1.1</a>
-    <a class="version" href="../1.0/basics/middleware_setup.html">1.0</a>
+    <a class="version is-current" href="basilisp.html">default</a>
+    <a class="version is-missing" href="../1.9/index.html">1.9</a>
+    <a class="version is-missing" href="../1.8/index.html">1.8</a>
+    <a class="version is-missing" href="../1.7/index.html">1.7</a>
+    <a class="version is-missing" href="../1.6/index.html">1.6</a>
+    <a class="version is-missing" href="../1.5/index.html">1.5</a>
+    <a class="version is-missing" href="../1.4/index.html">1.4</a>
+    <a class="version is-missing" href="../1.3/index.html">1.3</a>
+    <a class="version is-missing" href="../1.2/index.html">1.2</a>
+    <a class="version is-missing" href="../1.1/index.html">1.1</a>
+    <a class="version is-missing" href="../1.0/index.html">1.0</a>
   </div>
 </div>
-<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/basics/middleware_setup.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/edit/master/doc/modules/ROOT/pages/platforms/basilisp.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">nREPL Middleware Setup</h1>
+<h1 class="page">Basilisp Integration with CIDER</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You can skip this section if you don&#8217;t plan to use <code>cider-connect</code> or don&#8217;t care
-about the advanced functionality that requires <code>cider-nrepl</code>.
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
-<p>Much of CIDER&#8217;s functionality depends on its own <a href="https://github.com/clojure-emacs/cider-nrepl">nREPL
-middleware</a>. Starting
-with version 0.11, <code>cider-jack-in</code> (<kbd>C-c C-x (C-)j (C-)j</kbd>)
-automatically injects this middleware and other dependencies as required.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-In the past, if you were setting up CIDER, you might have had to
-modify <code>profiles.clj</code> or <code>profile.boot</code>. CIDER now handles
-everything automatically and you don&#8217;t need to add anything
-special to these files. The same is true of your <code>deps.edn</code> file and
-your <code>build.gradle</code> (as of Clojurephant 0.7.0-alpha.6).
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>If you prefer a standalone REPL, you will need to invoke
-<code>cider-connect</code> instead of <code>cider-jack-in</code> and manually add the
-dependencies to your Clojure project (explained in the following
-sections).</p>
+<p>since CIDER 1.14</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up-a-standalone-repl"><a class="anchor" href="#setting-up-a-standalone-repl"></a>Setting Up a Standalone REPL</h2>
+<h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="using-leiningen"><a class="anchor" href="#using-leiningen"></a>Using Leiningen</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Make sure you&#8217;re using Leiningen 2.9.0 or newer, as 2.9.0 is the first
-release to ship with nREPL 0.6.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Basilisp aims to enable writing Clojure programs on Python with full Python interoperability. It is highly compatible with Clojure.</p>
 </div>
 <div class="paragraph">
-<p>Use the convenient plugin for defaults, either in your project&#8217;s
-<code>project.clj</code> file or in the :repl profile in <code>~/.lein/profiles.clj</code>.</p>
+<p>To install Basilisp, run:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.48.0"]]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>A minimal <code>profiles.clj</code> for CIDER would be:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.48.0"]]}}</code></pre>
-</div>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Be careful not to place this in the <code>:user</code> profile, as this way CIDER&#8217;s
-middleware will always get loaded, causing <code>lein</code> to start slower.  You really
-need it just for <code>lein repl</code> and this is what the <code>:repl</code> profile is for.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="using-boot"><a class="anchor" href="#using-boot"></a>Using Boot</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Make sure you&#8217;re using Boot 2.8.3 or newer, as 2.8.3 is the first
-release to ship with nREPL 0.6.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Boot users can configure the tool to include the middleware automatically in
-all of their projects using a <code>~/.boot/profile.boot</code> file like so:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(require 'boot.repl)
-
-(swap! boot.repl/*default-dependencies*
-       concat '[[cider/cider-nrepl "0.48.0"]])
-
-(swap! boot.repl/*default-middleware*
-       conj 'cider.nrepl/cider-middleware)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For more information visit <a href="https://github.com/boot-clj/boot/wiki/Cider-REPL">boot-clj wiki</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="using-tools-deps"><a class="anchor" href="#using-tools-deps"></a>Using tools.deps</h3>
-<div class="paragraph">
-<p>You can add the following aliases to your deps.edn in order to launch
-a standalone Clojure(Script) nREPL server with CIDER middleware from
-the commandline with something like <code>clj -A:cider-clj</code>. Then from emacs
-run <code>cider-connect</code> or <code>cider-connect-cljs</code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">  :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.48.0"}}
-              :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
-
-  :cider-cljs {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.339"}
-                            cider/cider-nrepl {:mvn/version "0.48.0"}
-                            cider/piggieback {:mvn/version "0.5.3"}}
-               :main-opts ["-m" "nrepl.cmdline" "--middleware"
-                           "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-the suggested ClojureScript setup is apt for e.g. library development, but not for frontend development.
-For those cases, you may want to check out our <a href="../cljs/shadow-cljs.html#using-cider-connect-cljs" class="xref page">shadow-cljs</a>
-or <a href="../cljs/figwheel.html#clojure-cli-setup" class="xref page">figwheel</a> setups instead.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="using-gradle"><a class="anchor" href="#using-gradle"></a>Using Gradle</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Make sure you&#8217;re using <a href="https://github.com/clojurephant/clojurephant">Clojurephant</a> 0.4.0 or newer.
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="title">build.gradle</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-  devImplementation 'nrepl:nrepl:0.9.0'
-  devImplementation 'cider:cider-nrepl:0.48.0'
-}
-
-tasks.named('clojureRepl') {
-  middleware = ['cider.nrepl/cider-middleware']
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can then launch the nREPL server from the command line via: <code>./gradlew clojureRepl</code>.</p>
-</div>
-<div class="paragraph">
-<p>For more information, see the <a href="https://clojurephant.dev">Clojurephant docs</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="using-maven"><a class="anchor" href="#using-maven"></a>Using Maven</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This section is currently a stub. Contributions welcome!
-</td>
-</tr>
-</table>
+<pre>$ pip install basilisp</pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="using-embedded-nrepl-server"><a class="anchor" href="#using-embedded-nrepl-server"></a>Using Embedded nREPL Server</h2>
+<h2 id="usage"><a class="anchor" href="#usage"></a>Usage</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you&#8217;re embedding nREPL in your application, you&#8217;ll have to start the
-server with CIDER&#8217;s own nREPL handler.</p>
+<p>There are several ways to connect to Basilisp.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><kbd>M-x cider-jack-in</kbd> and <kbd>M-5 M-x cider-jack-in-universal</kbd></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you have created a <code>basilisp.edn</code> project file at your root of your project tree, you can jack in to the project <code>M-x cider-jack-in</code>. The <code>basilisp.edn</code> is similar to <code>deps.edn</code> for clojure-cli projects. It can be left empty just to mark the root of your project.</p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t have or want a basilisp project file, you can use universal jack in with a numerical argument of 5:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><kbd>M-5 M-x cider-jack-in-universal</kbd>, or</p>
+</li>
+<li>
+<p><kbd>M-5 C-c C-x j u</kbd>, from within file in clojure-mode</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>(Note: an alternative to <kbd>M-5</kbd> is <kbd>C-u 5</kbd>)</p>
+</div>
+<div class="paragraph">
+<p>You can also bind the universal jack-in to Basilisp to a function to use as a shortcut, for example</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(ns my-app
-  (:require [nrepl.server :as nrepl-server]
-            [cider.nrepl :refer (cider-nrepl-handler)]))
-
-(defn -main
-  []
-  (nrepl-server/start-server :port 7888 :handler cider-nrepl-handler))</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(global-set-key (kbd "&lt;f12&gt;") (lambda ()
+                                (interactive)
+                                (cider-jack-in-universal 5)))</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><kbd>M-x cider-connect</kbd></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can start its bundled nREPL server:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ basilisp nrepl-server</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>It goes without saying that your project should depend on <code>cider-nrepl</code>.</p>
+<p>and connect to it afterward using <code>M-x cider-connect</code>.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Prior to CIDER 0.18, CIDER and cider-nrepl were always released together
-and their versions had to match for things to work (e.g. CIDER 0.15 required
-cider-nrepl 0.15). But as the prominence of cider-nrepl grew and many other
-tools started using it, the two projects evolved separately and are no longer in
-tight lock-step. Usually, any recent version of cider-nrepl should be (mostly)
-compatible with a recent version of CIDER. You can check the required version of
-cider-nrepl for your version of CIDER by looking at
-<code>cider-required-middleware-version</code>.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>To see available options, type <code>basilisp nrepl-server -h</code> in a shell prompt.</p>
 </div>
 </div>
 </div>
-<nav class="pagination">
-  <span class="prev"><a href="up_and_running.html">Up and Running</a></span>
-  <span class="next"><a href="../cljs/overview.html">Overview</a></span>
-</nav>
+<div class="sect1">
+<h2 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The jack-in command can be configured via several defcustoms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-basilisp-command</code> (default is <code>basilisp</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If Basilisp is installed in a virtual environment, update this to the full path of the <code>basilisp</code> executable within that virtual environment.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-basilisp-parameters</code> (default is <code>nrepl-server</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There at few ways to setup (custom) variables in Emacs</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Easy-Customization.html">Examining and Setting Variables</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><kbd>C-h v cider-basilisp-command</kbd>, and
+<kbd>C-h v cider-basilisp-parameters</kbd></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html">Per-Diretory Local Variables</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Uses <code>.dir-locals.el</code> to setup per mode variables. This file is typically stored at the root of the project.</p>
+</div>
+<div class="paragraph">
+<p>For example, to set the path to the basilisp executable within a virtual environment</p>
+</div>
+<div class="paragraph">
+<p><kbd>M-x add-dir-local-variable</kbd>
+Mode or subdirectory: <code>clojure-mode</code>
+Add directory-local variable: <code>cider-basilisp-command</code>
+Add cider-basilisp-command with value: <code>"c:/dev/venvs/312/Scripts/basilisp"</code></p>
+</div>
+<div class="paragraph">
+<p>This should result to updating or creating a <code>.dir-local.el</code> file like below</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;;; Directory Local Variables            -*- no-byte-compile: t -*-
+;;; For more information see (info "(emacs) Directory Variables")
+
+((clojure-mode . ((cider-basilisp-command . "c:/dev/venvs/312/Scripts/basilisp"))))</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html">Specifying File Variables</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It is best to put this in the top of your project&#8217;s <code>basilisp.edn</code> file, and always jack-in from there</p>
+</div>
+<div class="paragraph">
+<p>For example, setting <code>cider-basilisp-command</code> to start basilisp from within a virtual environment</p>
+</div>
+<div class="paragraph">
+<p><kbd>M-x add-dir-local-variable</kbd>
+Add file-local variable: <code>cider-basilisp-command</code>
+Add cider-basilisp-command with value: <code>"c:/dev/venvs/312/Scripts/basilisp"</code></p>
+</div>
+<div class="paragraph">
+<p>This will result in the following in <code>basilisp.edn</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">;; Local Variables:
+;; cider-basilisp-command: "c:/dev/venvs/312/Scripts/basilisp"
+;; End:
+{}</code></pre>
+</div>
+</div>
+</div>
+</div>
 </article>
   </div>
 </main>

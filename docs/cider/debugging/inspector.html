@@ -533,6 +533,11 @@ tools which render tapped values in a web browser, for example.
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set a new maximum size above which nested collections are truncated</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`cider-inspector-set-max-nested-depth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set a new maximum nesting level above which the collections are truncated</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>a</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-inspector-set-max-atom-length</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set a new maximum length above which nested atoms (non-collections) are truncated</p></td>
@@ -600,9 +605,10 @@ can disable the auto selection with the variable
 </div>
 <div class="paragraph">
 <p>You can set the amount of data shown by default with the variables
-<code>cider-inspector-page-size</code>, <code>cider-inspector-max-coll-size</code>, and
-<code>cider-inspector-max-atom-length</code>. The values can be adjusted for the current
-inspector buffer using the <code>s</code>, <code>c</code>, and <code>a</code> keybindings.</p>
+<code>cider-inspector-page-size</code>, <code>cider-inspector-max-coll-size</code>,
+<code>cider-inspector-max-nested-depth</code>, and <code>cider-inspector-max-atom-length</code>. The
+values can be adjusted for the current inspector buffer using the keybidings
+listed in the table above.</p>
 </div>
 <div class="paragraph">
 <p>If you enable <code>cider-inspector-fill-frame</code>, the inspector window fills its

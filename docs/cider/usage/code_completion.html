@@ -494,19 +494,28 @@ is already properly indented.</p>
 <h2 id="completion-styles"><a class="anchor" href="#completion-styles"></a>Completion styles</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>CIDER defines (via the <code>completion-styles-alist</code> Elisp variable) a completion category named <code>cider</code>.</p>
+<p>CIDER defines a specialized completion category through the <code>cider-complete-at-point</code> function,
+added to <code>completion-at-point-functions</code>, establishing a dedicated completion category named
+<code>cider</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>cider</code> completion category currently only supports <code>basic</code> completion styles (and not <code>partial-completion</code>, <code>orderless</code>, etc),
-and <code>flex</code>, optionally (read more below).</p>
+<p>The CIDER completion at point function supports most completion styles, including
+<code>partial-completion</code>, <code>orderless</code> and <code>flex</code> (read more below).</p>
 </div>
 <div class="paragraph">
-<p>CIDER declares so in this fashion:</p>
+<p>Sometimes the user may want to use a different completion style just for the CIDER
+complete at point function. That can be achieved by setting
+<code>completion-category-overrides</code>, overwriting the completion style of the CIDER
+complete at point function. The following snippet accomplishes that:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-to-list 'completion-category-overrides '(cider (styles basic)))</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>This specifies that the <code>cider</code> completion category should employ the basic completion style by
+default.</p>
 </div>
 <div class="paragraph">
 <p>You can also enable the <code>flex</code> completion style by activating <a href="#fuzzy-candidate-matching">fuzzy candidate matching</a>.</p>
@@ -633,13 +642,15 @@ without needing to hit an extra key, please customize:</p>
 <div class="sect2">
 <h3 id="fuzzy-candidate-matching"><a class="anchor" href="#fuzzy-candidate-matching"></a>Fuzzy candidate matching</h3>
 <div class="paragraph">
-<p>By default, CIDER will provide completion candidates with the
-assumption that whatever you&#8217;ve typed so far is a prefix of what
-you&#8217;re really trying to type. For example, if you type <code>map-</code> then
-you&#8217;ll only get completion candidates that have <code>map-</code> as the
-beginning of their names.  Sometimes, you don&#8217;t know the exact prefix
-for the item you want to type. In this case, you can get
-CIDER-specific "fuzzy completion" by setting up in your Emacs init file:</p>
+<p>By default, CIDER will use the completion styles defined in
+<code>completion-styles</code>, the defaults being <code>(basic partial-completion
+emacs22)</code> since Emacs 23. For a better description of how those
+completion styles operates, refer to the official Emacs manual on
+<a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Completion-Styles.html">how completion alternatives are chosen</a>.</p>
+</div>
+<div class="paragraph">
+<p>CIDER provides a function to enable the <code>flex</code> completion style for CIDER-specific
+completions. If you wish to enable that, you can add this to your config:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -650,11 +661,11 @@ CIDER-specific "fuzzy completion" by setting up in your Emacs init file:</p>
 <p>This adds the <code>flex</code> completion style, as introduced in Emacs 27.</p>
 </div>
 <div class="paragraph">
-<p>Now, <code>company-mode</code> will accept certain fuzziness when matching
-candidates against the prefix. For example, typing <code>mi</code> will show you
-<code>map-indexed</code> as one of the possible completion candidates and <code>cji</code>
-will complete to <code>clojure.java.io</code>. Different completion examples are
-shown
+<p>Now, <code>company-mode</code> (and other completion packages like <code>corfu</code>) will
+accept certain fuzziness when matching candidates against the
+prefix. For example, typing <code>mi</code> will show you <code>map-indexed</code> as one of
+the possible completion candidates and <code>cji</code> will complete to
+<code>clojure.java.io</code>. Different completion examples are shown
 <a href="https://github.com/alexander-yakushev/compliment/wiki/Examples">here</a>.</p>
 </div>
 <div class="admonitionblock note">
@@ -720,20 +731,6 @@ keys to cancel the prompt by customizing:</p>
             (lambda (f a b)
               (cider--with-temporary-ido-keys "&lt;up&gt;" "&lt;down&gt;"
                 (funcall f a b))))</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="changing-the-completion-style"><a class="anchor" href="#changing-the-completion-style"></a>Changing the completion style</h3>
-<div class="paragraph">
-<p>Sometimes the user may want to use a different completion style just for the CIDER
-complete at point function. That can be achieved by setting
-<code>completion-category-defaults</code>, overriting the completion style of the CIDER
-complete at point function. The following snippet accomplishes that:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-to-list 'completion-category-defaults '(cider (styles basic)))</code></pre>
 </div>
 </div>
 </div>
