@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Using shadow-cljs :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/cljs/shadow-cljs.html">
+    <link rel="prev" href="figwheel.html">
+    <link rel="next" href="other_repls.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://cider.mx">CIDER</a>
+        <span class="separator">//</span>
+        <a href="https://docs.cider.mx">Docs</a>
+      </div>
+      <div class="navbar-item">
+        <div id="docsearch"></div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider">CIDER</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider-nrepl">CIDER nREPL</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/orchard">Orchard</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Community</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/cider/about/support.html">Support</a>
+            <a class="navbar-item" href="/cider/contributing.html">Contributing</a>
+            <a class="navbar-item" href="https://opencollective.com/cider">Open Collective</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="1.13">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">CIDER</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/installation.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/middleware_setup.html">nREPL Middleware Setup</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ClojureScript Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="figwheel.html">Using Figwheel</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="shadow-cljs.html">Using shadow-cljs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="other_repls.html">Using Other REPLs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Alternative Platforms</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/babashka.html">Babashka</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/nbb.html">Nbb</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/other_platforms.html">Other Platforms</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using CIDER</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/interactive_programming.html">Interactive Programming</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/cider_mode.html">Using cider-mode</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_evaluation.html">Code Evaluation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_completion.html">Code Completion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/pretty_printing.html">Pretty Printing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/dealing_with_errors.html">Dealing with Errors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/working_with_documentation.html">Working with Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/managing_connections.html">Managing Connections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/misc_features.html">Misc Features</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using the REPL</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/basic_usage.html">Basic Usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/keybindings.html">Keybindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/history.html">REPL History</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/running_tests.html">Running Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/test_reports.html">Test Reports</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/supported_libraries.html">Supported Libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Debugging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/logging.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/profiling.html">Profiling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Configuration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/syntax_highlighting.html">Syntax Highlighting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/indentation.html">Indentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../caveats.html">Caveats</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../troubleshooting.html">Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_packages.html">Additional Packages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../contributing.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/docs.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/hacking.html">Hacking on CIDER</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/funding.html">Funding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">About</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/history.html">History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/team.html">Team</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/release_policy.html">Release Policy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/compatibility.html">Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/logo.html">Logo</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/license.html">License</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CIDER</span>
+    <span class="version">1.13</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">CIDER</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="../../1.14/index.html">1.14</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.13</a>
+        </li>
+        <li class="version">
+          <a href="../../1.12/index.html">1.12</a>
+        </li>
+        <li class="version">
+          <a href="../../1.11/index.html">1.11</a>
+        </li>
+        <li class="version">
+          <a href="../../1.9/index.html">1.9</a>
+        </li>
+        <li class="version">
+          <a href="../../1.8/index.html">1.8</a>
+        </li>
+        <li class="version">
+          <a href="../../1.7/index.html">1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../1.6/index.html">1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
+          <a href="../../1.4/index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../../1.3/index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../cider-nrepl/index.html">CIDER nREPL</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../cider-nrepl/index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.43/index.html">0.43</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.24/index.html">0.24</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">CIDER</a></li>
+    <li>ClojureScript Setup</li>
+    <li><a href="shadow-cljs.html">Using shadow-cljs</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.13</button>
+  <div class="version-menu">
+    <a class="version" href="../../cljs/shadow-cljs.html">default</a>
+    <a class="version" href="../../1.14/cljs/shadow-cljs.html">1.14</a>
+    <a class="version is-current" href="shadow-cljs.html">1.13</a>
+    <a class="version" href="../../1.12/cljs/shadow-cljs.html">1.12</a>
+    <a class="version" href="../../1.11/cljs/shadow-cljs.html">1.11</a>
+    <a class="version" href="../../1.9/cljs/shadow-cljs.html">1.9</a>
+    <a class="version" href="../../1.8/cljs/shadow-cljs.html">1.8</a>
+    <a class="version" href="../../1.7/cljs/shadow-cljs.html">1.7</a>
+    <a class="version" href="../../1.6/cljs/shadow-cljs.html">1.6</a>
+    <a class="version" href="../../1.5/cljs/shadow-cljs.html">1.5</a>
+    <a class="version" href="../../1.4/cljs/shadow-cljs.html">1.4</a>
+    <a class="version" href="../../1.3/cljs/shadow-cljs.html">1.3</a>
+    <a class="version" href="../../1.2/cljs/shadow-cljs.html">1.2</a>
+    <a class="version" href="../../1.1/cljs/shadow-cljs.html">1.1</a>
+    <a class="version" href="../../1.0/cljs/shadow-cljs.html">1.0</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/blob/v1.13.0/doc/modules/ROOT/pages/cljs/shadow-cljs.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Using shadow-cljs</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>shadow-cljs</code> is one of the most popular toolchain for doing ClojureScript
+development these days. In this section we&#8217;ll discuss how to set it up and
+use it together with CIDER.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up-shadow-cljs"><a class="anchor" href="#setting-up-shadow-cljs"></a>Setting up shadow-cljs</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This section assumes you&#8217;ve already installed node.js.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Installing <code>shadow-cljs</code> is pretty straight-forward. You can do it via <code>npm</code> or <code>yarn</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ npm install -g shadow-cljs
+$ yarn global add shadow-cljs</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>While it&#8217;s not necessary to do a global installation that&#8217;s generally the recommended approach.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="starting-a-shadow-cljs-repl"><a class="anchor" href="#starting-a-shadow-cljs-repl"></a>Starting a shadow-cljs REPL</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="using-cider-jack-in-cljs"><a class="anchor" href="#using-cider-jack-in-cljs"></a>Using cider-jack-in-cljs</h3>
+<div class="paragraph">
+<p>Provided you&#8217;ve configured your project correctly, you can simply use
+<code>cider-jack-in-cljs</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Press <kbd>C-c C-x j s</kbd> (or do <code>M-x cider-jack-in-cljs</code>)</p>
+</li>
+<li>
+<p>When prompted for the ClojureScript REPL type to start, select <code>shadow</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This will automatically start the shadow-cljs server and connect to
+it. You&#8217;ll also be prompted for the shadow-cljs build to use. Select
+your desired build (e.g. <code>app</code>) and you should see something like:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>shadow.user&gt; To quit, type: :cljs/quit
+[:selected :app]
+cljs.repl&gt;</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+CIDER will extract the list of available builds automatically
+from the <code>shadow-cljs.edn</code> file in the root of the current project.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can get rid of the prompts for the REPL type and the target build
+by creating a <code>.dir-locals.el</code> file with the following contents in the
+root of your project.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">((nil . ((cider-default-cljs-repl . shadow)
+         (cider-shadow-default-options . "&lt;your-build-name-here&gt;")
+         (cider-shadow-watched-builds . ("&lt;first-build&gt;" "&lt;other-build&gt;")))))</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-cider-connect-cljs"><a class="anchor" href="#using-cider-connect-cljs"></a>Using cider-connect-cljs</h3>
+<div class="paragraph">
+<p>Alternatively you can start the server manually with something like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ shadow-cljs watch app</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And connect to it with <code>cider-connect</code>.</p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;For that to work, <code>shadow-cljs.edn</code> contents like the following are assumed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj"> :dependencies [[cider/cider-nrepl "0.45.0"] ;; mandatory (unless it's inherited from deps.edn or otherwise present in the classpath of shadow-cljs's JVM process)
+                [refactor-nrepl/refactor-nrepl "3.9.0"]] ;; refactor-nrepl is optional
+
+ :nrepl {:middleware [cider.nrepl/cider-middleware ;; it's advisable to explicitly add this middleware. It's automatically added by shadow-cljs (if available in the classpath), unless `:nrepl {:cider false}`
+                      refactor-nrepl.middleware/wrap-refactor] ;; refactor-nrepl is optional
+         :port 50655} ;; optional - if not specified, a random free port will be used</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If <a href="https://docs.cider.mx/cider-nrepl/">cider-nrepl</a> isn&#8217;t in your
+classpath you should make sure it&#8217;s there. You can do this by correctly filling
+the <code>shadow-cljs.edn</code> configuration file
+residing in the root of your project, as described above. Alternatively you can set
+<code>cider-repl-auto-detect-type</code> to <code>nil</code>, as the auto-detection of
+REPL types doesn&#8217;t work without <code>cider-nrepl</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you already have a running server watching a build (for instance
+you have already run <code>npx shadow-cljs watch :dev</code>), you can use the
+<code>shadow-select</code> CLJS REPL and specify <code>:dev</code> when prompted.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-shadow-cljs-with-deps-edn-and-custom-repl-initialization"><a class="anchor" href="#using-shadow-cljs-with-deps-edn-and-custom-repl-initialization"></a>Using shadow-cljs with deps.edn and custom repl initialization</h3>
+<div class="paragraph">
+<p>In case you want to manage your dependencies via <a href="https://clojure.org/guides/deps_and_cli">deps.edn</a>, you can use a
+custom cljs-repl init form. This supposes you have shadow-cljs in your <code>deps.edn</code> dependencies.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj">{:paths ["src"]
+ :deps {...
+        thheller/shadow-cljs       {:mvn/version "2.15.6"}
+        ...
+        }
+ :aliases {:dev {:extra-paths ["dev"]}}}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create a <code>:dev</code> alias with an extra source path of "dev" and add the following namespace</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj">(ns user
+  (:require [shadow.cljs.devtools.api :as shadow]
+            [shadow.cljs.devtools.server :as server]))
+
+(defn cljs-repl
+  "Connects to a given build-id. Defaults to `:app`."
+  ([]
+   (cljs-repl :app))
+  ([build-id]
+   (server/start!)
+   (shadow/watch build-id)
+   (shadow/nrepl-select build-id)))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Supposing your build-id is <code>:app</code>, add the following to your <code>.dir-locals.el</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">((nil . ((cider-clojure-cli-aliases        . ":dev")
+         (cider-preferred-build-tool       . clojure-cli)
+         (cider-default-cljs-repl          . custom)
+         (cider-custom-cljs-repl-init-form . "(do (user/cljs-repl))")
+         (eval . (progn
+                   (make-variable-buffer-local 'cider-jack-in-nrepl-middlewares)
+                   (add-to-list 'cider-jack-in-nrepl-middlewares "shadow.cljs.devtools.server.nrepl/middleware"))))))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>cider-jack-in-cljs</code> should then work out of the box.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can tweak the command used by <code>cider-jack-in-cljs</code> to start the <code>shadow-cljs</code> server
+via the following configuration variables:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-shadow-cljs-command</code> (its default value is <code>npx shadow-cljs</code>)</p>
+</li>
+<li>
+<p><code>cider-shadow-cljs-parameters</code> (its default value is <code>server</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All of this results in the following default command to start the shadow-cljs server:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ npx shadow-cljs server</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The command is visible in the minibuffer when you&#8217;re doing <code>cider-jack-in-cljs</code>.</p>
+</div>
+<div class="paragraph">
+<p>As noted earlier you can also set a default build via <code>cider-shadow-default-options</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(setq cider-shadow-default-options "app")</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="additional-resources"><a class="anchor" href="#additional-resources"></a>Additional Resources</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="official-shadow-cljs-documentation"><a class="anchor" href="#official-shadow-cljs-documentation"></a>Official shadow-cljs Documentation</h3>
+<div class="paragraph">
+<p>Here are a few useful sections from <code>shadow-cljs</code>'s own documentation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://shadow-cljs.github.io/docs/UsersGuide.html#_installation">Installation</a></p>
+</li>
+<li>
+<p><a href="https://shadow-cljs.github.io/docs/UsersGuide.html#nREPL">nREPL Setup</a></p>
+</li>
+<li>
+<p><a href="https://shadow-cljs.github.io/docs/UsersGuide.html#cider">Integration with CIDER</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="figwheel.html">Using Figwheel</a></span>
+  <span class="next"><a href="other_repls.html">Using Other REPLs</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+<script type="text/javascript">
+ docsearch({
+   appId: '1AZEMR3ZT0',
+   apiKey: 'd2cfc21fce00ac9d3f787c0d8e064d42',
+   indexName: 'cider',
+   container: '#docsearch',
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
+</script>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

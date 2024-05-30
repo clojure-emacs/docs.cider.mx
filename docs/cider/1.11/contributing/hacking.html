@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hacking on CIDER :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/contributing/hacking.html">
+    <link rel="prev" href="docs.html">
+    <link rel="next" href="funding.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://cider.mx">CIDER</a>
+        <span class="separator">//</span>
+        <a href="https://docs.cider.mx">Docs</a>
+      </div>
+      <div class="navbar-item">
+        <div id="docsearch"></div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider">CIDER</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider-nrepl">CIDER nREPL</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/orchard">Orchard</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Community</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/cider/about/support.html">Support</a>
+            <a class="navbar-item" href="/cider/contributing.html">Contributing</a>
+            <a class="navbar-item" href="https://opencollective.com/cider">Open Collective</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="1.11">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">CIDER</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/installation.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/middleware_setup.html">nREPL Middleware Setup</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ClojureScript Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Alternative Platforms</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/babashka.html">Babashka</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/nbb.html">Nbb</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/other_platforms.html">Other Platforms</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using CIDER</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/interactive_programming.html">Interactive Programming</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/cider_mode.html">Using cider-mode</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_evaluation.html">Code Evaluation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_completion.html">Code Completion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/pretty_printing.html">Pretty Printing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/dealing_with_errors.html">Dealing with Errors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/working_with_documentation.html">Working with Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/managing_connections.html">Managing Connections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/misc_features.html">Misc Features</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using the REPL</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/basic_usage.html">Basic Usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/keybindings.html">Keybindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/history.html">REPL History</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/running_tests.html">Running Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/test_reports.html">Test Reports</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/supported_libraries.html">Supported Libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Debugging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/logging.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/profiling.html">Profiling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Configuration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/syntax_highlighting.html">Syntax Highlighting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/indentation.html">Indentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../caveats.html">Caveats</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../troubleshooting.html">Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_packages.html">Additional Packages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../contributing.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="docs.html">Documentation</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="hacking.html">Hacking on CIDER</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="funding.html">Funding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">About</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/history.html">History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/team.html">Team</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/release_policy.html">Release Policy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/compatibility.html">Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/logo.html">Logo</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/license.html">License</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CIDER</span>
+    <span class="version">1.11</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">CIDER</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="../../1.14/index.html">1.14</a>
+        </li>
+        <li class="version">
+          <a href="../../1.13/index.html">1.13</a>
+        </li>
+        <li class="version">
+          <a href="../../1.12/index.html">1.12</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.11</a>
+        </li>
+        <li class="version">
+          <a href="../../1.9/index.html">1.9</a>
+        </li>
+        <li class="version">
+          <a href="../../1.8/index.html">1.8</a>
+        </li>
+        <li class="version">
+          <a href="../../1.7/index.html">1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../1.6/index.html">1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
+          <a href="../../1.4/index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../../1.3/index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../cider-nrepl/index.html">CIDER nREPL</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../cider-nrepl/index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.43/index.html">0.43</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.24/index.html">0.24</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">CIDER</a></li>
+    <li><a href="../contributing.html">Contributing</a></li>
+    <li><a href="hacking.html">Hacking on CIDER</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.11</button>
+  <div class="version-menu">
+    <a class="version" href="../../contributing/hacking.html">default</a>
+    <a class="version" href="../../1.14/contributing/hacking.html">1.14</a>
+    <a class="version" href="../../1.13/contributing/hacking.html">1.13</a>
+    <a class="version" href="../../1.12/contributing/hacking.html">1.12</a>
+    <a class="version is-current" href="hacking.html">1.11</a>
+    <a class="version" href="../../1.9/contributing/hacking.html">1.9</a>
+    <a class="version" href="../../1.8/contributing/hacking.html">1.8</a>
+    <a class="version" href="../../1.7/contributing/hacking.html">1.7</a>
+    <a class="version" href="../../1.6/contributing/hacking.html">1.6</a>
+    <a class="version" href="../../1.5/contributing/hacking.html">1.5</a>
+    <a class="version" href="../../1.4/contributing/hacking.html">1.4</a>
+    <a class="version" href="../../1.3/contributing/hacking.html">1.3</a>
+    <a class="version" href="../../1.2/contributing/hacking.html">1.2</a>
+    <a class="version" href="../../1.1/contributing/hacking.html">1.1</a>
+    <a class="version" href="../../1.0/contributing/hacking.html">1.0</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/blob/v1.11.0/doc/modules/ROOT/pages/contributing/hacking.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Hacking on CIDER</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section explains the process of working with CIDER&#8217;s codebase (e.g. to fix
+a bug or implement some new feature). It outlines the recommended workflows when
+working on the Emacs Lisp side (CIDER) and the Clojure side (<code>cider-nrepl</code>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="hacking-on-cider-elisp"><a class="anchor" href="#hacking-on-cider-elisp"></a>Hacking on CIDER (Elisp)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="obtaining-the-source-code"><a class="anchor" href="#obtaining-the-source-code"></a>Obtaining the source code</h3>
+<div class="paragraph">
+<p>People typically install CIDER via <code>package.el</code>. While this gives you access the
+source code (as it&#8217;s part of the package), it&#8217;s always a much better idea to
+simply clone the code from GitHub and use it. In general - avoid editing the
+code of an installed package.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively you can simply load CIDER in your Emacs straight from its source
+repo (you&#8217;ll have to manually install all the packages CIDER depends on
+in advance).</p>
+</div>
+<div class="paragraph">
+<p>CIDER uses <a href="https://github.com/doublep/eldev">Eldev</a> for development, so
+you should install the tool first.</p>
+</div>
+<div class="paragraph">
+<p>The easiest and "purest" way to run CIDER is to execute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">eldev emacs</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will start a separate Emacs process with CIDER and its
+dependencies available, but <em>without</em> your normal packages installed.
+However, you can use <code>Eldev-local</code> to add some packages with
+<code>(eldev-add-extra-dependencies 'emacs &#8230;&#8203;)</code> forms.  See Eldev
+documentation for details.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, if you want to load CIDER from source code in the Emacs
+you use for editing:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Generate autoloads file (that&#8217;s done automatically when installing
+via <code>package.el</code> but you&#8217;ll have to do it manually in this case):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">eldev build :autoloads</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add to your <code>.emacs</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; load CIDER from its source code
+(add-to-list 'load-path "~/projects/cider")
+(load "cider-autoloads" t t)</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-the-code"><a class="anchor" href="#changing-the-code"></a>Changing the code</h3>
+<div class="paragraph">
+<p>It&#8217;s perfectly fine to load CIDER from <code>package.el</code> and then to start making
+experiments by changing existing code and adding new code.</p>
+</div>
+<div class="paragraph">
+<p>A very good workflow is to just open the source code you&#8217;ve cloned and start
+evaluating the code you&#8217;ve altered/added with commands like <code>C-M-x</code>,
+<code>eval-buffer</code> and so on.</p>
+</div>
+<div class="paragraph">
+<p>Once you&#8217;ve evaluated the new code, you can invoke some interactive command that
+uses it internally or open a Emacs Lisp REPL and experiment with it there. You
+can open an Emacs Lisp REPL with <code>M-x ielm</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can also quickly evaluate some Emacs Lisp code in the minibuffer with <code>M-:</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="testing-the-code"><a class="anchor" href="#testing-the-code"></a>Testing the code</h3>
+<div class="paragraph">
+<p>The code you&#8217;ve wrote should ideally be covered by specs. We use
+the <a href="https://github.com/jorgenschaefer/emacs-buttercup">buttercup</a> library for
+CIDER&#8217;s specs. If you&#8217;re familiar with <code>Jasmine</code> or <code>RSpec</code> you&#8217;ll feel right at
+home.</p>
+</div>
+<div class="paragraph">
+<p>You can run the specs you authored/changed straight from Emacs. Consult
+the
+<a href="https://github.com/jorgenschaefer/emacs-buttercup/blob/master/docs/running-tests.md">buttercup documentation</a> for
+all the details.</p>
+</div>
+<div class="sect3">
+<h4 id="running-the-tests-in-batch-mode"><a class="anchor" href="#running-the-tests-in-batch-mode"></a>Running the tests in batch mode</h4>
+<div class="paragraph">
+<p>If you prefer running all tests outside Emacs that&#8217;s also an option.</p>
+</div>
+<div class="paragraph">
+<p>There are two test types, <code>main</code> (unit tests) and <code>integration</code>. By
+default only main tests are run.</p>
+</div>
+<div class="paragraph">
+<p>Run all unit tests with:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ eldev[.bat] test
+# Or:
+$ make test-unit</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run integration tests with:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ eldev[.bat] test --test-type integration
+# Or:
+$ make test-integration</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or all tests with:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ eldev[.bat] test --test-type all
+# Or:
+$ make test-all</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Tests may not run correctly inside Emacs' <code>shell-mode</code> buffers. Running
+them in a terminal is recommended.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can also check for compliance with a variety of coding standards in batch mode (including docstrings):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ eldev lint
+# Or:
+$ make lint</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To check for byte-compilation warnings you can just compile the project with Eldev:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ eldev -dtT compile --warnings-as-errors
+# Or:
+# make compile</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="running-the-tests-in-circleci"><a class="anchor" href="#running-the-tests-in-circleci"></a>Running the tests in CircleCI</h4>
+<div class="paragraph">
+<p>If you prefer to see the full CircleCI CI test suite run successfully, the easiest
+way to achieve that is to create your own personal account on
+<a href="https://circleci.com" class="bare">https://circleci.com</a>. Fork CIDER on GitHub, and then add your fork on CircleCI to
+start building. Every time you push code to a branch, CircleCI will build it.</p>
+</div>
+<div class="paragraph">
+<p>Subsequent pushes to your fork will generate a CircleCI build you can monitor
+for success or failure.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="simulating-the-circle-ci-tests-locally-in-docker"><a class="anchor" href="#simulating-the-circle-ci-tests-locally-in-docker"></a>Simulating the Circle CI tests locally in Docker</h4>
+<div class="paragraph">
+<p>If you prefer not to wait for CircleCI all the time, or if you need to debug
+something that fails in CircleCI but does not fail for you on your own machine,
+then you can also run the CircleCI tests locally with the CircleCI CLI (that&#8217;s
+a mouthful!).</p>
+</div>
+<div class="paragraph">
+<p>To do this, first <a href="https://circleci.com/docs/2.0/local-cli/#installation">install</a>
+the CircleCI CLI, and <a href="https://docs.docker.com/install/">Docker</a>.</p>
+</div>
+<div class="paragraph">
+<p>Currently the CircleCI CLI <a href="https://github.com/CircleCI-Public/circleci-cli/issues/79">doesn&#8217;t support local builds with version 2.1</a>
+of the CircleCI config, so for now we need to convert it to the 2.0 format.
+Make sure not to commit these changes to the <code>config.yml</code> file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ circleci config process .circleci/config.yml &gt; .circleci/config.yml.tmp &amp;&amp; \
+    mv .circleci/config.yml.tmp .circleci/config.yml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, we&#8217;re finally ready to
+<a href="https://circleci.com/docs/2.0/local-cli/#run-a-job-in-a-container-on-your-machine">run a CircleCI container on our machine</a>.
+Run <code>circleci local execute --job=&lt;job&gt;</code> where <code>&lt;job&gt;</code> is one of those listed
+in <code>.circleci/config.yml</code>, e.g. <code>test-emacs-26</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ circleci local execute --job=test-emacs-26
+Docker image digest: sha256:65b2102646d5658f892e0ad8253b7912c676126c857c87c8c12460f0aa4f5aa1
+====&gt;&gt; Spin up Environment
+Build-agent version 1.0.8563-43047892 (2019-03-06T15:11:54+0000)
+Starting container silex/emacs:26-dev
+  image cache not found on this host, downloading silex/emacs:26-dev
+26-dev: Pulling from silex/emacs
+6cf436f81810: Already exists
+987088a85b96: Already exists
+e58f362a948a: Waiting
+...
+====&gt;&gt; make elpa
+  #!/bin/bash -eo pipefail
+make elpa
+Compute dependencies
+cask install
+Loading package information... done
+Package operations: 10 installs, 0 removals
+...
+Indenting region...
+Indenting region...done
+* Run indent-character
+* Run trailing-whitespace
+** ELISP-LINT: cider-overlays.el OK
+Success!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This may take a while to download the CircleCI build agent and the build containers
+the first time you run the tests locally.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ms-windows-compatibility"><a class="anchor" href="#ms-windows-compatibility"></a>MS-Windows compatibility</h3>
+<div class="paragraph">
+<p>In general, CIDER code should work as well on Windows as it does on
+Unix.</p>
+</div>
+<div class="paragraph">
+<p>There are a few points to be aware of when contributing code or
+writing tests.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Absolute paths. It is a common practice to use dummy absolute paths,
+such as <code>/tmp/a-dir</code> or <code>/docker/src, in tests,</code> as test inputs. These
+are not valid absolute paths on Windows though, since they are missing
+the initial driver letter (e.g.<code>c:/tmp/a-dir</code>), but we can wrap them
+around with <code>expand-file-name</code> to make them so e.g. in tests</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-emacs-lisp hljs" data-lang="emacs-lisp">(let ((a-dir (expand-file-name "/tmp/a-dir"))
+      (docker-src (expand-file-name "/docker/src")))
+  ;; ...
+  )</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Command-line arguments. When calling external programs, it might be
+necessary to quote some long command line arguments, though quoting
+rules are different on Windows (shells) that they are on Unix.  Use
+<code>shell-quote-argument</code> to achieve the desired compatibility across the
+different architectures.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="hacking-on-cider-nrepl-clojure"><a class="anchor" href="#hacking-on-cider-nrepl-clojure"></a>Hacking on cider-nrepl (Clojure)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="obtaining-the-code"><a class="anchor" href="#obtaining-the-code"></a>Obtaining the code</h3>
+<div class="paragraph">
+<p>Just clone it from GitHub.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-the-code-2"><a class="anchor" href="#changing-the-code-2"></a>Changing the code</h3>
+<div class="paragraph">
+<p>Just do <code>cider-jack-in</code> within the <code>cider-nrepl</code> project and start hacking as
+you would on any other Clojure project.  The only thing to keep in mind is that
+you&#8217;ll have to restart CIDER when you add new middleware.</p>
+</div>
+<div class="paragraph">
+<p>The jacked-in project&#8217;s definitions will take precedence over the once you have
+from a binary <code>cider-nrepl</code> installation. This means it&#8217;s pretty easy to get
+immediate feedback for the changes you&#8217;ve made.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="testing-the-code-2"><a class="anchor" href="#testing-the-code-2"></a>Testing the code</h3>
+<div class="paragraph">
+<p>The code you&#8217;ve wrote should ideally be covered by test. We use the
+<code>clojure.test</code> library for <code>cider-nrepl</code>'s tests.</p>
+</div>
+<div class="paragraph">
+<p>You can run the tests you authored/changed straight from Emacs. Consult the
+<a href="../testing/running_tests.html" class="xref page">CIDER documentation</a> for all the details.</p>
+</div>
+<div class="sect3">
+<h4 id="running-the-tests-in-batch-mode-2"><a class="anchor" href="#running-the-tests-in-batch-mode-2"></a>Running the tests in batch mode</h4>
+<div class="paragraph">
+<p>You can also run the tests in an external shell. Running <code>lein test</code> won&#8217;t run
+pretty much anything, though. (perhaps we should change this?) To run the
+Clojure and ClojureScript tests you should specify some profile like this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ lein with-profile +1.8,+test-clj test
+$ lein with-profile +1.8,+test-cljs test</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will run all Clojure and ClojureScript tests against version 1.8 of both
+languages.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="docs.html">Documentation</a></span>
+  <span class="next"><a href="funding.html">Funding</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+<script type="text/javascript">
+ docsearch({
+   appId: '1AZEMR3ZT0',
+   apiKey: 'd2cfc21fce00ac9d3f787c0d8e064d42',
+   indexName: 'cider',
+   container: '#docsearch',
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
+</script>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

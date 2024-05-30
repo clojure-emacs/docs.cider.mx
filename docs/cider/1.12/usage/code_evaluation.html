@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Code Evaluation :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/usage/code_evaluation.html">
+    <link rel="prev" href="cider_mode.html">
+    <link rel="next" href="code_completion.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://cider.mx">CIDER</a>
+        <span class="separator">//</span>
+        <a href="https://docs.cider.mx">Docs</a>
+      </div>
+      <div class="navbar-item">
+        <div id="docsearch"></div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider">CIDER</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider-nrepl">CIDER nREPL</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/orchard">Orchard</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Community</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/cider/about/support.html">Support</a>
+            <a class="navbar-item" href="/cider/contributing.html">Contributing</a>
+            <a class="navbar-item" href="https://opencollective.com/cider">Open Collective</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="1.12">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">CIDER</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/installation.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/middleware_setup.html">nREPL Middleware Setup</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ClojureScript Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Alternative Platforms</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/babashka.html">Babashka</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/nbb.html">Nbb</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/other_platforms.html">Other Platforms</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using CIDER</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="interactive_programming.html">Interactive Programming</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cider_mode.html">Using cider-mode</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="code_evaluation.html">Code Evaluation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="code_completion.html">Code Completion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="pretty_printing.html">Pretty Printing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dealing_with_errors.html">Dealing with Errors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="working_with_documentation.html">Working with Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managing_connections.html">Managing Connections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="misc_features.html">Misc Features</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using the REPL</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/basic_usage.html">Basic Usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/keybindings.html">Keybindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/history.html">REPL History</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/running_tests.html">Running Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/test_reports.html">Test Reports</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/supported_libraries.html">Supported Libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Debugging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/logging.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/profiling.html">Profiling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Configuration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/syntax_highlighting.html">Syntax Highlighting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/indentation.html">Indentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../caveats.html">Caveats</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../troubleshooting.html">Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_packages.html">Additional Packages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../contributing.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/docs.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/hacking.html">Hacking on CIDER</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/funding.html">Funding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">About</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/history.html">History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/team.html">Team</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/release_policy.html">Release Policy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/compatibility.html">Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/logo.html">Logo</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/license.html">License</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CIDER</span>
+    <span class="version">1.12</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">CIDER</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="../../1.14/index.html">1.14</a>
+        </li>
+        <li class="version">
+          <a href="../../1.13/index.html">1.13</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.12</a>
+        </li>
+        <li class="version">
+          <a href="../../1.11/index.html">1.11</a>
+        </li>
+        <li class="version">
+          <a href="../../1.9/index.html">1.9</a>
+        </li>
+        <li class="version">
+          <a href="../../1.8/index.html">1.8</a>
+        </li>
+        <li class="version">
+          <a href="../../1.7/index.html">1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../1.6/index.html">1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
+          <a href="../../1.4/index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../../1.3/index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../cider-nrepl/index.html">CIDER nREPL</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../cider-nrepl/index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.43/index.html">0.43</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.24/index.html">0.24</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">CIDER</a></li>
+    <li>Using CIDER</li>
+    <li><a href="code_evaluation.html">Code Evaluation</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.12</button>
+  <div class="version-menu">
+    <a class="version" href="../../usage/code_evaluation.html">default</a>
+    <a class="version" href="../../1.14/usage/code_evaluation.html">1.14</a>
+    <a class="version" href="../../1.13/usage/code_evaluation.html">1.13</a>
+    <a class="version is-current" href="code_evaluation.html">1.12</a>
+    <a class="version" href="../../1.11/usage/code_evaluation.html">1.11</a>
+    <a class="version" href="../../1.9/usage/code_evaluation.html">1.9</a>
+    <a class="version" href="../../1.8/usage/code_evaluation.html">1.8</a>
+    <a class="version" href="../../1.7/usage/code_evaluation.html">1.7</a>
+    <a class="version" href="../../1.6/usage/code_evaluation.html">1.6</a>
+    <a class="version" href="../../1.5/usage/code_evaluation.html">1.5</a>
+    <a class="version" href="../../1.4/usage/code_evaluation.html">1.4</a>
+    <a class="version" href="../../1.3/usage/code_evaluation.html">1.3</a>
+    <a class="version" href="../../1.2/usage/code_evaluation.html">1.2</a>
+    <a class="version" href="../../1.1/usage/code_evaluation.html">1.1</a>
+    <a class="version" href="../../1.0/usage/code_evaluation.html">1.0</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/blob/v1.12.0/doc/modules/ROOT/pages/usage/code_evaluation.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Code Evaluation</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Code evaluation is at the heart of interactive programming.
+CIDER provides a ton of evaluation-related commands that can cover
+just about any use-case one can possibly imagine.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+All evaluation commands are defined in <code>cider-eval.el</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="terminology"><a class="anchor" href="#terminology"></a>Terminology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CIDER&#8217;s evaluation commands use a terminology that&#8217;s popular within Emacs, but somewhat
+confusing to people not familiar with it. Let&#8217;s take a look at it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>defun</code> - top-level expression</p>
+</li>
+<li>
+<p><code>sexp</code> - s-expression, form</p>
+</li>
+<li>
+<p><code>last-sexp</code> - the form preceding the cursor (<code>point</code> in Emacs lingo)</p>
+</li>
+<li>
+<p><code>sexp-at-point</code> - the form under/around the cursor</p>
+</li>
+<li>
+<p><code>buffer</code> - the abstraction used by Emacs to represent any content; most often backed by a file.</p>
+</li>
+<li>
+<p><code>region</code> - the selected part of a buffer</p>
+</li>
+<li>
+<p><code>load</code> - a synonym for "evaluate"; most often used in the context of buffers/files</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="basic-evaluation"><a class="anchor" href="#basic-evaluation"></a>Basic Evaluation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As CIDER derives almost all of its functionality by inspecting the runtime (REPL) state
+of your application, you need to evaluate something before functionality like code completion,
+<code>eldoc</code> or definition lookup would work.</p>
+</div>
+<div class="paragraph">
+<p>Typically the first think you&#8217;d do when visiting a Clojure buffer would be to load (evaluate) the buffer with <code>cider-load-buffer</code> (<kbd>C-c C-k</kbd>).</p>
+</div>
+<div class="paragraph">
+<p>Afterwards most of the time you&#8217;d be evaluating expressions one at a time either using
+<code>cider-eval-last-sexp</code> (<kbd>C-c C-e</kbd> or <kbd>C-x C-e</kbd>) or <code>cider-eval-defun-at-point</code>
+(<kbd>C-c C-c</kbd> or <kbd>C-M-x</kbd>).</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">What happens if I don&#8217;t evaluate the entire buffer first?</div>
+<div class="paragraph">
+<p>You might be wondering why do you need to evaluate the entire source buffer. After all,
+won&#8217;t be it be nice if you could just start evaluating only the forms you&#8217;re interested in?</p>
+</div>
+<div class="paragraph">
+<p>Technically speaking you&#8217;re not required to evaluate the entire source buffer first, but not
+doing so introduces some subtleties and a bit of complexity. In general the only
+part that&#8217;s really essential for subsequent code evaluations is the <code>ns</code> declaration. As expressions within the buffer
+are evaluated in the context of its namespace and you have to create that namespace first.</p>
+</div>
+<div class="paragraph">
+<p>In the early days of CIDER, when a namespace didn&#8217;t exist CIDER would just throw
+an error. A lot of people were confused by this behavior and unhappy
+about it. Eventually CIDER became smarter and now it always knows whether the <code>ns</code>
+form in some source buffer has been evaluated or changed after it was originally
+evaluated.  With that knowledge in hand CIDER will auto-eval <code>ns</code> forms that
+were changed prior to evaluating code in that namespace, if you don&#8217;t evaluate
+them yourselves. That behavior is controlled via the variable
+<code>cider-auto-track-ns-form-changes</code>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Typically this type of evaluation commands would provide you with dual feedback -
+you&#8217;d see the results in both the Emacs minibuffer and in an inline overlay in
+the source buffer.</p>
+</div>
+<div class="paragraph">
+<p>In case the result of the evaluation is big (e.g. a map with dozens of keys) it might be best
+to display it in a dedicated buffer. You can do this with
+<code>cider-pprint-eval-last-sexp</code> (<kbd>C-c C-p</kbd>). As a bonus -
+the result will be pretty-printed in the result buffer.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Why aren&#8217;t results always pretty-printed?</div>
+<div class="paragraph">
+<p>Many people might be wondering why doesn&#8217;t CIDER pretty-print all of the results
+all of the time. After all - pretty-printed results are always easier to read, right?</p>
+</div>
+<div class="paragraph">
+<p>The reason for not doing this is pretty simple - multi-line results don&#8217;t look
+very good in the minibuffer and overlays.  That&#8217;s why there&#8217;s little point in
+pretty-printing results there.</p>
+</div>
+<div class="paragraph">
+<p>As most of the time you&#8217;ll know in advance what kind of result to expect, we feel it&#8217;s
+best to leave it to you to decide which evaluation command to use depending on the situation.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exotic-evaluation-commands"><a class="anchor" href="#exotic-evaluation-commands"></a>Exotic Evaluation Commands</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+WIP
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>While the basic evaluation commands discussed earlier should be enough for
+most people, CIDER features a ton of additional evaluation commands.
+Some of them are so peculiar that one can easily label them "exotic".
+This section will briefly go over some of them.</p>
+</div>
+<div class="paragraph">
+<p>Broadly speaking the exotic evaluation commands can be grouped in the following
+categories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>commands that are a variation of some basic commands (e.g. <code>cider-eval-list-at-point</code> and <code>cider-eval-sexp-at-point</code>)</p>
+</li>
+<li>
+<p>commands that insert the result in the current buffer (e.g. <code>cider-eval-last-sexp-and-replace</code>)</p>
+</li>
+<li>
+<p>commands that evaluate an expression in a different context (e.g. with user-supplied bindings)</p>
+</li>
+<li>
+<p>commands that evaluate some particular part of a buffer (e.g. <code>cider-eval-ns-form</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Most of the exotic evaluation commands don&#8217;t have "top-level" keybindings
+and should be accessed via CIDER&#8217;s evaluation commands keymap (<code>cider-eval-commands-map</code>), meaning that they share the standard prefix <code>C-c C-v</code>. On top of this - several
+related commands that pretty-print their result are grouped under <code>C-c C-v C-f</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="evaluating-clojure-code-in-the-minibuffer"><a class="anchor" href="#evaluating-clojure-code-in-the-minibuffer"></a>Evaluating Clojure Code in the Minibuffer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can evaluate Clojure code in the minibuffer at almost any time
+using <kbd>M-x</kbd> <code>cider-read-and-eval</code> (bound in <code>cider-mode</code> buffers to
+<kbd>C-c M-:</kbd>).  <kbd>TAB</kbd> completion will work in the minibuffer,
+just as in REPL and source buffers.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Typing <kbd>C-c C-v .</kbd> in a Clojure buffer will insert the defun
+at point into the minibuffer for evaluation. This way you can pass arguments
+to the function and evaluate it and see the result in the minibuffer.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can also enable other convenient modes in the minibuffer. For
+instance, you might want to have both <code>eldoc-mode</code> and <code>paredit-mode</code>
+available to you:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="evaluation-hooks"><a class="anchor" href="#evaluation-hooks"></a>Evaluation Hooks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use <code>cider-file-loaded-hook</code> to trigger some action after a
+file has been evaluated.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>cider-auto-test-mode</code> is implemented in terms of this hook -
+tests are re-run every time you evaluate a file.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can use <code>cider-before-eval-hook</code> to trigger some action before eval
+request is sent to nrepl server.</p>
+</div>
+<div class="paragraph">
+<p>You can use <code>cider-after-eval-done-hook</code> to trigger some action after the
+eval response was received from nrepl server with status "done".</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="synchronous-vs-asynchronous-evaluation"><a class="anchor" href="#synchronous-vs-asynchronous-evaluation"></a>Synchronous vs Asynchronous Evaluation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>nREPL has an asynchronous evaluation model, where eval requests
+are enqueued and the responses are sent back to the clients when available.
+This model works great most of the time as doesn&#8217;t require clients
+to block while waiting for responses, but it also requires the clients
+to able to handle comfortably response callbacks.</p>
+</div>
+<div class="paragraph">
+<p>Unfortunately, some of Emacs&#8217;s internal APIs don&#8217;t play well with asynchronous
+evaluation (e.g. completion, eldoc, etc) and in those cases CIDER simulates
+synchronous evaluation instead. It&#8217;s important to understand several things:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CIDER&#8217;s sync eval commands should be used sparingly</p>
+</li>
+<li>
+<p>The most common use case for the sync eval API is evaluating some simple and fast to run tooling-related code</p>
+</li>
+<li>
+<p>Sync eval may result in client lock-ups, as Emacs is (mostly) single-threaded by design</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>CIDER tries to mitigate the latter by imposing a 10 second eval request timeout
+for sync eval. You can adjust this default if needed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">;; increase the sync request timeout to 1 minute
+(setq nrepl-sync-request-timeout 60)
+
+;; disable sync request timeout
+(setq nrepl-sync-request-timeout nil)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+CIDER internally increases the timeout to 30 seconds for the first sync eval request it does, as it might require a lot of namespaces and take more time to complete. See <code>cider&#8212;&#8203;prep-interactive-eval</code> for details.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="display-spinner-during-evaluation"><a class="anchor" href="#display-spinner-during-evaluation"></a>Display Spinner During Evaluation</h3>
+<div class="paragraph">
+<p>Some evaluation operations take a while to complete, so CIDER will display a
+visual indicator (a spinner) in the modeline to indicate this. The
+evaluation-in-progress spinner can be controlled by several variables:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cider-eval-spinner-type</code> (default value <code>'progress-bar) -
+controls the appearance of the spinner. See `spinner-types</code>
+for all possible options.</p>
+</li>
+<li>
+<p><code>cider-eval-spinner-delay</code> controls the time (in seconds) after which to
+show the spinner. The default value is 1 second.</p>
+</li>
+<li>
+<p><code>cider-show-eval-spinner</code> controls whether to show the spinner at all.
+Set this variable to <code>nil</code> to disable it.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+CIDER uses internally the excellent package <a href="https://github.com/Malabarba/spinner.el">spinner.el</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="overlays"><a class="anchor" href="#overlays"></a>Overlays</h3>
+<div class="paragraph">
+<p>When you evaluate code in Clojure files, the result is displayed in the buffer
+itself, in an overlay right after the evaluated code.  If you want this overlay
+to be font-locked (syntax-highlighted) like Clojure code, set the following
+variable.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-overlays-use-font-lock t)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Overlays will be shown for errors,
+as long as they are not already displayed by <code>cider-stacktrace-mode</code>.
+In order to always favor error overlays over the <code>*cider-error*</code> buffer,
+please customize:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-show-error-buffer nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you only want to see overlays for errors (and not for successful evaluations),
+you can restrict overlays to only be shown for errors
+(and display non-error results in the echo area at the bottom)
+by customizing the <code>cider-use-overlays</code> variable:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-use-overlays 'errors-only)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can disable overlays entirely (and display results in the echo area at the
+bottom) with the <code>cider-use-overlays</code> variable:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-use-overlays nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Overlays that indicate errors are by default trimmed of file/line/phase information.</p>
+</div>
+<div class="paragraph">
+<p>(Example: the entire <code>Syntax error compiling at (src/ns.clj:227:3).</code> preamble)</p>
+</div>
+<div class="paragraph">
+<p>You can prevent any trimming by customizing instead:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-inline-error-message-function #'identity)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, result overlays are displayed at the end of the line. You can set
+the variable <code>cider-result-overlay-position</code> to display results at the end of
+their respective forms instead.
+Note that this also affects the position of debugger overlays.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-result-overlay-position 'at-point)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also customize how overlays are persisted using the variable
+<code>cider-eval-result-duration</code>.</p>
+</div>
+<div class="paragraph">
+<p>By default, its value is <code>'command</code>, meaning that result overlays disappear
+after the next user-executed command, such as moving the point or scrolling.</p>
+</div>
+<div class="paragraph">
+<p>Setting the variable to a number represents the duration in seconds until
+overlays are removed, while setting it to &#8217;change' persists overlays until the
+next change to the buffer contents.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-eval-result-duration 5.0)
+(setq cider-eval-result-duration 'change)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="auto-save-clojure-buffers-on-load"><a class="anchor" href="#auto-save-clojure-buffers-on-load"></a>Auto-Save Clojure Buffers on Load</h3>
+<div class="paragraph">
+<p>Normally, CIDER prompts you to save a modified Clojure buffer when you
+type <kbd>C-c C-k</kbd> (<code>cider-load-buffer</code>).  You can change this
+behavior by adjusting <code>cider-save-file-on-load</code>.</p>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t prompt and don&#8217;t save:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-save-file-on-load nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Just save without prompting:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-save-file-on-load t)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="change-the-result-prefix-for-interactive-evaluation"><a class="anchor" href="#change-the-result-prefix-for-interactive-evaluation"></a>Change the Result Prefix for Interactive Evaluation</h3>
+<div class="paragraph">
+<p>Change the result prefix for interactive evaluation (not the REPL
+prefix). By default the prefix is `&#8658; `.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-eval-result-prefix ";; =&gt; ")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To remove the prefix altogether, just set it to the empty string (<code>""</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="change-the-output-destination"><a class="anchor" href="#change-the-output-destination"></a>Change the Output Destination</h3>
+<div class="paragraph">
+<p>By default CIDER will display the output produced by some evaluation in the REPL buffer, but you can also funnel the output to a dedicated buffer. You can configure this behavior via <code>cider-interactive-eval-output-destination</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-interactive-eval-output-destination 'output-buffer)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Additionally, there&#8217;s the variable <code>cider-redirect-server-output-to-repl</code> that captures output that would normally end up in the <code>*nrepl-server*</code> buffer (provided it has been started via <code>cider-jack-in</code>) and redirects it to the REPL buffer. You can disable this redirection like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-redirect-server-output-to-repl nil)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The redirection functionality is implemented in <code>cider-nrepl</code> as nREPL middleware. If you&#8217;re using CIDER without <code>cider-nrepl</code> no output redirection is going to take place.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="storing-eval-results"><a class="anchor" href="#storing-eval-results"></a>Storing eval results</h3>
+<div class="paragraph">
+<p>By default CIDER stores the return value of the most recent evaluation command
+in the text register <code>e</code>. You can access these contents via <code>insert-register</code>
+(<kbd>C-x r i</kbd>).</p>
+</div>
+<div class="paragraph">
+<p>This is often useful for closer inspection or textual manipulation of a
+transiently displayed eval result, without having to re-evaluate the form with a
+specialized command like <code>cider-insert-last-sexp-in-repl</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can customize which register is used with the variable <code>cider-eval-register</code>, or set
+it to <code>nil</code> to disable the feature.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-eval-register nil)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The built-in <a href="../debugging/inspector.html" class="xref page">inspector</a> can be used to view
+and navigate through complex nested results.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can also use the command <code>cider-kill-last-result</code>(<kbd>C-c C-v k</kbd>) after any
+eval command to store its result in the kill ring. This works even when the
+<code>cider-eval-register</code> feature is disabled.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="evaluating-code-inside-comments"><a class="anchor" href="#evaluating-code-inside-comments"></a>Evaluating code inside comments</h3>
+<div class="paragraph">
+<p>By default, when using the defun-level eval commands inside a top-level <code>comment</code> form the return value is always <code>nil</code>. Calling <code>cider-eval-defun-up-to-point</code> with point at <code>&lt;point&gt;</code> also returns <code>nil</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(comment
+  (let [b "str"]
+    (-&gt; b
+        keyword&lt;point&gt; ;;=&gt; nil
+        name))
+  *e)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That&#8217;s not a bug, that&#8217;s simply how the <code>comment</code> form works (it simply returns
+<code>nil</code> when evaluated).  However, it is often desirable to treat the form the
+point is in as if was not inside a comment. To help with this <code>clojure-mode</code>
+supplies the variable <code>clojure-toplevel-inside-comment-form</code>. If this variable
+is set to <code>t</code> then <code>defun</code>-level commands will ignore the <code>comment</code>
+wrapper. Let&#8217;s revisit the previous example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(comment
+  (let [b "str"]
+    (-&gt; b
+        keyword&lt;point&gt; ;;=&gt; :str
+        name))
+  *e)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With <code>cider-eval-defun-at-point</code> we get:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(comment
+  (let [b "str"]
+    (-&gt; b
+        keyword&lt;point&gt;
+        name)) ;;=&gt; "str"
+  *e)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="keybindings"><a class="anchor" href="#keybindings"></a>Keybindings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You might have noticed that CIDER typically has 2-3 different keybindings for
+many evaluation commands. In case you&#8217;ve been wondering "Why?" the answer is
+pretty simple - legacy. The principle sources of inspiration for CIDER, Emacs and SLIME,
+provide more or less the same functionality, but use different keybindings. CIDER
+tried to find a common ground by adopting them both.</p>
+</div>
+<div class="paragraph">
+<p>On top of this, at some when it became clear that CIDER has set the world record
+for evaluation command, we&#8217;ve introduced a dedicated keymap for all eval commands
+(that&#8217;s everything with the prefix <kbd>C-c C-v</kbd>). This leads to funny situations
+like <code>cider-eval-defun-at-point</code> having 3 keybindings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><kbd>C-M-x</kbd> (Emacs style)</p>
+</li>
+<li>
+<p><kbd>C-c C-c</kbd> (SLIME style)</p>
+</li>
+<li>
+<p><kbd>C-c C-v (C-)d</kbd> (CIDER style)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Okay, those are technically 4 keybindings, but who&#8217;s counting!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Some of you are probably wonder why <kbd>C-c C-v</kbd> instead of
+<kbd>C-c C-e</kbd>, right? Again - legacy. Historically <kbd>C-c C-e</kbd>
+was mapped to <code>cider-eval-last-sexp</code>, otherwise we would have picked
+this binding. It&#8217;s still possible to recycle it down the road, as
+most people are probably using <kbd>C-x C-e</kbd> for <code>cider-eval-last-result</code>
+and good keybindings are too precious to be wasted like this.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Below is a listing of most keybindings for evaluation commands:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Keyboard shortcut</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-last-sexp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-x C-e</kbd><br>
+<kbd>C-c C-e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and display the result in the echo area and/or in an buffer overlay (according to <code>cider-use-overlays</code>).  If invoked with a prefix argument, insert the result into the current buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-tap-last-sexp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v q</kbd><br>
+<kbd>C-c C-v C-q</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Like <code>cider-eval-last-sexp</code> but also taps the result.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-last-sexp-and-replace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v w</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and replace it with its result.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-last-sexp-to-repl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and output it result to the REPL buffer.  If invoked with a prefix argument, takes you to the REPL buffer after being invoked.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-insert-last-sexp-in-repl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-u C-c M-p</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load the form preceding point in the REPL buffer and eval.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-pprint-eval-last-sexp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-p</kbd><br>
+<kbd>C-c C-v C-f e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form preceding point and pretty-print the result in a popup buffer. If invoked with a prefix argument, insert the result into the current buffer as a comment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-pprint-eval-defun-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v C-f d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the top level form under point and pretty-print the result in a popup buffer. If invoked with a prefix argument, insert the result into the current buffer as a comment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-defun-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-M-x</kbd><br>
+<kbd>C-c C-c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the top level form under point and display the result in the echo area.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-list-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v l</kbd><br>
+<kbd>C-c C-v C-l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the list around point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-sexp-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v v</kbd><br>
+<kbd>C-c C-v C-v</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the form around point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-defun-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-u C-M-x</kbd><br>
+<kbd>C-u C-c C-c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Debug the top level form under point and walk through its evaluation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-tap-sexp-at-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v t</kbd><br>
+<kbd>C-c C-v C-t</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate and tap the form around point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-defun-up-to-point</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v z</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the preceding top-level form up to the point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-region</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate the region and display the result in the echo area.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-interrupt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-b</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interrupt any pending evaluations.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-eval-ns-form</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v n</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Eval the ns form.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-buffer-and-switch-to-repl-buffer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-z</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) the current buffer and switch to the relevant REPL buffer. Use a prefix argument to change the namespace of the REPL buffer to match the currently visited source file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-buffer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-k</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) the current buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-file</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) a Clojure file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-load-all-files</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-M-l</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load (eval) all Clojure files below a directory.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-kill-last-result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c C-v k</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Save the last evaluated result into the kill ring.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You&#8217;ll find all evaluation commands and their keybindings in the <code>CIDER Eval</code> menu.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="cider_mode.html">Using cider-mode</a></span>
+  <span class="next"><a href="code_completion.html">Code Completion</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+<script type="text/javascript">
+ docsearch({
+   appId: '1AZEMR3ZT0',
+   apiKey: 'd2cfc21fce00ac9d3f787c0d8e064d42',
+   indexName: 'cider',
+   container: '#docsearch',
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
+</script>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

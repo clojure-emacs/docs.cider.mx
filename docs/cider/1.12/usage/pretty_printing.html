@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pretty-printing :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/usage/pretty_printing.html">
+    <link rel="prev" href="code_completion.html">
+    <link rel="next" href="dealing_with_errors.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://cider.mx">CIDER</a>
+        <span class="separator">//</span>
+        <a href="https://docs.cider.mx">Docs</a>
+      </div>
+      <div class="navbar-item">
+        <div id="docsearch"></div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider">CIDER</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider-nrepl">CIDER nREPL</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/orchard">Orchard</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Community</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/cider/about/support.html">Support</a>
+            <a class="navbar-item" href="/cider/contributing.html">Contributing</a>
+            <a class="navbar-item" href="https://opencollective.com/cider">Open Collective</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="1.12">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">CIDER</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/installation.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/middleware_setup.html">nREPL Middleware Setup</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ClojureScript Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Alternative Platforms</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/babashka.html">Babashka</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/nbb.html">Nbb</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/other_platforms.html">Other Platforms</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using CIDER</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="interactive_programming.html">Interactive Programming</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cider_mode.html">Using cider-mode</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="code_evaluation.html">Code Evaluation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="code_completion.html">Code Completion</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="pretty_printing.html">Pretty Printing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dealing_with_errors.html">Dealing with Errors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="working_with_documentation.html">Working with Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managing_connections.html">Managing Connections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="misc_features.html">Misc Features</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using the REPL</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/basic_usage.html">Basic Usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/keybindings.html">Keybindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/history.html">REPL History</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/running_tests.html">Running Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/test_reports.html">Test Reports</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/supported_libraries.html">Supported Libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Debugging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/logging.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/profiling.html">Profiling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Configuration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/syntax_highlighting.html">Syntax Highlighting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/indentation.html">Indentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../caveats.html">Caveats</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../troubleshooting.html">Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_packages.html">Additional Packages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../contributing.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/docs.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/hacking.html">Hacking on CIDER</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/funding.html">Funding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">About</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/history.html">History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/team.html">Team</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/release_policy.html">Release Policy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/compatibility.html">Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/logo.html">Logo</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../about/license.html">License</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CIDER</span>
+    <span class="version">1.12</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">CIDER</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="../../1.14/index.html">1.14</a>
+        </li>
+        <li class="version">
+          <a href="../../1.13/index.html">1.13</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.12</a>
+        </li>
+        <li class="version">
+          <a href="../../1.11/index.html">1.11</a>
+        </li>
+        <li class="version">
+          <a href="../../1.9/index.html">1.9</a>
+        </li>
+        <li class="version">
+          <a href="../../1.8/index.html">1.8</a>
+        </li>
+        <li class="version">
+          <a href="../../1.7/index.html">1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../1.6/index.html">1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
+          <a href="../../1.4/index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../../1.3/index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../cider-nrepl/index.html">CIDER nREPL</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../cider-nrepl/index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.43/index.html">0.43</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.24/index.html">0.24</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">CIDER</a></li>
+    <li>Using CIDER</li>
+    <li><a href="pretty_printing.html">Pretty Printing</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.12</button>
+  <div class="version-menu">
+    <a class="version" href="../../usage/pretty_printing.html">default</a>
+    <a class="version" href="../../1.14/usage/pretty_printing.html">1.14</a>
+    <a class="version" href="../../1.13/usage/pretty_printing.html">1.13</a>
+    <a class="version is-current" href="pretty_printing.html">1.12</a>
+    <a class="version" href="../../1.11/usage/pretty_printing.html">1.11</a>
+    <a class="version" href="../../1.9/usage/pretty_printing.html">1.9</a>
+    <a class="version" href="../../1.8/usage/pretty_printing.html">1.8</a>
+    <a class="version" href="../../1.7/usage/pretty_printing.html">1.7</a>
+    <a class="version" href="../../1.6/usage/pretty_printing.html">1.6</a>
+    <a class="version" href="../../1.5/usage/pretty_printing.html">1.5</a>
+    <a class="version" href="../../1.4/usage/pretty_printing.html">1.4</a>
+    <a class="version" href="../../1.3/usage/pretty_printing.html">1.3</a>
+    <a class="version" href="../../1.2/usage/pretty_printing.html">1.2</a>
+    <a class="version" href="../../1.1/usage/pretty_printing.html">1.1</a>
+    <a class="version" href="../../1.0/usage/pretty_printing.html">1.0</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/blob/v1.12.0/doc/modules/ROOT/pages/usage/pretty_printing.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Pretty-printing</h1>
+<div class="sect1">
+<h2 id="configuring-a-printing-function"><a class="anchor" href="#configuring-a-printing-function"></a>Configuring a printing function</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Pretty-printing was overhauled in CIDER 0.21 to leverage new features introduced in nREPL 0.6.
+Refer to <a href="https://nrepl.org/nrepl/usage/misc.html#_pretty_printing">nREPL&#8217;s documentation</a> for details.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can configure the function used by CIDER for pretty-printing evaluation
+results and other data using the option <code>cider-print-fn</code>, which can take the
+following possible values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>nil</code> to defer to nREPL to choose the printing function. This will use the
+bound value of <code>nrepl.middleware.print/*print-fn*</code>, which defaults to the
+equivalent of <code>clojure.core/pr</code>.</p>
+</li>
+<li>
+<p><code>pr</code> to use the equivalent of <code>clojure.core/pr</code>.</p>
+</li>
+<li>
+<p><code>pprint</code> to use the built-in <code>clojure.pprint/pprint</code> (this is the default).</p>
+</li>
+<li>
+<p><code>fipp</code> to use the <a href="https://github.com/brandonbloom/fipp">Fast Idiomatic
+Pretty-Printer</a>. This is approximately
+5-10x faster than <code>clojure.core/pprint</code>.</p>
+</li>
+<li>
+<p><code>puget</code> to use <a href="https://github.com/greglook/puget">Puget</a>, which provides
+<a href="https://github.com/greglook/puget#canonical-representation">canonical serialization</a>
+of data on top of fipp, but at a slight performance cost.</p>
+</li>
+<li>
+<p><code>zprint</code> to use <a href="https://github.com/kkinnear/zprint">zprint</a>, a fast and
+flexible alternative to the libraries mentioned above.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Alternatively, <code>cider-print-fn</code> can be set to the namespace-qualified name of a
+Clojure var whose function takes three arguments: the object to print, the
+<code>java.io.PrintWriter</code> to print on, and a (possibly nil) map of options.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-print-fn "user/my-pprint")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s one example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(ns cider.pprint
+  (:require
+   [clojure.pprint :as pp]))
+
+(defn pprint
+  "A simple wrapper around `clojure.pprint/write`.
+
+  Its signature is compatible with the expectations of nREPL's wrap-print
+  middleware."
+  [value writer options]
+  (apply pp/write value (mapcat identity (assoc options :stream writer))))</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Before Clojure 1.10.2, a
+<a href="https://clojure.atlassian.net/browse/CLJ-1445">bug</a> in <code>clojure.pprint</code> caused it
+to not work properly with <code>*print-meta*</code>. If you need to print the metadata
+you&#8217;ll have to change the print function or disable pretty-printing.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="limiting-printed-output"><a class="anchor" href="#limiting-printed-output"></a>Limiting printed output</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can set <code>cider-print-quota</code> to limit the number of bytes that will be
+returned by any printing operation. This defaults to one megabyte, and can be
+set to <code>nil</code> if no limit is desired. Note well that if no quota is set some
+printing operations may never terminate&#8201;&#8212;&#8201;you can still use <code>cider-interrupt</code> to
+halt them.</p>
+</div>
+<div class="paragraph">
+<p>Your configured printing function might also support limiting the length and
+depth of printed objects&#8201;&#8212;&#8201;either using <code>clojure.core/*print-length*</code> and
+<code>clojure.core/*print-level*</code> or in the provided <a href="#print-options">options map</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="print-options"><a class="anchor" href="#print-options"></a>Print options</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can pass an options map to the print function by setting <code>cider-print-options</code>. Here&#8217;s an example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-print-options '(("length" 50) ("right-margin" 70)))</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Each print engine has its own configuration options, so you&#8217;ll have to be sure to set <code>cider-print-options</code> accordingly.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s a table describing the differences in the names for the most common print
+options supported by every print engine.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><code>clojure.core/pr</code></th>
+<th class="tableblock halign-left valign-top"><code>clojure.pprint</code></th>
+<th class="tableblock halign-left valign-top">Fipp &amp; Puget</th>
+<th class="tableblock halign-left valign-top">zprint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clojure.core/*print-length*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>length</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>print-length</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>max-length</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clojure.core/*print-level*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>level</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>print-level</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>max-depth</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clojure.pprint/*print-right-margin*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>right-margin</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>width</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>width</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Not all printing engines use (or default to) the dynamic variables in all cases,
+so setting them at the REPL may or may not have the intended effect. See the
+respective documentation of each engine:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clojure.core/pr</code>: <a href="https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/*print-dup*" class="bare">https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/*print-dup*</a></p>
+</li>
+<li>
+<p><code>clojure.pprint</code>: <a href="https://clojuredocs.org/clojure.pprint/write" class="bare">https://clojuredocs.org/clojure.pprint/write</a></p>
+</li>
+<li>
+<p>Fipp: <a href="https://github.com/brandonbloom/fipp/#printer-usage" class="bare">https://github.com/brandonbloom/fipp/#printer-usage</a></p>
+</li>
+<li>
+<p>Puget: <a href="https://github.com/greglook/puget#usage" class="bare">https://github.com/greglook/puget#usage</a></p>
+</li>
+<li>
+<p>zprint: <a href="https://github.com/kkinnear/zprint/#what-is-configurable" class="bare">https://github.com/kkinnear/zprint/#what-is-configurable</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="width-of-printed-output"><a class="anchor" href="#width-of-printed-output"></a>Width of printed output</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you&#8217;re using one of the printing engines provided with CIDER, the value of
+<code>fill-column</code> will be used for the relevant width option in the <a href="#print-options">options
+map</a>. You can override this by hardcoding the relevant option in
+<code>cider-print-options</code>.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="code_completion.html">Code Completion</a></span>
+  <span class="next"><a href="dealing_with_errors.html">Dealing with Errors</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+<script type="text/javascript">
+ docsearch({
+   appId: '1AZEMR3ZT0',
+   apiKey: 'd2cfc21fce00ac9d3f787c0d8e064d42',
+   indexName: 'cider',
+   container: '#docsearch',
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
+</script>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
