@@ -233,7 +233,7 @@
 <h2 id="lazy-middleware-loading"><a class="anchor" href="#lazy-middleware-loading"></a>Lazy middleware loading</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Eager loading of all of `cider-nrepl&#8217;s middleware resulted in a significant impact to the
+<p>Eager loading of all of cider-nrepl&#8217;s middleware resulted in a significant impact to the
 startup time of the nREPL server. To mitigate this we&#8217;ve devised a strategy to postpone
 the actual initialization of some middleware until the first time it&#8217;s actually used
 by a client.</p>
@@ -292,11 +292,11 @@ a string). Hopefully this will change down the road.</p>
 <h2 id="dependency-obfuscation"><a class="anchor" href="#dependency-obfuscation"></a>Dependency obfuscation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>`cider-nrepl&#8217;s dependency would conflict with the dependencies of the application using it,
+<p>cider-nrepl&#8217;s dependency would conflict with the dependencies of the application using it,
 so we have to take some care to avoid such situation.</p>
 </div>
 <div class="paragraph">
-<p>All of cider-nrepl&#8217;s dependencies are processed with
+<p>Most of cider-nrepl&#8217;s dependencies are processed with
 <a href="https://github.com/benedekfazekas/mranderson">mranderson</a>, so that
 they won&#8217;t collide with the dependencies of your own projects. This
 basically means that cider-nrepl doesn&#8217;t have any runtime dependencies in
@@ -305,7 +305,7 @@ namespaces/packages.</p>
 </div>
 <div class="paragraph">
 <p>This means that <code>cider-nrepl</code> has to also take some steps to hide the inlined namespaces,
-so they won&#8217;t pollute the results users would be interested in. Pretty much all of `cider-nrepl&#8217;s
+so they won&#8217;t pollute the results users would be interested in. Pretty much all of cider-nrepl&#8217;s
 ops would filter out the inlined namespaces.</p>
 </div>
 </div>

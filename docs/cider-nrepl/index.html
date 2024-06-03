@@ -342,13 +342,27 @@ hackers to make this a reality.</p>
 <div class="sect2">
 <h3 id="isolated-runtime-dependencies"><a class="anchor" href="#isolated-runtime-dependencies"></a>Isolated Runtime Dependencies</h3>
 <div class="paragraph">
-<p>All of cider-nrepl&#8217;s dependencies are processed with
+<p>Most of cider-nrepl&#8217;s dependencies are processed with
 <a href="https://github.com/benedekfazekas/mranderson">mranderson</a>, so that
 they won&#8217;t collide with the dependencies of your own projects. This
-basically means that cider-nrepl doesn&#8217;t have any runtime dependencies in
+basically means that cider-nrepl has almost no  runtime dependencies in
 the production artifact - just copies of the deps inlined with changed
 namespaces/packages. It&#8217;s a bit ugly and painful, but it gets the job
 done.</p>
+</div>
+<div class="paragraph">
+<p>The exclusion to this rule are the artifacts that are themselves part of the
+CIDER ecosystem and have to runtime dependencies of their own:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/clojure-emacs/orchard">Orchard</a></p>
+</li>
+<li>
+<p><a href="https://github.com/clojure-emacs/logjam">Logjam</a></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>If someone has better ideas how to isolate our runtime dependencies -

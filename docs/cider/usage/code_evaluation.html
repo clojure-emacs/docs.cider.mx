@@ -732,6 +732,14 @@ CIDER internally increases the timeout to 30 seconds for the first sync eval req
 <h2 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="enable-evaluation-interrupts-on-java-21-and-newer"><a class="anchor" href="#enable-evaluation-interrupts-on-java-21-and-newer"></a>Enable evaluation interrupts on Java 21 and newer</h3>
+<div class="paragraph">
+<p>The configuration variable <code>cider-enable-nrepl-jvmti-agent</code> has to be enabled
+for interrupts to work properly on Java 21+. See
+<a href="../basics/up_and_running.html#enabling-nrepl-jvmti-agent" class="xref page">JVMTI agent</a> section.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="display-spinner-during-evaluation"><a class="anchor" href="#display-spinner-during-evaluation"></a>Display Spinner During Evaluation</h3>
 <div class="paragraph">
 <p>Some evaluation operations take a while to complete, so CIDER will display a

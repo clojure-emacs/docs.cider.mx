@@ -239,30 +239,21 @@ with the assumption that this would make it easier to develop CIDER and would op
 to build complex features like an interactive debugger. Fortunately, the assumption turned out to be correct.
 Today <code>cider-nrepl</code> provides pretty much everything that a Clojure development environment might need (and more).</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre> We quickly
-realized that there was nothing CIDER specific in those middleware and we've
-started to encourage more tool authors to leverage them. Today `cider-nrepl` is
-developed and released independently from CIDER and is used by most of the
-nREPL-based editors and IDEs out there, which is a great example of team work.
-Eventually `cider-nrepl` served as the inspiration for more similar
-middleware libraries - e.g. `refactor-nrepl`, `iced-nrepl` and `sayid`.</pre>
-</div>
+<div class="paragraph">
+<p>We quickly realized that there was nothing CIDER specific in those middleware
+and we&#8217;ve started to encourage more tool authors to leverage them. Today
+<code>cider-nrepl</code> is developed and released independently from CIDER and is used by
+most of the nREPL-based editors and IDEs out there, which is a great example of
+team work. Eventually <code>cider-nrepl</code> served as the inspiration for more similar
+middleware libraries - e.g. <code>refactor-nrepl</code>, <code>iced-nrepl</code> and <code>sayid</code>.</p>
 </div>
 <div class="paragraph">
-<p>More recently we&#8217;ve been working to extract the core functionality out of <code>cider-nrepl</code>
-into a <a href="https://github.com/clojure-emacs/orchard">REPL-agnostic library</a>.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+<p>In 2019, the core functionality has been extracted out of <code>cider-nrepl</code> into
+<a href="https://github.com/clojure-emacs/orchard">Orchard</a>, a REPL-agnostic library.</p>
 </div>
 <div class="paragraph">
 <p>You can check out <a href="https://www.youtube.com/watch?v=4X-1fJm25Ww">this talk</a>, which explores the birth of
 <code>cider-nrepl</code>.</p>
-</div>
-<div id="footnotes">
-<hr>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. This process started in 2019.
-</div>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="../faq.html">FAQ</a></span>

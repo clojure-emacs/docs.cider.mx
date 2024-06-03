@@ -233,10 +233,9 @@
 <h2 id="java"><a class="anchor" href="#java"></a>Java</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>cider-nrepl</code> officially targets Java 8, Java 11 and the most recent rapid
-release version (e.g. Java 13).  More generally speaking - we aim
-to support all Java releases that are currently officially supported
-by Oracle.</p>
+<p><code>cider-nrepl</code> officially targets Java 8, 11, 17, 21, and the most recent rapid
+release version (e.g. Java 22). More generally speaking - we aim to support all
+Java releases that are currently officially supported by Oracle.</p>
 </div>
 </div>
 </div>
@@ -293,8 +292,8 @@ Currently <code>cider-nrepl</code> requires Piggieback 0.4+ to work properly.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-We pay special attention to supporting whatever nREPL is bundled with the current stable Leiningen
-and Boot releases.
+We pay special attention to supporting whatever nREPL is bundled with the
+current stable Leiningen release.
 </td>
 </tr>
 </table>
@@ -305,9 +304,20 @@ and Boot releases.
 <h2 id="compatibility-matrix"><a class="anchor" href="#compatibility-matrix"></a>Compatibility Matrix</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Below you can find the official compatibility matrix for <code>cider-nrepl</code>. For a
-very long time the project targeted nREPL 0.2.x, but the
-requirements were bumped to nREPL 0.6 in recent versions.</p>
+<p>Below you can find the official compatibility matrix for <code>cider-nrepl</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The matrix lists only the last versions of <code>cider-nrepl</code> that supports the
+given compatibility tuple.
+</td>
+</tr>
+</table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Compatibility Matrix</caption>
@@ -339,30 +349,6 @@ requirements were bumped to nREPL 0.6 in recent versions.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.4.x</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.21</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.23</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.24</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.25</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
@@ -375,13 +361,13 @@ requirements were bumped to nREPL 0.6 in recent versions.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.0.0</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.48.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.47.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.9</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.0.0</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.48.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.49.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.10</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.0.0</p></td>
