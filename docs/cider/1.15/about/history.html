@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>History :: CIDER Docs</title>
+    <link rel="canonical" href="https://docs.cider.mx/cider/about/history.html">
+    <link rel="prev" href="../contributing/funding.html">
+    <link rel="next" href="team.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140176314-1"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','UA-140176314-1')</script>
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <a href="https://cider.mx">CIDER</a>
+        <span class="separator">//</span>
+        <a href="https://docs.cider.mx">Docs</a>
+      </div>
+      <div class="navbar-item">
+        <div id="docsearch"></div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider">CIDER</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/cider-nrepl">CIDER nREPL</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/orchard">Orchard</a>
+              <a class="navbar-item" href="https://github.com/clojure-emacs/clojure-mode">clojure-mode</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Community</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/cider/about/support.html">Support</a>
+            <a class="navbar-item" href="/cider/contributing.html">Contributing</a>
+            <a class="navbar-item" href="https://opencollective.com/cider">Open Collective</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cider" data-version="1.15">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">CIDER</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Getting Started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/installation.html">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/middleware_setup.html">nREPL Middleware Setup</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ClojureScript Setup</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/up_and_running.html">Up and Running</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/figwheel.html">Using Figwheel</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/shadow-cljs.html">Using shadow-cljs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cljs/other_repls.html">Using Other REPLs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Alternative Platforms</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/babashka.html">Babashka</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/nbb.html">Nbb</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/basilisp.html">Basilisp</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../platforms/other_platforms.html">Other Platforms</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using CIDER</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/interactive_programming.html">Interactive Programming</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/cider_mode.html">Using cider-mode</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_evaluation.html">Code Evaluation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_completion.html">Code Completion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/code_reloading.html">Code Reloading</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/pretty_printing.html">Pretty Printing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/dealing_with_errors.html">Dealing with Errors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/working_with_documentation.html">Working with Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/managing_connections.html">Managing Connections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../usage/misc_features.html">Misc Features</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Using the REPL</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/basic_usage.html">Basic Usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/keybindings.html">Keybindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../repl/history.html">REPL History</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Testing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/running_tests.html">Running Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/test_reports.html">Test Reports</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../testing/supported_libraries.html">Supported Libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Debugging</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/debugger.html">Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/enlighten.html">Enlighten</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/inspector.html">Inspector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/logging.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/macroexpansion.html">Macroexpansion</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/profiling.html">Profiling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../debugging/tracing.html">Tracing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Configuration</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/basic_config.html">Basic Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/syntax_highlighting.html">Syntax Highlighting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/indentation.html">Indentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/eldoc.html">Eldoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../config/project_config.html">Project-specific Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../indent_spec.html">Indentation Specification</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../caveats.html">Caveats</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../troubleshooting.html">Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_packages.html">Additional Packages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../additional_resources.html">Additional Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../contributing.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/docs.html">Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/hacking.html">Hacking on CIDER</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/funding.html">Funding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">About</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="history.html">History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="team.html">Team</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="release_policy.html">Release Policy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="compatibility.html">Compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="logo.html">Logo</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="license.html">License</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CIDER</span>
+    <span class="version">1.15</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">CIDER</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../index.html">default</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.15</a>
+        </li>
+        <li class="version">
+          <a href="../../1.14/index.html">1.14</a>
+        </li>
+        <li class="version">
+          <a href="../../1.13/index.html">1.13</a>
+        </li>
+        <li class="version">
+          <a href="../../1.12/index.html">1.12</a>
+        </li>
+        <li class="version">
+          <a href="../../1.11/index.html">1.11</a>
+        </li>
+        <li class="version">
+          <a href="../../1.9/index.html">1.9</a>
+        </li>
+        <li class="version">
+          <a href="../../1.8/index.html">1.8</a>
+        </li>
+        <li class="version">
+          <a href="../../1.7/index.html">1.7</a>
+        </li>
+        <li class="version">
+          <a href="../../1.6/index.html">1.6</a>
+        </li>
+        <li class="version">
+          <a href="../../1.5/index.html">1.5</a>
+        </li>
+        <li class="version">
+          <a href="../../1.4/index.html">1.4</a>
+        </li>
+        <li class="version">
+          <a href="../../1.3/index.html">1.3</a>
+        </li>
+        <li class="version">
+          <a href="../../1.2/index.html">1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1/index.html">1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../cider-nrepl/index.html">CIDER nREPL</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../cider-nrepl/index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.49/index.html">0.49</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.43/index.html">0.43</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.26/index.html">0.26</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.25/index.html">0.25</a>
+        </li>
+        <li class="version">
+          <a href="../../../cider-nrepl/0.24/index.html">0.24</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">CIDER</a></li>
+    <li>About</li>
+    <li><a href="history.html">History</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.15</button>
+  <div class="version-menu">
+    <a class="version" href="../../about/history.html">default</a>
+    <a class="version is-current" href="history.html">1.15</a>
+    <a class="version" href="../../1.14/about/history.html">1.14</a>
+    <a class="version" href="../../1.13/about/history.html">1.13</a>
+    <a class="version" href="../../1.12/about/history.html">1.12</a>
+    <a class="version" href="../../1.11/about/history.html">1.11</a>
+    <a class="version" href="../../1.9/about/history.html">1.9</a>
+    <a class="version" href="../../1.8/about/history.html">1.8</a>
+    <a class="version" href="../../1.7/about/history.html">1.7</a>
+    <a class="version" href="../../1.6/about/history.html">1.6</a>
+    <a class="version" href="../../1.5/about/history.html">1.5</a>
+    <a class="version" href="../../1.4/about/history.html">1.4</a>
+    <a class="version" href="../../1.3/about/history.html">1.3</a>
+    <a class="version" href="../../1.2/about/history.html">1.2</a>
+    <a class="version" href="../../1.1/about/history.html">1.1</a>
+    <a class="version" href="../../1.0/about/history.html">1.0</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/clojure-emacs/cider/blob/v1.15.0/doc/modules/ROOT/pages/about/history.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">History</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+You don&#8217;t know where you&#8217;re going until you know where you&#8217;ve been.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>CIDER started its life as an effort to replace a hacked version of SLIME with
+a proper environment for Clojure development on Emacs. The work on it was
+fueled mostly by the advent of nREPL which was the first project that aimed to
+provide a common tool-agnostic foundation for Clojure development tools.</p>
+</div>
+<div class="paragraph">
+<p>The project was started in April 2012 by Phil Hagelberg (of Leiningen fame),
+who hacked a prototype of an nREPL client in Emacs Lisp on a flight to
+San Francisco.  He got a bit stuck on the socket-based bencode
+functionality and dropped it after the flight, but not before pushing
+the code out and mentioning it on the <a href="http://groups.google.com/group/clojure/browse_thread/thread/2bd91de7dca55ca4">Clojure mailing list</a>.</p>
+</div>
+<div class="paragraph">
+<p>Fortunately Tim King picked it back up, and it quickly became a respectable competitor to SLIME.
+The project evolved at rapid pace and eventually superseded SLIME in August 2012.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
+Unfortunately in early 2013 Tim ran out of time for <code>nrepl.el</code> and after a period of stagnation, eventually handed it over to Bozhidar, who has been the steward
+ever since. Bozhidar renamed <code>nrepl.el</code> to CIDER in version 0.3 to avoid the common case of confusion between
+the nREPL server and the <code>nrepl</code> package for Emacs.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
+</div>
+<div class="paragraph">
+<p>Eventually CIDER became one of the most popular development environments in the Clojure community and it spawned many
+important projects like <code>cider-nrepl</code>, <code>cljs-tooling</code> and <code>orchard</code>, that were widely used by other development tools.
+Over the years a big ecosystem of packages grew around CIDER and nREPL. Today CIDER faces a lot of competition, but
+it&#8217;s still evolving at a steady pace and it&#8217;s still one of the more innovative Clojure development environments,
+that serves as inspiration for many others.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="notable-milestones"><a class="anchor" href="#notable-milestones"></a>Notable Milestones</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>17 Apr 2012 - Initial commit by Phil Hagelberg.</p>
+</li>
+<li>
+<p>24 Apr 2012 - Tim King picks up Phil&#8217;s prototype.</p>
+</li>
+<li>
+<p>10 Jul 2012 - Tim releases version 0.1.0.</p>
+</li>
+<li>
+<p>21 Aug 2012 - Phil announces that <code>swank-clojure</code> is officially deprecated in favour of <code>nrepl.el</code>.</p>
+</li>
+<li>
+<p>Autumn 2012 - Bozhidar starts contributing to <code>nrepl.el</code>.</p>
+</li>
+<li>
+<p>Summer 2013 - Bozhidar takes over the maintenance of <code>nrepl.el</code>.</p>
+</li>
+<li>
+<p>08 Aug 2013 - First release (0.1.8) under Bozhidar&#8217;s stewardship.</p>
+</li>
+<li>
+<p>28 Oct 2013 - Bozhidar renames <code>nrepl.el</code> to CIDER and releases version 0.3.</p>
+</li>
+<li>
+<p>Winter 2013 - Work starts on <code>cider-nrepl</code> and ClojureScript support for CIDER.</p>
+</li>
+<li>
+<p>05 Aug 2014 - CIDER 0.7 leverages <code>cider-nrepl</code> for most of its functionality.</p>
+</li>
+<li>
+<p>16 Jun 2015 - CIDER 0.9 introduces its interactive debugger.</p>
+</li>
+<li>
+<p>03 Mar 2016 - CIDER 0.11 starts auto-injecting its dependencies on <code>cider-jack-in</code>.</p>
+</li>
+<li>
+<p>02 Sep 2018 - CIDER 0.18 introduces new connection management based on <code>sesman</code>.</p>
+</li>
+<li>
+<p>Spring 2018 - Bozhidar assumes the maintenance of nREPL.</p>
+</li>
+<li>
+<p>04 May 2018 - Orchard 0.1 is released.</p>
+</li>
+<li>
+<p>19 Feb 2019 - CIDER 0.21 becomes the first editor to support nREPL 0.6 streamed values and improved pretty-printing.</p>
+</li>
+<li>
+<p>03 Aug 2020 - CIDER 0.26 adds support for new nREPL 0.8 ops like <code>lookup</code> and <code>completions</code>.</p>
+</li>
+<li>
+<p>28 Dec 2020 - CIDER 1.0 is released.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To be continued&#8230;&#8203;</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. <a href="https://technomancy.us/163" class="bare">https://technomancy.us/163</a>
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. <a href="https://github.com/clojure-emacs/cider/issues/375" class="bare">https://github.com/clojure-emacs/cider/issues/375</a>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../contributing/funding.html">Funding</a></span>
+  <span class="next"><a href="team.html">Team</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
+</footer>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+<script type="text/javascript">
+ docsearch({
+   appId: '1AZEMR3ZT0',
+   apiKey: 'd2cfc21fce00ac9d3f787c0d8e064d42',
+   indexName: 'cider',
+   container: '#docsearch',
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
+</script>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

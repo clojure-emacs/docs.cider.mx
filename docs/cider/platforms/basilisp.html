@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Basilisp Integration with CIDER :: CIDER Docs</title>
     <link rel="canonical" href="https://docs.cider.mx/cider/platforms/basilisp.html">
+    <link rel="prev" href="nbb.html">
+    <link rel="next" href="other_platforms.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
@@ -119,6 +121,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="nbb.html">Nbb</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="basilisp.html">Basilisp</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="other_platforms.html">Other Platforms</a>
@@ -323,6 +328,9 @@
           <a href="../index.html">default</a>
         </li>
         <li class="version">
+          <a href="../1.15/index.html">1.15</a>
+        </li>
+        <li class="version">
           <a href="../1.14/index.html">1.14</a>
         </li>
         <li class="version">
@@ -373,6 +381,9 @@
           <a href="../../cider-nrepl/index.html">default</a>
         </li>
         <li class="version">
+          <a href="../../cider-nrepl/0.49/index.html">0.49</a>
+        </li>
+        <li class="version">
           <a href="../../cider-nrepl/0.43/index.html">0.43</a>
         </li>
         <li class="version">
@@ -398,13 +409,15 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">CIDER</a></li>
-    <li><a href="basilisp.html">Basilisp Integration with CIDER</a></li>
+    <li>Alternative Platforms</li>
+    <li><a href="basilisp.html">Basilisp</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">default</button>
   <div class="version-menu">
     <a class="version is-current" href="basilisp.html">default</a>
+    <a class="version" href="../1.15/platforms/basilisp.html">1.15</a>
     <a class="version" href="../1.14/platforms/basilisp.html">1.14</a>
     <a class="version is-missing" href="../1.13/index.html">1.13</a>
     <a class="version is-missing" href="../1.12/index.html">1.12</a>
@@ -440,7 +453,7 @@
 <h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Basilisp aims to enable writing Clojure programs on Python with full Python interoperability. It is highly compatible with Clojure.</p>
+<p>Basilisp aims to enable writing Clojure programs on Python with full interoperability. It is highly compatible with Clojure.</p>
 </div>
 <div class="paragraph">
 <p>To install Basilisp, run:</p>
@@ -458,15 +471,13 @@
 <div class="paragraph">
 <p>There are several ways to connect to Basilisp.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
+<div class="sect2">
+<h3 id="jack-in"><a class="anchor" href="#jack-in"></a>jack-in</h3>
+<div class="paragraph">
 <p><kbd>M-x cider-jack-in</kbd> and <kbd>M-5 M-x cider-jack-in-universal</kbd></p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>If you have created a <code>basilisp.edn</code> project file at your root of your project tree, you can jack in to the project <code>M-x cider-jack-in</code>. The <code>basilisp.edn</code> is similar to <code>deps.edn</code> for clojure-cli projects. It can be left empty just to mark the root of your project.</p>
+<p>If you have created a <code>basilisp.edn</code> project file at your root of your project tree, you can jack in to the project with <code>M-x cider-jack-in</code>. The <code>basilisp.edn</code> is similar to <code>deps.edn</code> for clojure-cli projects. It can be left empty just to mark the root of your project.</p>
 </div>
 <div class="paragraph">
 <p>If you don&#8217;t have or want a basilisp project file, you can use universal jack in with a numerical argument of 5:</p>
@@ -477,12 +488,21 @@
 <p><kbd>M-5 M-x cider-jack-in-universal</kbd>, or</p>
 </li>
 <li>
-<p><kbd>M-5 C-c C-x j u</kbd>, from within file in clojure-mode</p>
+<p><kbd>M-5 C-c C-x j u</kbd>, from within a file in clojure-mode</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>(Note: an alternative to <kbd>M-5</kbd> is <kbd>C-u 5</kbd>)</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+an alternative to <kbd>M-5</kbd> is <kbd>C-u 5</kbd>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>You can also bind the universal jack-in to Basilisp to a function to use as a shortcut, for example</p>
@@ -494,12 +514,11 @@
                                 (cider-jack-in-universal 5)))</code></pre>
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
+</div>
+<div class="sect2">
+<h3 id="connect"><a class="anchor" href="#connect"></a>connect</h3>
+<div class="paragraph">
 <p><kbd>M-x cider-connect</kbd></p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>You can start its bundled nREPL server:</p>
@@ -517,61 +536,69 @@
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The jack-in command can be configured via several defcustoms:</p>
+<p>The jack-in command can be configured with the following defcustoms</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>cider-basilisp-command</code> (default is <code>basilisp</code>).</p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="cider-basilisp-command"><a class="anchor" href="#cider-basilisp-command"></a><code>cider-basilisp-command</code></h3>
+<div class="paragraph">
+<p>(default is <code>basilisp</code>)</p>
 </div>
 <div class="paragraph">
 <p>If Basilisp is installed in a virtual environment, update this to the full path of the <code>basilisp</code> executable within that virtual environment.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>cider-basilisp-parameters</code> (default is <code>nrepl-server</code>).</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="cider-basilisp-parameters"><a class="anchor" href="#cider-basilisp-parameters"></a><code>cider-basilisp-parameters</code></h3>
+<div class="paragraph">
+<p>(default is <code>nrepl-server</code>)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="customization"><a class="anchor" href="#customization"></a>Customization</h3>
 <div class="paragraph">
 <p>There at few ways to setup (custom) variables in Emacs</p>
 </div>
+<div class="sect3">
+<h4 id="1-examining-and-setting-variables"><a class="anchor" href="#1-examining-and-setting-variables"></a>1. <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Easy-Customization.html">Examining and Setting Variables</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Easy-Customization.html">Examining and Setting Variables</a></p>
+<p><kbd>C-h v cider-basilisp-command</kbd>, and</p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p><kbd>C-h v cider-basilisp-command</kbd>, and
-<kbd>C-h v cider-basilisp-parameters</kbd></p>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html">Per-Diretory Local Variables</a></p>
+<p><kbd>C-h v cider-basilisp-parameters</kbd></p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="2-per-diretory-local-variables"><a class="anchor" href="#2-per-diretory-local-variables"></a>2. <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html">Per-Diretory Local Variables</a></h4>
 <div class="paragraph">
 <p>Uses <code>.dir-locals.el</code> to setup per mode variables. This file is typically stored at the root of the project.</p>
 </div>
 <div class="paragraph">
 <p>For example, to set the path to the basilisp executable within a virtual environment</p>
 </div>
-<div class="paragraph">
-<p><kbd>M-x add-dir-local-variable</kbd>
-Mode or subdirectory: <code>clojure-mode</code>
-Add directory-local variable: <code>cider-basilisp-command</code>
-Add cider-basilisp-command with value: <code>"c:/dev/venvs/312/Scripts/basilisp"</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><kbd>M-x add-dir-local-variable</kbd></p>
+</li>
+<li>
+<p>Mode or subdirectory: <code>clojure-mode</code></p>
+</li>
+<li>
+<p>Add directory-local variable: <code>cider-basilisp-command</code></p>
+</li>
+<li>
+<p>Add cider-basilisp-command with value: <code>"c:/dev/venvs/312/Scripts/basilisp"</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>This should result to updating or creating a <code>.dir-local.el</code> file like below</p>
@@ -584,23 +611,27 @@ Add cider-basilisp-command with value: <code>"c:/dev/venvs/312/Scripts/basilisp"
 ((clojure-mode . ((cider-basilisp-command . "c:/dev/venvs/312/Scripts/basilisp"))))</code></pre>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="3-specifying-file-variables"><a class="anchor" href="#3-specifying-file-variables"></a>3. <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html">Specifying File Variables</a></h4>
+<div class="paragraph">
+<p>It is best to put this in the top of your project&#8217;s <code>basilisp.edn</code> file, and always jack-in from there.</p>
+</div>
+<div class="paragraph">
+<p>For example, setting <code>cider-basilisp-command</code> to start basilisp from within a virtual environment:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html">Specifying File Variables</a></p>
+<p><kbd>M-x add-dir-local-variable</kbd></p>
+</li>
+<li>
+<p>Add file-local variable: <code>cider-basilisp-command</code></p>
+</li>
+<li>
+<p>Add cider-basilisp-command with value: <code>"c:/dev/venvs/312/Scripts/basilisp"</code></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>It is best to put this in the top of your project&#8217;s <code>basilisp.edn</code> file, and always jack-in from there</p>
-</div>
-<div class="paragraph">
-<p>For example, setting <code>cider-basilisp-command</code> to start basilisp from within a virtual environment</p>
-</div>
-<div class="paragraph">
-<p><kbd>M-x add-dir-local-variable</kbd>
-Add file-local variable: <code>cider-basilisp-command</code>
-Add cider-basilisp-command with value: <code>"c:/dev/venvs/312/Scripts/basilisp"</code></p>
 </div>
 <div class="paragraph">
 <p>This will result in the following in <code>basilisp.edn</code></p>
@@ -615,6 +646,12 @@ Add cider-basilisp-command with value: <code>"c:/dev/venvs/312/Scripts/basilisp"
 </div>
 </div>
 </div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="nbb.html">Nbb</a></span>
+  <span class="next"><a href="other_platforms.html">Other Platforms</a></span>
+</nav>
 </article>
   </div>
 </main>
