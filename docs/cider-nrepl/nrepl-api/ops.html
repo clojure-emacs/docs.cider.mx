@@ -1156,6 +1156,9 @@ If specified, the value will be concatenated to that of <code>orchard.meta/var-m
 <div class="paragraph">
 <p>Return a map of information about the specified symbol.</p>
 </div>
+<div class="paragraph">
+<p>Note: Documentation may be incomplete; not all return keys are described.</p>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Required parameters</dt>
@@ -1197,6 +1200,12 @@ If specified, the value will be concatenated to that of <code>orchard.meta/var-m
 <div class="ulist">
 <ul>
 <li>
+<p><code>:arglists-str</code> The arguments list(s) accepted by the symbol, as a string, if applicable.</p>
+</li>
+<li>
+<p><code>:column</code> The column number where the symbol is defined.</p>
+</li>
+<li>
 <p><code>:doc-block-tags-fragments</code> May be absent. Represent the 'param', 'returns' and 'throws' sections a Java doc comment. It&#8217;s a vector of fragments, where fragment is a map with <code>:type</code> ('text' or 'html') and <code>:content</code> plain text or html markup, respectively</p>
 </li>
 <li>
@@ -1204,6 +1213,18 @@ If specified, the value will be concatenated to that of <code>orchard.meta/var-m
 </li>
 <li>
 <p><code>:doc-fragments</code> May be absent. Represents the body of a Java doc comment, including the first sentence and excluding any block tags. It&#8217;s a vector of fragments, where fragment is a map with <code>:type</code> ('text' or 'html') and <code>:content</code> plain text or html markup, respectively</p>
+</li>
+<li>
+<p><code>:file</code> Either a URI or a relative path where the symbol is defined.</p>
+</li>
+<li>
+<p><code>:line</code> The line number the symbol is defined.</p>
+</li>
+<li>
+<p><code>:name</code> The unqualified name of the symbol.</p>
+</li>
+<li>
+<p><code>:ns</code> The namespace the symbol belongs to.</p>
 </li>
 <li>
 <p><code>:status</code> done</p>
@@ -2173,7 +2194,7 @@ if applicable, and re-render the updated value.</p>
 <p><code>:display-namespaces</code> How to print namespace-qualified symbols in the result. Possible values are "qualified" to leave all namespaces qualified, "none" to elide all namespaces, or "tidy" to replace namespaces with their aliases in the given namespace. Defaults to "qualified".</p>
 </li>
 <li>
-<p><code>:expander</code> The macroexpansion function to use. Possible values are "macroexpand-1", "macroexpand", or "macroexpand-all". Defaults to "macroexpand".</p>
+<p><code>:expander</code> The macroexpansion function to use. Possible values are "macroexpand-1", "macroexpand", "macroexpand-step", or "macroexpand-all". Defaults to "macroexpand".</p>
 </li>
 <li>
 <p><code>:ns</code> The namespace in which to perform the macroexpansion. Defaults to 'user for Clojure and 'cljs.user for ClojureScript.</p>

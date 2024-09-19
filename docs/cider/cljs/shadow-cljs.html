@@ -555,7 +555,7 @@ root of your project.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj"> :dependencies [[cider/cider-nrepl "0.49.0"] ;; mandatory (unless it's inherited from deps.edn or otherwise present in the classpath of shadow-cljs's JVM process)
+<pre class="highlightjs highlight"><code class="language-clj hljs" data-lang="clj"> :dependencies [[cider/cider-nrepl "0.50.2"] ;; mandatory (unless it's inherited from deps.edn or otherwise present in the classpath of shadow-cljs's JVM process)
                 [refactor-nrepl/refactor-nrepl "3.9.0"]] ;; refactor-nrepl is optional
 
  :nrepl {:middleware [cider.nrepl/cider-middleware ;; it's advisable to explicitly add this middleware. It's automatically added by shadow-cljs (if available in the classpath), unless `:nrepl {:cider false}`
