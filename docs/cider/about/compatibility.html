@@ -492,10 +492,9 @@ We pay special attention to supporting whatever nREPL is bundled with the curren
 <h2 id="java"><a class="anchor" href="#java"></a>Java</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>CIDER officially targets Java 8, Java 11, Java 17, Java 21 and the most recent rapid
-release version (e.g. Java 22).  Generally speaking, we aim
-to support all Java releases that are currently officially supported
-by Oracle.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+<p>CIDER officially targets Java 8, Java 11, Java 17, Java 21, and the most recent
+non-LTS version. Generally speaking, we aim to support all Java releases that
+are currently officially supported by Oracle.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -510,8 +509,9 @@ The requirements for Java are pretty much <code>cider-nrepl</code>'s requirement
 </table>
 </div>
 <div class="paragraph">
-<p>On Linux you are also required to make sure that JDK sources and javadocs are installed.
-You can find example commands in <a href="../troubleshooting.html#navigation-to-jdk-sources-doesnt-work" class="xref page">Troubleshooting</a>.</p>
+<p>While CIDER can work with
+<a href="https://www.ibm.com/think/topics/jvm-vs-jre-vs-jdk">JRE</a>, it is recommended to
+use the full JDK distribution.</p>
 </div>
 </div>
 </div>
@@ -545,20 +545,6 @@ big CIDER improvements.</p>
 <div class="sect1">
 <h2 id="compatibility-matrix"><a class="anchor" href="#compatibility-matrix"></a>Compatibility Matrix</h2>
 <div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-For a very long time CIDER and cider-nrepl were released in lock-step, but
-this changed in CIDER 0.18. The actual releases diverged for the first time in
-CIDER 0.23.
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Below you can find the official compatibility matrix for CIDER.</p>
 </div>
@@ -584,114 +570,10 @@ CIDER 0.23.
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">25.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.23</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">25.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.24</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">25.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.24</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.25</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">25.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.25</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.26</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">25.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.25</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">25.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.25</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">25.1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.6</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.25</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.27</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.28</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.28</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.28</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.29</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.30</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.40</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
 </tr>
@@ -704,36 +586,12 @@ CIDER 0.23.
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.44</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.9</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.13</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">26.1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.44</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.9</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.14</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.47</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.10</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.15</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.49</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.10</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.16</p></td>
@@ -776,7 +634,7 @@ version is in <code>cider-required-middleware-version</code>, and so on.
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2025 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

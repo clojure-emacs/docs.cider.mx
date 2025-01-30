@@ -548,6 +548,9 @@ available, and its use can be customized via <code>cider-log-use-logview</code>.
 <div class="ulist">
 <ul>
 <li>
+<p><code>M-x cider-log-show-frameworks</code>, to see the available logging frameworks. If your logging framework is supported but not shown, see the troubleshooting section.</p>
+</li>
+<li>
 <p><code>M-x cider-log-event</code>, which uses transient-mode and will not immediately show the logs (you should use transient-mode to show the <code>*cider-log*</code> buffer)</p>
 </li>
 <li>
@@ -831,6 +834,11 @@ or Clojure CLI aliases.
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-show-frameworks</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l f a</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show all available log frameworks in a buffer.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cider-log-set-framework</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>C-c M-l f s</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Select the log framework to use.</p></td>
@@ -1106,6 +1114,24 @@ using logical AND condition. The following filters are available:</p>
 </table>
 </div>
 </div>
+<div class="sect1">
+<h2 id="troubleshooting"><a class="anchor" href="#troubleshooting"></a>Troubleshooting</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Make sure the logging library is actually supported by CIDER Log Mode and that it is on your classpath.</p>
+</li>
+<li>
+<p>Try requiring the <a href="https://github.com/clojure-emacs/logjam/tree/master/src/logjam/framework">Logjam</a> namespace of the logging library, e.g. <code>(require 'logjam.framework.&lt;jul|logback|timbre|&gt; :reload)</code> and make sure it can be loaded without errors.</p>
+</li>
+<li>
+<p>Timbre and Encore often have to be upgraded in concert, they use "break versioning". It&#8217;s often useful to have Timbre + Encore at the latest stable version.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <nav class="pagination">
   <span class="prev"><a href="inspector.html">Inspector</a></span>
   <span class="next"><a href="macroexpansion.html">Macroexpansion</a></span>
@@ -1115,7 +1141,7 @@ using logical AND condition. The following filters are available:</p>
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2025 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

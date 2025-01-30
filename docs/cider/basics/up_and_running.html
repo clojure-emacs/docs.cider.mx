@@ -451,7 +451,7 @@
 <div class="paragraph">
 <p>To use CIDER, you&#8217;ll need to connect it to a running nREPL server that
 is associated with your program. Most Clojure developers use standard
-build tooling such as Leiningen, Boot, or Gradle, and CIDER can
+build tooling such as tools.deps, Leiningen, or Gradle, and CIDER can
 automatically work with those tools to get you up and running
 quickly. But those tools are not required; CIDER can connect to an
 nREPL server that is already started and is managed separately.</p>
@@ -463,8 +463,8 @@ nREPL server that is already started and is managed separately.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-CIDER will automatically work with Leiningen 2.9.0+ or Boot
-2.8.3+. Older versions are not supported.
+CIDER will automatically work with Leiningen 2.9.0+ or a recent
+tools.deps. Older versions are not supported.
 </td>
 </tr>
 </table>
@@ -569,7 +569,7 @@ most of the time you&#8217;d probably want to have a project-specific setting fo
 local machine and the nREPL process running on the same machine). It does support
 various common remote/container scenarios, as documented later in this section. Due
 to the large variation of remote scenarios it cannot support all of them, so in
-some cases a manual nREPL start and usage of <code>cider-connect</code> might be a better option.
+some cases, a better option would be to start nREPL manually and connect to it with <code>cider-connect</code>.
 </td>
 </tr>
 </table>
@@ -578,22 +578,21 @@ some cases a manual nREPL start and usage of <code>cider-connect</code> might be
 <h3 id="auto-injecting-dependencies"><a class="anchor" href="#auto-injecting-dependencies"></a>Auto-Injecting Dependencies</h3>
 <div class="paragraph">
 <p>While CIDER&#8217;s core functionality requires nothing more than an nREPL server,
-there are many advanced features that depend on the presence of additional
-nREPL middleware. In the early versions of CIDER (up to CIDER 0.11) users had
-to add those dependencies themselves, which was a painful and error-prone process.
-Fortunately today that&#8217;s handled auto-magically when you&#8217;re using <code>cider-jack-in</code>.</p>
+there are many advanced features that depend on the presence of additional nREPL
+middleware. Fortunately, if you&#8217;re using <code>cider-jack-in</code>, that&#8217;s handled
+auto-magically.</p>
 </div>
 <div class="paragraph">
-<p>If your project uses <code>lein</code>, <code>boot</code> or <code>tools.deps</code> (<code>deps.edn</code>), CIDER will
+<p>If your project uses <code>lein</code> or <code>tools.deps</code> (<code>deps.edn</code>), CIDER will
 automatically inject all the necessary nREPL dependencies (e.g. <code>cider-nrepl</code> or
 <code>piggieback</code>) when it starts the server.  The injection process is extremely
-simple - CIDER simply passes the extra dependencies and nREPL configuration to
+simple - CIDER passes the extra dependencies and nREPL configuration to
 your build tool in the command it runs to start the nREPL server. Here&#8217;s how
 this looks for <code>tools.deps</code>:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>$ clojure -Sdeps '{:deps {nrepl {:mvn/version "1.3.0"} cider/cider-nrepl {:mvn/version "0.50.2"}}}' -m nrepl.cmdline --middleware '["cider.nrepl/cider-middleware"]'</pre>
+<pre>$ clojure -Sdeps '{:deps {nrepl {:mvn/version "1.3.1"} cider/cider-nrepl {:mvn/version "0.52.0"}}}' -m nrepl.cmdline --middleware '["cider.nrepl/cider-middleware"]'</pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -605,8 +604,7 @@ this looks for <code>tools.deps</code>:</p>
 <td class="content">
 If you don&#8217;t want <code>cider-jack-in</code> to inject dependencies automatically, set
 <code>cider-inject-dependencies-at-jack-in</code> to <code>nil</code>. Note that you&#8217;ll have to setup
-the dependencies yourself (see <a href="middleware_setup.html" class="xref page">nREPL Middleware Setup</a>),
-just as in CIDER 0.10 and older.
+the dependencies yourself (see <a href="middleware_setup.html" class="xref page">nREPL Middleware Setup</a>).
 </td>
 </tr>
 </table>
@@ -667,14 +665,55 @@ appropriately to enable this.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="enabling-nrepl-jvmti-agent"><a class="anchor" href="#enabling-nrepl-jvmti-agent"></a>Enabling nREPL JVMTI agent</h3>
+<div class="paragraph">
+<p>Since version 1.2.0, nREPL includes a native JVMTI agent which makes the eval
+interrupts work properly on Java 21 and later. To enable the agent, the Java
+process should be launched with <code>-Djdk.attach.allowAttachSelf</code>. CIDER will do it
+automatically during jack-in if <code>cider-enable-nrepl-jvmti-agent</code> variable is set
+to <code>t</code>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>cider-enable-nrepl-jvmti-agent</code> has no effect if you start a REPL
+process outside of Emacs and connect to it with <code>cider-connect</code>. In that
+scenario, you have to add <code>-Djdk.attach.allowAttachSelf</code> Java property manually
+through the means of the build tool. In Leiningen, add this to <code>project.clj</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">:jvm-opts ["-Djdk.attach.allowAttachSelf"]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In tools.deps, add this to one of the aliases that you enable with the REPL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">:aliases {:dev
+          {:jvm-opts ["-Djdk.attach.allowAttachSelf"]
+           ...}}</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="jacking-in-without-a-project"><a class="anchor" href="#jacking-in-without-a-project"></a>Jacking-in without a Project</h3>
 <div class="paragraph">
 <p>If you try to run <code>cider-jack-in</code> outside a project
 directory, CIDER will warn you and ask you to confirm whether you
 really want to do this; more often than not, this is an accident.  If
 you decide to proceed, CIDER will invoke the command configured in
-<code>cider-jack-in-default</code>. Prior to CIDER 0.17, this defaulted to <code>lein</code>
-but was subsequently switched to <code>clj</code>, Clojure&#8217;s basic startup command.</p>
+<code>cider-jack-in-default</code> (defaults to <code>clj</code>, Clojure&#8217;s basic startup command).</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -784,18 +823,17 @@ from the list:</p>
 <div class="sect2">
 <h3 id="customizing-the-jack-in-command-behavior"><a class="anchor" href="#customizing-the-jack-in-command-behavior"></a>Customizing the Jack-in Command Behavior</h3>
 <div class="paragraph">
-<p>You can use <kbd>C-u M-x</kbd> <code>cider-jack-in</code> <kbd>RET</kbd> to
-specify the exact command that <code>cider-jack-in</code> would run.
-This option is very useful is you want to specify a something like a <code>lein</code>
-or <code>deps.edn</code> profile.</p>
+<p>You can use <kbd>C-u M-x</kbd> <code>cider-jack-in</code> <kbd>RET</kbd> to specify the exact command
+that <code>cider-jack-in</code> would run. This option is very useful is you want to e.g.
+specify extra Leiningen profiles or <code>deps.edn</code> aliases.</p>
 </div>
 <div class="paragraph">
 <p>Alternatively you can <kbd>C-u C-u M-x</kbd> <code>cider-jack-in</code> <kbd>RET</kbd>, which is a
 variation of the previous command. This command will first prompt you for the
 project you want to launch <code>cider-jack-in</code> in, which is pretty handy if you&#8217;re
 in some other directory currently. This option is also useful if your project
-contains some combination of project.clj, build.boot and deps.edn and you want
-to launch a REPL for one or the other.</p>
+contains some combination of <code>project.clj</code> and <code>deps.edn</code> and you want to launch
+a REPL for one or the other.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -814,48 +852,6 @@ for all <code>cider-jack-in-\*</code> commands.
 <p>You can further customize the command line CIDER uses for <code>cider-jack-in</code> by
 modifying the some options. Those differ a bit between the various tools,
 so we&#8217;ll examine them tool by tool.</p>
-</div>
-<div class="sect3">
-<h4 id="enabling-nrepl-jvmti-agent"><a class="anchor" href="#enabling-nrepl-jvmti-agent"></a>Enabling nREPL JVMTI agent</h4>
-<div class="paragraph">
-<p>Since version 1.2.0, nREPL includes a native JVMTI agent which makes the eval
-interrupts work properly on Java 21 and later. To enable the agent, the Java
-process should be launched with <code>-Djdk.attach.allowAttachSelf</code>. CIDER will do it
-automatically during jack-in if <code>cider-enable-nrepl-jvmti-agent</code> variable is set
-to <code>t</code>.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><code>cider-enable-nrepl-jvmti-agent</code> has no effect if you start a REPL
-process outside of Emacs and connect to it with <code>cider-connect</code>. In that
-scenario, you have to add <code>-Djdk.attach.allowAttachSelf</code> Java property manually
-through the means of the build tool. In Leiningen, add this to <code>project.clj</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">:jvm-opts ["-Djdk.attach.allowAttachSelf"]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In tools.deps, add this to one of the aliases that you enable with the REPL:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">:aliases {:dev
-          {:jvm-opts ["-Djdk.attach.allowAttachSelf"]
-           ...}}</code></pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect3">
 <h4 id="leiningen-options"><a class="anchor" href="#leiningen-options"></a>Leiningen Options</h4>
@@ -927,21 +923,6 @@ will likely result in a better overall development experience.
 </div>
 </div>
 <div class="sect3">
-<h4 id="boot-options"><a class="anchor" href="#boot-options"></a>Boot Options</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>cider-boot-command</code> - the name of the Boot executable (<code>boot</code> by default)</p>
-</li>
-<li>
-<p><code>cider-boot-parameters</code> - these are usually task names and their parameters
-(e.g., <code>dev</code> for launching boot&#8217;s dev task instead of the standard <code>repl -s
-wait</code>)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
 <h4 id="gradle-options"><a class="anchor" href="#gradle-options"></a>Gradle Options</h4>
 <div class="ulist">
 <ul>
@@ -976,9 +957,9 @@ This allows for fine-grained control over how cider starts the nrepl-server.</p>
 </div>
 <div class="paragraph">
 <p>The precedence order for determining the Jack-In Command is:
-1) :jack-in-cmd if provided as a parameter,
-2) <code>cider-jack-in-command</code> if set as a directory local variable, and
-3) inferred from the project type (the default).</p>
+1. <code>:jack-in-cmd</code> if provided as a parameter,
+2. <code>cider-jack-in-command</code> if set as a directory local variable, and
+3. Inferred from the project type (the default).</p>
 </div>
 <div class="sect3">
 <h4 id="setting-a-project-wide-command"><a class="anchor" href="#setting-a-project-wide-command"></a>Setting a project-wide command</h4>
@@ -1042,19 +1023,11 @@ project&#8217;s directory in a terminal session and type:</p>
 <p>This will start the project&#8217;s nREPL server.</p>
 </div>
 <div class="paragraph">
-<p>If your project uses <code>boot</code>, do this instead:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ boot repl -s wait (or whatever task launches a repl)</code></pre>
-</div>
-</div>
-<div class="paragraph">
 <p>It is also possible for plain <code>clj</code>, although the command is somewhat longer:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.50.2"}}}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.52.0"}}}' -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1119,7 +1092,7 @@ of ssh for remote connection unconditionally.</p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-As nREPL connections are insecure by default you&#8217;re encouraged to use only SSH
+As nREPL connections are insecure by default, you&#8217;re encouraged to use only SSH
 tunneling when connecting to servers running outside of your network.
 </td>
 </tr>
@@ -1358,7 +1331,7 @@ or by adjusting <code>cider-lein-parameters</code>.</p>
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2025 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

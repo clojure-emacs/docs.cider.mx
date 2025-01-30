@@ -791,6 +791,18 @@ CIDER uses internally the excellent package <a href="https://github.com/Malabarb
 </div>
 </div>
 <div class="sect2">
+<h3 id="syntax-highlighting-of-results"><a class="anchor" href="#syntax-highlighting-of-results"></a>Syntax Highlighting of Results</h3>
+<div class="paragraph">
+<p>By default the results of interactive evaluation (both those displayed in the minibuffer and in overlays) are font-locked as Clojure code.
+You can disable this by tweaking the configuration option <code>cider-result-use-clojure-font-lock</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-result-use-clojure-font-lock nil)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="overlays"><a class="anchor" href="#overlays"></a>Overlays</h3>
 <div class="paragraph">
 <p>When you evaluate code in Clojure files, the result is displayed in the buffer
@@ -1242,7 +1254,7 @@ You&#8217;ll find all evaluation commands and their keybindings in the <code>CID
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2025 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

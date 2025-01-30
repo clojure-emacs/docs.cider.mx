@@ -529,8 +529,12 @@ added to <code>completion-at-point-functions</code>, establishing a dedicated co
 <code>cider</code>.</p>
 </div>
 <div class="paragraph">
-<p>The CIDER completion at point function supports most completion styles, including
-<code>partial-completion</code>, <code>orderless</code> and <code>flex</code> (read more below).</p>
+<p>The CIDER completion at point function supports most completion styles,
+including <code>partial-completion</code>, <code>orderless</code> and <code>flex</code>. It also supports a
+custom completion style that is confusingly named <code>cider</code> too. Activating it
+provides a richer set of completion candidates (see
+<a href="#fuzzy-candidate-matching">fuzzy candidate
+matching</a>).</p>
 </div>
 <div class="paragraph">
 <p>Sometimes the user may want to use a different completion style just for the CIDER
@@ -546,9 +550,6 @@ complete at point function. The following snippet accomplishes that:</p>
 <div class="paragraph">
 <p>This specifies that the <code>cider</code> completion category should employ the basic completion style by
 default.</p>
-</div>
-<div class="paragraph">
-<p>You can also enable the <code>flex</code> completion style by activating <a href="#fuzzy-candidate-matching">fuzzy candidate matching</a>.</p>
 </div>
 </div>
 </div>
@@ -679,16 +680,16 @@ completion styles operates, refer to the official Emacs manual on
 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Completion-Styles.html">how completion alternatives are chosen</a>.</p>
 </div>
 <div class="paragraph">
-<p>CIDER provides a function to enable the <code>flex</code> completion style for CIDER-specific
+<p>CIDER provides a function to enable the <code>cider</code> completion style for CIDER-specific
 completions. If you wish to enable that, you can add this to your config:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(cider-enable-flex-completion)</code></pre>
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(cider-enable-cider-completion-style)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This adds the <code>flex</code> completion style, as introduced in Emacs 27.</p>
+<p>This adds the <code>cider</code> completion style for CIDER buffers.</p>
 </div>
 <div class="paragraph">
 <p>Now, <code>company-mode</code> (and other completion packages like <code>corfu</code>) will
@@ -697,18 +698,6 @@ prefix. For example, typing <code>mi</code> will show you <code>map-indexed</cod
 the possible completion candidates and <code>cji</code> will complete to
 <code>clojure.java.io</code>. Different completion examples are shown
 <a href="https://github.com/alexander-yakushev/compliment/wiki/Examples">here</a>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<code>cider-company-enable-fuzzy-completion</code> (now deprecated) should be used for Emacs &lt; 27.
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -811,7 +800,7 @@ You don&#8217;t really need to know any of this if you&#8217;re using only <code
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2025 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

@@ -998,7 +998,7 @@ reset automatically by the <code>track-state</code> middleware.
 <div class="ulist">
 <ul>
 <li>
-<p>To store the REPL history in a file:</p>
+<p>To store the REPL history of all projects in a single file:</p>
 </li>
 </ul>
 </div>
@@ -1007,9 +1007,23 @@ reset automatically by the <code>track-state</code> middleware.
 <pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-history-file "path/to/file")</code></pre>
 </div>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>To store the REPL history per project (by creating a
+<code>.cider-history</code> file at the root of each):</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lisp hljs" data-lang="lisp">(setq cider-repl-history-file 'per-project)</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>Note that CIDER writes the history to the file when you kill the REPL
-buffer, which includes invoking <code>cider-quit</code>, or when you quit Emacs.</p>
+<p>Note that CIDER writes the history to the file(s) when you kill the
+REPL buffer, which includes invoking <code>cider-quit</code>, or when you quit
+Emacs.</p>
 </div>
 </div>
 </div>
@@ -1022,7 +1036,7 @@ buffer, which includes invoking <code>cider-quit</code>, or when you quit Emacs.
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2025 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

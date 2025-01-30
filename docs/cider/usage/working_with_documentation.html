@@ -481,6 +481,25 @@ as some people prefer to keep holding <code>Control</code> and some don&#8217;t.
 <div class="paragraph">
 <p>Normally the command operates on the symbol at point.  If invoked with a prefix argument, or no symbol is found at point, it will prompt for a symbol.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="local-javadoc"><a class="anchor" href="#local-javadoc"></a>Local JavaDoc</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Most JDK distributions ship with a <code>src.zip</code> file (an archive with all base Java source files). If you have such archive present in your JDK, CIDER will automatically parse the source file when you query the documentation for a Java class (e.g. <code>java.lang.Thread</code>) or a method (e.g. <code>java.lang.Thread/currentThread</code>) and will display the properly formatted JavaDoc in the documentation buffer. You will also see better Eldoc documentation (minibuffer hints) for Java methods. If the source file are present, you are able to jump to class or method definition by pressing <kbd>M-.</kbd> on the class name or method name.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, CIDER is able to parse JavaDoc source files and jump to definitions for third-party Java libraries if you have downloaded the special <code>-sources.jar</code> file for that library. See the next section on how to download source JARs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="obtaining-source-jars"><a class="anchor" href="#obtaining-source-jars"></a>Obtaining source JARs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Since version 1.17, CIDER is able to download the necessary source JAR file automatically when you either request the documentation for a Java class/method or when you jump to the definition of a Java class/method. In order for the sources to be downloaded, you need to enable custom variable <code>cider-download-java-sources</code>. When the download triggers, CIDER displays a minibuffer message about that. Fetching a single source JAR usually takes a few seconds. CIDER will make only one attempt to download the source JAR for a particular dependency per process — if it failed to download (usually, because the dependency doesn&#8217;t have a source JAR published to Maven), CIDER will not retry that until the next restart.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -488,17 +507,18 @@ as some people prefer to keep holding <code>Control</code> and some don&#8217;t.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If using <code>enrich-classpath</code>, Java doc comments are available and rendered in the same way that Clojure docstrings are.
-They&#8217;re often much more handy than opening Javadoc in a browser. Starting from CIDER 1.8.0,
-the HTML-like language that they use is nicely rendered into syntax-colored strings, well-aligned tables, etc
+While Eldoc functionality benefits from having Java sources, the eldoc itself will not trigger the downloading of Java source JARs. You will have to lookup the documentation once manually or jump to the definition in order for the JAR is downloaded. After that, Eldoc will pick up the Java sources and display better hints.
 </td>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Alternatively, you can use <a href="https://github.com/clojure-emacs/enrich-classpath"><code>enrich-classpath</code></a> to download all source JARs used by your current project at once. This will incur longer startup time, but will not trigger individual JARs fetching at the runtime.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="javadoc"><a class="anchor" href="#javadoc"></a>JavaDoc</h2>
+<h2 id="online-javadoc"><a class="anchor" href="#online-javadoc"></a>Online JavaDoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>CIDER provides a quick access to the online Javadoc documentation
@@ -726,7 +746,7 @@ Check out the documentation of <code>help-at-pt-display-when-idle</code> to unde
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2025 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

@@ -462,32 +462,12 @@ about the advanced functionality that requires <code>cider-nrepl</code>.
 </table>
 </div>
 <div class="paragraph">
-<p>Much of CIDER&#8217;s functionality depends on its own <a href="https://github.com/clojure-emacs/cider-nrepl">nREPL
-middleware</a>. Starting
-with version 0.11, <code>cider-jack-in</code> (<kbd>C-c C-x (C-)j (C-)j</kbd>)
-automatically injects this middleware and other dependencies as required.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-In the past, if you were setting up CIDER, you might have had to
-modify <code>profiles.clj</code> or <code>profile.boot</code>. CIDER now handles
-everything automatically and you don&#8217;t need to add anything
-special to these files. The same is true of your <code>deps.edn</code> file and
-your <code>build.gradle</code> (as of Clojurephant 0.7.0-alpha.6).
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>If you prefer a standalone REPL, you will need to invoke
-<code>cider-connect</code> instead of <code>cider-jack-in</code> and manually add the
-dependencies to your Clojure project (explained in the following
-sections).</p>
+<p>Much of CIDER&#8217;s functionality depends on its own
+<a href="https://github.com/clojure-emacs/cider-nrepl">nREPL middleware</a>. <code>cider-jack-in</code>
+(<kbd>C-c C-x (C-)j (C-)j</kbd>) automatically injects this middleware and other
+dependencies as required. But if you prefer a standalone REPL, you will need to
+invoke <code>cider-connect</code> instead of <code>cider-jack-in</code> and manually add the
+dependencies to your Clojure project (explained in the following sections).</p>
 </div>
 </div>
 </div>
@@ -496,26 +476,13 @@ sections).</p>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="using-leiningen"><a class="anchor" href="#using-leiningen"></a>Using Leiningen</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Make sure you&#8217;re using Leiningen 2.9.0 or newer, as 2.9.0 is the first
-release to ship with nREPL 0.6.
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Use the convenient plugin for defaults, either in your project&#8217;s
-<code>project.clj</code> file or in the :repl profile in <code>~/.lein/profiles.clj</code>.</p>
+<code>project.clj</code> file or in the <code>:repl</code> profile in <code>~/.lein/profiles.clj</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.50.2"]]</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">:plugins [[cider/cider-nrepl "0.52.0"]]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -523,7 +490,7 @@ release to ship with nREPL 0.6.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.50.2"]]}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">{:repl {:plugins [[cider/cider-nrepl "0.52.0"]]}}</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -542,40 +509,6 @@ need it just for <code>lein repl</code> and this is what the <code>:repl</code> 
 </div>
 </div>
 <div class="sect2">
-<h3 id="using-boot"><a class="anchor" href="#using-boot"></a>Using Boot</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Make sure you&#8217;re using Boot 2.8.3 or newer, as 2.8.3 is the first
-release to ship with nREPL 0.6.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Boot users can configure the tool to include the middleware automatically in
-all of their projects using a <code>~/.boot/profile.boot</code> file like so:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">(require 'boot.repl)
-
-(swap! boot.repl/*default-dependencies*
-       concat '[[cider/cider-nrepl "0.50.2"]])
-
-(swap! boot.repl/*default-middleware*
-       conj 'cider.nrepl/cider-middleware)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For more information visit <a href="https://github.com/boot-clj/boot/wiki/Cider-REPL">boot-clj wiki</a>.</p>
-</div>
-</div>
-<div class="sect2">
 <h3 id="using-tools-deps"><a class="anchor" href="#using-tools-deps"></a>Using tools.deps</h3>
 <div class="paragraph">
 <p>You can add the following aliases to your deps.edn in order to launch
@@ -585,12 +518,12 @@ run <code>cider-connect</code> or <code>cider-connect-cljs</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">  :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.50.2"}}
+<pre class="highlightjs highlight"><code class="language-clojure hljs" data-lang="clojure">  :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.52.0"}}
               :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :cider-cljs {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.339"}
-                            cider/cider-nrepl {:mvn/version "0.50.2"}
-                            cider/piggieback {:mvn/version "0.5.3"}}
+                            cider/cider-nrepl {:mvn/version "0.52.0"}
+                            cider/piggieback {:mvn/version "0.6.0"}}
                :main-opts ["-m" "nrepl.cmdline" "--middleware"
                            "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}</code></pre>
 </div>
@@ -629,7 +562,7 @@ Make sure you&#8217;re using <a href="https://github.com/clojurephant/clojurepha
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
   devImplementation 'nrepl:nrepl:0.9.0'
-  devImplementation 'cider:cider-nrepl:0.50.2'
+  devImplementation 'cider:cider-nrepl:0.52.0'
 }
 
 tasks.named('clojureRepl') {
@@ -689,14 +622,13 @@ server with CIDER&#8217;s own nREPL handler.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Prior to CIDER 0.18, CIDER and cider-nrepl were always released together
-and their versions had to match for things to work (e.g. CIDER 0.15 required
-cider-nrepl 0.15). But as the prominence of cider-nrepl grew and many other
-tools started using it, the two projects evolved separately and are no longer in
-tight lock-step. Usually, any recent version of cider-nrepl should be (mostly)
-compatible with a recent version of CIDER. You can check the required version of
-cider-nrepl for your version of CIDER by looking at
-<code>cider-required-middleware-version</code>.
+CIDER and cider-nrepl projects are co-developed, but are not released in a
+lock-step — they have differing versions. Usually, any recent version of
+cider-nrepl should be (mostly) compatible with a recent version of CIDER. You
+can check the required version of cider-nrepl for your version of CIDER by
+looking at <code>cider-required-middleware-version</code>. See also the
+<a href="../about/compatibility.html#compatibility-matrix" class="xref page">compatibility
+matrix</a>.
 </td>
 </tr>
 </table>
@@ -712,7 +644,7 @@ cider-nrepl for your version of CIDER by looking at
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2012-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
+  <p>Copyright (C) 2012-2025 <a href="https://batsov.com">Bozhidar Batsov</a> and <a href="https://cider.mx">CIDER</a> contributors.</p>
   <p>Except where otherwise noted, docs.cider.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
