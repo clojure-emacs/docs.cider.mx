@@ -4,6 +4,8 @@ site:
   start_page: cider::index.adoc
   keys:
     google_analytics: "UA-140176314-1"
+urls:
+  latest_version_segment: latest
 content:
   sources:
     - url: https://github.com/clojure-emacs/cider.git
@@ -40,9 +42,6 @@ asciidoc:
     linkattrs: ""
     toc: ~
     page-pagination: ""
-urls:
-  latest_version_segment: latest
-  latest_version_segment_strategy: redirect:to
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
