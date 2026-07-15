@@ -32,7 +32,8 @@ content:
           "v1.18.0-antora",
           "v1.19.0",
           "v1.20.0",
-          "v1.22.2"
+          "v1.22.2",
+          "v2.0.0"
         ]
       start_path: doc
     - url: https://github.com/clojure-emacs/cider-nrepl.git
