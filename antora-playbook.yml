@@ -3,7 +3,7 @@ site:
   url: https://docs.cider.mx
   start_page: cider::index.adoc
   keys:
-    google_analytics: "UA-140176314-1"
+    google_analytics: "G-XQLJHQHH8Q"
 urls:
   latest_version_segment: latest
 content:
