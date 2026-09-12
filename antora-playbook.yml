@@ -48,10 +48,27 @@ asciidoc:
     linkattrs: ""
     toc: ~
     page-pagination: ""
+  extensions:
+    - "@asciidoctor/tabs"
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
     snapshot: true
-  supplemental_files: ./supplemental-ui
+  supplemental_files:
+    - path: css/site-extra.css
+      contents: ./supplemental-ui/css/site-extra.css
+    - path: img/favicon.ico
+      contents: ./supplemental-ui/img/favicon.ico
+    - path: partials/footer-content.hbs
+      contents: ./supplemental-ui/partials/footer-content.hbs
+    - path: partials/head-meta.hbs
+      contents: ./supplemental-ui/partials/head-meta.hbs
+    - path: partials/header-content.hbs
+      contents: ./supplemental-ui/partials/header-content.hbs
+    # Assets of the tabs extension, taken straight from the npm package.
+    - path: css/vendor/tabs.css
+      contents: ./node_modules/@asciidoctor/tabs/dist/css/tabs.css
+    - path: js/vendor/tabs.js
+      contents: ./node_modules/@asciidoctor/tabs/dist/js/tabs.js
 output:
   dir: build/site
