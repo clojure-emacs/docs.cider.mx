@@ -6,6 +6,10 @@ on:
   # pick up their changes without anyone having to remember to trigger it.
   schedule:
     - cron: "0 5 * * *"
+  # Lets the cider and cider-nrepl repos ask for a rebuild as soon as a doc
+  # change lands.
+  repository_dispatch:
+    types: [docs-updated]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 concurrency:
